@@ -96,7 +96,6 @@
 	.export		_bg_coll_ladder_top_under_player
 	.export		_bg_coll_U
 	.export		_bg_coll_D
-	.export		_bg_coll_D2
 	.export		_move_player
 	.export		_check_player_colision
 	.export		_bank0_player_movement
@@ -121,7 +120,7 @@ _room_to_load:
 _Player1:
 	.word	$4000
 	.word	$9400
-	.res	5,$00
+	.res	6,$00
 
 .segment	"RODATA"
 
@@ -2158,13 +2157,13 @@ L0137:	lda     _temp_x
 ;
 ; else
 ;
-	jmp     L091B
+	jmp     L08FB
 ;
 ; collision = c_map2[coordinates];
 ;
 L0140:	ldy     _coordinates
 	lda     _c_map2,y
-L091B:	sta     _collision
+L08FB:	sta     _collision
 ;
 ; return metatile_colision_map[collision];
 ;
@@ -2209,7 +2208,7 @@ L091B:	sta     _collision
 ;
 ; return;
 ;
-	bcc     L091F
+	bcc     L08FF
 ;
 ; }
 ;
@@ -2217,7 +2216,7 @@ L091B:	sta     _collision
 ;
 ; location_with_scroll = Generic.x + scroll_x;
 ;
-L091F:	lda     _Generic
+L08FF:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -2256,7 +2255,7 @@ L015F:	sta     _temp_y
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     L091D
+	beq     L08FD
 ;
 ; ++collision_L;
 ;
@@ -2264,7 +2263,7 @@ L015F:	sta     _temp_y
 ;
 ; location_with_scroll += Generic.width;
 ;
-L091D:	lda     _Generic+2
+L08FD:	lda     _Generic+2
 	clc
 	adc     _location_with_scroll
 	sta     _location_with_scroll
@@ -2292,7 +2291,7 @@ L091D:	lda     _Generic+2
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     L091E
+	beq     L08FE
 ;
 ; ++collision_R;
 ;
@@ -2300,7 +2299,7 @@ L091D:	lda     _Generic+2
 ;
 ; location_with_scroll -= (Generic.width >> 1); // middle of character
 ;
-L091E:	lda     _Generic+2
+L08FE:	lda     _Generic+2
 	lsr     a
 	eor     #$FF
 	sec
@@ -2397,7 +2396,7 @@ L0184:	sta     _temp_y
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L0921
+	beq     L0901
 ;
 ; return 1;
 ;
@@ -2406,12 +2405,12 @@ L0184:	sta     _temp_y
 ;
 ; temp_y = Generic.y + Generic.height;
 ;
-L0921:	lda     _Generic+1
+L0901:	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L0920
+	bcc     L0900
 	inx
-L0920:	sta     _temp_y
+L0900:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -2428,7 +2427,7 @@ L0920:	sta     _temp_y
 L018C:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L0923
+	beq     L0903
 ;
 ; return 1;
 ;
@@ -2437,7 +2436,7 @@ L018C:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L0923:	rts
+L0903:	rts
 
 .endproc
 
@@ -2464,9 +2463,9 @@ L0923:	rts
 	pla
 	clc
 	adc     _Generic+2
-	bcc     L0924
+	bcc     L0904
 	inx
-L0924:	sta     _location_with_scroll
+L0904:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; temp_x = (char)location_with_scroll;   // low byte
@@ -2505,7 +2504,7 @@ L019E:	sta     _temp_y
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L0926
+	beq     L0906
 ;
 ; return 1;
 ;
@@ -2514,12 +2513,12 @@ L019E:	sta     _temp_y
 ;
 ; temp_y = Generic.y + Generic.height;
 ;
-L0926:	lda     _Generic+1
+L0906:	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L0925
+	bcc     L0905
 	inx
-L0925:	sta     _temp_y
+L0905:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -2536,7 +2535,7 @@ L0925:	sta     _temp_y
 L01A6:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L0928
+	beq     L0908
 ;
 ; return 1;
 ;
@@ -2545,7 +2544,7 @@ L01A6:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L0928:	rts
+L0908:	rts
 
 .endproc
 
@@ -2590,9 +2589,9 @@ L01AE:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L0929
+	bcc     L0909
 	inx
-L0929:	sta     _temp_y
+L0909:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -2608,16 +2607,16 @@ L0929:	sta     _temp_y
 ;
 L01B5:	jsr     _bg_collision_sub
 	and     #$01
-	bne     L092A
+	bne     L090A
 	jsr     _bg_collision_sub
 	and     #$02
-	bne     L092A
+	bne     L090A
 	tax
 	rts
 ;
 ; return location_with_scroll;
 ;
-L092A:	ldx     #$00
+L090A:	ldx     #$00
 	lda     _location_with_scroll
 	rts
 
@@ -2664,9 +2663,9 @@ L01BE:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L092D
+	bcc     L090D
 	inx
-L092D:	sta     _temp_y
+L090D:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -2683,7 +2682,7 @@ L092D:	sta     _temp_y
 L01C5:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$01
-	beq     L092F
+	beq     L090F
 ;
 ; return 1;
 ;
@@ -2692,7 +2691,7 @@ L01C5:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L092F:	rts
+L090F:	rts
 
 .endproc
 
@@ -2737,9 +2736,9 @@ L01CD:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L0930
+	bcc     L0910
 	inx
-L0930:	sta     _temp_y
+L0910:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y += 4;
@@ -2756,7 +2755,7 @@ L0930:	sta     _temp_y
 L01D4:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$02
-	beq     L0932
+	beq     L0912
 ;
 ; return 1;
 ;
@@ -2765,7 +2764,7 @@ L01D4:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L0932:	rts
+L0912:	rts
 
 .endproc
 
@@ -2827,7 +2826,7 @@ L01DE:	lda     #$00
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     L0934
+	beq     L0914
 ;
 ; return 1;
 ;
@@ -2837,7 +2836,7 @@ L01DE:	lda     #$00
 ;
 ; location_with_scroll = Generic.x + scroll_x + Generic.width;
 ;
-L0934:	lda     _Generic
+L0914:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -2847,9 +2846,9 @@ L0934:	lda     _Generic
 	pla
 	clc
 	adc     _Generic+2
-	bcc     L0933
+	bcc     L0913
 	inx
-L0933:	sta     _location_with_scroll
+L0913:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; location_with_scroll -= 2;
@@ -2878,7 +2877,7 @@ L01EE:	lda     #$00
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L0936
+	beq     L0916
 ;
 ; return 1;
 ;
@@ -2887,7 +2886,7 @@ L01EE:	lda     #$00
 ;
 ; }
 ;
-L0936:	rts
+L0916:	rts
 
 .endproc
 
@@ -2912,18 +2911,9 @@ L0936:	rts
 	adc     _scroll_x+1
 	sta     _location_with_scroll+1
 ;
-; location_with_scroll += 2;
-;
-	lda     #$02
-	clc
-	adc     _location_with_scroll
-	sta     _location_with_scroll
-	bcc     L01FC
-	inc     _location_with_scroll+1
-;
 ; temp_x = (char)location_with_scroll;   // low byte
 ;
-L01FC:	lda     #$00
+	lda     #$00
 	sta     _temp_x+1
 	lda     _location_with_scroll
 	sta     _temp_x
@@ -2939,9 +2929,9 @@ L01FC:	lda     #$00
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L0937
+	bcc     L0917
 	inx
-L0937:	sta     _temp_y
+L0917:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; if ((temp_y & 0x0f) > 3)
@@ -2949,7 +2939,7 @@ L0937:	sta     _temp_y
 	and     #$0F
 	cmp     #$04
 	lda     #$00
-	bcc     L0203
+	bcc     L0200
 ;
 ; return 0; // bug fix
 ;
@@ -2958,7 +2948,7 @@ L0937:	sta     _temp_y
 ;
 ; eject_D = (temp_y + 1) & 0x0f;
 ;
-L0203:	lda     _temp_y
+L0200:	lda     _temp_y
 	clc
 	adc     #$01
 	and     #$0F
@@ -2968,20 +2958,20 @@ L0203:	lda     _temp_y
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	bne     L093A
+	bne     L091A
 	jsr     _bg_collision_sub
 	and     #$02
-	beq     L093B
+	beq     L091B
 ;
 ; return 1;
 ;
-L093A:	ldx     #$00
+L091A:	ldx     #$00
 	lda     #$01
 	rts
 ;
 ; location_with_scroll = Generic.x + scroll_x + Generic.width;
 ;
-L093B:	lda     _Generic
+L091B:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -2991,9 +2981,9 @@ L093B:	lda     _Generic
 	pla
 	clc
 	adc     _Generic+2
-	bcc     L0938
+	bcc     L0918
 	inx
-L0938:	sta     _location_with_scroll
+L0918:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; location_with_scroll -= 2;
@@ -3002,12 +2992,12 @@ L0938:	sta     _location_with_scroll
 	sec
 	sbc     #$02
 	sta     _location_with_scroll
-	bcs     L0215
+	bcs     L0212
 	dec     _location_with_scroll+1
 ;
 ; temp_x = (char)location_with_scroll;   // low byte
 ;
-L0215:	lda     #$00
+L0212:	lda     #$00
 	sta     _temp_x+1
 	lda     _location_with_scroll
 	sta     _temp_x
@@ -3021,148 +3011,18 @@ L0215:	lda     #$00
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	bne     L093C
+	bne     L091C
 	jsr     _bg_collision_sub
 	and     #$02
-	bne     L093C
+	bne     L091C
 	tax
 	rts
 ;
 ; return 1;
 ;
-L093C:	ldx     #$00
+L091C:	ldx     #$00
 	lda     #$01
 	rts
-
-.endproc
-
-; ---------------------------------------------------------------
-; unsigned char __near__ bg_coll_D2 (void)
-; ---------------------------------------------------------------
-
-.segment	"BANK0"
-
-.proc	_bg_coll_D2: near
-
-.segment	"BANK0"
-
-;
-; location_with_scroll = Generic.x + scroll_x;
-;
-	lda     _Generic
-	clc
-	adc     _scroll_x
-	sta     _location_with_scroll
-	lda     #$00
-	adc     _scroll_x+1
-	sta     _location_with_scroll+1
-;
-; location_with_scroll += 2;
-;
-	lda     #$02
-	clc
-	adc     _location_with_scroll
-	sta     _location_with_scroll
-	bcc     L0226
-	inc     _location_with_scroll+1
-;
-; temp_x = (char)location_with_scroll;   // low byte
-;
-L0226:	lda     #$00
-	sta     _temp_x+1
-	lda     _location_with_scroll
-	sta     _temp_x
-;
-; temp_room = location_with_scroll >> 8; // high byte
-;
-	lda     _location_with_scroll+1
-	sta     _temp_room
-;
-; temp_y = Generic.y + Generic.height;
-;
-	ldx     #$00
-	lda     _Generic+1
-	clc
-	adc     _Generic+3
-	bcc     L093E
-	inx
-L093E:	sta     _temp_y
-	stx     _temp_y+1
-;
-; temp_y += 2;
-;
-	lda     #$02
-	clc
-	adc     _temp_y
-	sta     _temp_y
-	bcc     L022F
-	inc     _temp_y+1
-;
-; if (bg_collision_sub())
-;
-L022F:	jsr     _bg_collision_sub
-	tax
-	beq     L0940
-;
-; return 1;
-;
-	ldx     #$00
-	lda     #$01
-	rts
-;
-; location_with_scroll = Generic.x + scroll_x + Generic.width;
-;
-L0940:	lda     _Generic
-	clc
-	adc     _scroll_x
-	pha
-	txa
-	adc     _scroll_x+1
-	tax
-	pla
-	clc
-	adc     _Generic+2
-	bcc     L093F
-	inx
-L093F:	sta     _location_with_scroll
-	stx     _location_with_scroll+1
-;
-; location_with_scroll -= 2;
-;
-	lda     _location_with_scroll
-	sec
-	sbc     #$02
-	sta     _location_with_scroll
-	bcs     L0237
-	dec     _location_with_scroll+1
-;
-; temp_x = (char)location_with_scroll;   // low byte
-;
-L0237:	lda     #$00
-	sta     _temp_x+1
-	lda     _location_with_scroll
-	sta     _temp_x
-;
-; temp_room = location_with_scroll >> 8; // high byte
-;
-	lda     _location_with_scroll+1
-	sta     _temp_room
-;
-; if (bg_collision_sub())
-;
-	jsr     _bg_collision_sub
-	tax
-	beq     L0942
-;
-; return 1;
-;
-	ldx     #$00
-	lda     #$01
-	rts
-;
-; }
-;
-L0942:	rts
 
 .endproc
 
@@ -3186,7 +3046,7 @@ L0942:	rts
 ;
 	lda     _pad1
 	and     #$02
-	beq     L0944
+	beq     L091F
 ;
 ; direction = LEFT;
 ;
@@ -3199,9 +3059,9 @@ L0942:	rts
 	cmp     #$32
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L0249
+	bvs     L0227
 	eor     #$80
-L0249:	bpl     L0247
+L0227:	bpl     L0225
 ;
 ; Player1.vel_x -= DECEL;
 ;
@@ -3209,19 +3069,19 @@ L0249:	bpl     L0247
 	sec
 	sbc     #$32
 	sta     _Player1+4
-	jcs     L0283
+	jcs     L0261
 	dec     _Player1+4+1
 ;
 ; else if (Player1.vel_x > 0)
 ;
-	jmp     L0283
-L0247:	lda     _Player1+4
+	jmp     L0261
+L0225:	lda     _Player1+4
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L0250
+	bvs     L022E
 	eor     #$80
-L0250:	bpl     L024E
+L022E:	bpl     L022C
 ;
 ; Player1.vel_x = 0;
 ;
@@ -3230,26 +3090,26 @@ L0250:	bpl     L024E
 ;
 ; else
 ;
-	jmp     L0946
+	jmp     L0921
 ;
 ; Player1.vel_x -= ACCEL;
 ;
-L024E:	lda     _Player1+4
+L022C:	lda     _Player1+4
 	sec
 	sbc     #$1E
 	sta     _Player1+4
-	bcs     L0256
+	bcs     L0234
 	dec     _Player1+4+1
 ;
 ; if (Player1.vel_x < -MAX_SPEED)
 ;
-L0256:	lda     _Player1+4
+L0234:	lda     _Player1+4
 	cmp     #$A0
 	lda     _Player1+4+1
 	sbc     #$FE
-	bvc     L0259
+	bvc     L0237
 	eor     #$80
-L0259:	jpl     L0283
+L0237:	jpl     L0261
 ;
 ; Player1.vel_x = -MAX_SPEED;
 ;
@@ -3258,10 +3118,10 @@ L0259:	jpl     L0283
 ;
 ; else if (pad1 & PAD_RIGHT)
 ;
-	jmp     L0946
-L0944:	lda     _pad1
+	jmp     L0921
+L091F:	lda     _pad1
 	and     #$01
-	beq     L025D
+	beq     L023B
 ;
 ; direction = RIGHT;
 ;
@@ -3274,9 +3134,9 @@ L0944:	lda     _pad1
 	cmp     #$33
 	lda     _Player1+4+1
 	sbc     #$00
-	bvc     L0263
+	bvc     L0241
 	eor     #$80
-L0263:	bpl     L0261
+L0241:	bpl     L023F
 ;
 ; Player1.vel_x += DECEL;
 ;
@@ -3284,15 +3144,15 @@ L0263:	bpl     L0261
 	clc
 	adc     _Player1+4
 	sta     _Player1+4
-	jcc     L0283
+	jcc     L0261
 	inc     _Player1+4+1
 ;
 ; else if (Player1.vel_x < 0)
 ;
-	jmp     L0283
-L0261:	ldx     _Player1+4+1
+	jmp     L0261
+L023F:	ldx     _Player1+4+1
 	cpx     #$80
-	bcc     L0268
+	bcc     L0246
 ;
 ; Player1.vel_x = 0;
 ;
@@ -3301,26 +3161,26 @@ L0261:	ldx     _Player1+4+1
 ;
 ; else
 ;
-	jmp     L0946
+	jmp     L0921
 ;
 ; Player1.vel_x += ACCEL;
 ;
-L0268:	lda     #$1E
+L0246:	lda     #$1E
 	clc
 	adc     _Player1+4
 	sta     _Player1+4
-	bcc     L026F
+	bcc     L024D
 	inc     _Player1+4+1
 ;
 ; if (Player1.vel_x >= MAX_SPEED)
 ;
-L026F:	lda     _Player1+4
+L024D:	lda     _Player1+4
 	cmp     #$60
 	lda     _Player1+4+1
 	sbc     #$01
-	bvs     L0272
+	bvs     L0250
 	eor     #$80
-L0272:	bpl     L0283
+L0250:	bpl     L0261
 ;
 ; Player1.vel_x = MAX_SPEED;
 ;
@@ -3329,17 +3189,17 @@ L0272:	bpl     L0283
 ;
 ; else
 ;
-	jmp     L0946
+	jmp     L0921
 ;
 ; if (Player1.vel_x >= ACCEL)
 ;
-L025D:	lda     _Player1+4
+L023B:	lda     _Player1+4
 	cmp     #$1E
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L0278
+	bvs     L0256
 	eor     #$80
-L0278:	bpl     L0276
+L0256:	bpl     L0254
 ;
 ; Player1.vel_x -= ACCEL;
 ;
@@ -3347,22 +3207,22 @@ L0278:	bpl     L0276
 	sec
 	sbc     #$1E
 	sta     _Player1+4
-	bcs     L0283
+	bcs     L0261
 	dec     _Player1+4+1
 ;
 ; else if (Player1.vel_x < -ACCEL)
 ;
-	jmp     L0283
-L0276:	lda     _Player1+4
+	jmp     L0261
+L0254:	lda     _Player1+4
 	cmp     #$E2
 	lda     _Player1+4+1
 	sbc     #$FF
-	bvc     L027F
+	bvc     L025D
 	eor     #$80
-L027F:	asl     a
+L025D:	asl     a
 	lda     #$00
 	tax
-	bcc     L0946
+	bcc     L0921
 ;
 ; Player1.vel_x += ACCEL;
 ;
@@ -3370,21 +3230,21 @@ L027F:	asl     a
 	clc
 	adc     _Player1+4
 	sta     _Player1+4
-	bcc     L0283
+	bcc     L0261
 	inc     _Player1+4+1
 ;
 ; else
 ;
-	jmp     L0283
+	jmp     L0261
 ;
 ; Player1.vel_x = 0;
 ;
-L0946:	sta     _Player1+4
+L0921:	sta     _Player1+4
 	stx     _Player1+4+1
 ;
 ; Player1.x += Player1.vel_x;
 ;
-L0283:	lda     _Player1+4
+L0261:	lda     _Player1+4
 	clc
 	adc     _Player1
 	sta     _Player1
@@ -3398,9 +3258,9 @@ L0283:	lda     _Player1+4
 	cmp     #$00
 	lda     _Player1+6+1
 	sbc     #$03
-	bvc     L028A
+	bvc     L0268
 	eor     #$80
-L028A:	bpl     L0288
+L0268:	bpl     L0266
 ;
 ; Player1.vel_y += GRAVITY;
 ;
@@ -3408,25 +3268,25 @@ L028A:	bpl     L0288
 	clc
 	adc     _Player1+6
 	sta     _Player1+6
-	bcc     L028E
+	bcc     L026C
 	inc     _Player1+6+1
 ;
 ; else
 ;
-	jmp     L028E
+	jmp     L026C
 ;
 ; Player1.vel_y = 0x300; // consistent gravity
 ;
-L0288:	ldx     #$03
+L0266:	ldx     #$03
 	lda     #$00
 	sta     _Player1+6
 	stx     _Player1+6+1
 ;
 ; if (pad1 & PAD_A)
 ;
-L028E:	lda     _pad1
+L026C:	lda     _pad1
 	and     #$80
-	beq     L0291
+	beq     L026F
 ;
 ; Player1.vel_y = JUMP_VEL; // JUMP
 ;
@@ -3437,7 +3297,7 @@ L028E:	lda     _pad1
 ;
 ; Player1.y += Player1.vel_y; // add gravity to y; (make him go up or down)
 ;
-L0291:	lda     _Player1+6
+L026F:	lda     _Player1+6
 	clc
 	adc     _Player1+2
 	sta     _Player1+2
@@ -3486,13 +3346,13 @@ L0291:	lda     _Player1+6
 ;
 	ldx     _Player1+4+1
 	cpx     #$80
-	bcc     L02A2
+	bcc     L0280
 ;
 ; if (bg_coll_L())
 ;
 	jsr     _bg_coll_L
 	tax
-	beq     L02BC
+	beq     L029A
 ;
 ; high_byte(Player1.x) = high_byte(Player1.x) - eject_L;
 ;
@@ -3513,7 +3373,7 @@ L0291:	lda     _Player1+6
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$F0
-	bcc     L02BC
+	bcc     L029A
 ;
 ; Player1.x = 0xf000;
 ;
@@ -3521,20 +3381,20 @@ L0291:	lda     _Player1+6
 ;
 ; else if (Player1.vel_x > 0)
 ;
-	jmp     L094B
-L02A2:	lda     _Player1+4
+	jmp     L0926
+L0280:	lda     _Player1+4
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L02B3
+	bvs     L0291
 	eor     #$80
-L02B3:	bpl     L02BC
+L0291:	bpl     L029A
 ;
 ; if (bg_coll_R())
 ;
 	jsr     _bg_coll_R
 	tax
-	beq     L02BC
+	beq     L029A
 ;
 ; high_byte(Player1.x) = high_byte(Player1.x) - eject_R;
 ;
@@ -3555,22 +3415,22 @@ L02B3:	bpl     L02BC
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$F0
-	bcc     L02BC
+	bcc     L029A
 ;
 ; Player1.x = 0x0000;
 ;
 	ldx     #$00
-L094B:	lda     #$00
+L0926:	lda     #$00
 	sta     _Player1
 	stx     _Player1+1
 ;
 ; if (Player1.y > 0xf000)   // limit how high he can go
 ;
-L02BC:	lda     _Player1+2
+L029A:	lda     _Player1+2
 	cmp     #$01
 	lda     _Player1+2+1
 	sbc     #$F0
-	bcc     L02C0
+	bcc     L029E
 ;
 ; Player1.y = 0x0000;
 ;
@@ -3580,19 +3440,24 @@ L02BC:	lda     _Player1+2
 ;
 ; if (Player1.vel_y > 0) // he's going down
 ;
-L02C0:	lda     _Player1+6
+L029E:	lda     _Player1+6
 	cmp     #$01
 	lda     _Player1+6+1
 	sbc     #$00
-	bvs     L02C6
+	bvs     L02A4
 	eor     #$80
-L02C6:	bpl     L02C4
+L02A4:	bpl     L02A2
 ;
 ; if (bg_coll_D()) // if he's collising below
 ;
 	jsr     _bg_coll_D
 	tax
-	beq     L02D7
+	beq     L02B7
+;
+; Player1.on_ground = 1;
+;
+	lda     #$01
+	sta     _Player1+9
 ;
 ; high_byte(Player1.y) = high_byte(Player1.y) - eject_D;
 ;
@@ -3614,22 +3479,22 @@ L02C6:	bpl     L02C4
 	cmp     #$01
 	lda     _Player1+6+1
 	sbc     #$00
-	bvs     L02D1
+	bvs     L02B1
 	eor     #$80
-L02D1:	bpl     L02D7
+L02B1:	bpl     L02B7
 ;
 ; else if (Player1.vel_y < 0) // he's going up
 ;
-	jmp     L094C
-L02C4:	ldx     _Player1+6+1
+	jmp     L0927
+L02A2:	ldx     _Player1+6+1
 	cpx     #$80
-	bcc     L02D7
+	bcc     L02B7
 ;
 ; if (bg_coll_U())
 ;
 	jsr     _bg_coll_U
 	tax
-	beq     L02D7
+	beq     L02B7
 ;
 ; high_byte(Player1.y) = high_byte(Player1.y) - eject_U;
 ;
@@ -3640,13 +3505,13 @@ L02C4:	ldx     _Player1+6+1
 ;
 ; Player1.vel_y = 0;
 ;
-L094C:	lda     #$00
+L0927:	lda     #$00
 	sta     _Player1+6
 	sta     _Player1+6+1
 ;
 ; }
 ;
-L02D7:	rts
+L02B7:	rts
 
 .endproc
 
@@ -3781,12 +3646,12 @@ L02D7:	rts
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-L094F:	sta     _y
+L092A:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-L094E:	sta     _x
+L0929:	sta     _x
 ;
 ; address = get_ppu_addr(0, x, y);
 ;
@@ -3835,44 +3700,44 @@ L094E:	sta     _x
 ;
 ; break;
 ;
-	beq     L0950
+	beq     L092B
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     L094E
+	jmp     L0929
 ;
 ; if (y == 0xe0)
 ;
-L0950:	lda     _y
+L092B:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     L089A
+	beq     L087A
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     L094F
+	jmp     L092A
 ;
 ; if (!map)
 ;
-L089A:	lda     _map
-	bne     L08BA
+L087A:	lda     _map
+	bne     L089A
 ;
 ; memcpy(c_map, level0_0, 240); 
 ;
 	tay
-L08C0:	lda     _level0_0,y
+L08A0:	lda     _level0_0,y
 	sta     _c_map,y
 	iny
 	cpy     #$F0
-	bne     L08C0
+	bne     L08A0
 ;
 ; else
 ;
@@ -3880,12 +3745,12 @@ L08C0:	lda     _level0_0,y
 ;
 ; memcpy(c_map2, level0_0, 240);
 ;
-L08BA:	ldy     #$00
-L08C6:	lda     _level0_0,y
+L089A:	ldy     #$00
+L08A6:	lda     _level0_0,y
 	sta     _c_map2,y
 	iny
 	cpy     #$F0
-	bne     L08C6
+	bne     L08A6
 ;
 ; }
 ;
@@ -4018,9 +3883,9 @@ L08C6:	lda     _level0_0,y
 ;
 	jsr     _ppu_on_all
 ;
-; ppu_wait_nmi();     
+; ppu_wait_nmi();      
 ;
-L0907:	jsr     _ppu_wait_nmi
+L08E7:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0);
 ;
@@ -4063,7 +3928,7 @@ L0907:	jsr     _ppu_wait_nmi
 ;
 ; while (1)      
 ;
-	jmp     L0907
+	jmp     L08E7
 
 .endproc
 

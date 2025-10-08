@@ -182,7 +182,7 @@ char bg_coll_D(void)
 
   // check 2 points on the bottom side
   location_with_scroll = Generic.x + scroll_x;
-  location_with_scroll += 2;
+  // location_with_scroll += 2;
   temp_x = (char)location_with_scroll;   // low byte
   temp_room = location_with_scroll >> 8; // high byte
 
@@ -211,30 +211,30 @@ char bg_coll_D(void)
   return 0;
 }
 
-char bg_coll_D2(void)
-{
-  // check 2 points on the bottom side
-  // a little lower, for jumping
-  location_with_scroll = Generic.x + scroll_x;
-  location_with_scroll += 2;
-  temp_x = (char)location_with_scroll;   // low byte
-  temp_room = location_with_scroll >> 8; // high byte
+// char bg_coll_D2(void)
+// {
+//   // check 2 points on the bottom side
+//   // a little lower, for jumping
+//   location_with_scroll = Generic.x + scroll_x;
+//   location_with_scroll += 2;
+//   temp_x = (char)location_with_scroll;   // low byte
+//   temp_room = location_with_scroll >> 8; // high byte
 
-  temp_y = Generic.y + Generic.height;
-  temp_y += 2;
-  if (bg_collision_sub())
-    return 1;
+//   temp_y = Generic.y + Generic.height;
+//   temp_y += 2;
+//   if (bg_collision_sub())
+//     return 1;
 
-  location_with_scroll = Generic.x + scroll_x + Generic.width;
-  location_with_scroll -= 2;
-  temp_x = (char)location_with_scroll;   // low byte
-  temp_room = location_with_scroll >> 8; // high byte
+//   location_with_scroll = Generic.x + scroll_x + Generic.width;
+//   location_with_scroll -= 2;
+//   temp_x = (char)location_with_scroll;   // low byte
+//   temp_room = location_with_scroll >> 8; // high byte
 
-  if (bg_collision_sub())
-    return 1;
+//   if (bg_collision_sub())
+//     return 1;
 
-  return 0;
-}
+//   return 0;
+// }
 
 void move_player(void){
 
@@ -367,6 +367,7 @@ if (Player1.vel_y > 0) // he's going down
 		if (bg_coll_D()) // if he's collising below
 		{								 // check collision below
 
+      Player1.on_ground = 1;
 			high_byte(Player1.y) = high_byte(Player1.y) - eject_D;
 			Player1.y &= 0xff00;
 			if (Player1.vel_y > 0)
@@ -387,14 +388,8 @@ if (Player1.vel_y > 0) // he's going down
 
 void bank0_player_movement(void)
 {
-
-	//Move player left and right
-
   move_player();
-
   check_player_colision();
-
-
 
 }
 
@@ -404,5 +399,4 @@ void bank0_draw_player_sprite(void)
   temp_y = Player1.y >> 8; 
 	temp_sprite = noah_box;  
 	oam_meta_spr(temp_x, temp_y, temp_sprite);
-
 }

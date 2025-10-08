@@ -61,7 +61,7 @@ void main(void)
 
 	while (1)      
 	{ // infinite loop
-		ppu_wait_nmi();     
+		ppu_wait_nmi();      
  
 		pad1 = pad_poll(0);
 		pad1_new = get_pad_new(0); 

@@ -295,11 +295,23 @@ void drawMetatileBlock(void)
 
 void draw_screen(void)
 {
+	// determine which room (level) to sample from using the high byte of the
+	// pseudo scroll value. Use the high byte of pseudo_scroll_x as the room
+	// offset so drawing matches the logical scroll position. Avoid using
+	// `temp1` here because it is used elsewhere and can be stale.
 	offset = current_level;
-	offset += high_byte(pseudo_scroll_x); 
+	offset += (pseudo_scroll_x >> 8); // high byte of pseudo_scroll_x
+
+	// bounds-check the computed offset against how many levels this stage has
+	if (offset >= levels_per_stage[current_stage]) {
+		// fallback to the current level if the computed offset is out-of-range
+		offset = current_level;
+	}
 
 	set_data_pointer(stage_table[current_stage][offset]);
-	nt = temp1 & 1;
+
+	// choose the nametable based on the high byte of pseudo_scroll_x
+	nt = ((pseudo_scroll_x >> 8) & 1);
 	x = pseudo_scroll_x & 0xff;
 
 	switch (scroll_count)

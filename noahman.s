@@ -4388,13 +4388,13 @@ L0139:	lda     _temp_x
 ;
 ; else
 ;
-	jmp     L12A2
+	jmp     L12AA
 ;
 ; collision = c_map2[coordinates];
 ;
 L0142:	ldy     _coordinates
 	lda     _c_map2,y
-L12A2:	sta     _collision
+L12AA:	sta     _collision
 ;
 ; return metatile_colision_map[collision];
 ;
@@ -4439,7 +4439,7 @@ L12A2:	sta     _collision
 ;
 ; return;
 ;
-	bcc     L12A6
+	bcc     L12AE
 ;
 ; }
 ;
@@ -4447,7 +4447,7 @@ L12A2:	sta     _collision
 ;
 ; location_with_scroll = Generic.x + scroll_x;
 ;
-L12A6:	lda     _Generic
+L12AE:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -4486,7 +4486,7 @@ L0161:	sta     _temp_y
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     L12A4
+	beq     L12AC
 ;
 ; ++collision_L;
 ;
@@ -4494,7 +4494,7 @@ L0161:	sta     _temp_y
 ;
 ; location_with_scroll += Generic.width;
 ;
-L12A4:	lda     _Generic+2
+L12AC:	lda     _Generic+2
 	clc
 	adc     _location_with_scroll
 	sta     _location_with_scroll
@@ -4522,7 +4522,7 @@ L12A4:	lda     _Generic+2
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     L12A5
+	beq     L12AD
 ;
 ; ++collision_R;
 ;
@@ -4530,7 +4530,7 @@ L12A4:	lda     _Generic+2
 ;
 ; location_with_scroll -= (Generic.width >> 1); // middle of character
 ;
-L12A5:	lda     _Generic+2
+L12AD:	lda     _Generic+2
 	lsr     a
 	eor     #$FF
 	sec
@@ -4627,7 +4627,7 @@ L0186:	sta     _temp_y
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L12A8
+	beq     L12B0
 ;
 ; return 1;
 ;
@@ -4636,12 +4636,12 @@ L0186:	sta     _temp_y
 ;
 ; temp_y = Generic.y + Generic.height;
 ;
-L12A8:	lda     _Generic+1
+L12B0:	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L12A7
+	bcc     L12AF
 	inx
-L12A7:	sta     _temp_y
+L12AF:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -4658,7 +4658,7 @@ L12A7:	sta     _temp_y
 L018E:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L12AA
+	beq     L12B2
 ;
 ; return 1;
 ;
@@ -4667,7 +4667,7 @@ L018E:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L12AA:	rts
+L12B2:	rts
 
 .endproc
 
@@ -4694,9 +4694,9 @@ L12AA:	rts
 	pla
 	clc
 	adc     _Generic+2
-	bcc     L12AB
+	bcc     L12B3
 	inx
-L12AB:	sta     _location_with_scroll
+L12B3:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; temp_x = (char)location_with_scroll;   // low byte
@@ -4735,7 +4735,7 @@ L01A0:	sta     _temp_y
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L12AD
+	beq     L12B5
 ;
 ; return 1;
 ;
@@ -4744,12 +4744,12 @@ L01A0:	sta     _temp_y
 ;
 ; temp_y = Generic.y + Generic.height;
 ;
-L12AD:	lda     _Generic+1
+L12B5:	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L12AC
+	bcc     L12B4
 	inx
-L12AC:	sta     _temp_y
+L12B4:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -4766,7 +4766,7 @@ L12AC:	sta     _temp_y
 L01A8:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L12AF
+	beq     L12B7
 ;
 ; return 1;
 ;
@@ -4775,7 +4775,7 @@ L01A8:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L12AF:	rts
+L12B7:	rts
 
 .endproc
 
@@ -4820,9 +4820,9 @@ L01B0:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L12B0
+	bcc     L12B8
 	inx
-L12B0:	sta     _temp_y
+L12B8:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -4838,16 +4838,16 @@ L12B0:	sta     _temp_y
 ;
 L01B7:	jsr     _bg_collision_sub
 	and     #$01
-	bne     L12B1
+	bne     L12B9
 	jsr     _bg_collision_sub
 	and     #$02
-	bne     L12B1
+	bne     L12B9
 	tax
 	rts
 ;
 ; return location_with_scroll;
 ;
-L12B1:	ldx     #$00
+L12B9:	ldx     #$00
 	lda     _location_with_scroll
 	rts
 
@@ -4894,9 +4894,9 @@ L01C0:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L12B4
+	bcc     L12BC
 	inx
-L12B4:	sta     _temp_y
+L12BC:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -4913,7 +4913,7 @@ L12B4:	sta     _temp_y
 L01C7:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$01
-	beq     L12B6
+	beq     L12BE
 ;
 ; return 1;
 ;
@@ -4922,7 +4922,7 @@ L01C7:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L12B6:	rts
+L12BE:	rts
 
 .endproc
 
@@ -4967,9 +4967,9 @@ L01CF:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L12B7
+	bcc     L12BF
 	inx
-L12B7:	sta     _temp_y
+L12BF:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y += 4;
@@ -4986,7 +4986,7 @@ L12B7:	sta     _temp_y
 L01D6:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$02
-	beq     L12B9
+	beq     L12C1
 ;
 ; return 1;
 ;
@@ -4995,7 +4995,7 @@ L01D6:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-L12B9:	rts
+L12C1:	rts
 
 .endproc
 
@@ -5057,7 +5057,7 @@ L01E0:	lda     #$00
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     L12BB
+	beq     L12C3
 ;
 ; return 1;
 ;
@@ -5067,7 +5067,7 @@ L01E0:	lda     #$00
 ;
 ; location_with_scroll = Generic.x + scroll_x + Generic.width;
 ;
-L12BB:	lda     _Generic
+L12C3:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -5077,9 +5077,9 @@ L12BB:	lda     _Generic
 	pla
 	clc
 	adc     _Generic+2
-	bcc     L12BA
+	bcc     L12C2
 	inx
-L12BA:	sta     _location_with_scroll
+L12C2:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; location_with_scroll -= 2;
@@ -5108,7 +5108,7 @@ L01F0:	lda     #$00
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     L12BD
+	beq     L12C5
 ;
 ; return 1;
 ;
@@ -5117,7 +5117,7 @@ L01F0:	lda     #$00
 ;
 ; }
 ;
-L12BD:	rts
+L12C5:	rts
 
 .endproc
 
@@ -5160,9 +5160,9 @@ L12BD:	rts
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     L12BE
+	bcc     L12C6
 	inx
-L12BE:	sta     _temp_y
+L12C6:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; if ((temp_y & 0x0f) > 3)
@@ -5189,20 +5189,20 @@ L0202:	lda     _temp_y
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	bne     L12C1
+	bne     L12C9
 	jsr     _bg_collision_sub
 	and     #$02
-	beq     L12C2
+	beq     L12CA
 ;
 ; return 1;
 ;
-L12C1:	ldx     #$00
+L12C9:	ldx     #$00
 	lda     #$01
 	rts
 ;
 ; location_with_scroll = Generic.x + scroll_x + Generic.width;
 ;
-L12C2:	lda     _Generic
+L12CA:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -5212,9 +5212,9 @@ L12C2:	lda     _Generic
 	pla
 	clc
 	adc     _Generic+2
-	bcc     L12BF
+	bcc     L12C7
 	inx
-L12BF:	sta     _location_with_scroll
+L12C7:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; location_with_scroll -= 2;
@@ -5242,16 +5242,16 @@ L0214:	lda     #$00
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	bne     L12C3
+	bne     L12CB
 	jsr     _bg_collision_sub
 	and     #$02
-	bne     L12C3
+	bne     L12CB
 	tax
 	rts
 ;
 ; return 1;
 ;
-L12C3:	ldx     #$00
+L12CB:	ldx     #$00
 	lda     #$01
 	rts
 
@@ -5277,7 +5277,7 @@ L12C3:	ldx     #$00
 ;
 	lda     _pad1
 	and     #$02
-	beq     L12C6
+	beq     L12CE
 ;
 ; direction = LEFT;
 ;
@@ -5321,7 +5321,7 @@ L0230:	bpl     L022E
 ;
 ; else
 ;
-	jmp     L12C8
+	jmp     L12D0
 ;
 ; Player1.vel_x -= ACCEL;
 ;
@@ -5349,8 +5349,8 @@ L0239:	jpl     L0263
 ;
 ; else if (pad1 & PAD_RIGHT)
 ;
-	jmp     L12C8
-L12C6:	lda     _pad1
+	jmp     L12D0
+L12CE:	lda     _pad1
 	and     #$01
 	beq     L023D
 ;
@@ -5392,7 +5392,7 @@ L0241:	ldx     _Player1+4+1
 ;
 ; else
 ;
-	jmp     L12C8
+	jmp     L12D0
 ;
 ; Player1.vel_x += ACCEL;
 ;
@@ -5420,7 +5420,7 @@ L0252:	bpl     L0263
 ;
 ; else
 ;
-	jmp     L12C8
+	jmp     L12D0
 ;
 ; if (Player1.vel_x >= ACCEL)
 ;
@@ -5453,7 +5453,7 @@ L0256:	lda     _Player1+4
 L025F:	asl     a
 	lda     #$00
 	tax
-	bcc     L12C8
+	bcc     L12D0
 ;
 ; Player1.vel_x += ACCEL;
 ;
@@ -5470,7 +5470,7 @@ L025F:	asl     a
 ;
 ; Player1.vel_x = 0;
 ;
-L12C8:	sta     _Player1+4
+L12D0:	sta     _Player1+4
 	stx     _Player1+4+1
 ;
 ; Player1.x += Player1.vel_x;
@@ -5612,7 +5612,7 @@ L0271:	lda     _Player1+6
 ;
 ; else if (Player1.vel_x > 0)
 ;
-	jmp     L12CD
+	jmp     L12D5
 L0282:	lda     _Player1+4
 	cmp     #$01
 	lda     _Player1+4+1
@@ -5651,7 +5651,7 @@ L0293:	bpl     L029C
 ; Player1.x = 0x0000;
 ;
 	ldx     #$00
-L12CD:	lda     #$00
+L12D5:	lda     #$00
 	sta     _Player1
 	stx     _Player1+1
 ;
@@ -5716,7 +5716,7 @@ L02B3:	bpl     L02B9
 ;
 ; else if (Player1.vel_y < 0) // he's going up
 ;
-	jmp     L12CE
+	jmp     L12D6
 L02A4:	ldx     _Player1+6+1
 	cpx     #$80
 	bcc     L02B9
@@ -5736,7 +5736,7 @@ L02A4:	ldx     _Player1+6+1
 ;
 ; Player1.vel_y = 0;
 ;
-L12CE:	lda     #$00
+L12D6:	lda     #$00
 	sta     _Player1+6
 	sta     _Player1+6+1
 ;
@@ -5911,22 +5911,36 @@ L02B9:	rts
 	lda     _current_level
 	sta     _offset
 ;
-; offset += high_byte(pseudo_scroll_x); 
+; offset += (pseudo_scroll_x >> 8); // high byte of pseudo_scroll_x
 ;
 	lda     _pseudo_scroll_x+1
 	clc
 	adc     _offset
 	sta     _offset
 ;
+; if (offset >= levels_per_stage[current_stage]) {
+;
+	lda     _offset
+	jsr     pusha0
+	ldy     _current_stage
+	lda     _levels_per_stage,y
+	jsr     tosicmp0
+	bcc     L110B
+;
+; offset = current_level;
+;
+	lda     _current_level
+	sta     _offset
+;
 ; set_data_pointer(stage_table[current_stage][offset]);
 ;
-	ldx     #$00
+L110B:	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     L12D2
+	bcc     L12DA
 	inx
 	clc
-L12D2:	adc     #<(_stage_table)
+L12DA:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -5941,10 +5955,10 @@ L12D2:	adc     #<(_stage_table)
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     L12D3
+	bcc     L12DB
 	inx
 	clc
-L12D3:	adc     ptr1
+L12DB:	adc     ptr1
 	sta     ptr1
 	txa
 	adc     ptr1+1
@@ -5956,9 +5970,9 @@ L12D3:	adc     ptr1
 	lda     (ptr1),y
 	jsr     _set_data_pointer
 ;
-; nt = temp1 & 1;
+; nt = ((pseudo_scroll_x >> 8) & 1);
 ;
-	lda     _temp1
+	lda     _pseudo_scroll_x+1
 	and     #$01
 	sta     _nt
 ;
@@ -5974,16 +5988,16 @@ L12D3:	adc     ptr1
 ;
 ; }
 ;
-	beq     L12D5
+	beq     L12DD
 	cmp     #$01
-	beq     L12D6
+	beq     L12DE
 	cmp     #$02
-	beq     L12D7
-	jmp     L12D8
+	beq     L12DF
+	jmp     L12E0
 ;
 ; temp2 = 0;
 ;
-L12D5:	sta     _temp2
+L12DD:	sta     _temp2
 	sta     _temp2+1
 ;
 ; drawMetatileBlock();
@@ -5997,11 +6011,11 @@ L12D5:	sta     _temp2
 ;
 ; break;
 ;
-	jmp     L12DA
+	jmp     L12E2
 ;
 ; temp2 = 0x40;
 ;
-L12D6:	lda     #$40
+L12DE:	lda     #$40
 	sta     _temp2
 	stx     _temp2+1
 ;
@@ -6016,11 +6030,11 @@ L12D6:	lda     #$40
 ;
 ; break;
 ;
-	jmp     L12DA
+	jmp     L12E2
 ;
 ; temp2 = 0x80;
 ;
-L12D7:	lda     #$80
+L12DF:	lda     #$80
 	sta     _temp2
 	stx     _temp2+1
 ;
@@ -6035,11 +6049,11 @@ L12D7:	lda     #$80
 ;
 ; break;
 ;
-	jmp     L12DA
+	jmp     L12E2
 ;
 ; temp2 = 0xc0;
 ;
-L12D8:	lda     #$C0
+L12E0:	lda     #$C0
 	sta     _temp2
 	stx     _temp2+1
 ;
@@ -6051,7 +6065,7 @@ L12D8:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-L12DA:	sta     _temp2
+L12E2:	sta     _temp2
 	stx     _temp2+1
 ;
 ; drawMetatileBlock();
@@ -6091,9 +6105,9 @@ L12DA:	sta     _temp2
 	lda     _scroll_x
 	clc
 	adc     _Player1+1
-	bcc     L12DB
+	bcc     L12E3
 	inx
-L12DB:	sta     _temp1
+L12E3:	sta     _temp1
 	stx     _temp1+1
 ;
 ; if (temp1 > 0x98 && temp1 < 0xa4) // middle of the screen
@@ -6101,13 +6115,13 @@ L12DB:	sta     _temp1
 	cmp     #$99
 	txa
 	sbc     #$00
-	bcc     L113D
+	bcc     L1145
 	lda     _temp1+1
 	cmp     #$00
-	bne     L1140
+	bne     L1148
 	lda     _temp1
 	cmp     #$A4
-L1140:	bcs     L113D
+L1148:	bcs     L1145
 ;
 ; map_loaded = 0;
 ;
@@ -6116,7 +6130,7 @@ L1140:	bcs     L113D
 ;
 ; temp2 = Player1.x; // store his x before we check the scrolling
 ;
-L113D:	lda     _Player1+1
+L1145:	lda     _Player1+1
 	sta     _temp2+1
 	lda     _Player1
 	sta     _temp2
@@ -6125,12 +6139,12 @@ L113D:	lda     _Player1+1
 ;
 	ldx     _Player1+1
 	cpx     #$50
-	jcs     L116E
+	jcs     L1176
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L1148
+	bne     L1150
 ;
 ; room_to_load = ((scroll_x >> 8) - 1); // high byte = room, one to the left
 ;
@@ -6146,7 +6160,7 @@ L113D:	lda     _Player1+1
 ;
 ; temp1 = (MAX_LEFT - Player1.x) >> 8;
 ;
-L1148:	lda     #$00
+L1150:	lda     #$00
 	sec
 	sbc     _Player1
 	lda     #$50
@@ -6158,7 +6172,7 @@ L1148:	lda     #$00
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L1154
+	bcc     L115C
 ;
 ; temp1 = 3; // max scroll change
 ;
@@ -6168,13 +6182,13 @@ L1148:	lda     #$00
 ;
 ; temp3 = scroll_x + high_byte(Player1.x);
 ;
-L1154:	lda     _scroll_x
+L115C:	lda     _scroll_x
 	ldx     _scroll_x+1
 	clc
 	adc     _Player1+1
-	bcc     L12DC
+	bcc     L12E4
 	inx
-L12DC:	sta     _temp3
+L12E4:	sta     _temp3
 	stx     _temp3+1
 ;
 ; current_level = (temp3 >> 8);
@@ -6196,15 +6210,15 @@ L12DC:	sta     _temp3
 	lda     #$00
 	sec
 	sbc     #$01
-	bcs     L1166
+	bcs     L116E
 	dex
-L1166:	sta     _max_scroll
+L116E:	sta     _max_scroll
 	stx     _max_scroll+1
 ;
 ; if (max_rooms >= 1) // this is for the multi-room levels
 ;
 	lda     _max_rooms
-	beq     L116E
+	beq     L1176
 ;
 ; if ((scroll_x - temp1) > max_scroll) // if subtracting the scroll makes it overflow
 ;
@@ -6222,8 +6236,8 @@ L1166:	sta     _max_scroll
 	txa
 	sbc     _max_scroll+1
 	ora     tmp1
-	bcc     L1169
-	beq     L1169
+	bcc     L1171
+	beq     L1171
 ;
 ; scroll_x = 0; // just go to zero (and move the guy)
 ;
@@ -6233,11 +6247,11 @@ L1166:	sta     _max_scroll
 ;
 ; else // otherwise scroll the window and offset the guy's movement
 ;
-	jmp     L116E
+	jmp     L1176
 ;
 ; scroll_x -= temp1;                  // scroll the window
 ;
-L1169:	lda     _temp1
+L1171:	lda     _temp1
 	eor     #$FF
 	sec
 	adc     _scroll_x
@@ -6258,16 +6272,16 @@ L1169:	lda     _temp1
 ;
 ; if (Player1.x > MAX_RIGHT)
 ;
-L116E:	lda     _Player1
+L1176:	lda     _Player1
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$90
-	bcc     L1187
+	bcc     L118F
 ;
 ; if (!map_loaded) // gets reset whenever the player's in the middle of the level
 ;
 	lda     _map_loaded
-	bne     L1177
+	bne     L117F
 ;
 ; room_to_load = ((scroll_x >> 8) + 1); // high byte = room, one to the left
 ;
@@ -6283,7 +6297,7 @@ L116E:	lda     _Player1
 ;
 ; temp1 = (Player1.x - MAX_RIGHT) >> 8;
 ;
-L1177:	lda     _Player1+1
+L117F:	lda     _Player1+1
 	sec
 	sbc     #$90
 	ldx     #$00
@@ -6293,7 +6307,7 @@ L1177:	lda     _Player1+1
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L12E0
+	bcc     L12E8
 ;
 ; temp1 = 3; // max scroll change
 ;
@@ -6303,8 +6317,8 @@ L1177:	lda     _Player1+1
 ;
 ; if (max_rooms >= 1) // used for single room levels
 ;
-L12E0:	lda     _max_rooms
-	beq     L1187
+L12E8:	lda     _max_rooms
+	beq     L118F
 ;
 ; scroll_x += temp1;                  // scroll the window
 ;
@@ -6327,11 +6341,11 @@ L12E0:	lda     _max_rooms
 ;
 ; if (scroll_x >= max_scroll)
 ;
-L1187:	lda     _scroll_x
+L118F:	lda     _scroll_x
 	cmp     _max_scroll
 	lda     _scroll_x+1
 	sbc     _max_scroll+1
-	bcc     L1195
+	bcc     L119D
 ;
 ; scroll_x = max_scroll;      // stop scrolling right, end of level
 ;
@@ -6351,7 +6365,7 @@ L1187:	lda     _scroll_x
 ;
 	lda     _Player1+1
 	cmp     #$E0
-	bcc     L1195
+	bcc     L119D
 ;
 ; Player1.x = 0xe000;
 ;
@@ -6362,7 +6376,7 @@ L1187:	lda     _scroll_x
 ;
 ; }
 ;
-L1195:	rts
+L119D:	rts
 
 .endproc
 
@@ -6380,9 +6394,9 @@ L1195:	rts
 ; if (!r_scroll_frames && !l_scroll_frames)
 ;
 	lda     _r_scroll_frames
-	bne     L11A4
+	bne     L11AC
 	lda     _l_scroll_frames
-	bne     L11A4
+	bne     L11AC
 ;
 ; if (Player1.vel_x > 0)
 ;
@@ -6390,9 +6404,9 @@ L1195:	rts
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L11A1
+	bvs     L11A9
 	eor     #$80
-L11A1:	bpl     L12E1
+L11A9:	bpl     L12E9
 ;
 ; r_scroll_frames = 4;
 ;
@@ -6401,17 +6415,17 @@ L11A1:	bpl     L12E1
 ;
 ; else
 ;
-	jmp     L11A4
+	jmp     L11AC
 ;
 ; l_scroll_frames = 4;
 ;
-L12E1:	lda     #$04
+L12E9:	lda     #$04
 	sta     _l_scroll_frames
 ;
 ; if (r_scroll_frames)
 ;
-L11A4:	lda     _r_scroll_frames
-	beq     L11A7
+L11AC:	lda     _r_scroll_frames
+	beq     L11AF
 ;
 ; pseudo_scroll_x = scroll_x + 0x120;
 ;
@@ -6419,9 +6433,9 @@ L11A4:	lda     _r_scroll_frames
 	ldx     _scroll_x+1
 	clc
 	adc     #$20
-	bcc     L11AB
+	bcc     L11B3
 	inx
-L11AB:	inx
+L11B3:	inx
 	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
@@ -6436,8 +6450,8 @@ L11AB:	inx
 ; else if (l_scroll_frames)
 ;
 	rts
-L11A7:	lda     _l_scroll_frames
-	beq     L11AF
+L11AF:	lda     _l_scroll_frames
+	beq     L11B7
 ;
 ; pseudo_scroll_x = scroll_x - 0x20; 
 ;
@@ -6445,9 +6459,9 @@ L11A7:	lda     _l_scroll_frames
 	ldx     _scroll_x+1
 	sec
 	sbc     #$20
-	bcs     L11B3
+	bcs     L11BB
 	dex
-L11B3:	sta     _pseudo_scroll_x
+L11BB:	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
 ; draw_screen();
@@ -6460,7 +6474,7 @@ L11B3:	sta     _pseudo_scroll_x
 ;
 ; }
 ;
-L11AF:	rts
+L11B7:	rts
 
 .endproc
 
@@ -6484,10 +6498,10 @@ L11AF:	rts
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     L12F2
+	bcc     L12FA
 	inx
 	clc
-L12F2:	adc     #<(_stage_table)
+L12FA:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6502,10 +6516,10 @@ L12F2:	adc     #<(_stage_table)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     L12F3
+	bcc     L12FB
 	inx
 	clc
-L12F3:	adc     ptr1
+L12FB:	adc     ptr1
 	sta     ptr1
 	txa
 	adc     ptr1+1
@@ -6526,12 +6540,12 @@ L12F3:	adc     ptr1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-L12EF:	sta     _y
+L12F7:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-L12EE:	sta     _x
+L12F6:	sta     _x
 ;
 ; address = get_ppu_addr(nametable_to_load, x, y);
 ;
@@ -6581,39 +6595,39 @@ L12EE:	sta     _x
 ;
 ; break;
 ;
-	beq     L12FC
+	beq     L1304
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     L12EE
+	jmp     L12F6
 ;
 ; if (y == 0xe0)
 ;
-L12FC:	lda     _y
+L1304:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     L12FD
+	beq     L1305
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     L12EF
+	jmp     L12F7
 ;
 ; set_data_pointer(stage_table[current_stage][current_level+1]);
 ;
-L12FD:	lda     _current_stage
+L1305:	lda     _current_stage
 	asl     a
-	bcc     L12F4
+	bcc     L12FC
 	inx
 	clc
-L12F4:	adc     #<(_stage_table)
+L12FC:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6629,9 +6643,9 @@ L12F4:	adc     #<(_stage_table)
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L11E3
+	bcc     L11EB
 	inx
-L11E3:	stx     tmp1
+L11EB:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -6650,7 +6664,7 @@ L11E3:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-L12F0:	sta     _y
+L12F8:	sta     _y
 ;
 ; x = 0;
 ;
@@ -6705,23 +6719,23 @@ L12F0:	sta     _y
 ;
 ; break;
 ;
-	beq     L12FE
+	beq     L1306
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     L12F0
+	jmp     L12F8
 ;
 ; set_data_pointer(stage_table[current_stage][current_level-1]);
 ;
-L12FE:	lda     _current_stage
+L1306:	lda     _current_stage
 	asl     a
-	bcc     L12F5
+	bcc     L12FD
 	inx
 	clc
-L12F5:	adc     #<(_stage_table)
+L12FD:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6737,9 +6751,9 @@ L12F5:	adc     #<(_stage_table)
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L1204
+	bcs     L120C
 	dex
-L1204:	stx     tmp1
+L120C:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -6758,7 +6772,7 @@ L1204:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-L12F1:	sta     _y
+L12F9:	sta     _y
 ;
 ; x = 240;
 ;
@@ -6817,19 +6831,19 @@ L12F1:	sta     _y
 ;
 ; break;
 ;
-	beq     L1206
+	beq     L120E
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     L12F1
+	jmp     L12F9
 ;
 ; if (!map)
 ;
-L1206:	lda     _map
-	jne     L1221
+L120E:	lda     _map
+	jne     L1229
 ;
 ; memcpy(c_map, stage_table[current_stage][current_level], 240); 
 ;
@@ -6839,10 +6853,10 @@ L1206:	lda     _map
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     L12F6
+	bcc     L12FE
 	inx
 	clc
-L12F6:	adc     #<(_stage_table)
+L12FE:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6857,10 +6871,10 @@ L12F6:	adc     #<(_stage_table)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     L12F7
+	bcc     L12FF
 	inx
 	clc
-L12F7:	adc     ptr1
+L12FF:	adc     ptr1
 	sta     ptr1
 	txa
 	adc     ptr1+1
@@ -6883,10 +6897,10 @@ L12F7:	adc     ptr1
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     L12F8
+	bcc     L1300
 	inx
 	clc
-L12F8:	adc     #<(_stage_table)
+L1300:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6902,9 +6916,9 @@ L12F8:	adc     #<(_stage_table)
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L122E
+	bcs     L1236
 	dex
-L122E:	stx     tmp1
+L1236:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -6925,16 +6939,16 @@ L122E:	stx     tmp1
 ;
 ; memcpy(c_map2, stage_table[current_stage][current_level], 240);
 ;
-L1221:	lda     #<(_c_map2)
+L1229:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     L12F9
+	bcc     L1301
 	inx
 	clc
-L12F9:	adc     #<(_stage_table)
+L1301:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6949,10 +6963,10 @@ L12F9:	adc     #<(_stage_table)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     L12FA
+	bcc     L1302
 	inx
 	clc
-L12FA:	adc     ptr1
+L1302:	adc     ptr1
 	sta     ptr1
 	txa
 	adc     ptr1+1
@@ -6975,10 +6989,10 @@ L12FA:	adc     ptr1
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     L12FB
+	bcc     L1303
 	inx
 	clc
-L12FB:	adc     #<(_stage_table)
+L1303:	adc     #<(_stage_table)
 	sta     ptr1
 	txa
 	adc     #>(_stage_table)
@@ -6994,9 +7008,9 @@ L12FB:	adc     #<(_stage_table)
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L123C
+	bcs     L1244
 	dex
-L123C:	stx     tmp1
+L1244:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -7189,7 +7203,7 @@ L123C:	stx     tmp1
 ;
 ; ppu_wait_nmi();      
 ;
-L128B:	jsr     _ppu_wait_nmi
+L1293:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0);
 ;
@@ -7240,7 +7254,7 @@ L128B:	jsr     _ppu_wait_nmi
 ;
 ; while (1)      
 ;
-	jmp     L128B
+	jmp     L1293
 
 .endproc
 

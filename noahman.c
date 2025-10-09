@@ -43,7 +43,7 @@ const unsigned char palette_sp[16]={
 	0x21,0x05,0x16,0x37,
 	0x21,0x0f,0x11,0x30,
 	0x21,0x17,0x3d,0x37 };
-void main(void)  
+void main(void)   
 {
 	bank_spr(0);
 	bank_bg(1);
@@ -51,10 +51,17 @@ void main(void)
 	pal_bg(palette_bg);	//	load the BG palette
 	pal_spr(palette_sp); // load the sprite palette
   
-	set_vram_buffer(); // do at least once
+	set_vram_buffer(); // do at least once 
 
 	ppu_wait_nmi();
-	banked_call(BANK_2, bank2_load_room);  
+	set_mirroring(MIRROR_VERTICAL);
+	
+	nametable_to_load = 0; //todo: move this
+	current_level = 0;
+	current_stage = 0;  
+
+
+	banked_call(BANK_2, bank2_load_room);   
 	ppu_on_all();			// turn on screen
 
 	

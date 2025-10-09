@@ -106,6 +106,8 @@ unsigned char max_rooms;
 unsigned int max_scroll;
 unsigned char room_to_load = 0;
 unsigned char temp_room;
+unsigned char current_stage = 0;
+unsigned char current_level = 0;
 
 
 

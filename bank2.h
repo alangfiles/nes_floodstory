@@ -3,27 +3,43 @@
 #pragma rodata-name("BANK2")
 #pragma code-name("BANK2")
 
+#include "LEVELS/Stage1/level0.c"
+#include "LEVELS/Stage2/level0.c"
+
 void function_bank2()
 {
 }
 
-const unsigned char level0_0[]={
-60,30,31,80,139,134,45,135,123,134,45,45,146,148,137,148,
-0,1,30,31,134,147,45,45,135,147,46,147,45,45,137,145,
-2,3,0,30,147,146,46,45,146,145,46,46,147,45,148,45,
-0,1,2,2,145,147,45,45,45,145,137,45,45,146,148,145,
-2,3,21,27,145,45,45,45,137,144,136,46,45,46,136,145,
-0,21,204,205,41,137,45,136,42,70,144,42,43,47,144,136,
-20,206,191,154,73,144,44,42,71,115,72,73,106,159,73,43,
-202,201,205,80,80,73,98,72,80,113,119,80,105,80,80,159,
-201,203,81,80,80,102,96,103,80,113,80,110,105,80,80,118,
-201,203,205,226,89,89,97,88,89,114,88,89,104,88,89,88,
-201,201,203,81,84,99,100,101,116,85,117,82,105,84,81,116,
-15,4,4,12,66,81,85,66,84,85,83,107,108,109,83,81,
-2,58,59,0,15,6,8,12,81,64,65,86,85,87,86,86,
-0,60,16,2,0,3,0,1,14,7,5,6,7,8,9,10,
-55,55,55,56,56,55,55,56,56,55,56,56,55,55,56,55
+// simple table structure: each stage has an array of pointers to level data (each "level" here is the room data pointer)
+const unsigned char* stage0_levels[] = {
+    stage1_level0_0,
+    stage1_level0_1,
+		stage1_level0_2,
+		stage1_level0_3,
+		stage1_level0_4,
+		stage1_level0_5,
+		stage1_level0_6,
+		stage1_level0_7,
 };
+
+const unsigned char* stage1_levels[] = {
+    stage2_level0_0,
+		stage2_level0_1,
+};
+
+// table of stages
+const unsigned char** stage_table[] = {
+    stage0_levels,
+    stage1_levels,
+};
+
+// how many levels each stage has
+const unsigned char levels_per_stage[] = {
+    sizeof(stage0_levels) / sizeof(stage0_levels[0]),
+    sizeof(stage1_levels) / sizeof(stage1_levels[0]),
+};
+
+
 
 const unsigned char metatile[]={
 	123, 124, 139, 140,  0,
@@ -275,15 +291,14 @@ void bank2_load_room(void)
 	// ppu_off();
 	// offset = level_offsets[level];
 	// offset += room_to_load;
-	set_data_pointer(level0_0);
+	set_data_pointer(stage_table[current_stage][current_level]);
 	set_mt_pointer(metatile);
 	// load_bg_after_pointer could work to save space if we set nametable on other usages to 0
 	for (y = 0;; y += 0x20)
 	{
 		for (x = 0;; x += 0x20)
 		{
-      address = get_ppu_addr(0, x, y);
-			//address = get_ppu_addr(nametable_to_load, x, y);
+			address = get_ppu_addr(nametable_to_load, x, y);
 			index = (y & 0xf0) + (x >> 4);
 			buffer_4_mt(address, index); // ppu_address, index to the data
 			flush_vram_update2();
@@ -295,31 +310,31 @@ void bank2_load_room(void)
 	}
 
 	// a little bit in the next room
-	// set_data_pointer(stage1_levels_list[offset + 1]);
-	// for (y = 0;; y += 0x20)
-	// {
-	// 	x = 0;
-	// 	nt = (nametable_to_load + 1) % 2;
-	// 	address = get_ppu_addr(nt, x, y);
-	// 	index = (y & 0xf0);
-	// 	buffer_4_mt(address, index); // ppu_address, index to the data
-	// 	flush_vram_update2();
-	// 	if (y == 0xe0)
-	// 		break;
-	// }
-	// // a little bit in the previous room
-	// set_data_pointer(stage1_levels_list[offset - 1]);
-	// for (y = 0;; y += 0x20)
-	// {
-	// 	x = 240;
-	// 	nt = (nametable_to_load + 1) % 2;
-	// 	address = get_ppu_addr(nt, x, y);
-	// 	index = y + (x >> 4);
-	// 	buffer_4_mt(address, index); // ppu_address, index to the data
-	// 	flush_vram_update2();
-	// 	if (y == 0xe0)
-	// 		break;
-	// }
+	set_data_pointer(stage_table[current_stage][current_level+1]);
+	for (y = 0;; y += 0x20)
+	{
+		x = 0;
+		nt = (nametable_to_load + 1) % 2;
+		address = get_ppu_addr(1, x, y);
+		index = (y & 0xf0);
+		buffer_4_mt(address, index); // ppu_address, index to the data
+		flush_vram_update2();
+		if (y == 0xe0)
+			break;
+	}
+	// a little bit in the previous room
+	set_data_pointer(stage_table[current_stage][current_level-1]);
+	for (y = 0;; y += 0x20)
+	{
+		x = 240;
+		nt = (nametable_to_load + 1) % 2;
+		address = get_ppu_addr(1, x, y);
+		index = y + (x >> 4);
+		buffer_4_mt(address, index); // ppu_address, index to the data
+		flush_vram_update2();
+		if (y == 0xe0)
+			break;
+	}
 
 	// copy the room to the collision map
 	// the second one should auto-load with the scrolling code
@@ -328,12 +343,12 @@ void bank2_load_room(void)
 	// map = room_to_load & 1; // even or odd?
 	if (!map)
 	{
-		memcpy(c_map, level0_0, 240); 
+		memcpy(c_map, stage_table[current_stage][current_level], 240); 
 		// memcpy(c_map2, stage1_levels_list[offset - 1], 240);
 	}
 	else
 	{
-		memcpy(c_map2, level0_0, 240);
+		memcpy(c_map2, stage_table[current_stage][current_level], 240);
 		// memcpy(c_map, stage1_levels_list[offset - 1], 240);
 	}
   

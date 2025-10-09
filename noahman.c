@@ -20,7 +20,7 @@
 #include "metatile.h"
 
 //bank code, messy and in here.
-#include "bank0.h"
+#include "bank0.h" 
 #include "bank1.h"
 #include "bank2.h"
 #include "bank3.h"
@@ -55,7 +55,7 @@ void main(void)
 
 	ppu_wait_nmi();
 	set_mirroring(MIRROR_VERTICAL);
-	
+
 	nametable_to_load = 0; //todo: move this
 	current_level = 0;
 	current_stage = 0;  
@@ -79,6 +79,9 @@ void main(void)
   
 		
 		banked_call(BANK_0, bank0_player_movement);
+		banked_call(BANK_2, bank2_scroll_screen);
+ 
+		// draw the player
 
 		oam_clear();  
 		banked_call(BANK_0, bank0_draw_player_sprite);

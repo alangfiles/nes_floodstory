@@ -284,6 +284,176 @@ const unsigned char metatile[]={
 	127, 159, 110, 143,  0,
 };
 
+
+void drawMetatileBlock(void)
+{
+	// gottta set temp2 first
+	address = get_ppu_addr(nt, x, temp2);
+	index = temp2 + (x >> 4);
+	buffer_4_mt(address, index); // ppu_address, index to the data
+}
+
+void draw_screen(void)
+{
+	offset = current_level;
+	offset += high_byte(pseudo_scroll_x); 
+
+	set_data_pointer(stage_table[current_stage][offset]);
+	nt = temp1 & 1;
+	x = pseudo_scroll_x & 0xff;
+
+	switch (scroll_count)
+	{
+	case 0:
+		temp2 = 0;
+		drawMetatileBlock();
+		temp2 = 0x20;
+		drawMetatileBlock();
+		break;
+
+	case 1:
+		temp2 = 0x40;
+		drawMetatileBlock();
+		temp2 = 0x60;
+		drawMetatileBlock();
+		break;
+
+	case 2:
+		temp2 = 0x80;
+		drawMetatileBlock();
+		temp2 = 0xa0;
+		drawMetatileBlock();
+		break;
+
+	default:
+		temp2 = 0xc0;
+		drawMetatileBlock();
+		temp2 = 0xe0;
+		drawMetatileBlock();
+	}
+
+	--scroll_count;		 // Reverse the increment to scroll in the opposite direction
+	scroll_count &= 3; // mask off top bits, keep it 0-3
+}
+
+
+
+void prep_scroll_screen(void){
+	// scroll
+	// when the player is in the middle of the screen, reset the map loaded
+	temp1 = low_byte(scroll_x) + high_byte(Player1.x);
+	if (temp1 > 0x98 && temp1 < 0xa4) // middle of the screen
+	{
+		map_loaded = 0;
+	}
+
+	temp2 = Player1.x; // store his x before we check the scrolling
+
+	if (Player1.x < MAX_LEFT)
+	{
+
+		if (!map_loaded)
+		{
+			room_to_load = ((scroll_x >> 8) - 1); // high byte = room, one to the left
+			// new_cmap();
+			map_loaded = 1; // only do once
+		}
+
+		temp1 = (MAX_LEFT - Player1.x) >> 8;
+		if (temp1 > 3)
+			temp1 = 3; // max scroll change
+
+		temp3 = scroll_x + high_byte(Player1.x);
+		current_level = (temp3 >> 8);
+
+		max_rooms = levels_per_stage[current_stage] - 1;
+		max_scroll = (max_rooms * 0x100) - 1;
+
+		if (max_rooms >= 1) // this is for the multi-room levels
+		{
+			if ((scroll_x - temp1) > max_scroll) // if subtracting the scroll makes it overflow
+			{
+				scroll_x = 0; // just go to zero (and move the guy)
+			}
+			else // otherwise scroll the window and offset the guy's movement
+			{
+				scroll_x -= temp1;																	 // scroll the window
+				high_byte(Player1.x) = high_byte(Player1.x) + temp1; // add the offset to the guy
+			}
+		}
+	}
+
+	if (Player1.x > MAX_RIGHT)
+	{
+		if (!map_loaded) // gets reset whenever the player's in the middle of the level
+		{
+			room_to_load = ((scroll_x >> 8) + 1); // high byte = room, one to the left
+
+			// new_cmap();
+			map_loaded = 1; // only do once
+		}
+		temp1 = (Player1.x - MAX_RIGHT) >> 8;
+		if (temp1 > 3)
+			temp1 = 3; // max scroll change
+
+		if (max_rooms >= 1) // used for single room levels
+		{
+			scroll_x += temp1;																	 // scroll the window
+			high_byte(Player1.x) = high_byte(Player1.x) - temp1; // sub the offet from the guy
+		}
+	}
+
+	if (scroll_x >= max_scroll)
+	{
+		scroll_x = max_scroll;						// stop scrolling right, end of level
+		Player1.x = temp2;								// but allow the x position to go all the way right
+		if (high_byte(Player1.x) >= 0xe0) // but limit how far right he can go
+		{
+			Player1.x = 0xe000;
+		}
+	}
+
+
+}
+
+
+void handle_scrolling(void)
+{
+	// how to do scrolling:
+	// if the hero is facing right, put an attribute column in front of the current nametable window
+	// (4 frames = 1 column of 4 metatiles = 1 attribute column)
+	// if the hero is facing left, put an attribute column in behind the current nametable window
+
+	// figure out if we're drawing to the right or left
+	if (!r_scroll_frames && !l_scroll_frames)
+	{
+		if (Player1.vel_x > 0)
+		{
+			r_scroll_frames = 4;
+		}
+		else
+		{
+			l_scroll_frames = 4;
+		}
+	}
+
+	if (r_scroll_frames)
+	{
+		pseudo_scroll_x = scroll_x + 0x120;
+		draw_screen();
+		--r_scroll_frames;
+	}
+	else if (l_scroll_frames)
+	{
+		pseudo_scroll_x = scroll_x - 0x20; 
+		draw_screen();
+		--l_scroll_frames;
+	}
+}
+
+
+
+
 void bank2_load_room(void)
 {
 	
@@ -344,12 +514,12 @@ void bank2_load_room(void)
 	if (!map)
 	{
 		memcpy(c_map, stage_table[current_stage][current_level], 240); 
-		// memcpy(c_map2, stage1_levels_list[offset - 1], 240);
+		memcpy(c_map2, stage_table[current_stage][current_level - 1], 240);
 	}
 	else
 	{
 		memcpy(c_map2, stage_table[current_stage][current_level], 240);
-		// memcpy(c_map, stage1_levels_list[offset - 1], 240);
+		memcpy(c_map, stage_table[current_stage][current_level - 1], 240);
 	}
   
 	// // init the max_room and max_scroll
@@ -369,5 +539,10 @@ void bank2_load_room(void)
 	// 	pal_col(22, 0x16);
 	// 	pal_col(23, 0x37);
 	// }
+}
 
+void bank2_scroll_screen(void){
+	prep_scroll_screen();
+	set_scroll_x(scroll_x);
+	handle_scrolling();
 }

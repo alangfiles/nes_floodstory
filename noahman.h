@@ -18,8 +18,9 @@
 #define COL_LADDER 0x01
 #define COL_LADDER_TOP 0x02
 
-//scrolling
-#define MIN_SCROLL 0x0000
+//SCROLL
+#define MAX_RIGHT 0x9000
+#define MAX_LEFT 0x5000
 
 
 // player colision stuff
@@ -72,6 +73,7 @@ unsigned char collision_D;
 unsigned char coordinates;
 unsigned int location_with_scroll;
 unsigned char collision;
+unsigned char map_loaded;
 
 const unsigned char metatile_colision_map[] = {
 		COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL,
@@ -92,7 +94,7 @@ const unsigned char metatile_colision_map[] = {
 
 //room loading
 unsigned char nametable_to_load;
-unsigned char level;
+// unsigned char level;
 unsigned char offset;
 int address;
 unsigned char x; // room loader code
@@ -101,19 +103,26 @@ unsigned char nt;
 unsigned char index;
 unsigned char map;
 unsigned int scroll_x;
-unsigned int scroll_y;
 unsigned char max_rooms;
 unsigned int max_scroll;
 unsigned char room_to_load = 0;
 unsigned char temp_room;
 unsigned char current_stage = 0;
 unsigned char current_level = 0;
+unsigned char scroll_count;
+unsigned int pseudo_scroll_x;
+
 
 
 
 #pragma bss-name(push, "BSS")
 unsigned char c_map[240];
-unsigned char c_map2[240]; // not used in this example
+unsigned char c_map2[240];
+unsigned int temp1;
+unsigned int temp2;
+unsigned int temp3;
+unsigned char l_scroll_frames;
+unsigned char r_scroll_frames;
 
 struct Hero
 {
@@ -142,5 +151,9 @@ struct Base Generic2;
 #pragma bss-name(push, "XRAM")
 // extra RAM at $6000-$7fff
 unsigned char wram_array[0x2000];
+
+// finished placing things in XRAM; restore previous bss section so later globals
+// (and any other files that include this header) don't get placed in XRAM.
+// #pragma bss-name(pop)
 
 

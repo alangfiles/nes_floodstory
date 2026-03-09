@@ -70,16 +70,16 @@ void main(void)
 	{ // infinite loop
 		ppu_wait_nmi();      
  
-		pad1 = pad_poll(0);
-		pad1_new = get_pad_new(0); 
+		pad1 = pad_poll(0);  
+		pad1_new = get_pad_new(0);   
 
-		if (pad1_new & PAD_START)    
+		if (pad1_new & PAD_START)   
 		{ 
 		} 
   
 		
 		banked_call(BANK_0, bank0_player_movement);
-		banked_call(BANK_2, bank2_scroll_screen);
+		banked_call(BANK_2, bank2_scroll_screen);  
  
 		// draw the player
 

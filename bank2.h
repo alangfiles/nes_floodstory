@@ -301,12 +301,18 @@ void draw_screen(void)
 	// `temp1` here because it is used elsewhere and can be stale.
 	offset = current_level;
 	offset += (pseudo_scroll_x >> 8); // high byte of pseudo_scroll_x
+	// offset -= scrolling_direction;
 
 	// bounds-check the computed offset against how many levels this stage has
 	if (offset >= levels_per_stage[current_stage]) {
 		// fallback to the current level if the computed offset is out-of-range
 		offset = current_level;
 	}
+
+	if (Player1.vel_x < 0)
+		{
+			offset -= 1;
+		}
 
 	set_data_pointer(stage_table[current_stage][offset]);
 
@@ -344,10 +350,45 @@ void draw_screen(void)
 		drawMetatileBlock();
 	}
 
-	--scroll_count;		 // Reverse the increment to scroll in the opposite direction
+	++scroll_count;		 // Reverse the increment to scroll in the opposite direction
 	scroll_count &= 3; // mask off top bits, keep it 0-3
 }
 
+// copy a new collision map to one of the 2 c_map arrays
+void new_cmap(void)
+{
+	offset = room_to_load;
+
+	map = room_to_load & 1; // even or odd?
+	if (!map) 
+	{
+		memcpy(c_map, stage_table[current_stage][offset], 240); 
+		if (scrolling_direction) 
+		{
+			if (offset + 1 < levels_per_stage[current_stage])
+				memcpy(c_map2, stage_table[current_stage][offset + 1], 240);
+		}
+		else
+		{
+			if (offset - 1 >= 0)
+				memcpy(c_map2, stage_table[current_stage][offset - 1], 240);
+		}
+	}
+	else
+	{
+		memcpy(c_map2, stage_table[current_stage][offset], 240);
+		if (scrolling_direction)
+		{
+			if (offset + 1 < levels_per_stage[current_stage])
+				memcpy(c_map, stage_table[current_stage][offset + 1], 240);
+		}
+		else
+		{
+			if (offset - 1 >= 0)
+				memcpy(c_map, stage_table[current_stage][offset - 1], 240);
+		}
+	}
+}
 
 
 void prep_scroll_screen(void){
@@ -367,7 +408,7 @@ void prep_scroll_screen(void){
 		if (!map_loaded)
 		{
 			room_to_load = ((scroll_x >> 8) - 1); // high byte = room, one to the left
-			// new_cmap();
+			new_cmap();
 			map_loaded = 1; // only do once
 		}
 
@@ -401,7 +442,7 @@ void prep_scroll_screen(void){
 		{
 			room_to_load = ((scroll_x >> 8) + 1); // high byte = room, one to the left
 
-			// new_cmap();
+			new_cmap();
 			map_loaded = 1; // only do once
 		}
 		temp1 = (Player1.x - MAX_RIGHT) >> 8;
@@ -435,6 +476,8 @@ void handle_scrolling(void)
 	// if the hero is facing right, put an attribute column in front of the current nametable window
 	// (4 frames = 1 column of 4 metatiles = 1 attribute column)
 	// if the hero is facing left, put an attribute column in behind the current nametable window
+
+	scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 
 	// figure out if we're drawing to the right or left
 	if (!r_scroll_frames && !l_scroll_frames)
@@ -505,17 +548,19 @@ void bank2_load_room(void)
 			break;
 	}
 	// a little bit in the previous room
-	set_data_pointer(stage_table[current_stage][current_level-1]);
-	for (y = 0;; y += 0x20)
-	{
-		x = 240;
-		nt = (nametable_to_load + 1) % 2;
-		address = get_ppu_addr(1, x, y);
-		index = y + (x >> 4);
-		buffer_4_mt(address, index); // ppu_address, index to the data
-		flush_vram_update2();
-		if (y == 0xe0)
-			break;
+	if (current_level > 0) {
+		set_data_pointer(stage_table[current_stage][current_level-1]);
+		for (y = 0;; y += 0x20)
+		{
+			x = 240;
+			nt = nametable_to_load;
+			address = get_ppu_addr(nt, x, y);
+			index = y + (x >> 4);
+			buffer_4_mt(address, index); // ppu_address, index to the data
+			flush_vram_update2();
+			if (y == 0xe0)
+				break;
+		}
 	}
 
 	// copy the room to the collision map
@@ -523,17 +568,14 @@ void bank2_load_room(void)
 	// we also copy the previous map into the other collision nametable
 	// so that we can go backwards through the levels.
 	// map = room_to_load & 1; // even or odd?
-	if (!map)
-	{
-		memcpy(c_map, stage_table[current_stage][current_level], 240); 
-		memcpy(c_map2, stage_table[current_stage][current_level - 1], 240);
+
+	// this just loads once, so copy the first collision map.
+	memcpy(c_map, stage_table[current_stage][current_level], 240); 
+	if (current_level + 1 < levels_per_stage[current_stage]) {
+		memcpy(c_map2, stage_table[current_stage][current_level + 1], 240);
 	}
-	else
-	{
-		memcpy(c_map2, stage_table[current_stage][current_level], 240);
-		memcpy(c_map, stage_table[current_stage][current_level - 1], 240);
-	}
-  
+ 
+	map_loaded = 1;
 	// // init the max_room and max_scroll
 	// max_rooms = 1; //level_max_rooms[level] - 1;
 	// max_scroll = (max_rooms * 0x100) - 1; // 11 rooms makes 0x0AFF as the max

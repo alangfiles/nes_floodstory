@@ -24,7 +24,7 @@
 
 
 // player colision stuff
-#define HERO_WIDTH 12
+#define HERO_WIDTH 11
 #define HERO_HEIGHT 20
 
 
@@ -74,6 +74,7 @@ unsigned char coordinates;
 unsigned int location_with_scroll;
 unsigned char collision;
 unsigned char map_loaded;
+unsigned char scrolling_direction;
 
 const unsigned char metatile_colision_map[] = {
 		COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL,

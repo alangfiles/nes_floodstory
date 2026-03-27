@@ -4,6 +4,7 @@
 // player movement
 // player sprite drawing
 #include "sprites.h"
+#include "animations.h"
 
 //colision code:
 
@@ -618,9 +619,130 @@ void check_player_colision(void){
   // This is now integrated into movement()
 }
 
+void update_player_animation(void)
+{
+	// Determine which animation to play based on player state
+	
+	// Priority: sliding > shooting > jumping > on ladder > running > standing
+	
+	if (player_is_sliding)
+	{
+		// Sliding animation
+		if (direction == LEFT)
+		{
+			current_animation_ptr = animate_slideleft_data;
+		}
+		else
+		{
+			current_animation_ptr = animate_slideright_data;
+		}
+		animation_frame_counter = 0;
+		current_animation_frame = 0;
+	}
+	else if (player_shooting > 0)
+	{
+		// Shooting animation
+		--player_shooting;
+		if (direction == LEFT)
+		{
+			current_animation_ptr = animate_playerstandshootleft_data;
+		}
+		else
+		{
+			current_animation_ptr = animate_playerstandshootright_data;
+		}
+		animation_frame_counter = 0;
+		current_animation_frame = 0;
+	}
+	else if (player_in_air)
+	{
+		// Jumping/falling animation
+		if (direction == LEFT)
+		{
+			current_animation_ptr = animate_playerjumpleft_data;
+		}
+		else
+		{
+			current_animation_ptr = animate_playerjumpright_data;
+		}
+		animation_frame_counter = 0;
+		current_animation_frame = 0;
+	}
+	else if (player_on_ladder)
+	{
+		// Ladder climbing animation
+		if (player_on_ladder_pose > 15)
+		{
+			current_animation_ptr = animate_playerclimb2_data;
+			player_on_ladder_pose = 0;
+		}
+		else if (player_on_ladder_pose > 8)
+		{
+			current_animation_ptr = animate_playerclimb1_data;
+		}
+		else
+		{
+			current_animation_ptr = animate_playerclimb1_data;
+		}
+		// Continue current animation frame for synced climbing
+	}
+	else if (player_is_running && (pad1 & PAD_LEFT || pad1 & PAD_RIGHT))
+	{
+		// Running animation with frame cycling
+		animation_frame_counter++;
+		
+		// Cycle through run frames every 6 frames
+		if (animation_frame_counter >= 6)
+		{
+			animation_frame_counter = 0;
+			current_animation_frame++;
+		}
+		
+		if (direction == LEFT)
+		{
+			if (current_animation_frame > 2)
+				current_animation_frame = 0;
+			
+			if (current_animation_frame == 0)
+				current_animation_ptr = animate_playerrun1left_data;
+			else if (current_animation_frame == 1)
+				current_animation_ptr = animate_playerrun2left_data;
+			else
+				current_animation_ptr = animate_playerrun3left_data;
+		}
+		else
+		{
+			if (current_animation_frame > 2)
+				current_animation_frame = 0;
+			
+			if (current_animation_frame == 0)
+				current_animation_ptr = animate_playerrun1right_data;
+			else if (current_animation_frame == 1)
+				current_animation_ptr = animate_playerrun2right_data;
+			else
+				current_animation_ptr = animate_playerrun3right_data;
+		}
+	}
+	else
+	{
+		// Standing animation
+		if (direction == LEFT)
+		{
+			current_animation_ptr = animate_playerstandleft_data;
+		}
+		else
+		{
+			current_animation_ptr = animate_playerstandright_data;
+		}
+		animation_frame_counter = 0;
+		current_animation_frame = 0;
+	}
+}
+
 void bank0_player_movement(void)
 {
   movement();
+  update_player_animation();
 }
 
 void bank0_draw_player_sprite(void)
@@ -628,17 +750,8 @@ void bank0_draw_player_sprite(void)
 	temp_x = Player1.x >> 8;
   temp_y = Player1.y >> 8; 
 	
-	// Use sliding sprite if player is sliding, otherwise use standing sprite
-	if (player_is_sliding)
-	{
-		temp_sprite = noah_slide;
-	}
-	else
-	{
-		temp_sprite = noah_box;
-	}
-	
-	oam_meta_spr(temp_x, temp_y, temp_sprite);
+	// Draw using current animation
+	oam_meta_spr(temp_x, temp_y, current_animation_ptr);
 	
 	// Draw projectiles
 	for (temp1 = 0; temp1 < MAX_PROJECTILES; ++temp1)

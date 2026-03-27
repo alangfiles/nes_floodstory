@@ -111,6 +111,11 @@ unsigned char projectile_cooldown;
 unsigned char projectile_index;
 unsigned char hit_direction;
 
+// animation state
+unsigned char current_animation_frame;
+unsigned char animation_frame_counter;
+const unsigned char* current_animation_ptr;
+
 // projectile arrays
 unsigned char projectiles_list[] = {TURN_OFF, TURN_OFF, TURN_OFF, TURN_OFF};
 unsigned char projectiles_x[] = {0, 0, 0, 0};

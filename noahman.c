@@ -85,6 +85,12 @@ void load_level_select(void)
 	player_in_air = 0;
 	projectile_cooldown = 0;
 	
+	// Initialize animation state
+	direction = RIGHT;
+	current_animation_frame = 0;
+	animation_frame_counter = 0;
+	current_animation_ptr = animate_playerstandright_data;
+	
 	
 	//clear press start and noahman
 	// Load level select screen

@@ -5,18 +5,48 @@
 #define DOWN 4
 #define UP 3
 
+// Game modes
+enum
+{
+	MODE_TITLE,
+	MODE_GAMEOVER,
+	MODE_LEVEL_SELECT,
+	MODE_GAME,
+	MODE_PAUSE,
+	MODE_GAME_OVER
+};
+
+enum 
+{
+	CHR_NOAHMAN,
+	CHR_STAGE_1,
+	CHR_STAGE_2,
+};
+
 //MOVEMENT
 #define ACCEL 30
+#define SLIDE_ACCEL 40
+#define LADDER_ACCEL 20
 #define DECEL 50
+#define HITSTUN_DECEL 45
 #define MAX_SPEED 0x160
+#define MAX_SLIDE_SPEED 0x180
+#define MAX_LADDER_SPEED 0x100
+#define JUMP_VEL -0x510
 #define GRAVITY 0x3c
-#define JUMP_VEL -0x210
+
+// PROJECTILES
+#define MAX_PROJECTILES 3
+#define PROJECTILE_COOLDOWN_FRAMES 10
+#define PROJECTILE_SPEED 3
+#define PROJECTILE_SPEED_WITH_SCROLL 5
 
 // collision
 #define COL_DOWN 0x80
 #define COL_ALL 0x40
 #define COL_LADDER 0x01
 #define COL_LADDER_TOP 0x02
+#define TURN_OFF 0xff
 
 //SCROLL
 #define MAX_RIGHT 0x9000
@@ -50,9 +80,12 @@ unsigned char arg1;
 unsigned char arg2;
 unsigned char pad1;
 unsigned char pad1_new;
+unsigned char pad1_state;
 unsigned char char_state;
 unsigned char song;
 unsigned char sound;
+unsigned char game_mode;
+unsigned char selected_stage;
 
 //player movement/display
 unsigned int temp_x;
@@ -60,6 +93,28 @@ unsigned int temp_y;
 unsigned int temp_sprite;
 unsigned char old_x; //players last position (used for colision)
 unsigned char old_y; //players last position (used for colision)
+
+// player state variables
+unsigned char player_in_air;
+unsigned char player_is_sliding;
+unsigned char player_is_running;
+unsigned char player_on_ladder;
+unsigned char player_on_ladder_pose;
+unsigned char player_on_ladder_top;
+unsigned char player_in_hitstun;
+unsigned char falling_down;
+unsigned char multi_jump;
+unsigned char multi_jump_max;
+unsigned char short_jump_count;
+unsigned char player_shooting;
+unsigned char projectile_cooldown;
+unsigned char projectile_index;
+unsigned char hit_direction;
+
+// projectile arrays
+unsigned char projectiles_list[] = {TURN_OFF, TURN_OFF, TURN_OFF, TURN_OFF};
+unsigned char projectiles_x[] = {0, 0, 0, 0};
+unsigned char projectiles_y[] = {0, 0, 0, 0};
 
 // collision
 unsigned char eject_L;				 // from the left
@@ -104,6 +159,7 @@ unsigned char nt;
 unsigned char index;
 unsigned char map;
 unsigned int scroll_x;
+unsigned int scroll_y;
 unsigned char max_rooms;
 unsigned int max_scroll;
 unsigned char room_to_load = 0;

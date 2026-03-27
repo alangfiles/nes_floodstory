@@ -27,7 +27,7 @@ crt0.o: crt0.s CHRS/noahman.chr CHRS/stage1.chr CHRS/stage2.chr MUSIC/TestMusic3
 $(NAME).o: $(NAME).s
 	$(CA65) $(NAME).s -g
 
-$(NAME).s: $(NAME).c noahman.h
+$(NAME).s: $(NAME).c noahman.h bank0.h bank1.h bank2.h bank3.h bank4.h bank5.h bank6.h sprites.h
 	$(CC65) -Oirs $(NAME).c --add-source
 
 clean:

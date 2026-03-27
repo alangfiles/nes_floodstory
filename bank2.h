@@ -288,31 +288,24 @@ const unsigned char metatile[]={
 void drawMetatileBlock(void)
 {
 	// gottta set temp2 first
-	address = get_ppu_addr(nt, x, temp2);
-	index = temp2 + (x >> 4);
+	address = get_ppu_addr(nt, x, temp_y);
+	index = temp_y + (x >> 4);
 	buffer_4_mt(address, index); // ppu_address, index to the data
 }
 
-void draw_screen(void)
+void draw_screen_L(void)
 {
-	// determine which room (level) to sample from using the high byte of the
-	// pseudo scroll value. Use the high byte of pseudo_scroll_x as the room
-	// offset so drawing matches the logical scroll position. Avoid using
-	// `temp1` here because it is used elsewhere and can be stale.
-	offset = current_level;
-	offset += (pseudo_scroll_x >> 8); // high byte of pseudo_scroll_x
-	// offset -= scrolling_direction;
+	// scrolling to the left, draw metatiles as we go
+	pseudo_scroll_x = scroll_x - 0x20;
+
+	// high byte of pseudo_scroll_x is the room/level offset
+	offset = (pseudo_scroll_x >> 8);
 
 	// bounds-check the computed offset against how many levels this stage has
-	if (offset >= levels_per_stage[current_stage]) {
-		// fallback to the current level if the computed offset is out-of-range
-		offset = current_level;
+	if (offset >= levels_per_stage[current_stage] || offset < 0) {
+		// fallback to room 0 if the computed offset is out-of-range
+		offset = 0;
 	}
-
-	if (Player1.vel_x < 0)
-		{
-			offset -= 1;
-		}
 
 	set_data_pointer(stage_table[current_stage][offset]);
 
@@ -323,34 +316,88 @@ void draw_screen(void)
 	switch (scroll_count)
 	{
 	case 0:
-		temp2 = 0;
+		temp_y = 0;
 		drawMetatileBlock();
-		temp2 = 0x20;
+		temp_y = 0x20;
 		drawMetatileBlock();
 		break;
 
 	case 1:
-		temp2 = 0x40;
+		temp_y = 0x40;
 		drawMetatileBlock();
-		temp2 = 0x60;
+		temp_y = 0x60;
 		drawMetatileBlock();
 		break;
 
 	case 2:
-		temp2 = 0x80;
+		temp_y = 0x80;
 		drawMetatileBlock();
-		temp2 = 0xa0;
+		temp_y = 0xa0;
 		drawMetatileBlock();
 		break;
 
 	default:
-		temp2 = 0xc0;
+		temp_y = 0xc0;
 		drawMetatileBlock();
-		temp2 = 0xe0;
+		temp_y = 0xe0;
 		drawMetatileBlock();
 	}
 
-	++scroll_count;		 // Reverse the increment to scroll in the opposite direction
+	--scroll_count;		 // Decrement scroll_count for left scrolling
+	scroll_count &= 3; // mask off top bits, keep it 0-3
+}
+
+void draw_screen_R(void)
+{
+	// scrolling to the right, draw metatiles as we go
+	pseudo_scroll_x = scroll_x + 0x120;
+
+	// high byte of pseudo_scroll_x is the room/level offset
+	offset = (pseudo_scroll_x >> 8);
+
+	// bounds-check the computed offset against how many levels this stage has
+	if (offset >= levels_per_stage[current_stage] || offset < 0) {
+		// fallback to room 0 if the computed offset is out-of-range
+		offset = 0;
+	}
+
+	set_data_pointer(stage_table[current_stage][offset]);
+
+	// choose the nametable based on the high byte of pseudo_scroll_x
+	nt = ((pseudo_scroll_x >> 8) & 1);
+	x = pseudo_scroll_x & 0xff;
+
+	switch (scroll_count)
+	{
+	case 0:
+		temp_y = 0;
+		drawMetatileBlock();
+		temp_y = 0x20;
+		drawMetatileBlock();
+		break;
+
+	case 1:
+		temp_y = 0x40;
+		drawMetatileBlock();
+		temp_y = 0x60;
+		drawMetatileBlock();
+		break;
+
+	case 2:
+		temp_y = 0x80;
+		drawMetatileBlock();
+		temp_y = 0xa0;
+		drawMetatileBlock();
+		break;
+
+	default:
+		temp_y = 0xc0;
+		drawMetatileBlock();
+		temp_y = 0xe0;
+		drawMetatileBlock();
+	}
+
+	++scroll_count;		 // Increment scroll_count for right scrolling
 	scroll_count &= 3; // mask off top bits, keep it 0-3
 }
 
@@ -494,28 +541,94 @@ void handle_scrolling(void)
 
 	if (r_scroll_frames)
 	{
-		pseudo_scroll_x = scroll_x + 0x120;
-		draw_screen();
+		draw_screen_R();
 		--r_scroll_frames;
 	}
 	else if (l_scroll_frames)
 	{
-		pseudo_scroll_x = scroll_x - 0x20; 
-		draw_screen();
+		draw_screen_L();
 		--l_scroll_frames;
 	}
 }
 
+#include "LEVELS/General/titletiled.c"
+void bank2_load_title(void)
+{
+	
+	ppu_off();
 
+	// pal_bg(palette_bg);
+	set_data_pointer(titletiled_0);
+	set_mt_pointer(metatile);
+		for (y = 0;; y += 0x20)
+	{
+		for (x = 0;; x += 0x20)
+		{
+			address = get_ppu_addr(0, x, y);
+			index = (y & 0xf0) + (x >> 4);
+			buffer_4_mt(address, index); // ppu_address, index to the data
+			flush_vram_update2();
+			if (x == 0xe0)
+				break;
+		}
+		if (y == 0xe0)
+			break;
+	}
+	
+	ppu_on_all();
+	game_mode = MODE_TITLE;
+	multi_vram_buffer_horz("NOAH VS. ATRAHASIS", 18, NTADR_A(12, 6));
+	multi_vram_buffer_horz("ONE ON ONE", 10, NTADR_A(14, 7));
+
+	multi_vram_buffer_horz("BRIAN & ALAN GAMES", 18, NTADR_A(12, 10));
+
+}
+
+#include "LEVELS/General/gameovertiled.c"
+void bank2_load_gameover(void)
+{
+	
+	ppu_off();
+
+	// pal_bg(palette_bg);
+	set_data_pointer(gameovertiled_0);
+	set_mt_pointer(metatile);
+		for (y = 0;; y += 0x20)
+	{
+		for (x = 0;; x += 0x20)
+		{
+			address = get_ppu_addr(0, x, y);
+			index = (y & 0xf0) + (x >> 4);
+			buffer_4_mt(address, index); // ppu_address, index to the data
+			flush_vram_update2();
+			if (x == 0xe0)
+				break;
+		}
+		if (y == 0xe0)
+			break;
+	}
+	
+	ppu_on_all();
+	game_mode = MODE_GAMEOVER;
+
+}
 
 
 void bank2_load_room(void)
 {
+	// Load appropriate CHR bank for the current stage
+	if (current_stage == 0) {
+		//set chr for this stage
+		set_chr_bank_1(CHR_STAGE_1);
+	} else if (current_stage == 1) {
+		//set chr for this stage
+		set_chr_bank_1(CHR_STAGE_2);
+	}
 	
+	ppu_off(); 
 	clear_vram_buffer();
-	// ppu_off();
-	// offset = level_offsets[level];
-	// offset += room_to_load;
+	set_vram_buffer();
+	
 	set_data_pointer(stage_table[current_stage][current_level]);
 	set_mt_pointer(metatile);
 	// load_bg_after_pointer could work to save space if we set nametable on other usages to 0
@@ -576,27 +689,12 @@ void bank2_load_room(void)
 	}
  
 	map_loaded = 1;
-	// // init the max_room and max_scroll
-	// max_rooms = 1; //level_max_rooms[level] - 1;
-	// max_scroll = (max_rooms * 0x100) - 1; // 11 rooms makes 0x0AFF as the max
-
-	// sprite_obj_init();
-	// entity_obj_init();
-
-	// ppu_on_all();
-
-	// if(level == 7){
-	// 	//update to bear pallete
-	// 	// bear palette: 0x21,0x05,0x16,0x37,
-	// 	pal_col(20, 0x21);
-	// 	pal_col(21, 0x05);
-	// 	pal_col(22, 0x16);
-	// 	pal_col(23, 0x37);
-	// }
+	ppu_on_all();
 }
 
 void bank2_scroll_screen(void){
 	prep_scroll_screen();
 	set_scroll_x(scroll_x);
+	set_scroll_y(scroll_y);
 	handle_scrolling();
 }

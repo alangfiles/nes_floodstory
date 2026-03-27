@@ -9,6 +9,20 @@ const unsigned char noah_box[]={
 0x80
 };
 
+const unsigned char noah_slide[]={
+ 0,12,0x4f,0,
+ 6,12,0x4f,0,
+ 12,12,0x4f,0,
+ 18,12,0x4f,0,
+0x80
+};
+
+// Simple projectile sprite (8x8)
+const unsigned char projectile[]={
+ 0,0,0x5f,0,
+0x80
+};
+
 const unsigned char topleft[]={
 
  0,0,0x50,0,

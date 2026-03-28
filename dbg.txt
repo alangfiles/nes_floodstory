@@ -1,6 +1,6 @@
 version	major=2,minor=0
 info	csym=0,file=561,lib=1,line=11611,mod=19,scope=0,seg=20,span=0,sym=0,type=0
-file	id=0,name="crt0.s",size=5736,mtime=0x69C5DB3E,mod=0
+file	id=0,name="crt0.s",size=5737,mtime=0x69C7C8F5,mod=0
 file	id=1,name="/usr/local/Cellar/cc65/2.19/share/cc65/asminc/zeropage.inc",size=721,mtime=0x5ED2ADF3,mod=0
 file	id=2,name="MMC1/mmc1_macros.asm",size=281,mtime=0x6360114D,mod=0
 file	id=3,name="MMC1/bank_helpers.asm",size=1488,mtime=0x6360114D,mod=0
@@ -12,7 +12,7 @@ file	id=8,name="MUSIC/SoundFx.s",size=693,mtime=0x6360114D,mod=0
 file	id=9,name="MUSIC/BassDrum.dmc",size=865,mtime=0x6360114D,mod=0
 file	id=10,name="CHRS/noahman.chr",size=8192,mtime=0x68E6B48F,mod=0
 file	id=11,name="CHRS/stage1.chr",size=8192,mtime=0x6654B3EE,mod=0
-file	id=12,name="CHRS/stage2.chr",size=8192,mtime=0x6654B3EE,mod=0
+file	id=12,name="CHRS/giraffe.chr",size=8192,mtime=0x6612B909,mod=0
 file	id=13,name="noahman.s",size=149879,mtime=0x69C5E83D,mod=1
 file	id=14,name="/usr/local/Cellar/cc65/2.19/share/cc65/asminc/longbranch.mac",size=2632,mtime=0x5ED2ADF3,mod=1
 file	id=15,name="/private/tmp/cc65-20211029-72602-uqb2uc/cc65-2.19/asminc/cpu.mac",size=843,mtime=0x5ED2ADF3,mod=9+11+12

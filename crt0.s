@@ -346,7 +346,7 @@ sounds_data:
 
 	.incbin "CHRS/noahman.chr"
 	.incbin "CHRS/stage1.chr"
-	.incbin "CHRS/stage2.chr"
+	.incbin "CHRS/giraffe.chr"
 ; the CHARS segment is much bigger, and I could have 
 ; incbin-ed many more chr files
 	

@@ -5,6 +5,7 @@
 
 #include "LEVELS/Stage1/level0.c"
 #include "LEVELS/Stage2/level0.c"
+#include "LEVELS/Stage2/giraffetiles.h"
 
 void function_bank2()
 {
@@ -39,9 +40,18 @@ const unsigned char levels_per_stage[] = {
     sizeof(stage1_levels) / sizeof(stage1_levels[0]),
 };
 
+// Stage palettes
+const unsigned char stage1_bg_palette[16] = { 0x21,0x0f,0x00,0x10,0x21,0x0f,0x30,0x08,0x21,0x0f,0x17,0x06,0x21,0x0f,0x19,0x29 };
+const unsigned char stage2_bg_palette[16] = { 0x21,0x07,0x17,0x37, 0x21,0x30,0x32,0x02, 0x21,0x0f,0x17,0x06, 0x21,0x0f,0x18,0x28 };
+
+const unsigned char* stage_bg_palettes[] = {
+    stage1_bg_palette,
+    stage2_bg_palette,
+};
 
 
-const unsigned char metatile[]={
+
+const unsigned char stage1_metatile[]={
 	123, 124, 139, 140,  0,
 	125, 126, 141, 142,  0,
 	155, 156, 171, 172,  0,
@@ -282,6 +292,12 @@ const unsigned char metatile[]={
 	143, 127, 110, 110,  0,
 	159, 159, 143, 127,  0,
 	127, 159, 110, 143,  0,
+};
+
+// Stage metatile pointers (must be defined after stage1_metatile)
+const unsigned char* stage_metatiles[] = {
+    stage1_metatile,
+    girafee_metatiles,
 };
 
 
@@ -559,7 +575,7 @@ void bank2_load_title(void)
 
 	// pal_bg(palette_bg);
 	set_data_pointer(titletiled_0);
-	set_mt_pointer(metatile);
+	set_mt_pointer(stage1_metatile);
 		for (y = 0;; y += 0x20)
 	{
 		for (x = 0;; x += 0x20)
@@ -592,7 +608,7 @@ void bank2_load_gameover(void)
 
 	// pal_bg(palette_bg);
 	set_data_pointer(gameovertiled_0);
-	set_mt_pointer(metatile);
+	set_mt_pointer(stage1_metatile);
 		for (y = 0;; y += 0x20)
 	{
 		for (x = 0;; x += 0x20)
@@ -619,18 +635,21 @@ void bank2_load_room(void)
 	// Load appropriate CHR bank for the current stage
 	if (current_stage == 0) {
 		//set chr for this stage
-		set_chr_bank_1(CHR_STAGE_1);
+		set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
 	} else if (current_stage == 1) {
 		//set chr for this stage
-		set_chr_bank_1(CHR_STAGE_2);
+		set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
 	}
+	
+	// Load palette for this stage
+	pal_bg(stage_bg_palettes[current_stage]);
 	
 	ppu_off(); 
 	clear_vram_buffer();
 	set_vram_buffer();
 	
 	set_data_pointer(stage_table[current_stage][current_level]);
-	set_mt_pointer(metatile);
+	set_mt_pointer(stage_metatiles[current_stage]);
 	// load_bg_after_pointer could work to save space if we set nametable on other usages to 0
 	for (y = 0;; y += 0x20)
 	{

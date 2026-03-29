@@ -404,18 +404,23 @@ void bank2_load_room(void)
 	// Load appropriate CHR bank for the current stage
 	if (current_stage == 0) {
 		//set chr for this stage
+		set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
 	} else if (current_stage == 1) {
 		//set chr for this stage
+		set_chr_bank_0(CHR_STAGE_2_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
 	} else if (current_stage == 2) {
 		//set chr for this stage
+		set_chr_bank_0(CHR_STAGE_3_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
 	} else if (current_stage == 3) {
 		//set chr for this stage
+		set_chr_bank_0(CHR_STAGE_4_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
 	} else if (current_stage == 4) {
 		//set chr for this stage
+		set_chr_bank_0(CHR_STAGE_5_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
 	}
 	

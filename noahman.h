@@ -22,6 +22,12 @@ enum
 	CHR_STAGE_1_BACKGROUND_CHR,
 	CHR_STAGE_2_CHARACTER_CHR,
 	CHR_STAGE_2_BACKGROUND_CHR,
+	CHR_STAGE_3_CHARACTER_CHR,
+	CHR_STAGE_3_BACKGROUND_CHR,
+	CHR_STAGE_4_CHARACTER_CHR,
+	CHR_STAGE_4_BACKGROUND_CHR,
+	CHR_STAGE_5_CHARACTER_CHR,
+	CHR_STAGE_5_BACKGROUND_CHR,
 };
 
 //MOVEMENT
@@ -112,10 +118,10 @@ unsigned char projectile_cooldown;
 unsigned char projectile_index;
 unsigned char hit_direction;
 
-// animation state
-unsigned char current_animation_frame;
+// animation variables
 unsigned char animation_frame_counter;
-const unsigned char* current_animation_ptr;
+unsigned char current_animation_frame;
+const unsigned char *current_animation_ptr;
 
 // projectile arrays
 unsigned char projectiles_list[] = {TURN_OFF, TURN_OFF, TURN_OFF, TURN_OFF};

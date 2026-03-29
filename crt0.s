@@ -344,8 +344,10 @@ sounds_data:
 
 .segment "CHARS"
 
-	.incbin "CHRS/stage1.chr"
-	.incbin "CHRS/giraffe.chr"
-; the CHARS segment is much bigger, and I could have 
+	.incbin "CHRS/stage1.chr"	
+	.incbin "CHRS/giraffe.chr";
+	.incbin "CHRS/walrus.chr";
+	.incbin "CHRS/camel.chr";
+	.incbin "CHRS/leviathan.chr";
 ; incbin-ed many more chr files
 	

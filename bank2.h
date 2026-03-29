@@ -639,6 +639,15 @@ void bank2_load_room(void)
 	} else if (current_stage == 1) {
 		//set chr for this stage
 		set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
+	} else if (current_stage == 2) {
+		//set chr for this stage
+		set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
+	} else if (current_stage == 3) {
+		//set chr for this stage
+		set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
+	} else if (current_stage == 4) {
+		//set chr for this stage
+		set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
 	}
 	
 	// Load palette for this stage

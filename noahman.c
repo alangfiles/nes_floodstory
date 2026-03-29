@@ -106,18 +106,33 @@ void update_level_select_display(void)
 	ppu_off();
 	clear_vram_buffer();
 	
-	multi_vram_buffer_horz("SELECT STAGE", 12, NTADR_A(8, 6));
+	multi_vram_buffer_horz("SELECT STAGE", 12, NTADR_A(8, 4));
 	
+	// Display all 5 stages with selection marker
 	if (selected_stage == 0)
-	{
-		multi_vram_buffer_horz("X  BEAR", 7, NTADR_A(8, 10));
-		multi_vram_buffer_horz("   GIRAFE", 9, NTADR_A(8, 14));
-	}
+		multi_vram_buffer_horz("X  BEAR", 7, NTADR_A(8, 8));
 	else
-	{
-		multi_vram_buffer_horz("   BEAR", 7, NTADR_A(8, 10));
-		multi_vram_buffer_horz("X  GIRAFE", 9, NTADR_A(8, 14));
-	}
+		multi_vram_buffer_horz("   BEAR", 7, NTADR_A(8, 8));
+	
+	if (selected_stage == 1)
+		multi_vram_buffer_horz("X  GIRAFFE", 10, NTADR_A(8, 10));
+	else
+		multi_vram_buffer_horz("   GIRAFFE", 10, NTADR_A(8, 10));
+	
+	if (selected_stage == 2)
+		multi_vram_buffer_horz("X  WALRUS", 9, NTADR_A(8, 12));
+	else
+		multi_vram_buffer_horz("   WALRUS", 9, NTADR_A(8, 12));
+	
+	if (selected_stage == 3)
+		multi_vram_buffer_horz("X  CAMEL", 8, NTADR_A(8, 14));
+	else
+		multi_vram_buffer_horz("   CAMEL", 8, NTADR_A(8, 14));
+	
+	if (selected_stage == 4)
+		multi_vram_buffer_horz("X  LEVIATHAN", 12, NTADR_A(8, 16));
+	else
+		multi_vram_buffer_horz("   LEVIATHAN", 12, NTADR_A(8, 16));
 	
 	flush_vram_update2();
 	ppu_on_all();
@@ -178,7 +193,7 @@ void main(void)
 			
 			if (pad1_new & PAD_DOWN)
 			{
-				if (selected_stage < 1)
+				if (selected_stage < 4)
 					selected_stage++;
 				update_level_select_display();
 			}

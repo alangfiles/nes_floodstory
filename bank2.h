@@ -5,17 +5,35 @@
 
 #include "LEVELS/Stage1/Stage1.c"
 #include "LEVELS/Stage2/Stage2.c"
-#include "LEVELS/Stage3/Stage3.c"
-#include "LEVELS/Stage4/Stage4.c"
-#include "LEVELS/Stage5/Stage5.c"
+
+// Extern declarations for stage data in bank3
+extern const unsigned char* stage3_levels[];
+extern const unsigned char stage3_max_rooms[];
+extern const unsigned char stage3_offsets[];
+extern const unsigned char stage3_bg_palette[];
+extern const unsigned char stage3_palette_sp[];
+extern const unsigned char stage3_metatiles[];
+
+extern const unsigned char* stage4_levels[];
+extern const unsigned char stage4_max_rooms[];
+extern const unsigned char stage4_offsets[];
+extern const unsigned char stage4_bg_palette[];
+extern const unsigned char stage4_palette_sp[];
+extern const unsigned char stage4_metatiles[];
+
+// Extern declarations for stage data in bank4
+extern const unsigned char* stage5_levels[];
+extern const unsigned char stage5_max_rooms[];
+extern const unsigned char stage5_offsets[];
+extern const unsigned char stage5_bg_palette[];
+extern const unsigned char stage5_palette_sp[];
+extern const unsigned char stage5_metatiles[];
 
 void function_bank2()
 {
 }
 
-// simple table structure: each stage has an array of pointers to level data (each "level" here is the room data pointer)
-
-// table of stages
+// Unified stage table for all stages
 const unsigned char** stage_table[] = {
     stage1_levels,
     stage2_levels,
@@ -26,16 +44,14 @@ const unsigned char** stage_table[] = {
 
 // how many levels each stage has
 const unsigned char levels_per_stage[] = {
-    sizeof(stage1_levels) / sizeof(stage1_levels[0]),
-    sizeof(stage2_levels) / sizeof(stage2_levels[0]),
-    sizeof(stage3_levels) / sizeof(stage3_levels[0]),
-    sizeof(stage4_levels) / sizeof(stage4_levels[0]),
-    sizeof(stage5_levels) / sizeof(stage5_levels[0]),
+    8,  // stage 1
+    2,  // stage 2
+    20, // stage 3
+    24, // stage 4
+    23, // stage 5
 };
 
 // Stage palettes
-
-
 const unsigned char* stage_bg_palettes[] = {
     stage1_bg_palette,
     stage2_bg_palette,
@@ -44,11 +60,7 @@ const unsigned char* stage_bg_palettes[] = {
     stage5_bg_palette,
 };
 
-
-
-
-
-// Stage metatile pointers (must be defined after stage1_metatile)
+// Stage metatile pointers
 const unsigned char* stage_metatiles[] = {
     stage1_metatiles,
     stage2_metatiles,

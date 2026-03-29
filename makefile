@@ -27,7 +27,7 @@ crt0.o: crt0.s CHRS/stage1.chr CHRS/stage2.chr MUSIC/TestMusic3.s MUSIC/SoundFx.
 $(NAME).o: $(NAME).s
 	$(CA65) $(NAME).s -g
 
-$(NAME).s: $(NAME).c noahman.h bank0.h bank1.h bank2.h bank3.h bank4.h bank5.h bank6.h sprites.h
+$(NAME).s: $(NAME).c noahman.h bank0.h bank1.h bank2.h bank3.h bank4.h bank5.h bank6.h sprites.h LEVELS/Stage1/Stage1.c LEVELS/Stage2/Stage2.c LEVELS/Stage3/Stage3.c LEVELS/Stage4/Stage4.c LEVELS/Stage5/Stage5.c
 	$(CC65) -Oirs $(NAME).c --add-source
 
 clean:

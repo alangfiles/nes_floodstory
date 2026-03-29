@@ -1,7 +1,30 @@
-#include "level0.c"
+#include "walrusworld.c"
 
 const unsigned char *const stage3_levels_list[] = {
-    level0_0};
+    };
+
+const unsigned char* stage3_levels[] = {
+    iceworld_0,
+    iceworld_1,
+    iceworld_2,
+    iceworld_3,
+    iceworld_4,
+    iceworld_5,
+    iceworld_6,
+    iceworld_7,
+    iceworld_8,
+    iceworld_9,
+    iceworld_10,
+    iceworld_11,
+    iceworld_12,
+    iceworld_13,
+    iceworld_14,
+    iceworld_15,
+    iceworld_16,
+    iceworld_17,
+    iceworld_18,
+    iceworld_19,
+};
 
 const unsigned char stage3_max_rooms[] = {1};
 

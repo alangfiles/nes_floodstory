@@ -1,7 +1,33 @@
-#include "level0.c"
+#include "leviathanworld.c"
 
 const unsigned char *const stage5_levels_list[] = {
-    level0_0};
+    };
+
+const unsigned char* stage5_levels[] = {
+    leviathanworld_0,
+    leviathanworld_1,
+    leviathanworld_2,
+    leviathanworld_3,
+    leviathanworld_4,
+    leviathanworld_5,
+    leviathanworld_6,
+    leviathanworld_7,
+    leviathanworld_8,
+    leviathanworld_9,
+    leviathanworld_10,
+    leviathanworld_11,
+    leviathanworld_12,
+    leviathanworld_13,
+    leviathanworld_14,
+    leviathanworld_15,
+    leviathanworld_16,
+    leviathanworld_17,
+    leviathanworld_18,
+    leviathanworld_19,
+    leviathanworld_20,
+    leviathanworld_21,
+    leviathanworld_22,
+};
 
 const unsigned char stage5_max_rooms[] = {1};
 

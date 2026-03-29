@@ -1,7 +1,34 @@
-#include "level0.c"
+#include "camelworld.c"
 
 const unsigned char *const stage4_levels_list[] = {
-    level0_0};
+    };
+
+const unsigned char* stage4_levels[] = {
+    camelworld_0,
+    camelworld_1,
+    camelworld_2,
+    camelworld_3,
+    camelworld_4,
+    camelworld_5,
+    camelworld_6,
+    camelworld_7,
+    camelworld_8,
+    camelworld_9,
+    camelworld_10,
+    camelworld_11,
+    camelworld_12,
+    camelworld_13,
+    camelworld_14,
+    camelworld_15,
+    camelworld_16,
+    camelworld_17,
+    camelworld_18,
+    camelworld_19,
+    camelworld_20,
+    camelworld_21,
+    camelworld_22,
+    camelworld_23,
+};
 
 const unsigned char stage4_max_rooms[] = {1};
 

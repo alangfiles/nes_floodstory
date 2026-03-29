@@ -5,6 +5,9 @@
 
 #include "LEVELS/Stage1/Stage1.c"
 #include "LEVELS/Stage2/Stage2.c"
+#include "LEVELS/Stage3/Stage3.c"
+#include "LEVELS/Stage4/Stage4.c"
+#include "LEVELS/Stage5/Stage5.c"
 
 void function_bank2()
 {
@@ -16,12 +19,18 @@ void function_bank2()
 const unsigned char** stage_table[] = {
     stage1_levels,
     stage2_levels,
+    stage3_levels,
+    stage4_levels,
+    stage5_levels,
 };
 
 // how many levels each stage has
 const unsigned char levels_per_stage[] = {
     sizeof(stage1_levels) / sizeof(stage1_levels[0]),
     sizeof(stage2_levels) / sizeof(stage2_levels[0]),
+    sizeof(stage3_levels) / sizeof(stage3_levels[0]),
+    sizeof(stage4_levels) / sizeof(stage4_levels[0]),
+    sizeof(stage5_levels) / sizeof(stage5_levels[0]),
 };
 
 // Stage palettes
@@ -30,6 +39,9 @@ const unsigned char levels_per_stage[] = {
 const unsigned char* stage_bg_palettes[] = {
     stage1_bg_palette,
     stage2_bg_palette,
+    stage3_bg_palette,
+    stage4_bg_palette,
+    stage5_bg_palette,
 };
 
 
@@ -40,6 +52,9 @@ const unsigned char* stage_bg_palettes[] = {
 const unsigned char* stage_metatiles[] = {
     stage1_metatiles,
     stage2_metatiles,
+    stage3_metatiles,
+    stage4_metatiles,
+    stage5_metatiles,
 };
 
 

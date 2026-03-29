@@ -238,4 +238,4 @@ const unsigned char walrusworldtiles[]={
 	0, 0, 0, 0,  0,
 	0, 0, 0, 0,  0,
 	0, 0, 0, 0,  0,
-	0, 0, 0, 0,  0,
+	0, 0, 0, 0,  0};

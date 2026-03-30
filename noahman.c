@@ -44,6 +44,52 @@ const unsigned char palette_sp[16]={
 	0x21,0x0f,0x11,0x30,
 	0x21,0x17,0x3d,0x37 };
 
+// Forward declarations from swappable banks
+extern const unsigned char* stage1_levels[];
+extern const unsigned char* stage2_levels[];
+extern const unsigned char* stage3_levels[];
+extern const unsigned char* stage4_levels[];
+extern const unsigned char* stage5_levels[];
+
+extern const unsigned char stage1_bg_palette[];
+extern const unsigned char stage2_bg_palette[];
+extern const unsigned char stage3_bg_palette[];
+extern const unsigned char stage4_bg_palette[];
+extern const unsigned char stage5_bg_palette[];
+
+extern const unsigned char stage1_metatiles[];
+extern const unsigned char stage2_metatiles[];
+extern const unsigned char stage3_metatiles[];
+extern const unsigned char stage4_metatiles[];
+extern const unsigned char stage5_metatiles[];
+
+// Stage table - fixed bank array of level pointers
+const unsigned char** stage_table[] = {
+    stage1_levels,
+    stage2_levels,
+    stage3_levels,
+    stage4_levels,
+    stage5_levels,
+};
+
+// Stage palette pointers - FIXED BANK (always accessible from bank2_load_room)
+const unsigned char* stage_bg_palettes[] = {
+    stage1_bg_palette,
+    stage2_bg_palette,
+    stage3_bg_palette,
+    stage4_bg_palette,
+    stage5_bg_palette,
+};
+
+// Stage metatile pointers - FIXED BANK (always accessible from bank2_load_room)
+const unsigned char* stage_metatiles[] = {
+    stage1_metatiles,
+    stage2_metatiles,
+    stage3_metatiles,
+    stage4_metatiles,
+    stage5_metatiles,
+};
+
 // Forward declarations
 void load_level_select(void);
 void update_level_select_display(void);

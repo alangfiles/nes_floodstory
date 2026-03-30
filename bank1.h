@@ -4,7 +4,7 @@
 #pragma rodata-name("BANK1")
 #pragma code-name("BANK1")
 
-void projectile_movement(void)
+void projectile_movement(void) 
 {
 	for (temp1 = 0; temp1 < MAX_PROJECTILES; ++temp1)
 	{

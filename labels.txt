@@ -17,7 +17,7 @@ al 008000 .__BANK1_RUN__
 al 00011A .__BANK1_SIZE__
 al 008000 .__BANK2_LOAD__
 al 008000 .__BANK2_RUN__
-al 001F25 .__BANK2_SIZE__
+al 001F21 .__BANK2_SIZE__
 al 008000 .__BANK3_LOAD__
 al 008000 .__BANK3_RUN__
 al 0032F5 .__BANK3_SIZE__
@@ -51,7 +51,7 @@ al 00811A .__PRG1_LAST__
 al 004000 .__PRG1_SIZE__
 al 008000 .__PRG1_START__
 al 008010 .__PRG2_FILEOFFS__
-al 009F25 .__PRG2_LAST__
+al 009F21 .__PRG2_LAST__
 al 004000 .__PRG2_SIZE__
 al 008000 .__PRG2_START__
 al 00C010 .__PRG3_FILEOFFS__
@@ -125,7 +125,7 @@ al 008CF4 ._bank0_player_movement
 al 009B8D ._bank2_load_gameover
 al 009C01 ._bank2_load_room
 al 009AC9 ._bank2_load_title
-al 009F11 ._bank2_scroll_screen
+al 009F0D ._bank2_scroll_screen
 al 0003D2 ._bankBuffer
 al 0003D1 ._bankLevel
 al 00C4FE ._bank_bg
@@ -409,7 +409,7 @@ al 0092C2 ._stage3_bg_palette
 al 009798 ._stage3_entity_list
 al 009794 ._stage3_level_0_enemies
 al 009797 ._stage3_level_0_entities
-al 00034B ._stage3_levels
+al 00032D ._stage3_levels
 al 0092C0 ._stage3_levels_list
 al 0092C0 ._stage3_max_rooms
 al 0092E2 ._stage3_metatiles
@@ -422,7 +422,7 @@ al 00AE1C ._stage4_bg_palette
 al 00B2F2 ._stage4_entity_list
 al 00B2EE ._stage4_level_0_enemies
 al 00B2F1 ._stage4_level_0_entities
-al 000373 ._stage4_levels
+al 000355 ._stage4_levels
 al 00AE1A ._stage4_levels_list
 al 00AE1A ._stage4_max_rooms
 al 00AE3C ._stage4_metatiles
@@ -435,7 +435,7 @@ al 009592 ._stage5_bg_palette
 al 009A68 ._stage5_entity_list
 al 009A64 ._stage5_level_0_enemies
 al 009A67 ._stage5_level_0_entities
-al 0003A3 ._stage5_levels
+al 000385 ._stage5_levels
 al 009590 ._stage5_levels_list
 al 009590 ._stage5_max_rooms
 al 0095B2 ._stage5_metatiles
@@ -443,9 +443,9 @@ al 009591 ._stage5_offsets
 al 0095A2 ._stage5_palette_sp
 al 009A62 ._stage5_starting_x_place
 al 009A63 ._stage5_starting_y_place
-al 000337 ._stage_bg_palettes
-al 000341 ._stage_metatiles
-al 00032D ._stage_table
+al 0003BD ._stage_bg_palettes
+al 0003C7 ._stage_metatiles
+al 0003B3 ._stage_table
 al 008C50 ._starting_x_place
 al 008C51 ._starting_y_place
 al 00C975 ._sub_scroll_y

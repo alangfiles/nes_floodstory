@@ -29,45 +29,23 @@ extern const unsigned char stage5_bg_palette[];
 extern const unsigned char stage5_palette_sp[];
 extern const unsigned char stage5_metatiles[];
 
-void function_bank2()
-{
-}
+// Extern declarations for palette and metatile arrays in fixed bank
+extern const unsigned char** stage_table[];
+extern const unsigned char* stage_bg_palettes[];
+extern const unsigned char* stage_metatiles[];
 
-// Unified stage table for all stages
-const unsigned char** stage_table[] = {
-    stage1_levels,
-    stage2_levels,
-    stage3_levels,
-    stage4_levels,
-    stage5_levels,
-};
-
-// how many levels each stage has
+// Stage metadata
 const unsigned char levels_per_stage[] = {
     8,  // stage 1
     2,  // stage 2
-    20, // stage 3
-    24, // stage 4
-    23, // stage 5
+    2, // stage 3
+    2, // stage 4
+    2, // stage 5
 };
 
-// Stage palettes
-const unsigned char* stage_bg_palettes[] = {
-    stage1_bg_palette,
-    stage2_bg_palette,
-    stage3_bg_palette,
-    stage4_bg_palette,
-    stage5_bg_palette,
-};
-
-// Stage metatile pointers
-const unsigned char* stage_metatiles[] = {
-    stage1_metatiles,
-    stage2_metatiles,
-    stage3_metatiles,
-    stage4_metatiles,
-    stage5_metatiles,
-};
+void function_bank2()
+{
+}
 
 
 void drawMetatileBlock(void)
@@ -408,19 +386,19 @@ void bank2_load_room(void)
 		set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
 	} else if (current_stage == 1) {
 		//set chr for this stage
-		set_chr_bank_0(CHR_STAGE_2_CHARACTER_CHR);
+		set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
 	} else if (current_stage == 2) {
 		//set chr for this stage
-		set_chr_bank_0(CHR_STAGE_3_CHARACTER_CHR);
+		set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
 	} else if (current_stage == 3) {
 		//set chr for this stage
-		set_chr_bank_0(CHR_STAGE_4_CHARACTER_CHR);
+		set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
 	} else if (current_stage == 4) {
 		//set chr for this stage
-		set_chr_bank_0(CHR_STAGE_5_CHARACTER_CHR);
+		set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
 		set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
 	}
 	

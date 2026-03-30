@@ -15,7 +15,7 @@ file	id=11,name="CHRS/giraffe.chr",size=8192,mtime=0x6612B909,mod=0
 file	id=12,name="CHRS/walrus.chr",size=8192,mtime=0x67435F29,mod=0
 file	id=13,name="CHRS/camel.chr",size=8192,mtime=0x690FEFAC,mod=0
 file	id=14,name="CHRS/leviathan.chr",size=8192,mtime=0x69C85F0D,mod=0
-file	id=15,name="noahman.s",size=393697,mtime=0x69C99188,mod=1
+file	id=15,name="noahman.s",size=393661,mtime=0x69C9D15D,mod=1
 file	id=16,name="/usr/local/Cellar/cc65/2.19/share/cc65/asminc/longbranch.mac",size=2632,mtime=0x5ED2ADF3,mod=1
 file	id=17,name="/private/tmp/cc65-20211029-72602-uqb2uc/cc65-2.19/asminc/cpu.mac",size=843,mtime=0x5ED2ADF3,mod=9+11+12
 file	id=18,name="/private/tmp/cc65-20211029-72602-uqb2uc/cc65-2.19/asminc/zeropage.inc",size=721,mtime=0x5ED2ADF3,mod=18
@@ -33251,7 +33251,7 @@ seg	id=6,name="HEADER",start=0x000000,size=0x0010,addrsize=absolute,type=ro,onam
 seg	id=7,name="ONCE",start=0x00D2B3,size=0x0000,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=119491
 seg	id=8,name="BANK0",start=0x008000,size=0x0D8A,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=16
 seg	id=9,name="BANK1",start=0x008000,size=0x011A,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=16400
-seg	id=10,name="BANK2",start=0x008000,size=0x1F25,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=32784
+seg	id=10,name="BANK2",start=0x008000,size=0x1F21,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=32784
 seg	id=11,name="BANK3",start=0x008000,size=0x32F5,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=49168
 seg	id=12,name="BANK4",start=0x008000,size=0x1A6B,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=65552
 seg	id=13,name="BANK5",start=0x008000,size=0x0001,addrsize=absolute,type=ro,oname="noahman.nes",ooffs=81936

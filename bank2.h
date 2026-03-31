@@ -315,60 +315,6 @@ void bank2_scroll_screen(void){
 	bank2_handle_scrolling();
 }
 
-#include "LEVELS/General/titletiled.c"
-void bank2_load_title(void)
-{
-	ppu_off();
-
-	set_data_pointer(titletiled_0);
-	set_mt_pointer(stage1_metatiles);
-	for (y = 0;; y += 0x20)
-	{
-		for (x = 0;; x += 0x20)
-		{
-			address = get_ppu_addr(0, x, y);
-			index = (y & 0xf0) + (x >> 4);
-			buffer_4_mt(address, index);
-			flush_vram_update2();
-			if (x == 0xe0)
-				break;
-		}
-		if (y == 0xe0)
-			break;
-	}
-	
-	ppu_on_all();
-	multi_vram_buffer_horz("NOAH VS. ATRAHASIS", 18, NTADR_A(12, 6));
-	multi_vram_buffer_horz("ONE ON ONE", 10, NTADR_A(14, 7));
-	multi_vram_buffer_horz("BRIAN & ALAN GAMES", 18, NTADR_A(12, 10));
-}
-
-#include "LEVELS/General/gameovertiled.c"
-void bank2_load_gameover(void)
-{
-	ppu_off();
-
-	set_data_pointer(gameovertiled_0);
-	set_mt_pointer(stage1_metatiles);
-	for (y = 0;; y += 0x20)
-	{
-		for (x = 0;; x += 0x20)
-		{
-			address = get_ppu_addr(0, x, y);
-			index = (y & 0xf0) + (x >> 4);
-			buffer_4_mt(address, index);
-			flush_vram_update2();
-			if (x == 0xe0)
-				break;
-		}
-		if (y == 0xe0)
-			break;
-	}
-	
-	ppu_on_all();
-	game_mode = MODE_GAMEOVER;
-}
-
 void function_bank2()
 {
 }

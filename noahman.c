@@ -284,7 +284,7 @@ void main(void)
 
 	ppu_wait_nmi();
 	
-	banked_call(BANK_2, bank2_load_title);
+	banked_call(BANK_1, bank1_load_title);
 	
 	ppu_on_all();			// turn on screen
 

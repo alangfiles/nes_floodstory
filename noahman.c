@@ -96,18 +96,24 @@ extern void bank5_scroll_screen(void);
 void dispatch_load_room(void) {
     switch (current_stage) {
         case 0:
+						set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
+						set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
             banked_call(BANK_1, bank1_load_room);
             break;
         case 1:
+						set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
             banked_call(BANK_2, bank2_load_room);
             break;
         case 2:
+						set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
             banked_call(BANK_3, bank3_load_room);
             break;
         case 3:
+						set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
             banked_call(BANK_4, bank4_load_room);
             break;
         case 4:
+						set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
             banked_call(BANK_5, bank5_load_room);
             break;
     }
@@ -270,6 +276,8 @@ void update_level_select_display(void)
 
 void main(void)   
 {
+	set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
+	set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
 	bank_spr(0);
 	bank_bg(1);
 	ppu_off();				// screen off
@@ -289,6 +297,7 @@ void main(void)
 	scroll_y = 0;
 	game_mode = MODE_TITLE;
 
+	
 	banked_call(BANK_2, bank2_load_title);
 	
 	ppu_on_all();			// turn on screen

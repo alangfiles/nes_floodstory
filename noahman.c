@@ -63,15 +63,6 @@ extern const unsigned char stage3_metatiles[];
 extern const unsigned char stage4_metatiles[];
 extern const unsigned char stage5_metatiles[];
 
-// Stage table - fixed bank array of level pointers
-const unsigned char** stage_table[] = {
-    stage1_levels,
-    stage2_levels,
-    stage3_levels,
-    stage4_levels,
-    stage5_levels,
-};
-
 // Stage background palettes - FIXED BANK
 const unsigned char stage1_bg_palette[16] = { 0x21,0x0f,0x00,0x10,0x21,0x0f,0x30,0x08,0x21,0x0f,0x17,0x06,0x21,0x0f,0x19,0x29 };
 const unsigned char stage2_bg_palette[16] = { 0x21,0x07,0x17,0x37, 0x21,0x30,0x32,0x02, 0x21,0x0f,0x17,0x06, 0x21,0x0f,0x18,0x28 };
@@ -88,22 +79,60 @@ const unsigned char* stage_bg_palettes[] = {
     stage5_bg_palette,
 };
 
-// Note: stage_metatiles pointer array can stay here since metatiles are only read during level loading
-// and don't need to be pre-loaded like palettes
-extern const unsigned char stage1_metatiles[];
-extern const unsigned char stage2_metatiles[];
-extern const unsigned char stage3_metatiles[];
-extern const unsigned char stage4_metatiles[];
-extern const unsigned char stage5_metatiles[];
+// Forward declarations for stage-specific bank functions
+extern void bank1_load_room(void);
+extern void bank2_load_room(void);
+extern void bank3_load_room(void);
+extern void bank4_load_room(void);
+extern void bank5_load_room(void);
 
-// Stage metatile pointers - FIXED BANK (always accessible from bank2_load_room)
-const unsigned char* stage_metatiles[] = {
-    stage1_metatiles,
-    stage2_metatiles,
-    stage3_metatiles,
-    stage4_metatiles,
-    stage5_metatiles,
-};
+extern void bank1_scroll_screen(void);
+extern void bank2_scroll_screen(void);
+extern void bank3_scroll_screen(void);
+extern void bank4_scroll_screen(void);
+extern void bank5_scroll_screen(void);
+
+// Dispatcher function: calls the load function for the appropriate stage bank
+void dispatch_load_room(void) {
+    switch (current_stage) {
+        case 0:
+            banked_call(BANK_1, bank1_load_room);
+            break;
+        case 1:
+            banked_call(BANK_2, bank2_load_room);
+            break;
+        case 2:
+            banked_call(BANK_3, bank3_load_room);
+            break;
+        case 3:
+            banked_call(BANK_4, bank4_load_room);
+            break;
+        case 4:
+            banked_call(BANK_5, bank5_load_room);
+            break;
+    }
+}
+
+// Dispatcher function: calls the scroll function for the appropriate stage bank
+void dispatch_scroll_screen(void) {
+    switch (current_stage) {
+        case 0:
+            banked_call(BANK_1, bank1_scroll_screen);
+            break;
+        case 1:
+            banked_call(BANK_2, bank2_scroll_screen);
+            break;
+        case 2:
+            banked_call(BANK_3, bank3_scroll_screen);
+            break;
+        case 3:
+            banked_call(BANK_4, bank4_scroll_screen);
+            break;
+        case 4:
+            banked_call(BANK_5, bank5_scroll_screen);
+            break;
+    }
+}
 
 // Forward declarations
 void load_level_select(void);
@@ -304,7 +333,7 @@ void main(void)
 				current_stage = selected_stage;
 				current_level = 0;
 				game_mode = MODE_GAME;
-				banked_call(BANK_2, bank2_load_room);
+				dispatch_load_room();
 			}
 		}
 
@@ -321,7 +350,7 @@ void main(void)
 	  
 			banked_call(BANK_0, bank0_player_movement);
 			projectile_movement();
-			banked_call(BANK_2, bank2_scroll_screen);  
+			dispatch_scroll_screen();
 	 
 			oam_clear(); 
 			banked_call(BANK_0, bank0_draw_player_sprite);

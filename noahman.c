@@ -36,7 +36,6 @@
 
 #pragma rodata-name("CODE")
 #pragma code-name("CODE")
-const unsigned char palette_bg[16]={ 0x21,0x0f,0x00,0x10,0x21,0x0f,0x30,0x08,0x21,0x0f,0x17,0x06,0x21,0x0f,0x19,0x29 };
 
 const unsigned char palette_sp[16]={
 	0x21,0x17,0x24,0x36,
@@ -184,20 +183,6 @@ void projectile_movement(void)
 	}
 }
 
-// void load_title(void)
-// {
-// 	ppu_off();
-// 	clear_vram_buffer();
-	
-// 	// Load title screen
-// 	multi_vram_buffer_horz("   NOAHMAN", 10, NTADR_A(8, 6));
-// 	multi_vram_buffer_horz("PRESS START", 11, NTADR_A(9, 14));
-	
-// 	ppu_on_all();
-// }
-
-
-
 void load_level_select(void)
 {
 	ppu_off();
@@ -281,7 +266,7 @@ void main(void)
 	bank_spr(0);
 	bank_bg(1);
 	ppu_off();				// screen off
-	pal_bg(palette_bg);	//	load the BG palette
+	pal_bg(stage1_bg_palette);	//	load the BG palette
 	pal_spr(palette_sp); // load the sprite palette
   
 	set_vram_buffer(); // do at least once 
@@ -297,6 +282,7 @@ void main(void)
 	scroll_y = 0;
 	game_mode = MODE_TITLE;
 
+	ppu_wait_nmi();
 	
 	banked_call(BANK_2, bank2_load_title);
 	

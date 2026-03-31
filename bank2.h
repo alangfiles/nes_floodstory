@@ -338,7 +338,6 @@ void bank2_load_title(void)
 	}
 	
 	ppu_on_all();
-	game_mode = MODE_TITLE;
 	multi_vram_buffer_horz("NOAH VS. ATRAHASIS", 18, NTADR_A(12, 6));
 	multi_vram_buffer_horz("ONE ON ONE", 10, NTADR_A(14, 7));
 	multi_vram_buffer_horz("BRIAN & ALAN GAMES", 18, NTADR_A(12, 10));

@@ -24,8 +24,6 @@ const unsigned char stage1_max_rooms[] = {1};
 
 const unsigned char stage1_offsets[] = {0};
 
-const unsigned char stage1_bg_palette[16] = { 0x21,0x0f,0x00,0x10,0x21,0x0f,0x30,0x08,0x21,0x0f,0x17,0x06,0x21,0x0f,0x19,0x29 };
-
 // Metatile data for Stage 1
 const unsigned char stage1_metatiles[]={
 	123, 124, 139, 140,  0,

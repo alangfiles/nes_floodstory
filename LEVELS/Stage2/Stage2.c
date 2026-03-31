@@ -12,8 +12,6 @@ const unsigned char stage2_max_rooms[] = {1};
 
 const unsigned char stage2_offsets[] = {0};
 
-const unsigned char stage2_bg_palette[16] = { 0x21,0x07,0x17,0x37, 0x21,0x30,0x32,0x02, 0x21,0x0f,0x17,0x06, 0x21,0x0f,0x18,0x28 };
-
 const unsigned char stage2_metatiles[]={
 	109, 110, 125, 126,  2,
 	93, 94, 125, 126,  2,

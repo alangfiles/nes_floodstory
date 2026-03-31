@@ -72,6 +72,13 @@ const unsigned char** stage_table[] = {
     stage5_levels,
 };
 
+// Stage background palettes - FIXED BANK
+const unsigned char stage1_bg_palette[16] = { 0x21,0x0f,0x00,0x10,0x21,0x0f,0x30,0x08,0x21,0x0f,0x17,0x06,0x21,0x0f,0x19,0x29 };
+const unsigned char stage2_bg_palette[16] = { 0x21,0x07,0x17,0x37, 0x21,0x30,0x32,0x02, 0x21,0x0f,0x17,0x06, 0x21,0x0f,0x18,0x28 };
+const unsigned char stage3_bg_palette[16] = { 0x0f,0x0a,0x00,0x10,0x0f,0x02,0x21,0x30,0x0f,0x0f,0x17,0x07,0x0f,0x0f,0x08,0x0f };
+const unsigned char stage4_bg_palette[16] = { 0x22,0x0f,0x28,0x38,0x22,0x0f,0x00,0x3d,0x22,0x17,0x28,0x38,0x22,0x0f,0x28,0x30 };
+const unsigned char stage5_bg_palette[16] = { 0x0f,0x05,0x07,0x29,0x0f,0x0c,0x36,0x0b,0x0f,0x0c,0x29,0x1a,0x0f,0x15,0x0c,0x05 };
+
 // Stage palette pointers - FIXED BANK (always accessible from bank2_load_room)
 const unsigned char* stage_bg_palettes[] = {
     stage1_bg_palette,
@@ -80,6 +87,14 @@ const unsigned char* stage_bg_palettes[] = {
     stage4_bg_palette,
     stage5_bg_palette,
 };
+
+// Note: stage_metatiles pointer array can stay here since metatiles are only read during level loading
+// and don't need to be pre-loaded like palettes
+extern const unsigned char stage1_metatiles[];
+extern const unsigned char stage2_metatiles[];
+extern const unsigned char stage3_metatiles[];
+extern const unsigned char stage4_metatiles[];
+extern const unsigned char stage5_metatiles[];
 
 // Stage metatile pointers - FIXED BANK (always accessible from bank2_load_room)
 const unsigned char* stage_metatiles[] = {
@@ -93,6 +108,46 @@ const unsigned char* stage_metatiles[] = {
 // Forward declarations
 void load_level_select(void);
 void update_level_select_display(void);
+
+void projectile_movement(void) 
+{
+	for (temp1 = 0; temp1 < MAX_PROJECTILES; ++temp1)
+	{
+		if (projectiles_list[temp1] != TURN_OFF)
+		{
+			if (projectiles_x[temp1] > 250)
+			{
+				projectiles_list[temp1] = TURN_OFF;
+			}
+			else
+			{
+				// This code adjusts for when the screen is scrolling too.
+				if (projectiles_list[temp1] == RIGHT)
+				{
+					if ((Player1.x <= MAX_LEFT) && (pad1 & PAD_LEFT))
+					{
+						projectiles_x[temp1] += PROJECTILE_SPEED_WITH_SCROLL;
+					}
+					else
+					{
+						projectiles_x[temp1] += PROJECTILE_SPEED;
+					}
+				}
+				else if (projectiles_list[temp1] == LEFT)
+				{
+					if ((Player1.x >= MAX_RIGHT) && (pad1 & PAD_RIGHT))
+					{
+						projectiles_x[temp1] -= PROJECTILE_SPEED_WITH_SCROLL;
+					}
+					else
+					{
+						projectiles_x[temp1] -= PROJECTILE_SPEED;
+					}
+				}
+			}
+		}
+	}
+}
 
 // void load_title(void)
 // {
@@ -265,7 +320,7 @@ void main(void)
 			} 
 	  
 			banked_call(BANK_0, bank0_player_movement);
-			banked_call(BANK_1, projectile_movement);
+			projectile_movement();
 			banked_call(BANK_2, bank2_scroll_screen);  
 	 
 			oam_clear(); 

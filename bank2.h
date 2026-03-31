@@ -38,9 +38,9 @@ extern const unsigned char* stage_metatiles[];
 const unsigned char levels_per_stage[] = {
     8,  // stage 1
     2,  // stage 2
-    2, // stage 3
-    2, // stage 4
-    2, // stage 5
+    20, // stage 3
+    24, // stage 4
+    23, // stage 5
 };
 
 void function_bank2()

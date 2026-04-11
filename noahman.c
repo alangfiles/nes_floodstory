@@ -118,6 +118,43 @@ void dispatch_load_room(void) {
     }
 }
 
+void update_chr_banks_for_stage(unsigned char stage) {
+		switch (stage) {
+				case 0:
+						// set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
+						// set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
+						break;
+				case 1:
+						// if(chr_frame_state == 0) {
+						// 	set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
+						// } else {
+						// 	set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR2);
+						// }
+						break;
+				case 2:
+						if(chr_frame_state == 0) {
+							set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
+						} else {
+							set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR2);
+						}
+						break;
+				case 3:
+						if(chr_frame_state == 0) { 
+							set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
+						} else {
+							set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR2);
+						}
+						break;
+				case 4:
+						if(chr_frame_state == 0) {
+							set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
+						} else {
+							set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR2);
+						}
+						break;
+		}
+}
+
 // Dispatcher function: calls the scroll function for the appropriate stage bank
 void dispatch_scroll_screen(void) {
     switch (current_stage) {
@@ -334,6 +371,15 @@ void main(void)
 
 		while (game_mode == MODE_GAME)
 		{ 
+			++frame_counter;
+			++chr_frame_counter;
+
+			if(chr_frame_counter >= CHR_FRAME_THRESHOLD)
+			{
+				chr_frame_state = (chr_frame_state + 1) % 2;
+				chr_frame_counter = 0;
+				update_chr_banks_for_stage(current_stage);
+			}
 			ppu_wait_nmi();      
 			pad1 = pad_poll(0);  
 			pad1_new = get_pad_new(0);

@@ -20,13 +20,13 @@ enum
 {
 	CHR_STAGE_1_CHARACTER_CHR,
 	CHR_STAGE_1_BACKGROUND_CHR,
-	CHR_STAGE_2_CHARACTER_CHR,
+	CHR_STAGE_2_BACKGROUND_CHR2,
 	CHR_STAGE_2_BACKGROUND_CHR,
-	CHR_STAGE_3_CHARACTER_CHR,
+	CHR_STAGE_3_BACKGROUND_CHR2,
 	CHR_STAGE_3_BACKGROUND_CHR,
-	CHR_STAGE_4_CHARACTER_CHR,
+	CHR_STAGE_4_BACKGROUND_CHR2,
 	CHR_STAGE_4_BACKGROUND_CHR,
-	CHR_STAGE_5_CHARACTER_CHR,
+	CHR_STAGE_5_BACKGROUND_CHR2,
 	CHR_STAGE_5_BACKGROUND_CHR,
 };
 
@@ -64,6 +64,9 @@ enum
 #define HERO_WIDTH 11
 #define HERO_HEIGHT 20
 
+//CHR switching counter
+#define CHR_FRAME_THRESHOLD 25
+
 
 // GLOBAL VARIABLES
 
@@ -93,6 +96,10 @@ unsigned char song;
 unsigned char sound;
 unsigned char game_mode;
 unsigned char selected_stage;
+
+unsigned char frame_counter;
+unsigned char chr_frame_counter;
+unsigned char chr_frame_state;
 
 //player movement/display
 unsigned int temp_x;

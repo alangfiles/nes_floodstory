@@ -103,18 +103,22 @@ void dispatch_load_room(void) {
             banked_call(BANK_1, bank1_load_room);
             break;
         case 1:
+						set_chr_bank_0(CHR_STAGE_2_SPRITES);
 						set_chr_bank_1(CHR_STAGE_2_BG_A);
             banked_call(BANK_2, bank2_load_room);
             break;
         case 2:
+						set_chr_bank_0(CHR_STAGE_3_SPRITES);
 						set_chr_bank_1(CHR_STAGE_3_BG_A);
             banked_call(BANK_3, bank3_load_room);
             break;
         case 3:
+						set_chr_bank_0(CHR_STAGE_4_SPRITES);
 						set_chr_bank_1(CHR_STAGE_4_BG_A);
             banked_call(BANK_4, bank4_load_room);
             break;
         case 4:
+						set_chr_bank_0(CHR_STAGE_5_SPRITES);
 						set_chr_bank_1(CHR_STAGE_5_BG_A);
             banked_call(BANK_5, bank5_load_room);
             break;

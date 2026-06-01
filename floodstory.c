@@ -95,24 +95,24 @@ extern void bank5_scroll_screen(void);
 void dispatch_load_room(void) {
     switch (current_stage) {
         case 0:
-						set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
-						set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
+						set_chr_bank_0(CHR_STAGE_1_SPRITES);
+						set_chr_bank_1(CHR_STAGE_1_BG_A);
             banked_call(BANK_1, bank1_load_room);
             break;
         case 1:
-						set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
+						set_chr_bank_1(CHR_STAGE_2_BG_A);
             banked_call(BANK_2, bank2_load_room);
             break;
         case 2:
-						set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
+						set_chr_bank_1(CHR_STAGE_3_BG_A);
             banked_call(BANK_3, bank3_load_room);
             break;
         case 3:
-						set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
+						set_chr_bank_1(CHR_STAGE_4_BG_A);
             banked_call(BANK_4, bank4_load_room);
             break;
         case 4:
-						set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
+						set_chr_bank_1(CHR_STAGE_5_BG_A);
             banked_call(BANK_5, bank5_load_room);
             break;
     }
@@ -133,23 +133,23 @@ void update_chr_banks_for_stage(unsigned char stage) {
 						break;
 				case 2:
 						if(chr_frame_state == 0) {
-							set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
+							set_chr_bank_1(CHR_STAGE_3_BG_A);
 						} else {
-							set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR2);
+							set_chr_bank_1(CHR_STAGE_3_BG_B);
 						}
 						break;
 				case 3:
 						if(chr_frame_state == 0) { 
-							set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
+							set_chr_bank_1(CHR_STAGE_4_BG_A);
 						} else {
-							set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR2);
+							set_chr_bank_1(CHR_STAGE_4_BG_B);
 						}
 						break;
 				case 4:
 						if(chr_frame_state == 0) {
-							set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
+							set_chr_bank_1(CHR_STAGE_5_BG_A);
 						} else {
-							set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR2);
+							set_chr_bank_1(CHR_STAGE_5_BG_B);
 						}
 						break;
 		}
@@ -298,8 +298,8 @@ void update_level_select_display(void)
 
 void main(void)   
 {
-	set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
-	set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
+	set_chr_bank_0(CHR_STAGE_1_SPRITES);
+	set_chr_bank_1(CHR_STAGE_1_BG_A);
 	bank_spr(0);
 	bank_bg(1);
 	ppu_off();				// screen off

@@ -37436,7 +37436,7 @@ L72AA:	lda     #$01
 ;
 ; }
 ;
-	beq     L769E
+	beq     L7338
 	cmp     #$01
 	beq     L7341
 	cmp     #$02
@@ -37447,13 +37447,14 @@ L72AA:	lda     #$01
 	beq     L7356
 	rts
 ;
-; set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
+; set_chr_bank_0(CHR_STAGE_1_SPRITES);
 ;
-L769E:	jsr     _set_chr_bank_0
+L7338:	lda     #$06
+	jsr     _set_chr_bank_0
 ;
-; set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_1_BG_A);
 ;
-	lda     #$01
+	lda     #$04
 	jsr     _set_chr_bank_1
 ;
 ; banked_call(BANK_1, bank1_load_room);
@@ -37464,9 +37465,9 @@ L769E:	jsr     _set_chr_bank_0
 	ldx     #>(_bank1_load_room)
 	jmp     _banked_call
 ;
-; set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_2_BG_A);
 ;
-L7341:	lda     #$03
+L7341:	lda     #$08
 	jsr     _set_chr_bank_1
 ;
 ; banked_call(BANK_2, bank2_load_room);
@@ -37477,9 +37478,9 @@ L7341:	lda     #$03
 	ldx     #>(_bank2_load_room)
 	jmp     _banked_call
 ;
-; set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_3_BG_A);
 ;
-L7348:	lda     #$05
+L7348:	lda     #$0C
 	jsr     _set_chr_bank_1
 ;
 ; banked_call(BANK_3, bank3_load_room);
@@ -37490,9 +37491,9 @@ L7348:	lda     #$05
 	ldx     #>(_bank3_load_room)
 	jmp     _banked_call
 ;
-; set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_4_BG_A);
 ;
-L734F:	lda     #$07
+L734F:	lda     #$10
 	jsr     _set_chr_bank_1
 ;
 ; banked_call(BANK_4, bank4_load_room);
@@ -37503,9 +37504,9 @@ L734F:	lda     #$07
 	ldx     #>(_bank4_load_room)
 	jmp     _banked_call
 ;
-; set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_5_BG_A);
 ;
-L7356:	lda     #$09
+L7356:	lda     #$14
 	jsr     _set_chr_bank_1
 ;
 ; banked_call(BANK_5, bank5_load_room);
@@ -37544,72 +37545,72 @@ L7356:	lda     #$09
 	cmp     #$01
 	beq     L735F
 	cmp     #$02
-	beq     L76A0
+	beq     L769F
 	cmp     #$03
-	beq     L76A1
+	beq     L76A0
 	cmp     #$04
-	beq     L76A2
+	beq     L76A1
 	jmp     incsp1
 ;
 ; if(chr_frame_state == 0) {
 ;
-L76A0:	lda     _chr_frame_state
+L769F:	lda     _chr_frame_state
 	bne     L7366
 ;
-; set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_3_BG_A);
 ;
-	lda     #$05
+	lda     #$0C
 ;
 ; } else {
 ;
-	jmp     L769F
+	jmp     L769E
 ;
-; set_chr_bank_1(CHR_STAGE_3_BACKGROUND_CHR2);
+; set_chr_bank_1(CHR_STAGE_3_BG_B);
 ;
-L7366:	lda     #$04
+L7366:	lda     #$0D
 ;
 ; break;
 ;
-	jmp     L769F
+	jmp     L769E
 ;
 ; if(chr_frame_state == 0) { 
 ;
-L76A1:	lda     _chr_frame_state
+L76A0:	lda     _chr_frame_state
 	bne     L736F
 ;
-; set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_4_BG_A);
 ;
-	lda     #$07
+	lda     #$10
 ;
 ; } else {
 ;
-	jmp     L769F
+	jmp     L769E
 ;
-; set_chr_bank_1(CHR_STAGE_4_BACKGROUND_CHR2);
+; set_chr_bank_1(CHR_STAGE_4_BG_B);
 ;
-L736F:	lda     #$06
+L736F:	lda     #$11
 ;
 ; break;
 ;
-	jmp     L769F
+	jmp     L769E
 ;
 ; if(chr_frame_state == 0) {
 ;
-L76A2:	lda     _chr_frame_state
+L76A1:	lda     _chr_frame_state
 	bne     L7378
 ;
-; set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_5_BG_A);
 ;
-	lda     #$09
+	lda     #$14
 ;
 ; } else {
 ;
-	jmp     L769F
+	jmp     L769E
 ;
-; set_chr_bank_1(CHR_STAGE_5_BACKGROUND_CHR2);
+; set_chr_bank_1(CHR_STAGE_5_BG_B);
 ;
-L7378:	lda     #$08
-L769F:	jsr     _set_chr_bank_1
+L7378:	lda     #$15
+L769E:	jsr     _set_chr_bank_1
 ;
 ; }
 ;
@@ -37865,7 +37866,7 @@ L73DA:	lda     #$01
 ;
 ; else
 ;
-	jmp     L76C1
+	jmp     L76C0
 ;
 ; multi_vram_buffer_horz("   BEAR", 7, NTADR_A(8, 8));
 ;
@@ -37875,7 +37876,7 @@ L7412:	jsr     decsp3
 	sta     (sp),y
 	iny
 	lda     #>(L7420)
-L76C1:	sta     (sp),y
+L76C0:	sta     (sp),y
 	lda     #$07
 	ldy     #$00
 	sta     (sp),y
@@ -37900,7 +37901,7 @@ L76C1:	sta     (sp),y
 ;
 ; else
 ;
-	jmp     L76C2
+	jmp     L76C1
 ;
 ; multi_vram_buffer_horz("   GIRAFFE", 10, NTADR_A(8, 10));
 ;
@@ -37910,7 +37911,7 @@ L7429:	jsr     decsp3
 	sta     (sp),y
 	iny
 	lda     #>(L7437)
-L76C2:	sta     (sp),y
+L76C1:	sta     (sp),y
 	lda     #$0A
 	ldy     #$00
 	sta     (sp),y
@@ -37935,7 +37936,7 @@ L76C2:	sta     (sp),y
 ;
 ; else
 ;
-	jmp     L76C3
+	jmp     L76C2
 ;
 ; multi_vram_buffer_horz("   WALRUS", 9, NTADR_A(8, 12));
 ;
@@ -37945,7 +37946,7 @@ L7440:	jsr     decsp3
 	sta     (sp),y
 	iny
 	lda     #>(L744E)
-L76C3:	sta     (sp),y
+L76C2:	sta     (sp),y
 	lda     #$09
 	ldy     #$00
 	sta     (sp),y
@@ -37970,7 +37971,7 @@ L76C3:	sta     (sp),y
 ;
 ; else
 ;
-	jmp     L76C4
+	jmp     L76C3
 ;
 ; multi_vram_buffer_horz("   CAMEL", 8, NTADR_A(8, 14));
 ;
@@ -37980,7 +37981,7 @@ L7457:	jsr     decsp3
 	sta     (sp),y
 	iny
 	lda     #>(L7465)
-L76C4:	sta     (sp),y
+L76C3:	sta     (sp),y
 	lda     #$08
 	ldy     #$00
 	sta     (sp),y
@@ -38005,7 +38006,7 @@ L76C4:	sta     (sp),y
 ;
 ; else
 ;
-	jmp     L76C5
+	jmp     L76C4
 ;
 ; multi_vram_buffer_horz("   LEVIATHAN", 12, NTADR_A(8, 16));
 ;
@@ -38015,7 +38016,7 @@ L746E:	jsr     decsp3
 	sta     (sp),y
 	iny
 	lda     #>(L747C)
-L76C5:	sta     (sp),y
+L76C4:	sta     (sp),y
 	lda     #$0C
 	ldy     #$00
 	sta     (sp),y
@@ -38054,7 +38055,7 @@ L739D:	lda     _temp1+1
 	bne     L73A4
 	lda     _temp1
 	cmp     #$03
-L73A4:	bcc     L76CC
+L73A4:	bcc     L76CB
 ;
 ; }
 ;
@@ -38062,7 +38063,7 @@ L73A4:	bcc     L76CC
 ;
 ; if (projectiles_list[temp1] != TURN_OFF)
 ;
-L76CC:	lda     #<(_projectiles_list)
+L76CB:	lda     #<(_projectiles_list)
 	sta     ptr1
 	lda     #>(_projectiles_list)
 	clc
@@ -38100,7 +38101,7 @@ L76CC:	lda     #<(_projectiles_list)
 ;
 ; else
 ;
-	jmp     L76C6
+	jmp     L76C5
 ;
 ; if (projectiles_list[temp1] == RIGHT)
 ;
@@ -38143,7 +38144,7 @@ L73B7:	bcs     L73B4
 ;
 ; else
 ;
-	jmp     L76C6
+	jmp     L76C5
 ;
 ; projectiles_x[temp1] += PROJECTILE_SPEED;
 ;
@@ -38161,7 +38162,7 @@ L73B4:	lda     #<(_projectiles_x)
 ;
 ; else if (projectiles_list[temp1] == LEFT)
 ;
-	jmp     L76C6
+	jmp     L76C5
 L73B1:	lda     #<(_projectiles_list)
 	sta     ptr1
 	lda     #>(_projectiles_list)
@@ -38199,7 +38200,7 @@ L73B1:	lda     #<(_projectiles_list)
 ;
 ; else
 ;
-	jmp     L76C6
+	jmp     L76C5
 ;
 ; projectiles_x[temp1] -= PROJECTILE_SPEED;
 ;
@@ -38214,7 +38215,7 @@ L73C6:	lda     #<(_projectiles_x)
 	lda     (ptr1),y
 	sec
 	sbc     #$03
-L76C6:	sta     (ptr1),y
+L76C5:	sta     (ptr1),y
 ;
 ; for (temp1 = 0; temp1 < MAX_PROJECTILES; ++temp1)
 ;
@@ -38236,14 +38237,14 @@ L739F:	inc     _temp1
 .segment	"CODE"
 
 ;
-; set_chr_bank_0(CHR_STAGE_1_CHARACTER_CHR);
+; set_chr_bank_0(CHR_STAGE_1_SPRITES);
 ;
-	lda     #$00
+	lda     #$06
 	jsr     _set_chr_bank_0
 ;
-; set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
+; set_chr_bank_1(CHR_STAGE_1_BG_A);
 ;
-	lda     #$01
+	lda     #$04
 	jsr     _set_chr_bank_1
 ;
 ; bank_spr(0);
@@ -38334,7 +38335,7 @@ L739F:	inc     _temp1
 ;
 ; while (game_mode == MODE_TITLE)
 ;
-	jmp     L76CD
+	jmp     L76CC
 ;
 ; ppu_wait_nmi();
 ;
@@ -38355,7 +38356,7 @@ L74B0:	jsr     _ppu_wait_nmi
 ; if (pad1_new & PAD_START)
 ;
 	and     #$10
-	beq     L76CD
+	beq     L76CC
 ;
 ; game_mode = MODE_LEVEL_SELECT;
 ;
@@ -38368,12 +38369,12 @@ L74B0:	jsr     _ppu_wait_nmi
 ;
 ; while (game_mode == MODE_TITLE)
 ;
-L76CD:	lda     _game_mode
+L76CC:	lda     _game_mode
 	beq     L74B0
 ;
 ; while (game_mode == MODE_LEVEL_SELECT)
 ;
-	jmp     L76D0
+	jmp     L76CF
 ;
 ; ppu_wait_nmi();
 ;
@@ -38394,7 +38395,7 @@ L74C0:	jsr     _ppu_wait_nmi
 ; if (pad1_new & PAD_UP)
 ;
 	and     #$08
-	beq     L76CE
+	beq     L76CD
 ;
 ; if (selected_stage > 0)
 ;
@@ -38411,9 +38412,9 @@ L74CD:	jsr     _update_level_select_display
 ;
 ; if (pad1_new & PAD_DOWN)
 ;
-L76CE:	lda     _pad1_new
+L76CD:	lda     _pad1_new
 	and     #$04
-	beq     L76CF
+	beq     L76CE
 ;
 ; if (selected_stage < 4)
 ;
@@ -38431,9 +38432,9 @@ L74D3:	jsr     _update_level_select_display
 ;
 ; if (pad1_new & PAD_START)
 ;
-L76CF:	lda     _pad1_new
+L76CE:	lda     _pad1_new
 	and     #$10
-	beq     L76D0
+	beq     L76CF
 ;
 ; current_stage = selected_stage;
 ;
@@ -38456,17 +38457,17 @@ L76CF:	lda     _pad1_new
 ;
 ; while (game_mode == MODE_LEVEL_SELECT)
 ;
-L76D0:	lda     _game_mode
+L76CF:	lda     _game_mode
 	cmp     #$02
 	beq     L74C0
 ;
 ; while (game_mode == MODE_GAME)
 ;
-	jmp     L76D2
+	jmp     L76D1
 ;
 ; ++frame_counter;
 ;
-L76D1:	inc     _frame_counter
+L76D0:	inc     _frame_counter
 ;
 ; ++chr_frame_counter;
 ;
@@ -38555,13 +38556,13 @@ L74E6:	jsr     _ppu_wait_nmi
 ;
 ; while (game_mode == MODE_GAME)
 ;
-L76D2:	lda     _game_mode
+L76D1:	lda     _game_mode
 	cmp     #$03
-	beq     L76D1
+	beq     L76D0
 ;
 ; while (1)      
 ;
-	jmp     L76CD
+	jmp     L76CC
 
 .endproc
 

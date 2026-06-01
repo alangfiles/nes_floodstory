@@ -18,6 +18,7 @@
 
 #include "floodstory.h"
 #include "metatile.h"
+#include "LEVELS/levelselect.h"
 
 //bank code, messy and in here.
 #include "bank0.h" 
@@ -68,6 +69,8 @@ const unsigned char stage2_bg_palette[16] = { 0x21,0x07,0x17,0x37, 0x21,0x30,0x3
 const unsigned char stage3_bg_palette[16] = { 0x0f,0x0a,0x00,0x10,0x0f,0x02,0x21,0x30,0x0f,0x0f,0x17,0x07,0x0f,0x0f,0x08,0x0f };
 const unsigned char stage4_bg_palette[16] = { 0x22,0x0f,0x28,0x38,0x22,0x0f,0x00,0x3d,0x22,0x17,0x28,0x38,0x22,0x0f,0x28,0x30 };
 const unsigned char stage5_bg_palette[16] = { 0x0f,0x05,0x07,0x29,0x0f,0x0c,0x36,0x0b,0x0f,0x0c,0x29,0x1a,0x0f,0x15,0x0c,0x05 };
+const unsigned char title_bg_palette[16] = { 0x11,0x21,0x00,0x10,0x11,0x31,0x30,0x21,0x11,0x29,0x27,0x38,0x11,0x29,0x19,0x21 };
+const unsigned char level_select_bg_palette[16] = { 0x11,0x29,0x00,0x10,0x11,0x01,0x30,0x21,0x11,0x29,0x27,0x38,0x11,0x29,0x19,0x16 };
 
 // Stage palette pointers - FIXED BANK (always accessible from bank2_load_room)
 const unsigned char* stage_bg_palettes[] = {
@@ -180,6 +183,18 @@ void dispatch_scroll_screen(void) {
 void load_level_select(void);
 void update_level_select_display(void);
 
+const unsigned char level_select_guy[]={
+
+	  0,- 8,0x20,0,
+	  0,- 8,0x23,2,
+	0x80
+
+};
+
+// Cursor anchor positions for each stage on the level select map.
+const unsigned char level_select_cursor_x[5] = {52, 200, 216, 82, 194};
+const unsigned char level_select_cursor_y[5] = {104,154, 34, 200, 210};
+
 void projectile_movement(void) 
 {
 	for (temp1 = 0; temp1 < MAX_PROJECTILES; ++temp1)
@@ -225,15 +240,10 @@ void load_level_select(void)
 	ppu_off();
 	clear_vram_buffer();
 	oam_clear();
-// 	void clear_background(void)
-// {
-	// draw all 0x00 into the bg
+	set_chr_bank_1(CHR_LEVEL_MAP);
+	pal_bg(level_select_bg_palette);
 	vram_adr(NAMETABLE_A);
-	for (temp_x = 0; temp_x < 1024; ++temp_x)
-	{
-		vram_put(0x00);
-		flush_vram_update2();  
-	}  
+	vram_write(levelselect, sizeof(levelselect));
 	
 	// Initialize player state for game
 	multi_jump_max = 1;
@@ -249,61 +259,24 @@ void load_level_select(void)
 	animation_frame_counter = 0;
 	current_animation_ptr = animate_playerstandright_data;
 	
-	
-	//clear press start and floodstory
-	// Load level select screen
-	multi_vram_buffer_horz("SELECT STAGE", 12, NTADR_A(8, 6));
-	
-	update_level_select_display();
-	
 	ppu_on_all();
+	update_level_select_display();
 }
 
 void update_level_select_display(void)
 {
-	ppu_off();
-	clear_vram_buffer();
-	
-	multi_vram_buffer_horz("SELECT STAGE", 12, NTADR_A(8, 4));
-	
-	// Display all 5 stages with selection marker
-	if (selected_stage == 0)
-		multi_vram_buffer_horz("X  BEAR", 7, NTADR_A(8, 8));
-	else
-		multi_vram_buffer_horz("   BEAR", 7, NTADR_A(8, 8));
-	
-	if (selected_stage == 1)
-		multi_vram_buffer_horz("X  GIRAFFE", 10, NTADR_A(8, 10));
-	else
-		multi_vram_buffer_horz("   GIRAFFE", 10, NTADR_A(8, 10));
-	
-	if (selected_stage == 2)
-		multi_vram_buffer_horz("X  WALRUS", 9, NTADR_A(8, 12));
-	else
-		multi_vram_buffer_horz("   WALRUS", 9, NTADR_A(8, 12));
-	
-	if (selected_stage == 3)
-		multi_vram_buffer_horz("X  CAMEL", 8, NTADR_A(8, 14));
-	else
-		multi_vram_buffer_horz("   CAMEL", 8, NTADR_A(8, 14));
-	
-	if (selected_stage == 4)
-		multi_vram_buffer_horz("X  LEVIATHAN", 12, NTADR_A(8, 16));
-	else
-		multi_vram_buffer_horz("   LEVIATHAN", 12, NTADR_A(8, 16));
-	
-	flush_vram_update2();
-	ppu_on_all();
+	oam_clear();
+	oam_meta_spr(level_select_cursor_x[selected_stage], level_select_cursor_y[selected_stage], level_select_guy);
 }
 
 void main(void)   
 {
-	set_chr_bank_0(CHR_STAGE_1_SPRITES);
-	set_chr_bank_1(CHR_STAGE_1_BG_A);
+	set_chr_bank_0(CHR_GENERAL_SPRITES);
+	set_chr_bank_1(CHR_TITLE_SCREEN);
 	bank_spr(0);
 	bank_bg(1);
 	ppu_off();				// screen off
-	pal_bg(stage1_bg_palette);	//	load the BG palette
+	pal_bg(title_bg_palette);	//	load the title BG palette
 	pal_spr(palette_sp); // load the sprite palette
   
 	set_vram_buffer(); // do at least once 
@@ -357,8 +330,9 @@ void main(void)
 			{
 				if (selected_stage < 4)
 					selected_stage++;
-				update_level_select_display();
 			}
+
+			update_level_select_display();
 			
 			if (pad1_new & PAD_START)
 			{

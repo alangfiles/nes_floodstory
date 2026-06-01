@@ -16,7 +16,7 @@
 #include "MMC1/bank_helpers.h"
 #include "MMC1/bank_helpers.c"
 
-#include "noahman.h"
+#include "floodstory.h"
 #include "metatile.h"
 
 //bank code, messy and in here.
@@ -250,7 +250,7 @@ void load_level_select(void)
 	current_animation_ptr = animate_playerstandright_data;
 	
 	
-	//clear press start and noahman
+	//clear press start and floodstory
 	// Load level select screen
 	multi_vram_buffer_horz("SELECT STAGE", 12, NTADR_A(8, 6));
 	

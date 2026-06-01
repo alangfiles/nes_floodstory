@@ -1,6 +1,6 @@
 @echo off
 
-set name="noahman"
+set name="floodstory"
 
 set path=%path%;..\bin\
 

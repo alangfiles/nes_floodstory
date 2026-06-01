@@ -344,10 +344,20 @@ sounds_data:
 
 .segment "CHARS"
 
-	.incbin "CHRS/stage1.chr"	
-	.incbin "CHRS/giraffe.chr";
-	.incbin "CHRS/walrus.chr";
-	.incbin "CHRS/camel.chr";
-	.incbin "CHRS/leviathan.chr";
-; incbin-ed many more chr files
+	.incbin "CHRS/1.chr"
+	.incbin "CHRS/2.chr"
+	.incbin "CHRS/3.chr"
+	.incbin "CHRS/4.chr"
+	.incbin "CHRS/5.chr"
+	.incbin "CHRS/6.chr"
+	.incbin "CHRS/7.chr"
+	.incbin "CHRS/8.chr"
+	.incbin "CHRS/9.chr"
+	.incbin "CHRS/10.chr"
+	.incbin "CHRS/11.chr"
+	.incbin "CHRS/12.chr"
+	.incbin "CHRS/13.chr"
+	.incbin "CHRS/14.chr"
+	.incbin "CHRS/15.chr"
+	.incbin "CHRS/16.chr"
 	

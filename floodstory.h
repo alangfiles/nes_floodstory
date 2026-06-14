@@ -9,6 +9,7 @@
 enum
 {
 	MODE_TITLE,
+	MODE_STORY,
 	MODE_GAMEOVER,
 	MODE_LEVEL_SELECT,
 	MODE_GAME,
@@ -108,6 +109,9 @@ enum
 	BANK_5,
 	BANK_6
 };
+
+extern const unsigned char title_bg_palette[16];
+extern const unsigned char level_select_bg_palette[16];
 
 #pragma bss-name(push, "ZEROPAGE")
 

@@ -312,6 +312,19 @@ void main(void)
 			
 			if (pad1_new & PAD_START)
 			{
+				game_mode = MODE_STORY;
+				banked_call(BANK_1, bank1_load_story);
+			}
+		}
+
+		while (game_mode == MODE_STORY)
+		{
+			ppu_wait_nmi();
+			pad1 = pad_poll(0);
+			pad1_new = get_pad_new(0);
+			
+			if (pad1_new & PAD_START)
+			{
 				game_mode = MODE_LEVEL_SELECT;
 				load_level_select();
 			}

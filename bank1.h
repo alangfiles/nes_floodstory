@@ -251,6 +251,56 @@ void bank1_load_title(void)
 	ppu_on_all();
 }
 
+static const unsigned char story_line_0[] = "GOD HAS TOLD YOU TO BUILD";
+static const unsigned char story_line_1[] = "A BOAT AND TAKE 2 OF EVERY";
+static const unsigned char story_line_2[] = "ANIMAL (AND MAYBE 7 OF";
+static const unsigned char story_line_3[] = "SOME), BECAUSE THERE WILL";
+static const unsigned char story_line_4[] = "BE A FLOOD (WHATEVER THAT";
+static const unsigned char story_line_5[] = "IS).";
+static const unsigned char story_line_6[] = "YOU COLLECTED THE ANIMALS";
+static const unsigned char story_line_7[] = "BUT 5 OF THE WILIEST";
+static const unsigned char story_line_8[] = "ANIMALS HAVE ESCAPED YOUR";
+static const unsigned char story_line_9[] = "ARK. GO COLLECT THEM AND";
+static const unsigned char story_line_10[] = "PREPARE FOR THE FLOOD.";
+static const unsigned char story_line_11[] = "PRESS START";
+
+void bank1_load_story(void)
+{
+	ppu_off();
+	pal_bg(title_bg_palette);
+	vram_adr(NAMETABLE_A);
+	vram_fill(0x03, 0x03c0);
+	vram_fill(0x00, 0x0040);
+	vram_adr(NTADR_A(3, 4));
+	vram_write(story_line_0, sizeof(story_line_0) - 1);
+	vram_adr(NTADR_A(2, 6));
+	vram_write(story_line_1, sizeof(story_line_1) - 1);
+	vram_adr(NTADR_A(3, 8));
+	vram_write(story_line_2, sizeof(story_line_2) - 1);
+	vram_adr(NTADR_A(2, 10));
+	vram_write(story_line_3, sizeof(story_line_3) - 1);
+	vram_adr(NTADR_A(3, 12));
+	vram_write(story_line_4, sizeof(story_line_4) - 1);
+	vram_adr(NTADR_A(13, 14));
+	vram_write(story_line_5, sizeof(story_line_5) - 1);
+	vram_adr(NTADR_A(3, 17));
+	vram_write(story_line_6, sizeof(story_line_6) - 1);
+	vram_adr(NTADR_A(5, 19));
+	vram_write(story_line_7, sizeof(story_line_7) - 1);
+	vram_adr(NTADR_A(3, 21));
+	vram_write(story_line_8, sizeof(story_line_8) - 1);
+	vram_adr(NTADR_A(3, 23));
+	vram_write(story_line_9, sizeof(story_line_9) - 1);
+	vram_adr(NTADR_A(5, 25));
+	vram_write(story_line_10, sizeof(story_line_10) - 1);
+	vram_adr(NTADR_A(10, 27));
+	vram_write(story_line_11, sizeof(story_line_11) - 1);
+	vram_adr(0x23c0);
+	vram_fill(0x00, 0x0040);
+
+	ppu_on_all();
+}
+
 #include "LEVELS/General/gameovertiled.c"
 void bank1_load_gameover(void)
 {

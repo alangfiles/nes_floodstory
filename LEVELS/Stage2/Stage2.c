@@ -1,11 +1,30 @@
-#include "level0.c"
+#include "giraffeworld.c"
 
 const unsigned char *const stage2_levels_list[] = {
     };
 
 const unsigned char* stage2_levels[] = {
-    stage2_level0_0,
-		stage2_level0_1,
+    giraffeworld_0,
+		giraffeworld_1,
+		giraffeworld_2,
+		giraffeworld_3,
+		giraffeworld_4,
+		giraffeworld_5,
+		giraffeworld_6,
+		giraffeworld_7,
+		giraffeworld_8,
+		giraffeworld_9,
+		giraffeworld_10,
+		giraffeworld_11,
+		giraffeworld_12,
+		giraffeworld_13,
+		giraffeworld_14,
+		giraffeworld_15,
+		giraffeworld_16,
+		giraffeworld_17,
+		giraffeworld_18,
+		giraffeworld_19,
+		giraffeworld_20
 };
 
 const unsigned char stage2_max_rooms[] = {1};

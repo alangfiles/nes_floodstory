@@ -77,6 +77,12 @@ enum
 #define COL_LADDER_TOP 0x02
 #define TURN_OFF 0xff
 
+// entity types
+#define ENTITY_LEVEL_UP 0x01
+#define ENTITY_LEVEL_DOWN 0x02
+#define ENTITY_PIT_WIDE_64 0x03
+#define ENTITY_SPIKE_WIDE_64 0x04
+
 //SCROLL
 #define MAX_RIGHT 0x9000
 #define MAX_LEFT 0x5000

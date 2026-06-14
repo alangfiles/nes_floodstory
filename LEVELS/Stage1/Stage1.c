@@ -1,23 +1,24 @@
 #include "level0.c"
 
+
 const unsigned char *const stage1_levels_list[] = {
-    stage1_level0_0, 
-  stage1_level0_1,
-stage1_level0_2,
-stage1_level0_3,
-stage1_level0_4,
-stage1_level0_5,
-stage1_level0_6,};
+	stage1_level0_0, 
+	stage1_level0_1,
+	stage1_level0_2,
+	stage1_level0_3,
+	stage1_level0_4,
+	stage1_level0_5,
+	stage1_level0_6,};
 
 const unsigned char* stage1_levels[] = {
     stage1_level0_0,
     stage1_level0_1,
-		stage1_level0_2,
-		stage1_level0_3,
-		stage1_level0_4,
-		stage1_level0_5,
-		stage1_level0_6,
-		stage1_level0_7,
+	stage1_level0_2,
+	stage1_level0_3,
+	stage1_level0_4,
+	stage1_level0_5,
+	stage1_level0_6,
+	stage1_level0_7,
 };
 
 const unsigned char stage1_max_rooms[] = {1};
@@ -267,8 +268,23 @@ const unsigned char stage1_metatiles[]={
 	159, 159, 143, 127,  0,
 	127, 159, 110, 143,  0,
 };
-// const unsigned char metatile_colision_map[] = {
-// 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+const unsigned char stage1_metatile_colision_map[] = {
+		COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL,
+		COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, 0, COL_ALL, COL_ALL,
+		COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, 0, 0, 0, 0, 0, 0, 0,
+		COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_ALL, COL_LADDER, COL_LADDER_TOP, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, COL_ALL, COL_ALL, COL_ALL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 const unsigned char starting_x_place[] = {30};
 const unsigned char starting_y_place[] = {160};
@@ -290,8 +306,42 @@ const unsigned char stage1_level_0_enemies[] = {
 const unsigned char *const stage1_Enemy_list[] = {
     stage1_level_0_enemies};
 
+// y, room, x, type
 const unsigned char stage1_level_0_entities[] = {
-    TURN_OFF};
+	LEVEL_BOTTOM, 2, 0, ENTITY_PIT_WIDE_64, // Pit 1
+	LEVEL_BOTTOM, 4, 0, ENTITY_PIT_WIDE_64, // Pit 2
+	LEVEL_BOTTOM, 5, 95, ENTITY_PIT_WIDE_64, // Pit 3
+	LEVEL_BOTTOM, 5, 175, ENTITY_PIT_WIDE_64, // Pit 4
+	LEVEL_BOTTOM, 6, 159, ENTITY_PIT_WIDE_64, // Pit 5
+	LEVEL_TOP, 7, 160, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_TOP, 8, 48, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_BOTTOM, 8, 160, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 9, 0, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 9, 16, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 9, 32, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 9, 48, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 10, 0, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 10, 64, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 10, 128, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 10, 192, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 11, 0, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 11, 144, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 12, 16, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 11, 208, ENTITY_SPIKE_WIDE_64, // Spike
+	LEVEL_BOTTOM, 12, 176, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_BOTTOM, 12, 192, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_BOTTOM, 12, 208, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_BOTTOM, 12, 224, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_BOTTOM, 12, 240, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_TOP, 13, 176, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 13, 48, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_TOP, 14, 48, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_TOP, 18, 192, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_TOP, 19, 48, ENTITY_LEVEL_UP, // Level Up
+	LEVEL_BOTTOM, 19, 192, ENTITY_LEVEL_DOWN, // Level Down
+	LEVEL_BOTTOM, 20, 48, ENTITY_LEVEL_DOWN, // Level Down
+	TURN_OFF
+};
 
 const unsigned char *const stage1_entity_list[] = {
     stage1_level_0_entities};

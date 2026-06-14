@@ -26,7 +26,7 @@ char bg_collision_sub(void)
     collision = c_map2[coordinates];
   }
 
-  return metatile_colision_map[collision];
+	return c_metatile_map[collision];
 }
 void bg_collision_fast(void)
 {

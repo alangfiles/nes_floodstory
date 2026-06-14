@@ -303,6 +303,7 @@ void bank4_load_room(void)
 	if (current_level + 1 < (sizeof(stage4_levels) / sizeof(stage4_levels[0]))) {
 		memcpy(c_map2, stage4_levels[current_level + 1], 240);
 	}
+	memcpy(c_metatile_map, stage4_metatile_colision_map, 240);
  
 	map_loaded = 1;
 	ppu_on_all();

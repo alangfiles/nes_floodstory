@@ -222,6 +222,7 @@ unsigned int pseudo_scroll_x;
 #pragma bss-name(push, "BSS")
 unsigned char c_map[240];
 unsigned char c_map2[240];
+unsigned char c_metatile_map[240];
 unsigned int temp1;
 unsigned int temp2;
 unsigned int temp3;

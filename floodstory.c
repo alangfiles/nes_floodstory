@@ -22,7 +22,7 @@
 
 //bank code, messy and in here.
 #include "bank0.h" 
-#include "bank1.h"
+#include "bank1.h" 
 #include "bank2.h" 
 #include "bank3.h"
 #include "bank4.h"

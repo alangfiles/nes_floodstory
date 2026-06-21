@@ -758,7 +758,7 @@ void bank0_draw_player_sprite(void)
 	{
 		if (projectiles_list[temp1] != TURN_OFF)
 		{
-			oam_meta_spr(projectiles_x[temp1], projectiles_y[temp1], projectile);
+			oam_meta_spr(projectiles_x[temp1], projectiles_y[temp1], _shot_data);
 		}
 	}
 }

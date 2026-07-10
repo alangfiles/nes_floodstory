@@ -132,11 +132,11 @@ void update_chr_banks_for_stage(unsigned char stage) {
 						// set_chr_bank_1(CHR_STAGE_1_BACKGROUND_CHR);
 						break;
 				case 1:
-						// if(chr_frame_state == 0) {
-						// 	set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR);
-						// } else {
-						// 	set_chr_bank_1(CHR_STAGE_2_BACKGROUND_CHR2);
-						// }
+								if(chr_frame_state == 0) {
+									set_chr_bank_1(CHR_STAGE_2_BG_A);
+								} else {
+									set_chr_bank_1(CHR_STAGE_2_BG_B);
+								}
 						break;
 				case 2:
 						if(chr_frame_state == 0) {

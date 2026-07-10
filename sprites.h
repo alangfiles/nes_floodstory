@@ -1,4 +1,3 @@
-
 const unsigned char _meter28_data[]={
 
 	  0,-56,0x50,2,
@@ -527,17 +526,17 @@ const unsigned char _slideleft_data[]={
 
 const unsigned char _slideright_data[]={
 
-	  0,-13,0x0d,0|OAM_FLIP_H,
-	- 8,-13,0x0e,0|OAM_FLIP_H,
-	-16,-14,0x0f,0|OAM_FLIP_H,
-	-24,-13,0x0c,0|OAM_FLIP_H,
+	  8,-13,0x0d,0|OAM_FLIP_H,
+	  0,-13,0x0e,0|OAM_FLIP_H,
+	- 8,-14,0x0f,0|OAM_FLIP_H,
+	-16,-13,0x0c,0|OAM_FLIP_H,
 
-	  8,- 5,0x1c,0|OAM_FLIP_H,
-	  0,- 5,0x1d,0|OAM_FLIP_H,
-	- 8,- 5,0x1e,0|OAM_FLIP_H,
-	-16,- 6,0x1f,0|OAM_FLIP_H,
+	 16,- 5,0x1c,0|OAM_FLIP_H,
+	  8,- 5,0x1d,0|OAM_FLIP_H,
+	  0,- 5,0x1e,0|OAM_FLIP_H,
+	- 8,- 6,0x1f,0|OAM_FLIP_H,
 
-	- 1,-12,0x0b,2|OAM_FLIP_H,
+	  7,-12,0x0b,2|OAM_FLIP_H,
 	0x80
 
 };

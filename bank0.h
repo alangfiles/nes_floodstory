@@ -700,24 +700,24 @@ void update_player_animation(void)
 		
 		if (direction == LEFT)
 		{
-			if (current_animation_frame > 2)
+			if (current_animation_frame > 3)
 				current_animation_frame = 0;
 			
 			if (current_animation_frame == 0)
 				current_animation_ptr = animate_playerrun1left_data;
-			else if (current_animation_frame == 1)
+			else if (current_animation_frame == 1 || current_animation_frame == 3)
 				current_animation_ptr = animate_playerrun2left_data;
 			else
 				current_animation_ptr = animate_playerrun3left_data;
 		}
 		else
 		{
-			if (current_animation_frame > 2)
+			if (current_animation_frame > 3)
 				current_animation_frame = 0;
 			
 			if (current_animation_frame == 0)
 				current_animation_ptr = animate_playerrun1right_data;
-			else if (current_animation_frame == 1)
+			else if (current_animation_frame == 1 || current_animation_frame == 3)
 				current_animation_ptr = animate_playerrun2right_data;
 			else
 				current_animation_ptr = animate_playerrun3right_data;

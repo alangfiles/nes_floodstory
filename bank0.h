@@ -762,3 +762,68 @@ void bank0_draw_player_sprite(void)
 		}
 	}
 }
+
+// figures out which entities are currently on screen (based on their
+// room/x vs the current scroll position) and gets their screen x coord
+void bank0_check_entity_objects(void)
+{
+	for (index = 0; index < MAX_ENTITY; ++index)
+	{
+		entity_active[index] = 0; // default to off screen
+
+		if (entity_y[index] == TURN_OFF)
+			continue;
+
+		high_byte(temp5) = entity_room[index];
+		low_byte(temp5) = entity_actual_x[index];
+		temp5 -= scroll_x;
+
+		if (high_byte(temp5))
+			continue; // not in range of the screen right now
+
+		entity_active[index] = 1;
+		entity_x[index] = low_byte(temp5); // screen x coords
+	}
+}
+
+// checks the player against every active entity, and handles the result
+void bank0_entity_collisions(void)
+{
+	Generic.x = high_byte(Player1.x);
+	Generic.y = high_byte(Player1.y);
+	Generic.width = HERO_WIDTH;
+	Generic.height = HERO_HEIGHT;
+
+	for (index = 0; index < MAX_ENTITY; ++index)
+	{
+		if (!entity_active[index])
+			continue;
+
+		switch (entity_type[index])
+		{
+			case ENTITY_PIT_WIDE_64:
+			case ENTITY_SPIKE_WIDE_64:
+				Generic2.width = 64;
+				Generic2.height = 8;
+				break;
+			default:
+				Generic2.width = 16;
+				Generic2.height = 16;
+				break;
+		}
+
+		Generic2.x = entity_x[index];
+		Generic2.y = entity_y[index];
+
+		if (check_collision(&Generic, &Generic2))
+		{
+			switch (entity_type[index])
+			{
+				case ENTITY_PIT_WIDE_64:
+				case ENTITY_SPIKE_WIDE_64:
+					kill_player();
+					return; // player is gone, no need to check the rest this frame
+			}
+		}
+	}
+}

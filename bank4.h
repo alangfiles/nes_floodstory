@@ -316,6 +316,41 @@ void bank4_scroll_screen(void){
 	bank4_handle_scrolling();
 }
 
+// populate the generic entity arrays from this stage's entity list
+void bank4_entity_obj_init(void)
+{
+	pointer = stage4_entity_list[0];
+
+	for (index = 0; index < MAX_ENTITY; ++index)
+	{
+		entity_y[index] = TURN_OFF; // turn off all objects by default
+	}
+
+	for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
+	{
+		temp1 = pointer[index2]; // y
+		entity_y[index] = temp1;
+
+		if (temp1 == TURN_OFF)
+			break;
+
+		++index2;
+		entity_active[index] = 0;
+
+		temp1 = pointer[index2]; // room
+		entity_room[index] = temp1;
+		++index2;
+
+		temp1 = pointer[index2]; // x
+		entity_actual_x[index] = temp1;
+		++index2;
+
+		temp1 = pointer[index2]; // type
+		entity_type[index] = temp1;
+		++index2;
+	}
+}
+
 void function_bank4()
 {
 }

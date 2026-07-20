@@ -84,6 +84,8 @@ enum
 #define ENTITY_PIT_WIDE_64 0x03
 #define ENTITY_SPIKE_WIDE_64 0x04
 
+#define MAX_ENTITY 32
+
 //SCROLL
 #define MAX_RIGHT 0x9000
 #define MAX_LEFT 0x5000
@@ -208,6 +210,7 @@ unsigned char x; // room loader code
 unsigned char y;
 unsigned char nt;
 unsigned char index;
+unsigned char index2;
 unsigned char map;
 unsigned int scroll_x;
 unsigned int scroll_y;
@@ -219,6 +222,8 @@ unsigned char current_stage = 0;
 unsigned char current_level = 0;
 unsigned char scroll_count;
 unsigned int pseudo_scroll_x;
+unsigned int temp5;
+const unsigned char *pointer;
 
 
 
@@ -227,6 +232,7 @@ unsigned int pseudo_scroll_x;
 unsigned char c_map[240];
 unsigned char c_map2[240];
 unsigned char c_metatile_map[240];
+
 unsigned int temp1;
 unsigned int temp2;
 unsigned int temp3;
@@ -256,10 +262,22 @@ struct Base
 struct Base Generic;
 struct Base Generic2;
 
+// defined in floodstory.c (fixed bank), called from swappable banks
+void kill_player(void);
+
 
 #pragma bss-name(push, "XRAM")
 // extra RAM at $6000-$7fff
-unsigned char wram_array[0x2000];
+
+// entities (moved here from BSS since the $0300-$06ff RAM area is too small)
+unsigned char entity_x[MAX_ENTITY];
+unsigned char entity_y[MAX_ENTITY];
+unsigned char entity_active[MAX_ENTITY];
+unsigned char entity_room[MAX_ENTITY];
+unsigned char entity_actual_x[MAX_ENTITY];
+unsigned char entity_type[MAX_ENTITY];
+
+unsigned char wram_array[0x2000 - (MAX_ENTITY * 6)];
 
 // finished placing things in XRAM; restore previous bss section so later globals
 // (and any other files that include this header) don't get placed in XRAM.

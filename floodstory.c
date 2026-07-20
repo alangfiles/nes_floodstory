@@ -125,6 +125,27 @@ void dispatch_load_room(void) {
     }
 }
 
+// Dispatcher function: populates the generic entity arrays for the current stage
+void dispatch_entity_obj_init(void) {
+    switch (current_stage) {
+        case 0:
+            banked_call(BANK_1, bank1_entity_obj_init);
+            break;
+        case 1:
+            banked_call(BANK_2, bank2_entity_obj_init);
+            break;
+        case 2:
+            banked_call(BANK_3, bank3_entity_obj_init);
+            break;
+        case 3:
+            banked_call(BANK_4, bank4_entity_obj_init);
+            break;
+        case 4:
+            banked_call(BANK_5, bank5_entity_obj_init);
+            break;
+    }
+}
+
 void update_chr_banks_for_stage(unsigned char stage) {
 		switch (stage) {
 				case 0:
@@ -237,6 +258,16 @@ void projectile_movement(void)
 			}
 		}
 	}
+}
+
+// called when the player dies (falls in a pit, touches spikes, etc.)
+// for now, just bail out back to the level select screen.
+void kill_player(void)
+{
+	game_mode = MODE_LEVEL_SELECT;
+	scroll_x = 0;
+	set_scroll_x(0);
+	load_level_select();
 }
 
 void load_level_select(void)
@@ -357,6 +388,7 @@ void main(void)
 				current_level = 0;
 				game_mode = MODE_GAME;
 				dispatch_load_room();
+				dispatch_entity_obj_init();
 			}
 		}
 
@@ -383,7 +415,12 @@ void main(void)
 			banked_call(BANK_0, bank0_player_movement);
 			projectile_movement();
 			dispatch_scroll_screen();
-	 
+			banked_call(BANK_0, bank0_check_entity_objects);
+			banked_call(BANK_0, bank0_entity_collisions);
+
+			if (game_mode != MODE_GAME)
+				continue; // player died and got bumped back to another mode
+
 			oam_clear(); 
 			banked_call(BANK_0, bank0_draw_player_sprite);
 		} 

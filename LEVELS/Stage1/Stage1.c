@@ -1,29 +1,36 @@
-#include "level0.c"
+#include "stage1world.c"
 
-
-const unsigned char *const stage1_levels_list[] = {
-	stage1_level0_0, 
-	stage1_level0_1,
-	stage1_level0_2,
-	stage1_level0_3,
-	stage1_level0_4,
-	stage1_level0_5,
-	stage1_level0_6,};
 
 const unsigned char* stage1_levels[] = {
-    stage1_level0_0,
-    stage1_level0_1,
-	stage1_level0_2,
-	stage1_level0_3,
-	stage1_level0_4,
-	stage1_level0_5,
-	stage1_level0_6,
-	stage1_level0_7,
+    stage1world_0,
+    stage1world_1,
+		stage1world_2,
+		stage1world_3,
+		stage1world_4,
+		stage1world_5,
+		stage1world_6,
+		stage1world_7,
+		stage1world_8,
+		stage1world_9,
+		stage1world_10,
+		stage1world_11,
+		stage1world_12,
+		stage1world_13,
+		stage1world_14,
+		stage1world_15,
+		stage1world_16,
+		stage1world_17,
+		stage1world_18,
+		stage1world_19,
+		stage1world_20,
+		stage1world_21,
+		stage1world_22
 };
 
-const unsigned char stage1_max_rooms[] = {1};
+// number of rooms in each level, and the (global) room index each level starts at
+const unsigned char stage1_max_rooms[] = {8, 1, 4, 1, 5, 1, 2, 1};
 
-const unsigned char stage1_offsets[] = {0};
+const unsigned char stage1_offsets[] = {0, 8, 9, 13, 14, 19, 20, 22};
 
 // Metatile data for Stage 1
 const unsigned char stage1_metatiles[]={

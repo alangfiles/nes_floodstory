@@ -284,15 +284,29 @@
 	.export		_bank0_draw_player_sprite
 	.export		_bank0_check_entity_objects
 	.export		_bank0_entity_collisions
-	.export		_stage1_level0_0
-	.export		_stage1_level0_1
-	.export		_stage1_level0_2
-	.export		_stage1_level0_3
-	.export		_stage1_level0_4
-	.export		_stage1_level0_5
-	.export		_stage1_level0_6
-	.export		_stage1_level0_7
-	.export		_stage1_levels_list
+	.export		_stage1world_0
+	.export		_stage1world_1
+	.export		_stage1world_2
+	.export		_stage1world_3
+	.export		_stage1world_4
+	.export		_stage1world_5
+	.export		_stage1world_6
+	.export		_stage1world_7
+	.export		_stage1world_8
+	.export		_stage1world_9
+	.export		_stage1world_10
+	.export		_stage1world_11
+	.export		_stage1world_12
+	.export		_stage1world_13
+	.export		_stage1world_14
+	.export		_stage1world_15
+	.export		_stage1world_16
+	.export		_stage1world_17
+	.export		_stage1world_18
+	.export		_stage1world_19
+	.export		_stage1world_20
+	.export		_stage1world_21
+	.export		_stage1world_22
 	.export		_stage1_levels
 	.export		_stage1_max_rooms
 	.export		_stage1_offsets
@@ -518,14 +532,29 @@ _Player1:
 	.word	$9400
 	.res	6,$00
 _stage1_levels:
-	.addr	_stage1_level0_0
-	.addr	_stage1_level0_1
-	.addr	_stage1_level0_2
-	.addr	_stage1_level0_3
-	.addr	_stage1_level0_4
-	.addr	_stage1_level0_5
-	.addr	_stage1_level0_6
-	.addr	_stage1_level0_7
+	.addr	_stage1world_0
+	.addr	_stage1world_1
+	.addr	_stage1world_2
+	.addr	_stage1world_3
+	.addr	_stage1world_4
+	.addr	_stage1world_5
+	.addr	_stage1world_6
+	.addr	_stage1world_7
+	.addr	_stage1world_8
+	.addr	_stage1world_9
+	.addr	_stage1world_10
+	.addr	_stage1world_11
+	.addr	_stage1world_12
+	.addr	_stage1world_13
+	.addr	_stage1world_14
+	.addr	_stage1world_15
+	.addr	_stage1world_16
+	.addr	_stage1world_17
+	.addr	_stage1world_18
+	.addr	_stage1world_19
+	.addr	_stage1world_20
+	.addr	_stage1world_21
+	.addr	_stage1world_22
 _stage2_levels:
 	.addr	_giraffeworld_0
 	.addr	_giraffeworld_1
@@ -5647,7 +5676,7 @@ _animate_playerstandshootright_data:
 	.byte	$40
 	.byte	$80
 .segment	"BANK1"
-_stage1_level0_0:
+_stage1world_0:
 	.byte	$3C
 	.byte	$1E
 	.byte	$1F
@@ -5888,7 +5917,7 @@ _stage1_level0_0:
 	.byte	$37
 	.byte	$38
 	.byte	$37
-_stage1_level0_1:
+_stage1world_1:
 	.byte	$2D
 	.byte	$2E
 	.byte	$89
@@ -6129,7 +6158,7 @@ _stage1_level0_1:
 	.byte	$37
 	.byte	$37
 	.byte	$38
-_stage1_level0_2:
+_stage1world_2:
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -6370,7 +6399,7 @@ _stage1_level0_2:
 	.byte	$20
 	.byte	$20
 	.byte	$20
-_stage1_level0_3:
+_stage1world_3:
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -6611,7 +6640,7 @@ _stage1_level0_3:
 	.byte	$37
 	.byte	$37
 	.byte	$38
-_stage1_level0_4:
+_stage1world_4:
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -6802,8 +6831,8 @@ _stage1_level0_4:
 	.byte	$A9
 	.byte	$AB
 	.byte	$B7
-	.byte	$0E
-	.byte	$0D
+	.byte	$35
+	.byte	$36
 	.byte	$B0
 	.byte	$B9
 	.byte	$B0
@@ -6816,26 +6845,26 @@ _stage1_level0_4:
 	.byte	$B0
 	.byte	$A9
 	.byte	$B0
-	.byte	$0E
-	.byte	$0D
-	.byte	$00
-	.byte	$3C
+	.byte	$35
+	.byte	$36
+	.byte	$25
+	.byte	$21
 	.byte	$A6
 	.byte	$A6
 	.byte	$A6
-	.byte	$0E
-	.byte	$07
-	.byte	$08
-	.byte	$09
-	.byte	$04
-	.byte	$05
-	.byte	$06
-	.byte	$07
-	.byte	$0C
-	.byte	$3A
-	.byte	$3B
-	.byte	$02
-	.byte	$01
+	.byte	$35
+	.byte	$33
+	.byte	$33
+	.byte	$33
+	.byte	$33
+	.byte	$33
+	.byte	$33
+	.byte	$33
+	.byte	$33
+	.byte	$25
+	.byte	$21
+	.byte	$20
+	.byte	$20
 	.byte	$51
 	.byte	$51
 	.byte	$51
@@ -6848,11 +6877,11 @@ _stage1_level0_4:
 	.byte	$38
 	.byte	$37
 	.byte	$38
-	.byte	$38
-	.byte	$37
-	.byte	$37
-	.byte	$38
-_stage1_level0_5:
+	.byte	$23
+	.byte	$20
+	.byte	$20
+	.byte	$20
+_stage1world_5:
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -6948,7 +6977,7 @@ _stage1_level0_5:
 	.byte	$D1
 	.byte	$D2
 	.byte	$D5
-	.byte	$0E
+	.byte	$83
 	.byte	$50
 	.byte	$D0
 	.byte	$D4
@@ -6978,7 +7007,7 @@ _stage1_level0_5:
 	.byte	$E5
 	.byte	$E6
 	.byte	$D4
-	.byte	$0F
+	.byte	$83
 	.byte	$0C
 	.byte	$02
 	.byte	$D6
@@ -6997,7 +7026,7 @@ _stage1_level0_5:
 	.byte	$3C
 	.byte	$12
 	.byte	$3A
-	.byte	$0E
+	.byte	$83
 	.byte	$07
 	.byte	$04
 	.byte	$06
@@ -7012,88 +7041,88 @@ _stage1_level0_5:
 	.byte	$EB
 	.byte	$12
 	.byte	$01
-	.byte	$12
-	.byte	$00
-	.byte	$3C
-	.byte	$12
-	.byte	$02
+	.byte	$25
+	.byte	$03
 	.byte	$10
-	.byte	$01
+	.byte	$10
+	.byte	$03
+	.byte	$11
+	.byte	$10
 	.byte	$BC
 	.byte	$B0
 	.byte	$BD
-	.byte	$00
+	.byte	$3C
 	.byte	$01
 	.byte	$BB
 	.byte	$BD
 	.byte	$10
-	.byte	$03
+	.byte	$25
+	.byte	$20
+	.byte	$25
+	.byte	$21
+	.byte	$26
 	.byte	$3C
-	.byte	$02
-	.byte	$3A
-	.byte	$3B
 	.byte	$10
-	.byte	$12
-	.byte	$11
+	.byte	$10
 	.byte	$B9
 	.byte	$B0
 	.byte	$B9
+	.byte	$10
 	.byte	$02
-	.byte	$03
 	.byte	$B8
 	.byte	$BC
-	.byte	$3A
-	.byte	$3B
-	.byte	$3C
-	.byte	$00
-	.byte	$01
-	.byte	$3C
-	.byte	$3A
-	.byte	$3B
+	.byte	$25
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$26
+	.byte	$12
 	.byte	$01
 	.byte	$A9
 	.byte	$B6
 	.byte	$A9
-	.byte	$00
-	.byte	$01
+	.byte	$25
+	.byte	$26
 	.byte	$B0
 	.byte	$A7
-	.byte	$00
-	.byte	$3C
-	.byte	$00
-	.byte	$02
-	.byte	$03
-	.byte	$10
-	.byte	$3C
-	.byte	$10
-	.byte	$03
-	.byte	$A6
-	.byte	$A6
-	.byte	$A6
-	.byte	$02
+	.byte	$23
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$26
 	.byte	$03
 	.byte	$A6
 	.byte	$A6
-	.byte	$02
-	.byte	$01
-	.byte	$02
-	.byte	$38
-	.byte	$37
-	.byte	$37
-	.byte	$38
-	.byte	$37
-	.byte	$38
+	.byte	$A6
+	.byte	$23
+	.byte	$24
+	.byte	$A6
+	.byte	$A6
+	.byte	$23
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$26
 	.byte	$51
 	.byte	$51
 	.byte	$51
-	.byte	$38
-	.byte	$38
+	.byte	$23
+	.byte	$24
 	.byte	$51
 	.byte	$51
-	.byte	$38
-	.byte	$38
-	.byte	$37
-_stage1_level0_6:
+	.byte	$23
+	.byte	$20
+	.byte	$20
+_stage1world_6:
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -7176,7 +7205,7 @@ _stage1_level0_6:
 	.byte	$50
 	.byte	$0A
 	.byte	$06
-	.byte	$0C
+	.byte	$84
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -7195,8 +7224,8 @@ _stage1_level0_6:
 	.byte	$03
 	.byte	$E4
 	.byte	$E2
-	.byte	$50
 	.byte	$AC
+	.byte	$50
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -7212,7 +7241,7 @@ _stage1_level0_6:
 	.byte	$0E
 	.byte	$08
 	.byte	$06
-	.byte	$0D
+	.byte	$84
 	.byte	$50
 	.byte	$50
 	.byte	$D1
@@ -7238,8 +7267,8 @@ _stage1_level0_6:
 	.byte	$D6
 	.byte	$D4
 	.byte	$D8
-	.byte	$12
-	.byte	$3C
+	.byte	$21
+	.byte	$26
 	.byte	$01
 	.byte	$02
 	.byte	$03
@@ -7254,10 +7283,10 @@ _stage1_level0_6:
 	.byte	$D4
 	.byte	$D6
 	.byte	$D9
-	.byte	$01
-	.byte	$3A
-	.byte	$3B
-	.byte	$00
+	.byte	$20
+	.byte	$20
+	.byte	$21
+	.byte	$26
 	.byte	$3C
 	.byte	$02
 	.byte	$01
@@ -7270,11 +7299,11 @@ _stage1_level0_6:
 	.byte	$B0
 	.byte	$BC
 	.byte	$B0
-	.byte	$03
-	.byte	$00
-	.byte	$00
-	.byte	$02
-	.byte	$10
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$26
 	.byte	$01
 	.byte	$02
 	.byte	$3A
@@ -7286,13 +7315,13 @@ _stage1_level0_6:
 	.byte	$AB
 	.byte	$B9
 	.byte	$BA
-	.byte	$01
-	.byte	$02
-	.byte	$03
-	.byte	$3C
-	.byte	$3C
-	.byte	$03
-	.byte	$00
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$21
+	.byte	$26
 	.byte	$3C
 	.byte	$10
 	.byte	$10
@@ -7302,39 +7331,39 @@ _stage1_level0_6:
 	.byte	$B8
 	.byte	$B0
 	.byte	$AA
-	.byte	$03
-	.byte	$01
-	.byte	$00
-	.byte	$01
-	.byte	$3A
-	.byte	$3B
-	.byte	$02
-	.byte	$10
-	.byte	$3C
-	.byte	$12
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$21
+	.byte	$21
+	.byte	$26
 	.byte	$A6
 	.byte	$A6
 	.byte	$A6
 	.byte	$A6
 	.byte	$0E
 	.byte	$09
-	.byte	$37
-	.byte	$38
-	.byte	$38
-	.byte	$37
-	.byte	$38
-	.byte	$38
-	.byte	$37
-	.byte	$37
-	.byte	$38
-	.byte	$37
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$24
 	.byte	$51
 	.byte	$51
 	.byte	$51
 	.byte	$51
 	.byte	$10
 	.byte	$00
-_stage1_level0_7:
+_stage1world_7:
 	.byte	$50
 	.byte	$50
 	.byte	$50
@@ -7342,8 +7371,8 @@ _stage1_level0_7:
 	.byte	$50
 	.byte	$43
 	.byte	$44
-	.byte	$19
-	.byte	$18
+	.byte	$16
+	.byte	$1A
 	.byte	$10
 	.byte	$3D
 	.byte	$00
@@ -7482,7 +7511,7 @@ _stage1_level0_7:
 	.byte	$DA
 	.byte	$DB
 	.byte	$EF
-	.byte	$EB
+	.byte	$E9
 	.byte	$0F
 	.byte	$07
 	.byte	$0D
@@ -7575,18 +7604,3639 @@ _stage1_level0_7:
 	.byte	$20
 	.byte	$20
 	.byte	$20
-_stage1_levels_list:
-	.addr	_stage1_level0_0
-	.addr	_stage1_level0_1
-	.addr	_stage1_level0_2
-	.addr	_stage1_level0_3
-	.addr	_stage1_level0_4
-	.addr	_stage1_level0_5
-	.addr	_stage1_level0_6
+_stage1world_8:
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3D
+	.byte	$3C
+	.byte	$10
+	.byte	$01
+	.byte	$10
+	.byte	$12
+	.byte	$15
+	.byte	$16
+	.byte	$12
+	.byte	$02
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3D
+	.byte	$44
+	.byte	$18
+	.byte	$17
+	.byte	$51
+	.byte	$CE
+	.byte	$CA
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$1B
+	.byte	$3C
+	.byte	$11
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3D
+	.byte	$50
+	.byte	$9E
+	.byte	$9B
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CB
+	.byte	$51
+	.byte	$00
+	.byte	$01
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3D
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$43
+	.byte	$CF
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$02
+	.byte	$03
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$9B
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$3C
+	.byte	$01
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$58
+	.byte	$8E
+	.byte	$8F
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$0E
+	.byte	$0C
+	.byte	$10
+	.byte	$03
+	.byte	$50
+	.byte	$50
+	.byte	$58
+	.byte	$58
+	.byte	$8E
+	.byte	$8F
+	.byte	$CA
+	.byte	$CE
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$3A
+	.byte	$3B
+	.byte	$1D
+	.byte	$8F
+	.byte	$51
+	.byte	$51
+	.byte	$CE
+	.byte	$0E
+	.byte	$04
+	.byte	$04
+	.byte	$07
+	.byte	$0C
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$13
+	.byte	$01
+	.byte	$1C
+	.byte	$51
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$CA
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$03
+	.byte	$02
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$3C
+	.byte	$01
+	.byte	$01
+	.byte	$0E
+	.byte	$0D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$AE
+	.byte	$51
+	.byte	$10
+	.byte	$03
+	.byte	$1A
+	.byte	$12
+	.byte	$11
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$51
+	.byte	$00
+	.byte	$01
+	.byte	$44
+	.byte	$18
+	.byte	$1A
+	.byte	$0F
+	.byte	$05
+	.byte	$07
+	.byte	$08
+	.byte	$05
+	.byte	$07
+	.byte	$07
+	.byte	$3E
+	.byte	$05
+	.byte	$08
+	.byte	$0D
+	.byte	$02
+	.byte	$03
+	.byte	$50
+	.byte	$9B
+	.byte	$44
+	.byte	$1A
+	.byte	$02
+	.byte	$3C
+	.byte	$11
+	.byte	$02
+	.byte	$10
+	.byte	$11
+	.byte	$3D
+	.byte	$03
+	.byte	$3C
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$9B
+	.byte	$44
+	.byte	$1B
+	.byte	$11
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$3D
+	.byte	$10
+	.byte	$11
+	.byte	$3C
+	.byte	$02
+	.byte	$03
+_stage1world_9:
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$85
+	.byte	$0B
+	.byte	$06
+	.byte	$07
+	.byte	$08
+	.byte	$84
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$50
+	.byte	$58
+	.byte	$59
+	.byte	$3A
+	.byte	$3B
+	.byte	$03
+	.byte	$10
+	.byte	$3C
+	.byte	$10
+	.byte	$AD
+	.byte	$8E
+	.byte	$8F
+	.byte	$50
+	.byte	$50
+	.byte	$85
+	.byte	$3E
+	.byte	$04
+	.byte	$04
+	.byte	$0C
+	.byte	$10
+	.byte	$3C
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$0E
+	.byte	$09
+	.byte	$0C
+	.byte	$50
+	.byte	$50
+	.byte	$43
+	.byte	$3D
+	.byte	$3B
+	.byte	$01
+	.byte	$3C
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$03
+	.byte	$01
+	.byte	$3C
+	.byte	$10
+	.byte	$03
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3D
+	.byte	$3C
+	.byte	$03
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$10
+	.byte	$3C
+	.byte	$3C
+	.byte	$03
+	.byte	$10
+	.byte	$00
+	.byte	$01
+_stage1world_10:
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$58
+	.byte	$8E
+	.byte	$E2
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$58
+	.byte	$58
+	.byte	$8E
+	.byte	$85
+	.byte	$84
+	.byte	$E2
+	.byte	$58
+	.byte	$85
+	.byte	$0C
+	.byte	$51
+	.byte	$CE
+	.byte	$CD
+	.byte	$0E
+	.byte	$0B
+	.byte	$05
+	.byte	$0D
+	.byte	$CE
+	.byte	$CD
+	.byte	$51
+	.byte	$11
+	.byte	$10
+	.byte	$CD
+	.byte	$51
+	.byte	$3C
+	.byte	$12
+	.byte	$CB
+	.byte	$C9
+	.byte	$C9
+	.byte	$3A
+	.byte	$3B
+	.byte	$14
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$CC
+	.byte	$CB
+	.byte	$CC
+	.byte	$C9
+	.byte	$CC
+	.byte	$CB
+	.byte	$CC
+	.byte	$C9
+	.byte	$AF
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+_stage1world_11:
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$95
+	.byte	$99
+	.byte	$7B
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$7A
+	.byte	$8D
+	.byte	$7D
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$85
+	.byte	$06
+	.byte	$07
+	.byte	$08
+	.byte	$09
+	.byte	$84
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$8E
+	.byte	$10
+	.byte	$02
+	.byte	$00
+	.byte	$01
+	.byte	$3C
+	.byte	$11
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$8E
+	.byte	$85
+	.byte	$0C
+	.byte	$10
+	.byte	$3C
+	.byte	$02
+	.byte	$01
+	.byte	$00
+	.byte	$01
+	.byte	$E2
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$50
+	.byte	$51
+	.byte	$CE
+	.byte	$CD
+	.byte	$1A
+	.byte	$10
+	.byte	$10
+	.byte	$03
+	.byte	$00
+	.byte	$10
+	.byte	$C8
+	.byte	$E3
+	.byte	$8E
+	.byte	$85
+	.byte	$05
+	.byte	$08
+	.byte	$84
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$03
+	.byte	$3A
+	.byte	$3B
+	.byte	$02
+	.byte	$3C
+	.byte	$CB
+	.byte	$CD
+	.byte	$C8
+	.byte	$11
+	.byte	$02
+	.byte	$10
+	.byte	$12
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$01
+	.byte	$10
+	.byte	$3C
+	.byte	$00
+	.byte	$01
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$CA
+	.byte	$CA
+	.byte	$CF
+	.byte	$0E
+	.byte	$05
+	.byte	$0C
+	.byte	$03
+	.byte	$00
+	.byte	$01
+	.byte	$02
+	.byte	$03
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3F
+	.byte	$10
+	.byte	$03
+	.byte	$00
+	.byte	$01
+	.byte	$02
+	.byte	$3A
+	.byte	$3B
+	.byte	$01
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+_stage1world_12:
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$E1
+	.byte	$E2
+	.byte	$58
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$CD
+	.byte	$C8
+	.byte	$C8
+	.byte	$E4
+	.byte	$E2
+	.byte	$AC
+	.byte	$AD
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$AC
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$0F
+	.byte	$06
+	.byte	$07
+	.byte	$06
+	.byte	$08
+	.byte	$07
+	.byte	$05
+	.byte	$08
+	.byte	$3E
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3F
+	.byte	$3F
+	.byte	$3F
+	.byte	$10
+	.byte	$03
+	.byte	$10
+	.byte	$03
+	.byte	$3A
+	.byte	$3B
+	.byte	$02
+	.byte	$10
+	.byte	$3D
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+_stage1world_13:
+	.byte	$10
+	.byte	$3C
+	.byte	$01
+	.byte	$00
+	.byte	$01
+	.byte	$3C
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$00
+	.byte	$01
+	.byte	$3D
+	.byte	$E3
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3A
+	.byte	$3B
+	.byte	$03
+	.byte	$02
+	.byte	$03
+	.byte	$3A
+	.byte	$3B
+	.byte	$02
+	.byte	$03
+	.byte	$02
+	.byte	$03
+	.byte	$3D
+	.byte	$C8
+	.byte	$E4
+	.byte	$E2
+	.byte	$50
+	.byte	$00
+	.byte	$12
+	.byte	$00
+	.byte	$12
+	.byte	$3C
+	.byte	$12
+	.byte	$11
+	.byte	$01
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$3D
+	.byte	$CB
+	.byte	$C8
+	.byte	$C8
+	.byte	$E4
+	.byte	$00
+	.byte	$01
+	.byte	$13
+	.byte	$16
+	.byte	$15
+	.byte	$CA
+	.byte	$CA
+	.byte	$51
+	.byte	$1B
+	.byte	$02
+	.byte	$14
+	.byte	$3D
+	.byte	$C9
+	.byte	$CC
+	.byte	$0E
+	.byte	$0D
+	.byte	$02
+	.byte	$03
+	.byte	$15
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3A
+	.byte	$3B
+	.byte	$00
+	.byte	$11
+	.byte	$CC
+	.byte	$C9
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$12
+	.byte	$02
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$00
+	.byte	$01
+	.byte	$00
+	.byte	$01
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$C9
+	.byte	$0E
+	.byte	$0C
+	.byte	$02
+	.byte	$03
+	.byte	$02
+	.byte	$03
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$51
+	.byte	$3A
+	.byte	$3B
+	.byte	$01
+	.byte	$10
+	.byte	$3C
+	.byte	$01
+	.byte	$C9
+	.byte	$3E
+	.byte	$0E
+	.byte	$06
+	.byte	$06
+	.byte	$07
+	.byte	$08
+	.byte	$09
+	.byte	$0A
+	.byte	$0D
+	.byte	$10
+	.byte	$01
+	.byte	$02
+	.byte	$01
+	.byte	$10
+	.byte	$03
+	.byte	$C9
+	.byte	$3D
+	.byte	$10
+	.byte	$03
+	.byte	$02
+	.byte	$3C
+	.byte	$01
+	.byte	$3C
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$03
+	.byte	$00
+	.byte	$03
+	.byte	$01
+	.byte	$14
+	.byte	$C9
+	.byte	$3D
+	.byte	$CD
+	.byte	$CA
+	.byte	$19
+	.byte	$16
+	.byte	$17
+	.byte	$11
+	.byte	$10
+	.byte	$12
+	.byte	$11
+	.byte	$01
+	.byte	$17
+	.byte	$19
+	.byte	$03
+	.byte	$15
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$C9
+	.byte	$CD
+	.byte	$51
+	.byte	$1A
+	.byte	$14
+	.byte	$51
+	.byte	$51
+	.byte	$CC
+	.byte	$CB
+	.byte	$10
+	.byte	$CC
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+_stage1world_14:
+	.byte	$3C
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$19
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$12
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$19
+	.byte	$02
+	.byte	$03
+	.byte	$11
+	.byte	$10
+	.byte	$01
+	.byte	$AF
+	.byte	$AE
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$16
+	.byte	$10
+	.byte	$10
+	.byte	$3A
+	.byte	$02
+	.byte	$0F
+	.byte	$0D
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$19
+	.byte	$18
+	.byte	$10
+	.byte	$12
+	.byte	$10
+	.byte	$3C
+	.byte	$3D
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$1A
+	.byte	$00
+	.byte	$01
+	.byte	$11
+	.byte	$3D
+	.byte	$51
+	.byte	$AE
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$02
+	.byte	$03
+	.byte	$00
+	.byte	$0E
+	.byte	$0B
+	.byte	$06
+	.byte	$05
+	.byte	$0D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$00
+	.byte	$01
+	.byte	$02
+	.byte	$03
+	.byte	$10
+	.byte	$02
+	.byte	$02
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$AE
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$02
+	.byte	$03
+	.byte	$00
+	.byte	$01
+	.byte	$00
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$AF
+	.byte	$C9
+	.byte	$00
+	.byte	$01
+	.byte	$02
+	.byte	$03
+	.byte	$02
+	.byte	$00
+	.byte	$01
+	.byte	$01
+	.byte	$0E
+	.byte	$07
+	.byte	$08
+	.byte	$09
+	.byte	$0A
+	.byte	$0B
+	.byte	$0C
+	.byte	$C9
+	.byte	$26
+	.byte	$03
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$02
+	.byte	$03
+	.byte	$02
+	.byte	$3A
+	.byte	$3B
+	.byte	$01
+	.byte	$00
+	.byte	$12
+	.byte	$01
+	.byte	$11
+	.byte	$C9
+	.byte	$20
+	.byte	$26
+	.byte	$02
+	.byte	$03
+	.byte	$12
+	.byte	$10
+	.byte	$00
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$03
+	.byte	$02
+	.byte	$10
+	.byte	$03
+	.byte	$3C
+	.byte	$C9
+	.byte	$20
+	.byte	$20
+	.byte	$21
+	.byte	$26
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$12
+	.byte	$11
+	.byte	$10
+	.byte	$11
+	.byte	$01
+	.byte	$10
+	.byte	$3C
+	.byte	$01
+	.byte	$CF
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$21
+	.byte	$26
+	.byte	$11
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$0E
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$21
+	.byte	$21
+	.byte	$26
+	.byte	$3A
+	.byte	$3B
+	.byte	$01
+	.byte	$02
+	.byte	$03
+	.byte	$00
+	.byte	$01
+_stage1world_15:
+	.byte	$10
+	.byte	$11
+	.byte	$1E
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3C
+	.byte	$00
+	.byte	$01
+	.byte	$1F
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$3B
+	.byte	$02
+	.byte	$03
+	.byte	$1E
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$00
+	.byte	$01
+	.byte	$00
+	.byte	$01
+	.byte	$1F
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$02
+	.byte	$03
+	.byte	$02
+	.byte	$03
+	.byte	$1E
+	.byte	$1F
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$1A
+	.byte	$10
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$1E
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$C5
+	.byte	$D1
+	.byte	$D3
+	.byte	$E1
+	.byte	$CD
+	.byte	$51
+	.byte	$1A
+	.byte	$02
+	.byte	$03
+	.byte	$11
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$D0
+	.byte	$D5
+	.byte	$D4
+	.byte	$D7
+	.byte	$ED
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$1A
+	.byte	$11
+	.byte	$14
+	.byte	$E3
+	.byte	$50
+	.byte	$50
+	.byte	$D1
+	.byte	$D2
+	.byte	$D5
+	.byte	$D6
+	.byte	$D4
+	.byte	$D9
+	.byte	$DB
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$CA
+	.byte	$CD
+	.byte	$C8
+	.byte	$E4
+	.byte	$E5
+	.byte	$D4
+	.byte	$D4
+	.byte	$D6
+	.byte	$D6
+	.byte	$D6
+	.byte	$D4
+	.byte	$DA
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$CF
+	.byte	$C8
+	.byte	$C8
+	.byte	$E7
+	.byte	$DF
+	.byte	$D6
+	.byte	$D6
+	.byte	$D6
+	.byte	$D6
+	.byte	$D8
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CA
+	.byte	$CD
+	.byte	$AE
+	.byte	$C8
+	.byte	$EB
+	.byte	$A4
+	.byte	$B3
+	.byte	$BC
+	.byte	$B0
+	.byte	$BC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$CD
+	.byte	$C8
+	.byte	$A4
+	.byte	$A1
+	.byte	$BE
+	.byte	$7E
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$51
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CD
+	.byte	$CD
+	.byte	$A3
+	.byte	$A2
+	.byte	$A8
+	.byte	$5C
+	.byte	$05
+	.byte	$04
+	.byte	$0A
+	.byte	$0B
+	.byte	$07
+	.byte	$05
+	.byte	$04
+	.byte	$05
+	.byte	$07
+	.byte	$09
+	.byte	$05
+	.byte	$0D
+	.byte	$35
+	.byte	$33
+	.byte	$33
+	.byte	$34
+	.byte	$02
+	.byte	$3C
+	.byte	$02
+	.byte	$01
+	.byte	$10
+	.byte	$02
+	.byte	$00
+	.byte	$02
+	.byte	$10
+	.byte	$00
+	.byte	$12
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+_stage1world_16:
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$86
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$86
+	.byte	$93
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$91
+	.byte	$94
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DC
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$91
+	.byte	$89
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$91
+	.byte	$92
+	.byte	$E2
+	.byte	$50
+	.byte	$50
+	.byte	$DD
+	.byte	$DC
+	.byte	$DE
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$2C
+	.byte	$93
+	.byte	$EB
+	.byte	$E3
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$49
+	.byte	$29
+	.byte	$EF
+	.byte	$EB
+	.byte	$E3
+	.byte	$50
+	.byte	$50
+	.byte	$D1
+	.byte	$D3
+	.byte	$E3
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$50
+	.byte	$49
+	.byte	$DB
+	.byte	$ED
+	.byte	$EB
+	.byte	$E4
+	.byte	$E5
+	.byte	$D5
+	.byte	$D9
+	.byte	$EF
+	.byte	$E3
+	.byte	$D1
+	.byte	$D3
+	.byte	$E4
+	.byte	$E2
+	.byte	$50
+	.byte	$50
+	.byte	$66
+	.byte	$DB
+	.byte	$DB
+	.byte	$EF
+	.byte	$E9
+	.byte	$EB
+	.byte	$E7
+	.byte	$DF
+	.byte	$D8
+	.byte	$EC
+	.byte	$E7
+	.byte	$DF
+	.byte	$EF
+	.byte	$EE
+	.byte	$E3
+	.byte	$50
+	.byte	$58
+	.byte	$BD
+	.byte	$B8
+	.byte	$B7
+	.byte	$BD
+	.byte	$BC
+	.byte	$BC
+	.byte	$7E
+	.byte	$78
+	.byte	$5F
+	.byte	$BD
+	.byte	$B0
+	.byte	$BC
+	.byte	$BC
+	.byte	$A8
+	.byte	$4D
+	.byte	$63
+	.byte	$7F
+	.byte	$5F
+	.byte	$B7
+	.byte	$B0
+	.byte	$B7
+	.byte	$B0
+	.byte	$5C
+	.byte	$8C
+	.byte	$5E
+	.byte	$B7
+	.byte	$B6
+	.byte	$B6
+	.byte	$B0
+	.byte	$AB
+	.byte	$4A
+	.byte	$B4
+	.byte	$8C
+	.byte	$5E
+	.byte	$AB
+	.byte	$A8
+	.byte	$B0
+	.byte	$B8
+	.byte	$A8
+	.byte	$B0
+	.byte	$A9
+	.byte	$B0
+	.byte	$A8
+	.byte	$B0
+	.byte	$AA
+	.byte	$B7
+	.byte	$B5
+	.byte	$4A
+	.byte	$34
+	.byte	$33
+	.byte	$33
+	.byte	$34
+	.byte	$34
+	.byte	$34
+	.byte	$34
+	.byte	$34
+	.byte	$34
+	.byte	$34
+	.byte	$34
+	.byte	$33
+	.byte	$34
+	.byte	$33
+	.byte	$33
+	.byte	$34
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$37
+_stage1world_17:
+	.byte	$88
+	.byte	$89
+	.byte	$94
+	.byte	$2D
+	.byte	$89
+	.byte	$7B
+	.byte	$50
+	.byte	$50
+	.byte	$1D
+	.byte	$1C
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$3A
+	.byte	$89
+	.byte	$2E
+	.byte	$88
+	.byte	$93
+	.byte	$94
+	.byte	$87
+	.byte	$50
+	.byte	$1D
+	.byte	$1C
+	.byte	$12
+	.byte	$3A
+	.byte	$3B
+	.byte	$01
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$2D
+	.byte	$93
+	.byte	$89
+	.byte	$2E
+	.byte	$2D
+	.byte	$89
+	.byte	$50
+	.byte	$1C
+	.byte	$02
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$03
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$93
+	.byte	$88
+	.byte	$2D
+	.byte	$92
+	.byte	$2E
+	.byte	$92
+	.byte	$1D
+	.byte	$02
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$02
+	.byte	$03
+	.byte	$10
+	.byte	$89
+	.byte	$2E
+	.byte	$93
+	.byte	$89
+	.byte	$89
+	.byte	$92
+	.byte	$1C
+	.byte	$10
+	.byte	$10
+	.byte	$02
+	.byte	$03
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$3C
+	.byte	$89
+	.byte	$2A
+	.byte	$2B
+	.byte	$2C
+	.byte	$90
+	.byte	$2A
+	.byte	$02
+	.byte	$00
+	.byte	$01
+	.byte	$3A
+	.byte	$3B
+	.byte	$02
+	.byte	$03
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$2F
+	.byte	$46
+	.byte	$6A
+	.byte	$46
+	.byte	$90
+	.byte	$48
+	.byte	$10
+	.byte	$02
+	.byte	$03
+	.byte	$12
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$62
+	.byte	$47
+	.byte	$68
+	.byte	$73
+	.byte	$48
+	.byte	$50
+	.byte	$1B
+	.byte	$3A
+	.byte	$3B
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$13
+	.byte	$16
+	.byte	$CE
+	.byte	$C9
+	.byte	$61
+	.byte	$67
+	.byte	$68
+	.byte	$70
+	.byte	$77
+	.byte	$50
+	.byte	$9B
+	.byte	$18
+	.byte	$10
+	.byte	$16
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$61
+	.byte	$58
+	.byte	$68
+	.byte	$70
+	.byte	$58
+	.byte	$58
+	.byte	$58
+	.byte	$C8
+	.byte	$CD
+	.byte	$CD
+	.byte	$CD
+	.byte	$CF
+	.byte	$CC
+	.byte	$C9
+	.byte	$BF
+	.byte	$C3
+	.byte	$64
+	.byte	$65
+	.byte	$68
+	.byte	$55
+	.byte	$75
+	.byte	$51
+	.byte	$53
+	.byte	$CD
+	.byte	$CD
+	.byte	$CF
+	.byte	$CA
+	.byte	$CE
+	.byte	$CE
+	.byte	$C9
+	.byte	$C1
+	.byte	$C0
+	.byte	$55
+	.byte	$6B
+	.byte	$6C
+	.byte	$6D
+	.byte	$57
+	.byte	$51
+	.byte	$C8
+	.byte	$AE
+	.byte	$CF
+	.byte	$CD
+	.byte	$CD
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$B4
+	.byte	$55
+	.byte	$51
+	.byte	$53
+	.byte	$57
+	.byte	$57
+	.byte	$53
+	.byte	$C8
+	.byte	$EA
+	.byte	$C8
+	.byte	$CB
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$33
+	.byte	$36
+	.byte	$0E
+	.byte	$04
+	.byte	$07
+	.byte	$06
+	.byte	$07
+	.byte	$08
+	.byte	$09
+	.byte	$0A
+	.byte	$0B
+	.byte	$04
+	.byte	$09
+	.byte	$06
+	.byte	$07
+	.byte	$08
+	.byte	$37
+	.byte	$37
+	.byte	$37
+	.byte	$10
+	.byte	$10
+	.byte	$03
+	.byte	$12
+	.byte	$10
+	.byte	$12
+	.byte	$10
+	.byte	$11
+	.byte	$12
+	.byte	$10
+	.byte	$03
+	.byte	$10
+	.byte	$11
+_stage1world_18:
+	.byte	$3B
+	.byte	$00
+	.byte	$3A
+	.byte	$3B
+	.byte	$01
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$00
+	.byte	$3D
+	.byte	$00
+	.byte	$3A
+	.byte	$3B
+	.byte	$11
+	.byte	$02
+	.byte	$10
+	.byte	$13
+	.byte	$03
+	.byte	$02
+	.byte	$03
+	.byte	$18
+	.byte	$02
+	.byte	$03
+	.byte	$10
+	.byte	$02
+	.byte	$3D
+	.byte	$02
+	.byte	$3C
+	.byte	$03
+	.byte	$3C
+	.byte	$01
+	.byte	$14
+	.byte	$51
+	.byte	$19
+	.byte	$51
+	.byte	$51
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$16
+	.byte	$1A
+	.byte	$3D
+	.byte	$14
+	.byte	$00
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$51
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$3D
+	.byte	$CD
+	.byte	$1B
+	.byte	$10
+	.byte	$10
+	.byte	$51
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$CD
+	.byte	$01
+	.byte	$18
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$03
+	.byte	$CC
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$12
+	.byte	$01
+	.byte	$C9
+	.byte	$C9
+	.byte	$0E
+	.byte	$07
+	.byte	$08
+	.byte	$06
+	.byte	$0D
+	.byte	$C9
+	.byte	$C9
+	.byte	$3E
+	.byte	$0E
+	.byte	$09
+	.byte	$04
+	.byte	$0D
+	.byte	$10
+	.byte	$01
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$CA
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$12
+	.byte	$1B
+	.byte	$10
+	.byte	$02
+	.byte	$00
+	.byte	$03
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$CB
+	.byte	$51
+	.byte	$1A
+	.byte	$01
+	.byte	$00
+	.byte	$25
+	.byte	$C2
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$1A
+	.byte	$25
+	.byte	$20
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$12
+	.byte	$23
+	.byte	$20
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$25
+	.byte	$20
+	.byte	$20
+	.byte	$09
+	.byte	$05
+	.byte	$09
+	.byte	$07
+	.byte	$04
+	.byte	$04
+	.byte	$06
+	.byte	$08
+	.byte	$04
+	.byte	$07
+	.byte	$07
+	.byte	$0D
+	.byte	$25
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$10
+	.byte	$03
+	.byte	$12
+	.byte	$10
+	.byte	$11
+	.byte	$12
+	.byte	$03
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$3C
+	.byte	$25
+	.byte	$20
+	.byte	$20
+	.byte	$20
+	.byte	$20
+_stage1world_19:
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$3D
+	.byte	$10
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$10
+	.byte	$14
+	.byte	$19
+	.byte	$10
+	.byte	$01
+	.byte	$10
+	.byte	$12
+	.byte	$10
+	.byte	$10
+	.byte	$13
+	.byte	$3D
+	.byte	$19
+	.byte	$16
+	.byte	$15
+	.byte	$19
+	.byte	$18
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$16
+	.byte	$02
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$15
+	.byte	$CE
+	.byte	$3D
+	.byte	$CC
+	.byte	$CB
+	.byte	$CC
+	.byte	$CB
+	.byte	$51
+	.byte	$CC
+	.byte	$CB
+	.byte	$CD
+	.byte	$51
+	.byte	$51
+	.byte	$01
+	.byte	$3C
+	.byte	$00
+	.byte	$CC
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$02
+	.byte	$10
+	.byte	$03
+	.byte	$AF
+	.byte	$C9
+	.byte	$3D
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$11
+	.byte	$11
+	.byte	$51
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$10
+	.byte	$10
+	.byte	$0F
+	.byte	$07
+	.byte	$04
+	.byte	$0A
+	.byte	$0B
+	.byte	$0C
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$AF
+	.byte	$C9
+	.byte	$10
+	.byte	$01
+	.byte	$10
+	.byte	$01
+	.byte	$51
+	.byte	$CA
+	.byte	$CA
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$AE
+	.byte	$51
+	.byte	$51
+	.byte	$AF
+	.byte	$3C
+	.byte	$02
+	.byte	$3C
+	.byte	$03
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$0E
+	.byte	$08
+	.byte	$09
+	.byte	$0A
+	.byte	$0C
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$CA
+	.byte	$CD
+	.byte	$51
+	.byte	$11
+	.byte	$10
+	.byte	$3A
+	.byte	$14
+	.byte	$C9
+	.byte	$C9
+	.byte	$0E
+	.byte	$07
+	.byte	$0A
+	.byte	$0C
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$1A
+	.byte	$10
+	.byte	$10
+	.byte	$15
+	.byte	$CF
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CD
+	.byte	$11
+	.byte	$10
+	.byte	$51
+	.byte	$51
+	.byte	$CF
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$3C
+	.byte	$0F
+	.byte	$07
+	.byte	$06
+	.byte	$06
+	.byte	$07
+	.byte	$08
+	.byte	$09
+	.byte	$0A
+	.byte	$0B
+	.byte	$06
+	.byte	$07
+	.byte	$3E
+	.byte	$04
+	.byte	$0D
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$12
+	.byte	$03
+	.byte	$10
+	.byte	$3D
+	.byte	$10
+	.byte	$3C
+	.byte	$12
+_stage1world_20:
+	.byte	$02
+	.byte	$00
+	.byte	$3C
+	.byte	$03
+	.byte	$02
+	.byte	$3A
+	.byte	$3B
+	.byte	$03
+	.byte	$02
+	.byte	$3C
+	.byte	$10
+	.byte	$02
+	.byte	$03
+	.byte	$3C
+	.byte	$10
+	.byte	$02
+	.byte	$00
+	.byte	$02
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$3C
+	.byte	$11
+	.byte	$03
+	.byte	$14
+	.byte	$18
+	.byte	$19
+	.byte	$16
+	.byte	$10
+	.byte	$03
+	.byte	$3C
+	.byte	$13
+	.byte	$02
+	.byte	$1B
+	.byte	$3B
+	.byte	$11
+	.byte	$14
+	.byte	$16
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$CA
+	.byte	$CD
+	.byte	$51
+	.byte	$51
+	.byte	$1B
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$CE
+	.byte	$CA
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$00
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$3C
+	.byte	$10
+	.byte	$12
+	.byte	$02
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$10
+	.byte	$00
+	.byte	$3C
+	.byte	$10
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$01
+	.byte	$02
+	.byte	$10
+	.byte	$10
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$02
+	.byte	$3C
+	.byte	$3A
+	.byte	$3B
+	.byte	$0E
+	.byte	$08
+	.byte	$0C
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$1A
+	.byte	$10
+	.byte	$10
+	.byte	$3C
+	.byte	$14
+	.byte	$16
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$CA
+	.byte	$3B
+	.byte	$00
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$12
+	.byte	$02
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$11
+	.byte	$00
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$AE
+	.byte	$51
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$02
+	.byte	$0E
+	.byte	$3E
+	.byte	$04
+	.byte	$09
+	.byte	$0A
+	.byte	$07
+	.byte	$04
+	.byte	$05
+	.byte	$04
+	.byte	$07
+	.byte	$04
+	.byte	$08
+	.byte	$05
+	.byte	$04
+	.byte	$3C
+	.byte	$00
+	.byte	$10
+	.byte	$3D
+	.byte	$3C
+	.byte	$10
+	.byte	$01
+	.byte	$11
+	.byte	$01
+	.byte	$02
+	.byte	$3C
+	.byte	$10
+	.byte	$10
+	.byte	$3A
+	.byte	$02
+	.byte	$10
+_stage1world_21:
+	.byte	$3C
+	.byte	$10
+	.byte	$03
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$02
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$03
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$12
+	.byte	$3C
+	.byte	$17
+	.byte	$17
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$1B
+	.byte	$10
+	.byte	$3C
+	.byte	$13
+	.byte	$3A
+	.byte	$3C
+	.byte	$10
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$CE
+	.byte	$CA
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$1B
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$13
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$51
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$3C
+	.byte	$51
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$CD
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$11
+	.byte	$CC
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$10
+	.byte	$10
+	.byte	$00
+	.byte	$10
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$10
+	.byte	$3A
+	.byte	$03
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$14
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$11
+	.byte	$3C
+	.byte	$CA
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$AF
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$11
+	.byte	$C9
+	.byte	$BF
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$10
+	.byte	$C9
+	.byte	$CD
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$11
+	.byte	$07
+	.byte	$09
+	.byte	$04
+	.byte	$04
+	.byte	$0A
+	.byte	$09
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$07
+	.byte	$04
+	.byte	$07
+	.byte	$04
+	.byte	$0C
+	.byte	$3C
+	.byte	$3A
+	.byte	$3C
+	.byte	$10
+	.byte	$12
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$03
+	.byte	$13
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$3C
+	.byte	$10
+	.byte	$01
+	.byte	$11
+_stage1world_22:
+	.byte	$3C
+	.byte	$10
+	.byte	$03
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$02
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$03
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$12
+	.byte	$3C
+	.byte	$17
+	.byte	$17
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$1B
+	.byte	$10
+	.byte	$3C
+	.byte	$13
+	.byte	$3A
+	.byte	$3C
+	.byte	$10
+	.byte	$10
+	.byte	$14
+	.byte	$51
+	.byte	$CE
+	.byte	$CA
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$CA
+	.byte	$51
+	.byte	$51
+	.byte	$1B
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$13
+	.byte	$CE
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$51
+	.byte	$51
+	.byte	$11
+	.byte	$10
+	.byte	$10
+	.byte	$3C
+	.byte	$51
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$BF
+	.byte	$C3
+	.byte	$AF
+	.byte	$CD
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$11
+	.byte	$CC
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C1
+	.byte	$C0
+	.byte	$C2
+	.byte	$C9
+	.byte	$10
+	.byte	$10
+	.byte	$00
+	.byte	$10
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$CB
+	.byte	$C4
+	.byte	$CC
+	.byte	$C9
+	.byte	$10
+	.byte	$3A
+	.byte	$03
+	.byte	$10
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3A
+	.byte	$3B
+	.byte	$10
+	.byte	$14
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$11
+	.byte	$3C
+	.byte	$10
+	.byte	$CC
+	.byte	$C9
+	.byte	$BF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$10
+	.byte	$10
+	.byte	$BF
+	.byte	$51
+	.byte	$51
+	.byte	$AF
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$11
+	.byte	$3C
+	.byte	$AE
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$CF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$3C
+	.byte	$10
+	.byte	$10
+	.byte	$CD
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$51
+	.byte	$AF
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$C9
+	.byte	$10
+	.byte	$11
+	.byte	$10
+	.byte	$0F
+	.byte	$04
+	.byte	$04
+	.byte	$0A
+	.byte	$09
+	.byte	$04
+	.byte	$06
+	.byte	$04
+	.byte	$07
+	.byte	$04
+	.byte	$07
+	.byte	$04
+	.byte	$0C
+	.byte	$3C
+	.byte	$3A
+	.byte	$3C
+	.byte	$10
+	.byte	$12
+	.byte	$01
+	.byte	$10
+	.byte	$10
+	.byte	$11
+	.byte	$03
+	.byte	$13
+	.byte	$10
+	.byte	$3A
+	.byte	$3B
+	.byte	$3C
+	.byte	$10
+	.byte	$01
+	.byte	$11
 _stage1_max_rooms:
+	.byte	$08
+	.byte	$01
+	.byte	$04
+	.byte	$01
+	.byte	$05
+	.byte	$01
+	.byte	$02
 	.byte	$01
 _stage1_offsets:
 	.byte	$00
+	.byte	$08
+	.byte	$09
+	.byte	$0D
+	.byte	$0E
+	.byte	$13
+	.byte	$14
+	.byte	$16
 _stage1_metatiles:
 	.byte	$7B
 	.byte	$7C
@@ -38152,13 +41802,13 @@ L1359:	lda     _temp_x
 ;
 ; else
 ;
-	jmp     LA141
+	jmp     LAF67
 ;
 ; collision = c_map2[coordinates];
 ;
 L1362:	ldy     _coordinates
 	lda     _c_map2,y
-LA141:	sta     _collision
+LAF67:	sta     _collision
 ;
 ; return c_metatile_map[collision];
 ;
@@ -38203,7 +41853,7 @@ LA141:	sta     _collision
 ;
 ; return;
 ;
-	bcc     LA145
+	bcc     LAF6B
 ;
 ; }
 ;
@@ -38211,7 +41861,7 @@ LA141:	sta     _collision
 ;
 ; location_with_scroll = Generic.x + scroll_x;
 ;
-LA145:	lda     _Generic
+LAF6B:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -38250,7 +41900,7 @@ L1381:	sta     _temp_y
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     LA143
+	beq     LAF69
 ;
 ; ++collision_L;
 ;
@@ -38258,7 +41908,7 @@ L1381:	sta     _temp_y
 ;
 ; location_with_scroll += Generic.width;
 ;
-LA143:	lda     _Generic+2
+LAF69:	lda     _Generic+2
 	clc
 	adc     _location_with_scroll
 	sta     _location_with_scroll
@@ -38286,7 +41936,7 @@ LA143:	lda     _Generic+2
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     LA144
+	beq     LAF6A
 ;
 ; ++collision_R;
 ;
@@ -38294,7 +41944,7 @@ LA143:	lda     _Generic+2
 ;
 ; location_with_scroll -= (Generic.width >> 1); // middle of character
 ;
-LA144:	lda     _Generic+2
+LAF6A:	lda     _Generic+2
 	lsr     a
 	eor     #$FF
 	sec
@@ -38391,7 +42041,7 @@ L13A6:	sta     _temp_y
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     LA147
+	beq     LAF6D
 ;
 ; return 1;
 ;
@@ -38400,12 +42050,12 @@ L13A6:	sta     _temp_y
 ;
 ; temp_y = Generic.y + Generic.height;
 ;
-LA147:	lda     _Generic+1
+LAF6D:	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     LA146
+	bcc     LAF6C
 	inx
-LA146:	sta     _temp_y
+LAF6C:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -38422,7 +42072,7 @@ LA146:	sta     _temp_y
 L13AE:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     LA149
+	beq     LAF6F
 ;
 ; return 1;
 ;
@@ -38431,7 +42081,7 @@ L13AE:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-LA149:	rts
+LAF6F:	rts
 
 .endproc
 
@@ -38458,9 +42108,9 @@ LA149:	rts
 	pla
 	clc
 	adc     _Generic+2
-	bcc     LA14A
+	bcc     LAF70
 	inx
-LA14A:	sta     _location_with_scroll
+LAF70:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; temp_x = (char)location_with_scroll;   // low byte
@@ -38499,7 +42149,7 @@ L13C0:	sta     _temp_y
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     LA14C
+	beq     LAF72
 ;
 ; return 1;
 ;
@@ -38508,12 +42158,12 @@ L13C0:	sta     _temp_y
 ;
 ; temp_y = Generic.y + Generic.height;
 ;
-LA14C:	lda     _Generic+1
+LAF72:	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     LA14B
+	bcc     LAF71
 	inx
-LA14B:	sta     _temp_y
+LAF71:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -38530,7 +42180,7 @@ LA14B:	sta     _temp_y
 L13C8:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     LA14E
+	beq     LAF74
 ;
 ; return 1;
 ;
@@ -38539,7 +42189,7 @@ L13C8:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-LA14E:	rts
+LAF74:	rts
 
 .endproc
 
@@ -38584,9 +42234,9 @@ L13D0:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     LA14F
+	bcc     LAF75
 	inx
-LA14F:	sta     _temp_y
+LAF75:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -38602,16 +42252,16 @@ LA14F:	sta     _temp_y
 ;
 L13D7:	jsr     _bg_collision_sub
 	and     #$01
-	bne     LA150
+	bne     LAF76
 	jsr     _bg_collision_sub
 	and     #$02
-	bne     LA150
+	bne     LAF76
 	tax
 	rts
 ;
 ; return location_with_scroll;
 ;
-LA150:	ldx     #$00
+LAF76:	ldx     #$00
 	lda     _location_with_scroll
 	rts
 
@@ -38658,9 +42308,9 @@ L13E0:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     LA153
+	bcc     LAF79
 	inx
-LA153:	sta     _temp_y
+LAF79:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y -= 2;
@@ -38677,7 +42327,7 @@ LA153:	sta     _temp_y
 L13E7:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$01
-	beq     LA155
+	beq     LAF7B
 ;
 ; return 1;
 ;
@@ -38686,7 +42336,7 @@ L13E7:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-LA155:	rts
+LAF7B:	rts
 
 .endproc
 
@@ -38731,9 +42381,9 @@ L13EF:	sta     _location_with_scroll
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     LA156
+	bcc     LAF7C
 	inx
-LA156:	sta     _temp_y
+LAF7C:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; temp_y += 4;
@@ -38750,7 +42400,7 @@ LA156:	sta     _temp_y
 L13F6:	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$02
-	beq     LA158
+	beq     LAF7E
 ;
 ; return 1;
 ;
@@ -38759,7 +42409,7 @@ L13F6:	jsr     _bg_collision_sub
 ;
 ; }
 ;
-LA158:	rts
+LAF7E:	rts
 
 .endproc
 
@@ -38821,7 +42471,7 @@ L1400:	lda     #$00
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	beq     LA15A
+	beq     LAF80
 ;
 ; return 1;
 ;
@@ -38831,7 +42481,7 @@ L1400:	lda     #$00
 ;
 ; location_with_scroll = Generic.x + scroll_x + Generic.width;
 ;
-LA15A:	lda     _Generic
+LAF80:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -38841,9 +42491,9 @@ LA15A:	lda     _Generic
 	pla
 	clc
 	adc     _Generic+2
-	bcc     LA159
+	bcc     LAF7F
 	inx
-LA159:	sta     _location_with_scroll
+LAF7F:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; location_with_scroll -= 2;
@@ -38872,7 +42522,7 @@ L1410:	lda     #$00
 	jsr     _bg_collision_sub
 	ldx     #$00
 	and     #$40
-	beq     LA15C
+	beq     LAF82
 ;
 ; return 1;
 ;
@@ -38881,7 +42531,7 @@ L1410:	lda     #$00
 ;
 ; }
 ;
-LA15C:	rts
+LAF82:	rts
 
 .endproc
 
@@ -38924,9 +42574,9 @@ LA15C:	rts
 	lda     _Generic+1
 	clc
 	adc     _Generic+3
-	bcc     LA15D
+	bcc     LAF83
 	inx
-LA15D:	sta     _temp_y
+LAF83:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; if ((temp_y & 0x0f) > 3)
@@ -38953,20 +42603,20 @@ L1422:	lda     _temp_y
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	bne     LA160
+	bne     LAF86
 	jsr     _bg_collision_sub
 	and     #$02
-	beq     LA161
+	beq     LAF87
 ;
 ; return 1;
 ;
-LA160:	ldx     #$00
+LAF86:	ldx     #$00
 	lda     #$01
 	rts
 ;
 ; location_with_scroll = Generic.x + scroll_x + Generic.width;
 ;
-LA161:	lda     _Generic
+LAF87:	lda     _Generic
 	clc
 	adc     _scroll_x
 	pha
@@ -38976,9 +42626,9 @@ LA161:	lda     _Generic
 	pla
 	clc
 	adc     _Generic+2
-	bcc     LA15E
+	bcc     LAF84
 	inx
-LA15E:	sta     _location_with_scroll
+LAF84:	sta     _location_with_scroll
 	stx     _location_with_scroll+1
 ;
 ; location_with_scroll -= 2;
@@ -39006,16 +42656,16 @@ L1434:	lda     #$00
 ;
 	jsr     _bg_collision_sub
 	and     #$40
-	bne     LA162
+	bne     LAF88
 	jsr     _bg_collision_sub
 	and     #$02
-	bne     LA162
+	bne     LAF88
 	tax
 	rts
 ;
 ; return 1;
 ;
-LA162:	ldx     #$00
+LAF88:	ldx     #$00
 	lda     #$01
 	rts
 
@@ -39044,7 +42694,7 @@ LA162:	ldx     #$00
 ; if (player_in_hitstun > 0)
 ;
 L1441:	lda     _player_in_hitstun
-	beq     LA16B
+	beq     LAF91
 ;
 ; if (hit_direction == RIGHT)
 ;
@@ -39069,7 +42719,7 @@ L144A:	lda     _Player1+4
 	sbc     #$01
 	bvs     L144D
 	eor     #$80
-L144D:	bpl     LA16B
+L144D:	bpl     LAF91
 ;
 ; Player1.vel_x = MAX_SPEED;
 ;
@@ -39078,7 +42728,7 @@ L144D:	bpl     LA16B
 ;
 ; else
 ;
-	jmp     LA19F
+	jmp     LAFC5
 ;
 ; Player1.vel_x -= HITSTUN_DECEL;
 ;
@@ -39097,29 +42747,29 @@ L1453:	lda     _Player1+4
 	sbc     #$FE
 	bvc     L1456
 	eor     #$80
-L1456:	bpl     LA16B
+L1456:	bpl     LAF91
 ;
 ; Player1.vel_x = -MAX_SPEED;
 ;
 	ldx     #$FE
 	lda     #$A0
-LA19F:	sta     _Player1+4
+LAFC5:	sta     _Player1+4
 	stx     _Player1+4+1
 ;
 ; old_x = Player1.x;
 ;
-LA16B:	lda     _Player1
+LAF91:	lda     _Player1
 	sta     _old_x
 ;
 ; if (pad1 & PAD_LEFT && !player_in_hitstun && !player_is_sliding)
 ;
 	lda     _pad1
 	and     #$02
-	beq     LA16F
+	beq     LAF95
 	lda     _player_in_hitstun
-	bne     LA16F
+	bne     LAF95
 	lda     _player_is_sliding
-	bne     LA16F
+	bne     LAF95
 ;
 ; direction = LEFT;
 ;
@@ -39133,7 +42783,7 @@ LA16B:	lda     _Player1
 ; if (!player_on_ladder)
 ;
 	lda     _player_on_ladder
-	jne     LA177
+	jne     LAF9D
 ;
 ; if (Player1.vel_x >= DECEL)
 ;
@@ -39151,12 +42801,12 @@ L1467:	bpl     L1465
 	sec
 	sbc     #$32
 	sta     _Player1+4
-	jcs     LA177
+	jcs     LAF9D
 	dec     _Player1+4+1
 ;
 ; else if (Player1.vel_x > 0)
 ;
-	jmp     LA177
+	jmp     LAF9D
 L1465:	lda     _Player1+4
 	cmp     #$01
 	lda     _Player1+4+1
@@ -39172,7 +42822,7 @@ L146E:	bpl     L146C
 ;
 ; else
 ;
-	jmp     LA176
+	jmp     LAF9C
 ;
 ; Player1.vel_x -= ACCEL;
 ;
@@ -39191,7 +42841,7 @@ L1474:	lda     _Player1+4
 	sbc     #$FE
 	bvc     L1477
 	eor     #$80
-L1477:	jpl     LA177
+L1477:	jpl     LAF9D
 ;
 ; Player1.vel_x = -MAX_SPEED;
 ;
@@ -39200,20 +42850,20 @@ L1477:	jpl     LA177
 ;
 ; else if (pad1 & PAD_RIGHT && !player_in_hitstun && !player_is_sliding)
 ;
-	jmp     LA176
-LA16F:	lda     _pad1
+	jmp     LAF9C
+LAF95:	lda     _pad1
 	and     #$01
-	beq     LA174
+	beq     LAF9A
 	lda     _player_in_hitstun
-	bne     LA170
+	bne     LAF96
 	lda     _player_is_sliding
-	beq     LA172
-LA170:	lda     #$00
-	jmp     LA174
+	beq     LAF98
+LAF96:	lda     #$00
+	jmp     LAF9A
 ;
 ; direction = RIGHT;
 ;
-LA172:	lda     #$01
+LAF98:	lda     #$01
 	sta     _direction
 ;
 ; player_is_running = 1;
@@ -39223,7 +42873,7 @@ LA172:	lda     #$01
 ; if (!player_on_ladder)
 ;
 	lda     _player_on_ladder
-	jne     LA177
+	jne     LAF9D
 ;
 ; if (Player1.vel_x <= DECEL)
 ;
@@ -39241,12 +42891,12 @@ L1487:	bpl     L1485
 	clc
 	adc     _Player1+4
 	sta     _Player1+4
-	jcc     LA177
+	jcc     LAF9D
 	inc     _Player1+4+1
 ;
 ; else if (Player1.vel_x < 0)
 ;
-	jmp     LA177
+	jmp     LAF9D
 L1485:	ldx     _Player1+4+1
 	cpx     #$80
 	bcc     L148C
@@ -39258,7 +42908,7 @@ L1485:	ldx     _Player1+4+1
 ;
 ; else
 ;
-	jmp     LA176
+	jmp     LAF9C
 ;
 ; Player1.vel_x += ACCEL;
 ;
@@ -39277,7 +42927,7 @@ L1493:	lda     _Player1+4
 	sbc     #$01
 	bvs     L1496
 	eor     #$80
-L1496:	bpl     LA177
+L1496:	bpl     LAF9D
 ;
 ; Player1.vel_x = MAX_SPEED;
 ;
@@ -39286,11 +42936,11 @@ L1496:	bpl     LA177
 ;
 ; else
 ;
-	jmp     LA176
+	jmp     LAF9C
 ;
 ; player_is_running = 0;
 ;
-LA174:	sta     _player_is_running
+LAF9A:	sta     _player_is_running
 ;
 ; if (Player1.vel_x >= ACCEL)
 ;
@@ -39308,12 +42958,12 @@ L149E:	bpl     L149C
 	sec
 	sbc     #$1E
 	sta     _Player1+4
-	bcs     LA177
+	bcs     LAF9D
 	dec     _Player1+4+1
 ;
 ; else if (Player1.vel_x < -ACCEL)
 ;
-	jmp     LA177
+	jmp     LAF9D
 L149C:	lda     _Player1+4
 	cmp     #$E2
 	lda     _Player1+4+1
@@ -39323,7 +42973,7 @@ L149C:	lda     _Player1+4
 L14A5:	asl     a
 	lda     #$00
 	tax
-	bcc     LA176
+	bcc     LAF9C
 ;
 ; Player1.vel_x += ACCEL;
 ;
@@ -39331,21 +42981,21 @@ L14A5:	asl     a
 	clc
 	adc     _Player1+4
 	sta     _Player1+4
-	bcc     LA177
+	bcc     LAF9D
 	inc     _Player1+4+1
 ;
 ; else
 ;
-	jmp     LA177
+	jmp     LAF9D
 ;
 ; Player1.vel_x = 0;
 ;
-LA176:	sta     _Player1+4
+LAF9C:	sta     _Player1+4
 	stx     _Player1+4+1
 ;
 ; if (player_is_sliding > 0)
 ;
-LA177:	lda     _player_is_sliding
+LAF9D:	lda     _player_is_sliding
 	beq     L14B3
 ;
 ; --player_is_sliding;
@@ -39363,12 +43013,12 @@ LA177:	lda     _player_is_sliding
 ;
 ; else
 ;
-	jmp     LA1A3
+	jmp     LAFC9
 ;
 ; Player1.vel_x = MAX_SLIDE_SPEED;
 ;
 L14AF:	ldx     #$01
-LA1A3:	lda     #$80
+LAFC9:	lda     #$80
 	sta     _Player1+4
 	stx     _Player1+4+1
 ;
@@ -39388,7 +43038,7 @@ L14B3:	lda     _Player1+4
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$F0
-	bcc     LA179
+	bcc     LAF9F
 ;
 ; Player1.x = 0x0000; // max left
 ;
@@ -39403,7 +43053,7 @@ L14B3:	lda     _Player1+4
 ;
 ; Generic.x = high_byte(Player1.x);
 ;
-LA179:	lda     _Player1+1
+LAF9F:	lda     _Player1+1
 	sta     _Generic
 ;
 ; Generic.y = high_byte(Player1.y);
@@ -39460,7 +43110,7 @@ LA179:	lda     _Player1+1
 ;
 ; else if (Player1.vel_x > 0)
 ;
-	jmp     LA1A4
+	jmp     LAFCA
 L14CD:	lda     _Player1+4
 	cmp     #$01
 	lda     _Player1+4+1
@@ -39499,7 +43149,7 @@ L14DE:	bpl     L14E7
 ; Player1.x = 0x0000;
 ;
 	ldx     #$00
-LA1A4:	lda     #$00
+LAFCA:	lda     #$00
 	sta     _Player1
 	stx     _Player1+1
 ;
@@ -39509,16 +43159,16 @@ L14E7:	lda     _player_on_ladder
 	jeq     L14EB
 	jsr     _bg_coll_ladder
 	tax
-	bne     LA17E
+	bne     LAFA4
 	jsr     _bg_coll_ladder_top_under_player
 	tax
 	jeq     L14EB
 ;
 ; if (pad1 & PAD_DOWN)
 ;
-LA17E:	lda     _pad1
+LAFA4:	lda     _pad1
 	and     #$04
-	beq     LA181
+	beq     LAFA7
 ;
 ; direction_y = DOWN;
 ;
@@ -39548,7 +43198,7 @@ L14F8:	lda     _Player1+6
 	eor     #$80
 L14FB:	asl     a
 	lda     #$00
-	bcc     LA180
+	bcc     LAFA6
 ;
 ; Player1.vel_y = MAX_LADDER_SPEED;
 ;
@@ -39558,14 +43208,14 @@ L14FB:	asl     a
 ;
 ; player_on_ladder_top = 0;
 ;
-LA180:	sta     _player_on_ladder_top
+LAFA6:	sta     _player_on_ladder_top
 ;
 ; else if (pad1 & PAD_UP)
 ;
-	jmp     LA186
-LA181:	lda     _pad1
+	jmp     LAFAC
+LAFA7:	lda     _pad1
 	and     #$08
-	beq     LA183
+	beq     LAFA9
 ;
 ; direction_y = UP;
 ;
@@ -39606,7 +43256,7 @@ L150B:	bpl     L1509
 ;
 L1509:	jsr     _bg_coll_ladder_top_under_player
 	tax
-	jeq     LA186
+	jeq     LAFAC
 ;
 ; ++player_on_ladder_top;
 ;
@@ -39616,7 +43266,7 @@ L1509:	jsr     _bg_coll_ladder_top_under_player
 ;
 	lda     _player_on_ladder_top
 	cmp     #$0B
-	bcc     LA186
+	bcc     LAFAC
 ;
 ; if (Player1.vel_y == -MAX_LADDER_SPEED)
 ;
@@ -39637,7 +43287,7 @@ L1509:	jsr     _bg_coll_ladder_top_under_player
 ;
 ; else
 ;
-	jmp     LA1A2
+	jmp     LAFC8
 ;
 ; Player1.y -= 0x800;
 ;
@@ -39647,7 +43297,7 @@ L1513:	lda     _Player1+2
 	sta     _Player1+2
 	lda     _Player1+2+1
 	sbc     #$08
-LA1A2:	sta     _Player1+2+1
+LAFC8:	sta     _Player1+2+1
 ;
 ; player_on_ladder_top = 0;
 ;
@@ -39660,16 +43310,16 @@ LA1A2:	sta     _Player1+2+1
 ;
 ; else
 ;
-	jmp     LA186
+	jmp     LAFAC
 ;
 ; Player1.vel_y = 0;
 ;
-LA183:	sta     _Player1+6
+LAFA9:	sta     _Player1+6
 	sta     _Player1+6+1
 ;
 ; else
 ;
-	jmp     LA186
+	jmp     LAFAC
 ;
 ; if (player_on_ladder && bg_coll_ladder_top_under_player())
 ;
@@ -39700,12 +43350,12 @@ L152B:	bpl     L1529
 	clc
 	adc     _Player1+6
 	sta     _Player1+6
-	bcc     LA186
+	bcc     LAFAC
 	inc     _Player1+6+1
 ;
 ; else
 ;
-	jmp     LA186
+	jmp     LAFAC
 ;
 ; Player1.vel_y = 0x300; // Consistent max gravity
 ;
@@ -39716,7 +43366,7 @@ L1529:	ldx     #$03
 ;
 ; if (pad1 & PAD_DOWN)
 ;
-LA186:	lda     _pad1
+LAFAC:	lda     _pad1
 	and     #$04
 	beq     L1536
 ;
@@ -39786,7 +43436,7 @@ L1536:	lda     _Player1+6
 	cmp     #$01
 	lda     _Player1+2+1
 	sbc     #$F0
-	bcc     LA187
+	bcc     LAFAD
 ;
 ; Player1.y = 0x0000;
 ;
@@ -39796,7 +43446,7 @@ L1536:	lda     _Player1+6
 ;
 ; Generic.x = high_byte(Player1.x);
 ;
-LA187:	lda     _Player1+1
+LAFAD:	lda     _Player1+1
 	sta     _Generic
 ;
 ; Generic.y = high_byte(Player1.y);
@@ -39835,7 +43485,7 @@ L1555:	bpl     L1553
 ;
 L1557:	jsr     _bg_coll_D
 	tax
-	beq     LA18C
+	beq     LAFB2
 ;
 ; player_in_air = 0;
 ;
@@ -39876,7 +43526,7 @@ L1557:	jsr     _bg_coll_D
 	sbc     #$00
 	bvs     L156F
 	eor     #$80
-L156F:	bpl     LA18B
+L156F:	bpl     LAFB1
 ;
 ; Player1.vel_y = 0;
 ;
@@ -39886,21 +43536,21 @@ L156F:	bpl     LA18B
 ;
 ; Player1.on_ground = 1;
 ;
-LA18B:	lda     #$01
+LAFB1:	lda     #$01
 	sta     _Player1+9
 ;
 ; else if (Player1.vel_y < 0)
 ;
-	jmp     LA18C
+	jmp     LAFB2
 L1553:	ldx     _Player1+6+1
 	cpx     #$80
-	bcc     LA18C
+	bcc     LAFB2
 ;
 ; if (bg_coll_U())
 ;
 	jsr     _bg_coll_U
 	tax
-	beq     LA18C
+	beq     LAFB2
 ;
 ; high_byte(Player1.y) = high_byte(Player1.y) - eject_U;
 ;
@@ -39917,13 +43567,13 @@ L1553:	ldx     _Player1+6+1
 ;
 ; Generic.y = high_byte(Player1.y);
 ;
-LA18C:	lda     _Player1+3
+LAFB2:	lda     _Player1+3
 	sta     _Generic+1
 ;
 ; if (projectile_cooldown > 0)
 ;
 	lda     _projectile_cooldown
-	beq     LA18D
+	beq     LAFB3
 ;
 ; --projectile_cooldown;
 ;
@@ -39931,25 +43581,25 @@ LA18C:	lda     _Player1+3
 ;
 ; if (pad1_new & PAD_UP || pad1_state & PAD_UP)
 ;
-LA18D:	lda     _pad1_new
+LAFB3:	lda     _pad1_new
 	and     #$08
-	bne     LA18E
+	bne     LAFB4
 	lda     _pad1_state
 	and     #$08
-	beq     LA190
+	beq     LAFB6
 ;
 ; direction_y = UP;
 ;
-LA18E:	lda     #$03
+LAFB4:	lda     #$03
 	sta     _direction_y
 ;
 ; if (!player_on_ladder && bg_coll_ladder())
 ;
 	lda     _player_on_ladder
-	bne     LA190
+	bne     LAFB6
 	jsr     _bg_coll_ladder
 	tax
-	beq     LA190
+	beq     LAFB6
 ;
 ; Player1.x = (Player1.x + 0x700) & ~0xF00;
 ;
@@ -39992,14 +43642,14 @@ LA18E:	lda     #$03
 ;
 ; if (pad1_state & PAD_DOWN && pad1_new & PAD_A && !player_on_ladder)
 ;
-LA190:	lda     _pad1_state
+LAFB6:	lda     _pad1_state
 	and     #$04
-	beq     LA194
+	beq     LAFBA
 	lda     _pad1_new
 	and     #$80
-	beq     LA194
+	beq     LAFBA
 	lda     _player_on_ladder
-	bne     LA194
+	bne     LAFBA
 ;
 ; player_is_sliding = 25;
 ;
@@ -40008,14 +43658,14 @@ LA190:	lda     _pad1_state
 ;
 ; else if (pad1_new & PAD_A && !player_in_hitstun && !player_is_sliding)
 ;
-	jmp     LA199
-LA194:	lda     _pad1_new
+	jmp     LAFBF
+LAFBA:	lda     _pad1_new
 	and     #$80
-	beq     LA199
+	beq     LAFBF
 	lda     _player_in_hitstun
-	bne     LA199
+	bne     LAFBF
 	lda     _player_is_sliding
-	bne     LA199
+	bne     LAFBF
 ;
 ; if (player_on_ladder)
 ;
@@ -40037,17 +43687,17 @@ LA194:	lda     _pad1_new
 ;
 ; else if (bg_coll_D() || multi_jump < multi_jump_max)
 ;
-	jmp     LA169
+	jmp     LAF8F
 L15A8:	jsr     _bg_coll_D
 	tax
-	bne     LA198
+	bne     LAFBE
 	lda     _multi_jump
 	cmp     _multi_jump_max
-	bcs     LA199
+	bcs     LAFBF
 ;
 ; ++multi_jump;
 ;
-LA198:	inc     _multi_jump
+LAFBE:	inc     _multi_jump
 ;
 ; Player1.vel_y = JUMP_VEL;
 ;
@@ -40063,11 +43713,11 @@ LA198:	inc     _multi_jump
 ;
 ; player_in_air = 1;
 ;
-LA169:	sta     _player_in_air
+LAF8F:	sta     _player_in_air
 ;
 ; if (pad1_new & PAD_B && projectile_cooldown == 0 && !player_in_hitstun && !player_is_sliding)
 ;
-LA199:	lda     _pad1_new
+LAFBF:	lda     _pad1_new
 	and     #$40
 	jeq     L15D0
 	lda     _projectile_cooldown
@@ -40156,13 +43806,13 @@ L15C2:	lda     _temp2
 ;
 ; else
 ;
-	jmp     LA16A
+	jmp     LAF90
 ;
 ; projectiles_list[projectile_index] = LEFT;
 ;
 L15D8:	ldy     _projectile_index
 	lda     #$00
-LA16A:	sta     _projectiles_list,y
+LAF90:	sta     _projectiles_list,y
 ;
 ; projectiles_x[projectile_index] = high_byte(Player1.x) + 10;
 ;
@@ -40209,22 +43859,22 @@ L15D0:	lda     _short_jump_count
 ; if ((short_jump_count) && ((pad1 & PAD_A) == 0) && (Player1.vel_y < -0x200))
 ;
 L15F1:	lda     _short_jump_count
-	beq     LA19D
+	beq     LAFC3
 	lda     _pad1
 	and     #$80
-	bne     LA19D
+	bne     LAFC3
 	lda     _Player1+6
 	cmp     #$00
 	lda     _Player1+6+1
 	sbc     #$FE
 	bvc     L15FD
 	eor     #$80
-L15FD:	bmi     LA19E
-LA19D:	rts
+L15FD:	bmi     LAFC4
+LAFC3:	rts
 ;
 ; Player1.vel_y = -0x200;
 ;
-LA19E:	ldx     #$FE
+LAFC4:	ldx     #$FE
 	lda     #$00
 	sta     _Player1+6
 	stx     _Player1+6+1
@@ -40285,7 +43935,7 @@ LA19E:	ldx     #$FE
 ;
 ; else
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 ;
 ; current_animation_ptr = animate_slideright_data;
 ;
@@ -40295,7 +43945,7 @@ L1607:	lda     #>(_animate_slideright_data)
 ;
 ; else if (player_shooting > 0)
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 L1605:	lda     _player_shooting
 	beq     L1613
 ;
@@ -40316,7 +43966,7 @@ L1605:	lda     _player_shooting
 ;
 ; else
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 ;
 ; current_animation_ptr = animate_playerstandshootright_data;
 ;
@@ -40326,7 +43976,7 @@ L1616:	lda     #>(_animate_playerstandshootright_data)
 ;
 ; else if (player_in_air)
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 L1613:	lda     _player_in_air
 	beq     L1622
 ;
@@ -40343,7 +43993,7 @@ L1613:	lda     _player_in_air
 ;
 ; else
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 ;
 ; current_animation_ptr = animate_playerjumpright_data;
 ;
@@ -40353,7 +44003,7 @@ L1624:	lda     #>(_animate_playerjumpright_data)
 ;
 ; else if (player_on_ladder)
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 L1622:	lda     _player_on_ladder
 	beq     L1630
 ;
@@ -40361,7 +44011,7 @@ L1622:	lda     _player_on_ladder
 ;
 	lda     _player_on_ladder_pose
 	cmp     #$10
-	bcc     LA1AB
+	bcc     LAFD1
 ;
 ; current_animation_ptr = animate_playerclimb2_data;
 ;
@@ -40378,7 +44028,7 @@ L1622:	lda     _player_on_ladder
 ; else if (player_on_ladder_pose > 8)
 ;
 	rts
-LA1AB:	lda     _player_on_ladder_pose
+LAFD1:	lda     _player_on_ladder_pose
 	cmp     #$09
 	bcc     L1639
 ;
@@ -40404,23 +44054,23 @@ L1639:	lda     #>(_animate_playerclimb1_data)
 ;
 	rts
 L1630:	lda     _player_is_running
-	jeq     LA1BC
+	jeq     LAFE2
 	lda     _pad1
 	and     #$02
-	bne     LA1B1
+	bne     LAFD7
 	lda     _pad1
 	and     #$01
-	jeq     LA1BC
+	jeq     LAFE2
 ;
 ; animation_frame_counter++;
 ;
-LA1B1:	inc     _animation_frame_counter
+LAFD7:	inc     _animation_frame_counter
 ;
 ; if (animation_frame_counter >= 6)
 ;
 	lda     _animation_frame_counter
 	cmp     #$06
-	bcc     LA1B2
+	bcc     LAFD8
 ;
 ; animation_frame_counter = 0;
 ;
@@ -40433,14 +44083,14 @@ LA1B1:	inc     _animation_frame_counter
 ;
 ; if (direction == LEFT)
 ;
-LA1B2:	lda     _direction
-	bne     LA1B7
+LAFD8:	lda     _direction
+	bne     LAFDD
 ;
 ; if (current_animation_frame > 3)
 ;
 	lda     _current_animation_frame
 	cmp     #$04
-	bcc     LA1B3
+	bcc     LAFD9
 ;
 ; current_animation_frame = 0;
 ;
@@ -40449,8 +44099,8 @@ LA1B2:	lda     _direction
 ;
 ; if (current_animation_frame == 0)
 ;
-LA1B3:	lda     _current_animation_frame
-	bne     LA1B4
+LAFD9:	lda     _current_animation_frame
+	bne     LAFDA
 ;
 ; current_animation_ptr = animate_playerrun1left_data;
 ;
@@ -40460,22 +44110,22 @@ LA1B3:	lda     _current_animation_frame
 ;
 ; else if (current_animation_frame == 1 || current_animation_frame == 3)
 ;
-	jmp     LA1A9
-LA1B4:	lda     _current_animation_frame
+	jmp     LAFCF
+LAFDA:	lda     _current_animation_frame
 	cmp     #$01
-	beq     LA1B6
+	beq     LAFDC
 	cmp     #$03
 	bne     L1658
 ;
 ; current_animation_ptr = animate_playerrun2left_data;
 ;
-LA1B6:	lda     #>(_animate_playerrun2left_data)
+LAFDC:	lda     #>(_animate_playerrun2left_data)
 	sta     _current_animation_ptr+1
 	lda     #<(_animate_playerrun2left_data)
 ;
 ; else
 ;
-	jmp     LA1A9
+	jmp     LAFCF
 ;
 ; current_animation_ptr = animate_playerrun3left_data;
 ;
@@ -40490,9 +44140,9 @@ L1658:	lda     #>(_animate_playerrun3left_data)
 ;
 ; if (current_animation_frame > 3)
 ;
-LA1B7:	lda     _current_animation_frame
+LAFDD:	lda     _current_animation_frame
 	cmp     #$04
-	bcc     LA1B8
+	bcc     LAFDE
 ;
 ; current_animation_frame = 0;
 ;
@@ -40501,8 +44151,8 @@ LA1B7:	lda     _current_animation_frame
 ;
 ; if (current_animation_frame == 0)
 ;
-LA1B8:	lda     _current_animation_frame
-	bne     LA1B9
+LAFDE:	lda     _current_animation_frame
+	bne     LAFDF
 ;
 ; current_animation_ptr = animate_playerrun1right_data;
 ;
@@ -40514,15 +44164,15 @@ LA1B8:	lda     _current_animation_frame
 ; else if (current_animation_frame == 1 || current_animation_frame == 3)
 ;
 	rts
-LA1B9:	lda     _current_animation_frame
+LAFDF:	lda     _current_animation_frame
 	cmp     #$01
-	beq     LA1BB
+	beq     LAFE1
 	cmp     #$03
 	bne     L166A
 ;
 ; current_animation_ptr = animate_playerrun2right_data;
 ;
-LA1BB:	lda     #>(_animate_playerrun2right_data)
+LAFE1:	lda     #>(_animate_playerrun2right_data)
 	sta     _current_animation_ptr+1
 	lda     #<(_animate_playerrun2right_data)
 	sta     _current_animation_ptr
@@ -40536,7 +44186,7 @@ LA1BB:	lda     #>(_animate_playerrun2right_data)
 L166A:	lda     #>(_animate_playerrun3right_data)
 	sta     _current_animation_ptr+1
 	lda     #<(_animate_playerrun3right_data)
-LA1A9:	sta     _current_animation_ptr
+LAFCF:	sta     _current_animation_ptr
 ;
 ; else
 ;
@@ -40544,7 +44194,7 @@ LA1A9:	sta     _current_animation_ptr
 ;
 ; if (direction == LEFT)
 ;
-LA1BC:	lda     _direction
+LAFE2:	lda     _direction
 	bne     L1673
 ;
 ; current_animation_ptr = animate_playerstandleft_data;
@@ -40555,14 +44205,14 @@ LA1BC:	lda     _direction
 ;
 ; else
 ;
-	jmp     LA1AA
+	jmp     LAFD0
 ;
 ; current_animation_ptr = animate_playerstandright_data;
 ;
 L1673:	lda     #>(_animate_playerstandright_data)
 	sta     _current_animation_ptr+1
 	lda     #<(_animate_playerstandright_data)
-LA1AA:	sta     _current_animation_ptr
+LAFD0:	sta     _current_animation_ptr
 ;
 ; animation_frame_counter = 0;
 ;
@@ -40717,7 +44367,7 @@ L168B:	rts
 ;
 	lda     #$00
 	sta     _index
-LA1BF:	lda     _index
+LAFE5:	lda     _index
 	cmp     #$20
 	bcs     L169F
 ;
@@ -40735,7 +44385,7 @@ LA1BF:	lda     _index
 ;
 ; continue;
 ;
-	beq     LA1C0
+	beq     LAFE6
 ;
 ; high_byte(temp5) = entity_room[index];
 ;
@@ -40767,7 +44417,7 @@ LA1BF:	lda     _index
 ;
 ; continue; // not in range of the screen right now
 ;
-	bne     LA1C0
+	bne     LAFE6
 ;
 ; entity_active[index] = 1;
 ;
@@ -40783,8 +44433,8 @@ LA1BF:	lda     _index
 ;
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
-LA1C0:	inc     _index
-	jmp     LA1BF
+LAFE6:	inc     _index
+	jmp     LAFE5
 ;
 ; }
 ;
@@ -40827,7 +44477,7 @@ L169F:	rts
 ;
 	lda     #$00
 	sta     _index
-LA1C2:	lda     _index
+LAFE8:	lda     _index
 	cmp     #$20
 	bcs     L16D2
 ;
@@ -40838,7 +44488,7 @@ LA1C2:	lda     _index
 ;
 ; continue;
 ;
-	beq     LA1C5
+	beq     LAFEB
 ;
 ; switch (entity_type[index])
 ;
@@ -40848,13 +44498,13 @@ LA1C2:	lda     _index
 ; }
 ;
 	cmp     #$03
-	beq     LA1C3
+	beq     LAFE9
 	cmp     #$04
-	bne     LA1C4
+	bne     LAFEA
 ;
 ; Generic2.width = 64;
 ;
-LA1C3:	lda     #$40
+LAFE9:	lda     #$40
 	sta     _Generic2+2
 ;
 ; Generic2.height = 8;
@@ -40863,16 +44513,16 @@ LA1C3:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA1C1
+	jmp     LAFE7
 ;
 ; Generic2.width = 16;
 ;
-LA1C4:	lda     #$10
+LAFEA:	lda     #$10
 	sta     _Generic2+2
 ;
 ; Generic2.height = 16;
 ;
-LA1C1:	sta     _Generic2+3
+LAFE7:	sta     _Generic2+3
 ;
 ; Generic2.x = entity_x[index];
 ;
@@ -40895,7 +44545,7 @@ LA1C1:	sta     _Generic2+3
 	ldx     #>(_Generic2)
 	jsr     _check_collision
 	tax
-	beq     LA1C5
+	beq     LAFEB
 ;
 ; switch (entity_type[index])
 ;
@@ -40907,7 +44557,7 @@ LA1C1:	sta     _Generic2+3
 	cmp     #$03
 	beq     L1701
 	cmp     #$04
-	bne     LA1C5
+	bne     LAFEB
 ;
 ; kill_player();
 ;
@@ -40915,8 +44565,8 @@ L1701:	jmp     _kill_player
 ;
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
-LA1C5:	inc     _index
-	jmp     LA1C2
+LAFEB:	inc     _index
+	jmp     LAFE8
 ;
 ; }
 ;
@@ -40989,9 +44639,9 @@ L16D2:	rts
 	ldx     _scroll_x+1
 	sec
 	sbc     #$20
-	bcs     L24CD
+	bcs     L32F3
 	dex
-L24CD:	sta     _pseudo_scroll_x
+L32F3:	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
 ; offset = (pseudo_scroll_x >> 8);
@@ -41001,8 +44651,8 @@ L24CD:	sta     _pseudo_scroll_x
 ;
 ; if (offset >= (sizeof(stage1_levels) / sizeof(stage1_levels[0])) || offset < 0) {
 ;
-	cmp     #$08
-	bcc     LA1D0
+	cmp     #$17
+	bcc     LAFF6
 ;
 ; offset = 0;
 ;
@@ -41011,13 +44661,13 @@ L24CD:	sta     _pseudo_scroll_x
 ;
 ; set_data_pointer(stage1_levels[offset]);
 ;
-LA1D0:	ldx     #$00
+LAFF6:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA1C8
+	bcc     LAFEE
 	inx
 	clc
-LA1C8:	adc     #<(_stage1_levels)
+LAFEE:	adc     #<(_stage1_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage1_levels)
@@ -41047,16 +44697,16 @@ LA1C8:	adc     #<(_stage1_levels)
 ;
 ; }
 ;
-	beq     LA1CC
+	beq     LAFF2
 	cmp     #$01
-	beq     LA1CD
+	beq     LAFF3
 	cmp     #$02
-	beq     LA1CE
-	jmp     LA1CF
+	beq     LAFF4
+	jmp     LAFF5
 ;
 ; temp_y = 0;
 ;
-LA1CC:	sta     _temp_y
+LAFF2:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank1_drawMetatileBlock();
@@ -41070,11 +44720,11 @@ LA1CC:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA1D2
+	jmp     LAFF8
 ;
 ; temp_y = 0x40;
 ;
-LA1CD:	lda     #$40
+LAFF3:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -41089,11 +44739,11 @@ LA1CD:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA1D2
+	jmp     LAFF8
 ;
 ; temp_y = 0x80;
 ;
-LA1CE:	lda     #$80
+LAFF4:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -41108,11 +44758,11 @@ LA1CE:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA1D2
+	jmp     LAFF8
 ;
 ; temp_y = 0xc0;
 ;
-LA1CF:	lda     #$C0
+LAFF5:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -41124,7 +44774,7 @@ LA1CF:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA1D2:	sta     _temp_y
+LAFF8:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank1_drawMetatileBlock();
@@ -41164,9 +44814,9 @@ LA1D2:	sta     _temp_y
 	ldx     _scroll_x+1
 	clc
 	adc     #$20
-	bcc     L250B
+	bcc     L3331
 	inx
-L250B:	inx
+L3331:	inx
 	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
@@ -41177,8 +44827,8 @@ L250B:	inx
 ;
 ; if (offset >= (sizeof(stage1_levels) / sizeof(stage1_levels[0])) || offset < 0) {
 ;
-	cmp     #$08
-	bcc     LA1DD
+	cmp     #$17
+	bcc     LB003
 ;
 ; offset = 0;
 ;
@@ -41187,13 +44837,13 @@ L250B:	inx
 ;
 ; set_data_pointer(stage1_levels[offset]);
 ;
-LA1DD:	ldx     #$00
+LB003:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA1D5
+	bcc     LAFFB
 	inx
 	clc
-LA1D5:	adc     #<(_stage1_levels)
+LAFFB:	adc     #<(_stage1_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage1_levels)
@@ -41223,16 +44873,16 @@ LA1D5:	adc     #<(_stage1_levels)
 ;
 ; }
 ;
-	beq     LA1D9
+	beq     LAFFF
 	cmp     #$01
-	beq     LA1DA
+	beq     LB000
 	cmp     #$02
-	beq     LA1DB
-	jmp     LA1DC
+	beq     LB001
+	jmp     LB002
 ;
 ; temp_y = 0;
 ;
-LA1D9:	sta     _temp_y
+LAFFF:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank1_drawMetatileBlock();
@@ -41246,11 +44896,11 @@ LA1D9:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA1DF
+	jmp     LB005
 ;
 ; temp_y = 0x40;
 ;
-LA1DA:	lda     #$40
+LB000:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -41265,11 +44915,11 @@ LA1DA:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA1DF
+	jmp     LB005
 ;
 ; temp_y = 0x80;
 ;
-LA1DB:	lda     #$80
+LB001:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -41284,11 +44934,11 @@ LA1DB:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA1DF
+	jmp     LB005
 ;
 ; temp_y = 0xc0;
 ;
-LA1DC:	lda     #$C0
+LB002:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -41300,7 +44950,7 @@ LA1DC:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA1DF:	sta     _temp_y
+LB005:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank1_drawMetatileBlock();
@@ -41348,7 +44998,7 @@ LA1DF:	sta     _temp_y
 ; if (!map) 
 ;
 	lda     _map
-	jne     L254B
+	jne     L3371
 ;
 ; memcpy(c_map, stage1_levels[offset], 240); 
 ;
@@ -41358,10 +45008,10 @@ LA1DF:	sta     _temp_y
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA1E2
+	bcc     LB008
 	inx
 	clc
-LA1E2:	adc     #<(_stage1_levels)
+LB008:	adc     #<(_stage1_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage1_levels)
@@ -41379,7 +45029,7 @@ LA1E2:	adc     #<(_stage1_levels)
 ; if (scrolling_direction) 
 ;
 	lda     _scrolling_direction
-	beq     L2552
+	beq     L3378
 ;
 ; if (offset + 1 < (sizeof(stage1_levels) / sizeof(stage1_levels[0])))
 ;
@@ -41387,12 +45037,12 @@ LA1E2:	adc     #<(_stage1_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L2556
+	bcc     L337C
 	inx
-L2556:	cpx     #$00
-	bne     L255B
-	cmp     #$08
-L255B:	bcs     L2563
+L337C:	cpx     #$00
+	bne     L3381
+	cmp     #$17
+L3381:	bcs     L3389
 ;
 ; memcpy(c_map2, stage1_levels[offset + 1], 240);
 ;
@@ -41403,9 +45053,9 @@ L255B:	bcs     L2563
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L2560
+	bcc     L3386
 	inx
-L2560:	stx     tmp1
+L3386:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -41426,11 +45076,11 @@ L2560:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L2552:	lda     _offset
+L3378:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	bne     LA1E4
+	bne     LB00A
 ;
 ; }
 ;
@@ -41438,16 +45088,16 @@ L2552:	lda     _offset
 ;
 ; memcpy(c_map2, stage1_levels[offset - 1], 240);
 ;
-LA1E4:	lda     #<(_c_map2)
+LB00A:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L256A
+	bcs     L3390
 	dex
-L256A:	stx     tmp1
+L3390:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -41468,20 +45118,20 @@ L256A:	stx     tmp1
 ;
 ; else
 ;
-L2563:	rts
+L3389:	rts
 ;
 ; memcpy(c_map2, stage1_levels[offset], 240);
 ;
-L254B:	lda     #<(_c_map2)
+L3371:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA1E3
+	bcc     LB009
 	inx
 	clc
-LA1E3:	adc     #<(_stage1_levels)
+LB009:	adc     #<(_stage1_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage1_levels)
@@ -41499,7 +45149,7 @@ LA1E3:	adc     #<(_stage1_levels)
 ; if (scrolling_direction)
 ;
 	lda     _scrolling_direction
-	beq     L2572
+	beq     L3398
 ;
 ; if (offset + 1 < (sizeof(stage1_levels) / sizeof(stage1_levels[0])))
 ;
@@ -41507,12 +45157,12 @@ LA1E3:	adc     #<(_stage1_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L2576
+	bcc     L339C
 	inx
-L2576:	cpx     #$00
-	bne     L257B
-	cmp     #$08
-L257B:	bcs     L2583
+L339C:	cpx     #$00
+	bne     L33A1
+	cmp     #$17
+L33A1:	bcs     L33A9
 ;
 ; memcpy(c_map, stage1_levels[offset + 1], 240);
 ;
@@ -41523,9 +45173,9 @@ L257B:	bcs     L2583
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L2580
+	bcc     L33A6
 	inx
-L2580:	stx     tmp1
+L33A6:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -41546,11 +45196,11 @@ L2580:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L2572:	lda     _offset
+L3398:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	beq     L2583
+	beq     L33A9
 ;
 ; memcpy(c_map, stage1_levels[offset - 1], 240);
 ;
@@ -41561,9 +45211,9 @@ L2572:	lda     _offset
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L258A
+	bcs     L33B0
 	dex
-L258A:	stx     tmp1
+L33B0:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -41584,7 +45234,7 @@ L258A:	stx     tmp1
 ;
 ; }
 ;
-L2583:	rts
+L33A9:	rts
 
 .endproc
 
@@ -41605,9 +45255,9 @@ L2583:	rts
 	lda     _scroll_x
 	clc
 	adc     _Player1+1
-	bcc     LA1E5
+	bcc     LB00B
 	inx
-LA1E5:	sta     _temp1
+LB00B:	sta     _temp1
 	stx     _temp1+1
 ;
 ; if (temp1 > 0x98 && temp1 < 0xa4) {
@@ -41615,13 +45265,13 @@ LA1E5:	sta     _temp1
 	cmp     #$99
 	txa
 	sbc     #$00
-	bcc     L2591
+	bcc     L33B7
 	lda     _temp1+1
 	cmp     #$00
-	bne     L2594
+	bne     L33BA
 	lda     _temp1
 	cmp     #$A4
-L2594:	bcs     L2591
+L33BA:	bcs     L33B7
 ;
 ; map_loaded = 0;
 ;
@@ -41630,7 +45280,7 @@ L2594:	bcs     L2591
 ;
 ; temp2 = Player1.x;
 ;
-L2591:	lda     _Player1+1
+L33B7:	lda     _Player1+1
 	sta     _temp2+1
 	lda     _Player1
 	sta     _temp2
@@ -41639,12 +45289,12 @@ L2591:	lda     _Player1+1
 ;
 	ldx     _Player1+1
 	cpx     #$50
-	jcs     L25C4
+	jcs     L33EA
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L259C
+	bne     L33C2
 ;
 ; room_to_load = ((scroll_x >> 8) - 1);
 ;
@@ -41664,7 +45314,7 @@ L2591:	lda     _Player1+1
 ;
 ; temp1 = (MAX_LEFT - Player1.x) >> 8;
 ;
-L259C:	lda     #$00
+L33C2:	lda     #$00
 	sec
 	sbc     _Player1
 	lda     #$50
@@ -41676,7 +45326,7 @@ L259C:	lda     #$00
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L25A9
+	bcc     L33CF
 ;
 ; temp1 = 3;
 ;
@@ -41686,13 +45336,13 @@ L259C:	lda     #$00
 ;
 ; temp3 = scroll_x + high_byte(Player1.x);
 ;
-L25A9:	lda     _scroll_x
+L33CF:	lda     _scroll_x
 	ldx     _scroll_x+1
 	clc
 	adc     _Player1+1
-	bcc     LA1E6
+	bcc     LB00C
 	inx
-LA1E6:	sta     _temp3
+LB00C:	sta     _temp3
 	stx     _temp3+1
 ;
 ; current_level = (temp3 >> 8);
@@ -41702,7 +45352,7 @@ LA1E6:	sta     _temp3
 ;
 ; max_rooms = (sizeof(stage1_levels) / sizeof(stage1_levels[0])) - 1;
 ;
-	lda     #$07
+	lda     #$16
 	sta     _max_rooms
 ;
 ; max_scroll = (max_rooms * 0x100) - 1;
@@ -41711,15 +45361,15 @@ LA1E6:	sta     _temp3
 	lda     #$00
 	sec
 	sbc     #$01
-	bcs     L25BC
+	bcs     L33E2
 	dex
-L25BC:	sta     _max_scroll
+L33E2:	sta     _max_scroll
 	stx     _max_scroll+1
 ;
 ; if (max_rooms >= 1)
 ;
 	lda     _max_rooms
-	beq     L25C4
+	beq     L33EA
 ;
 ; if ((scroll_x - temp1) > max_scroll)
 ;
@@ -41737,8 +45387,8 @@ L25BC:	sta     _max_scroll
 	txa
 	sbc     _max_scroll+1
 	ora     tmp1
-	bcc     L25BF
-	beq     L25BF
+	bcc     L33E5
+	beq     L33E5
 ;
 ; scroll_x = 0;
 ;
@@ -41748,11 +45398,11 @@ L25BC:	sta     _max_scroll
 ;
 ; else
 ;
-	jmp     L25C4
+	jmp     L33EA
 ;
 ; scroll_x -= temp1;
 ;
-L25BF:	lda     _temp1
+L33E5:	lda     _temp1
 	eor     #$FF
 	sec
 	adc     _scroll_x
@@ -41773,16 +45423,16 @@ L25BF:	lda     _temp1
 ;
 ; if (Player1.x > MAX_RIGHT)
 ;
-L25C4:	lda     _Player1
+L33EA:	lda     _Player1
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$90
-	bcc     L25DE
+	bcc     L3404
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L25CD
+	bne     L33F3
 ;
 ; room_to_load = ((scroll_x >> 8) + 1);
 ;
@@ -41802,7 +45452,7 @@ L25C4:	lda     _Player1
 ;
 ; temp1 = (Player1.x - MAX_RIGHT) >> 8;
 ;
-L25CD:	lda     _Player1+1
+L33F3:	lda     _Player1+1
 	sec
 	sbc     #$90
 	ldx     #$00
@@ -41812,7 +45462,7 @@ L25CD:	lda     _Player1+1
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     LA1EA
+	bcc     LB010
 ;
 ; temp1 = 3;
 ;
@@ -41822,8 +45472,8 @@ L25CD:	lda     _Player1+1
 ;
 ; if (max_rooms >= 1)
 ;
-LA1EA:	lda     _max_rooms
-	beq     L25DE
+LB010:	lda     _max_rooms
+	beq     L3404
 ;
 ; scroll_x += temp1;
 ;
@@ -41846,11 +45496,11 @@ LA1EA:	lda     _max_rooms
 ;
 ; if (scroll_x >= max_scroll)
 ;
-L25DE:	lda     _scroll_x
+L3404:	lda     _scroll_x
 	cmp     _max_scroll
 	lda     _scroll_x+1
 	sbc     _max_scroll+1
-	bcc     L25EC
+	bcc     L3412
 ;
 ; scroll_x = max_scroll;
 ;
@@ -41870,7 +45520,7 @@ L25DE:	lda     _scroll_x
 ;
 	lda     _Player1+1
 	cmp     #$E0
-	bcc     L25EC
+	bcc     L3412
 ;
 ; Player1.x = 0xe000;
 ;
@@ -41881,7 +45531,7 @@ L25DE:	lda     _scroll_x
 ;
 ; }
 ;
-L25EC:	rts
+L3412:	rts
 
 .endproc
 
@@ -41899,18 +45549,18 @@ L25EC:	rts
 ; scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 ;
 	ldx     _Player1+4+1
-	bmi     L25F5
+	bmi     L341B
 	lda     #$00
-	jmp     LA1EB
-L25F5:	lda     #$01
-LA1EB:	sta     _scrolling_direction
+	jmp     LB011
+L341B:	lda     #$01
+LB011:	sta     _scrolling_direction
 ;
 ; if (!r_scroll_frames && !l_scroll_frames)
 ;
 	lda     _r_scroll_frames
-	bne     L2602
+	bne     L3428
 	lda     _l_scroll_frames
-	bne     L2602
+	bne     L3428
 ;
 ; if (Player1.vel_x > 0)
 ;
@@ -41918,9 +45568,9 @@ LA1EB:	sta     _scrolling_direction
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L25FF
+	bvs     L3425
 	eor     #$80
-L25FF:	bpl     LA1EE
+L3425:	bpl     LB014
 ;
 ; r_scroll_frames = 4;
 ;
@@ -41929,17 +45579,17 @@ L25FF:	bpl     LA1EE
 ;
 ; else
 ;
-	jmp     L2602
+	jmp     L3428
 ;
 ; l_scroll_frames = 4;
 ;
-LA1EE:	lda     #$04
+LB014:	lda     #$04
 	sta     _l_scroll_frames
 ;
 ; if (r_scroll_frames)
 ;
-L2602:	lda     _r_scroll_frames
-	beq     L2605
+L3428:	lda     _r_scroll_frames
+	beq     L342B
 ;
 ; bank1_draw_screen_R();
 ;
@@ -41952,8 +45602,8 @@ L2602:	lda     _r_scroll_frames
 ; else if (l_scroll_frames)
 ;
 	rts
-L2605:	lda     _l_scroll_frames
-	beq     L260A
+L342B:	lda     _l_scroll_frames
+	beq     L3430
 ;
 ; bank1_draw_screen_L();
 ;
@@ -41965,7 +45615,7 @@ L2605:	lda     _l_scroll_frames
 ;
 ; }
 ;
-L260A:	rts
+L3430:	rts
 
 .endproc
 
@@ -42278,12 +45928,12 @@ L260A:	rts
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA1F1:	sta     _y
+LB017:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-LA1F0:	sta     _x
+LB016:	sta     _x
 ;
 ; address = get_ppu_addr(0, x, y);
 ;
@@ -42332,34 +45982,34 @@ LA1F0:	sta     _x
 ;
 ; break;
 ;
-	beq     LA1F2
+	beq     LB018
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     LA1F0
+	jmp     LB016
 ;
 ; if (y == 0xe0)
 ;
-LA1F2:	lda     _y
+LB018:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     L2BB1
+	beq     L39D7
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA1F1
+	jmp     LB017
 ;
 ; ppu_on_all();
 ;
-L2BB1:	jsr     _ppu_on_all
+L39D7:	jsr     _ppu_on_all
 ;
 ; game_mode = MODE_GAMEOVER;
 ;
@@ -42388,10 +46038,10 @@ L2BB1:	jsr     _ppu_on_all
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     LA1FC
+	bcc     LB022
 	inx
 	clc
-LA1FC:	adc     #<(_stage_bg_palettes)
+LB022:	adc     #<(_stage_bg_palettes)
 	sta     ptr1
 	txa
 	adc     #>(_stage_bg_palettes)
@@ -42420,10 +46070,10 @@ LA1FC:	adc     #<(_stage_bg_palettes)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA1FD
+	bcc     LB023
 	inx
 	clc
-LA1FD:	adc     #<(_stage1_levels)
+LB023:	adc     #<(_stage1_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage1_levels)
@@ -42444,12 +46094,12 @@ LA1FD:	adc     #<(_stage1_levels)
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA1F9:	sta     _y
+LB01F:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-LA1F8:	sta     _x
+LB01E:	sta     _x
 ;
 ; address = get_ppu_addr(nametable_to_load, x, y);
 ;
@@ -42499,39 +46149,39 @@ LA1F8:	sta     _x
 ;
 ; break;
 ;
-	beq     LA1FF
+	beq     LB025
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     LA1F8
+	jmp     LB01E
 ;
 ; if (y == 0xe0)
 ;
-LA1FF:	lda     _y
+LB025:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     LA200
+	beq     LB026
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA1F9
+	jmp     LB01F
 ;
 ; set_data_pointer(stage1_levels[current_level+1]);
 ;
-LA200:	lda     _current_level
+LB026:	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L2C04
+	bcc     L3A2A
 	inx
-L2C04:	stx     tmp1
+L3A2A:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -42550,7 +46200,7 @@ L2C04:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA1FA:	sta     _y
+LB020:	sta     _y
 ;
 ; x = 0;
 ;
@@ -42604,19 +46254,19 @@ LA1FA:	sta     _y
 ;
 ; break;
 ;
-	beq     LA201
+	beq     LB027
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA1FA
+	jmp     LB020
 ;
 ; if (current_level > 0) {
 ;
-LA201:	lda     _current_level
-	jeq     L2C28
+LB027:	lda     _current_level
+	jeq     L3A4E
 ;
 ; set_data_pointer(stage1_levels[current_level-1]);
 ;
@@ -42624,9 +46274,9 @@ LA201:	lda     _current_level
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L2C26
+	bcs     L3A4C
 	dex
-L2C26:	stx     tmp1
+L3A4C:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -42645,7 +46295,7 @@ L2C26:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA1FB:	sta     _y
+LB021:	sta     _y
 ;
 ; x = 240;
 ;
@@ -42701,27 +46351,27 @@ LA1FB:	sta     _y
 ;
 ; break;
 ;
-	beq     L2C28
+	beq     L3A4E
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA1FB
+	jmp     LB021
 ;
 ; memcpy(c_map, stage1_levels[current_level], 240); 
 ;
-L2C28:	lda     #<(_c_map)
+L3A4E:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA1FE
+	bcc     LB024
 	inx
 	clc
-LA1FE:	adc     #<(_stage1_levels)
+LB024:	adc     #<(_stage1_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage1_levels)
@@ -42742,12 +46392,12 @@ LA1FE:	adc     #<(_stage1_levels)
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L2C48
+	bcc     L3A6E
 	inx
-L2C48:	cpx     #$00
-	bne     L2C4D
-	cmp     #$08
-L2C4D:	bcs     L2C46
+L3A6E:	cpx     #$00
+	bne     L3A73
+	cmp     #$17
+L3A73:	bcs     L3A6C
 ;
 ; memcpy(c_map2, stage1_levels[current_level + 1], 240);
 ;
@@ -42758,9 +46408,9 @@ L2C4D:	bcs     L2C46
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L2C52
+	bcc     L3A78
 	inx
-L2C52:	stx     tmp1
+L3A78:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -42781,12 +46431,12 @@ L2C52:	stx     tmp1
 ;
 ; memcpy(c_metatile_map, stage1_metatile_colision_map, 240);
 ;
-L2C46:	ldy     #$00
-L2C58:	lda     _stage1_metatile_colision_map,y
+L3A6C:	ldy     #$00
+L3A7E:	lda     _stage1_metatile_colision_map,y
 	sta     _c_metatile_map,y
 	iny
 	cpy     #$F0
-	bne     L2C58
+	bne     L3A7E
 ;
 ; map_loaded = 1;
 ;
@@ -42854,9 +46504,9 @@ L2C58:	lda     _stage1_metatile_colision_map,y
 ;
 	lda     #$00
 	sta     _index
-LA206:	lda     _index
+LB02C:	lda     _index
 	cmp     #$20
-	bcs     LA207
+	bcs     LB02D
 ;
 ; entity_y[index] = TURN_OFF; // turn off all objects by default
 ;
@@ -42867,16 +46517,16 @@ LA206:	lda     _index
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA206
+	jmp     LB02C
 ;
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
-LA207:	lda     #$00
+LB02D:	lda     #$00
 	sta     _index
 	sta     _index2
-LA208:	lda     _index
+LB02E:	lda     _index
 	cmp     #$20
-	bcc     LA20A
+	bcc     LB030
 ;
 ; }
 ;
@@ -42884,7 +46534,7 @@ LA208:	lda     _index
 ;
 ; temp1 = pointer[index2]; // y
 ;
-LA20A:	lda     _pointer
+LB030:	lda     _pointer
 	ldx     _pointer+1
 	ldy     _index2
 	sta     ptr1
@@ -42903,17 +46553,17 @@ LA20A:	lda     _pointer
 ; if (temp1 == TURN_OFF)
 ;
 	lda     _temp1+1
-	bne     LA209
+	bne     LB02F
 	lda     _temp1
 	cmp     #$FF
 ;
 ; break;
 ;
-	beq     L2C74
+	beq     L3A9A
 ;
 ; ++index2;
 ;
-LA209:	inc     _index2
+LB02F:	inc     _index2
 ;
 ; entity_active[index] = 0;
 ;
@@ -42990,11 +46640,11 @@ LA209:	inc     _index2
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA208
+	jmp     LB02E
 ;
 ; }
 ;
-L2C74:	rts
+L3A9A:	rts
 
 .endproc
 
@@ -43080,9 +46730,9 @@ L2C74:	rts
 	ldx     _scroll_x+1
 	sec
 	sbc     #$20
-	bcs     L4648
+	bcs     L546E
 	dex
-L4648:	sta     _pseudo_scroll_x
+L546E:	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
 ; offset = (pseudo_scroll_x >> 8);
@@ -43093,7 +46743,7 @@ L4648:	sta     _pseudo_scroll_x
 ; if (offset >= (sizeof(stage2_levels) / sizeof(stage2_levels[0])) || offset < 0) {
 ;
 	cmp     #$15
-	bcc     LA215
+	bcc     LB03B
 ;
 ; offset = 0;
 ;
@@ -43102,13 +46752,13 @@ L4648:	sta     _pseudo_scroll_x
 ;
 ; set_data_pointer(stage2_levels[offset]);
 ;
-LA215:	ldx     #$00
+LB03B:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA20D
+	bcc     LB033
 	inx
 	clc
-LA20D:	adc     #<(_stage2_levels)
+LB033:	adc     #<(_stage2_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage2_levels)
@@ -43138,16 +46788,16 @@ LA20D:	adc     #<(_stage2_levels)
 ;
 ; }
 ;
-	beq     LA211
+	beq     LB037
 	cmp     #$01
-	beq     LA212
+	beq     LB038
 	cmp     #$02
-	beq     LA213
-	jmp     LA214
+	beq     LB039
+	jmp     LB03A
 ;
 ; temp_y = 0;
 ;
-LA211:	sta     _temp_y
+LB037:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank2_drawMetatileBlock();
@@ -43161,11 +46811,11 @@ LA211:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA217
+	jmp     LB03D
 ;
 ; temp_y = 0x40;
 ;
-LA212:	lda     #$40
+LB038:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -43180,11 +46830,11 @@ LA212:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA217
+	jmp     LB03D
 ;
 ; temp_y = 0x80;
 ;
-LA213:	lda     #$80
+LB039:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -43199,11 +46849,11 @@ LA213:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA217
+	jmp     LB03D
 ;
 ; temp_y = 0xc0;
 ;
-LA214:	lda     #$C0
+LB03A:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -43215,7 +46865,7 @@ LA214:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA217:	sta     _temp_y
+LB03D:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank2_drawMetatileBlock();
@@ -43255,9 +46905,9 @@ LA217:	sta     _temp_y
 	ldx     _scroll_x+1
 	clc
 	adc     #$20
-	bcc     L4686
+	bcc     L54AC
 	inx
-L4686:	inx
+L54AC:	inx
 	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
@@ -43269,7 +46919,7 @@ L4686:	inx
 ; if (offset >= (sizeof(stage2_levels) / sizeof(stage2_levels[0])) || offset < 0) {
 ;
 	cmp     #$15
-	bcc     LA222
+	bcc     LB048
 ;
 ; offset = 0;
 ;
@@ -43278,13 +46928,13 @@ L4686:	inx
 ;
 ; set_data_pointer(stage2_levels[offset]);
 ;
-LA222:	ldx     #$00
+LB048:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA21A
+	bcc     LB040
 	inx
 	clc
-LA21A:	adc     #<(_stage2_levels)
+LB040:	adc     #<(_stage2_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage2_levels)
@@ -43314,16 +46964,16 @@ LA21A:	adc     #<(_stage2_levels)
 ;
 ; }
 ;
-	beq     LA21E
+	beq     LB044
 	cmp     #$01
-	beq     LA21F
+	beq     LB045
 	cmp     #$02
-	beq     LA220
-	jmp     LA221
+	beq     LB046
+	jmp     LB047
 ;
 ; temp_y = 0;
 ;
-LA21E:	sta     _temp_y
+LB044:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank2_drawMetatileBlock();
@@ -43337,11 +46987,11 @@ LA21E:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA224
+	jmp     LB04A
 ;
 ; temp_y = 0x40;
 ;
-LA21F:	lda     #$40
+LB045:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -43356,11 +47006,11 @@ LA21F:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA224
+	jmp     LB04A
 ;
 ; temp_y = 0x80;
 ;
-LA220:	lda     #$80
+LB046:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -43375,11 +47025,11 @@ LA220:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA224
+	jmp     LB04A
 ;
 ; temp_y = 0xc0;
 ;
-LA221:	lda     #$C0
+LB047:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -43391,7 +47041,7 @@ LA221:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA224:	sta     _temp_y
+LB04A:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank2_drawMetatileBlock();
@@ -43439,7 +47089,7 @@ LA224:	sta     _temp_y
 ; if (!map) 
 ;
 	lda     _map
-	jne     L46C6
+	jne     L54EC
 ;
 ; memcpy(c_map, stage2_levels[offset], 240); 
 ;
@@ -43449,10 +47099,10 @@ LA224:	sta     _temp_y
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA227
+	bcc     LB04D
 	inx
 	clc
-LA227:	adc     #<(_stage2_levels)
+LB04D:	adc     #<(_stage2_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage2_levels)
@@ -43470,7 +47120,7 @@ LA227:	adc     #<(_stage2_levels)
 ; if (scrolling_direction) 
 ;
 	lda     _scrolling_direction
-	beq     L46CD
+	beq     L54F3
 ;
 ; if (offset + 1 < (sizeof(stage2_levels) / sizeof(stage2_levels[0])))
 ;
@@ -43478,12 +47128,12 @@ LA227:	adc     #<(_stage2_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L46D1
+	bcc     L54F7
 	inx
-L46D1:	cpx     #$00
-	bne     L46D6
+L54F7:	cpx     #$00
+	bne     L54FC
 	cmp     #$15
-L46D6:	bcs     L46DE
+L54FC:	bcs     L5504
 ;
 ; memcpy(c_map2, stage2_levels[offset + 1], 240);
 ;
@@ -43494,9 +47144,9 @@ L46D6:	bcs     L46DE
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L46DB
+	bcc     L5501
 	inx
-L46DB:	stx     tmp1
+L5501:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -43517,11 +47167,11 @@ L46DB:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L46CD:	lda     _offset
+L54F3:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	bne     LA229
+	bne     LB04F
 ;
 ; }
 ;
@@ -43529,16 +47179,16 @@ L46CD:	lda     _offset
 ;
 ; memcpy(c_map2, stage2_levels[offset - 1], 240);
 ;
-LA229:	lda     #<(_c_map2)
+LB04F:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L46E5
+	bcs     L550B
 	dex
-L46E5:	stx     tmp1
+L550B:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -43559,20 +47209,20 @@ L46E5:	stx     tmp1
 ;
 ; else
 ;
-L46DE:	rts
+L5504:	rts
 ;
 ; memcpy(c_map2, stage2_levels[offset], 240);
 ;
-L46C6:	lda     #<(_c_map2)
+L54EC:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA228
+	bcc     LB04E
 	inx
 	clc
-LA228:	adc     #<(_stage2_levels)
+LB04E:	adc     #<(_stage2_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage2_levels)
@@ -43590,7 +47240,7 @@ LA228:	adc     #<(_stage2_levels)
 ; if (scrolling_direction)
 ;
 	lda     _scrolling_direction
-	beq     L46ED
+	beq     L5513
 ;
 ; if (offset + 1 < (sizeof(stage2_levels) / sizeof(stage2_levels[0])))
 ;
@@ -43598,12 +47248,12 @@ LA228:	adc     #<(_stage2_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L46F1
+	bcc     L5517
 	inx
-L46F1:	cpx     #$00
-	bne     L46F6
+L5517:	cpx     #$00
+	bne     L551C
 	cmp     #$15
-L46F6:	bcs     L46FE
+L551C:	bcs     L5524
 ;
 ; memcpy(c_map, stage2_levels[offset + 1], 240);
 ;
@@ -43614,9 +47264,9 @@ L46F6:	bcs     L46FE
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L46FB
+	bcc     L5521
 	inx
-L46FB:	stx     tmp1
+L5521:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -43637,11 +47287,11 @@ L46FB:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L46ED:	lda     _offset
+L5513:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	beq     L46FE
+	beq     L5524
 ;
 ; memcpy(c_map, stage2_levels[offset - 1], 240);
 ;
@@ -43652,9 +47302,9 @@ L46ED:	lda     _offset
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L4705
+	bcs     L552B
 	dex
-L4705:	stx     tmp1
+L552B:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -43675,7 +47325,7 @@ L4705:	stx     tmp1
 ;
 ; }
 ;
-L46FE:	rts
+L5524:	rts
 
 .endproc
 
@@ -43696,9 +47346,9 @@ L46FE:	rts
 	lda     _scroll_x
 	clc
 	adc     _Player1+1
-	bcc     LA22A
+	bcc     LB050
 	inx
-LA22A:	sta     _temp1
+LB050:	sta     _temp1
 	stx     _temp1+1
 ;
 ; if (temp1 > 0x98 && temp1 < 0xa4) {
@@ -43706,13 +47356,13 @@ LA22A:	sta     _temp1
 	cmp     #$99
 	txa
 	sbc     #$00
-	bcc     L470C
+	bcc     L5532
 	lda     _temp1+1
 	cmp     #$00
-	bne     L470F
+	bne     L5535
 	lda     _temp1
 	cmp     #$A4
-L470F:	bcs     L470C
+L5535:	bcs     L5532
 ;
 ; map_loaded = 0;
 ;
@@ -43721,7 +47371,7 @@ L470F:	bcs     L470C
 ;
 ; temp2 = Player1.x;
 ;
-L470C:	lda     _Player1+1
+L5532:	lda     _Player1+1
 	sta     _temp2+1
 	lda     _Player1
 	sta     _temp2
@@ -43730,12 +47380,12 @@ L470C:	lda     _Player1+1
 ;
 	ldx     _Player1+1
 	cpx     #$50
-	jcs     L473F
+	jcs     L5565
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L4717
+	bne     L553D
 ;
 ; room_to_load = ((scroll_x >> 8) - 1);
 ;
@@ -43755,7 +47405,7 @@ L470C:	lda     _Player1+1
 ;
 ; temp1 = (MAX_LEFT - Player1.x) >> 8;
 ;
-L4717:	lda     #$00
+L553D:	lda     #$00
 	sec
 	sbc     _Player1
 	lda     #$50
@@ -43767,7 +47417,7 @@ L4717:	lda     #$00
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L4724
+	bcc     L554A
 ;
 ; temp1 = 3;
 ;
@@ -43777,13 +47427,13 @@ L4717:	lda     #$00
 ;
 ; temp3 = scroll_x + high_byte(Player1.x);
 ;
-L4724:	lda     _scroll_x
+L554A:	lda     _scroll_x
 	ldx     _scroll_x+1
 	clc
 	adc     _Player1+1
-	bcc     LA22B
+	bcc     LB051
 	inx
-LA22B:	sta     _temp3
+LB051:	sta     _temp3
 	stx     _temp3+1
 ;
 ; current_level = (temp3 >> 8);
@@ -43802,15 +47452,15 @@ LA22B:	sta     _temp3
 	lda     #$00
 	sec
 	sbc     #$01
-	bcs     L4737
+	bcs     L555D
 	dex
-L4737:	sta     _max_scroll
+L555D:	sta     _max_scroll
 	stx     _max_scroll+1
 ;
 ; if (max_rooms >= 1)
 ;
 	lda     _max_rooms
-	beq     L473F
+	beq     L5565
 ;
 ; if ((scroll_x - temp1) > max_scroll)
 ;
@@ -43828,8 +47478,8 @@ L4737:	sta     _max_scroll
 	txa
 	sbc     _max_scroll+1
 	ora     tmp1
-	bcc     L473A
-	beq     L473A
+	bcc     L5560
+	beq     L5560
 ;
 ; scroll_x = 0;
 ;
@@ -43839,11 +47489,11 @@ L4737:	sta     _max_scroll
 ;
 ; else
 ;
-	jmp     L473F
+	jmp     L5565
 ;
 ; scroll_x -= temp1;
 ;
-L473A:	lda     _temp1
+L5560:	lda     _temp1
 	eor     #$FF
 	sec
 	adc     _scroll_x
@@ -43864,16 +47514,16 @@ L473A:	lda     _temp1
 ;
 ; if (Player1.x > MAX_RIGHT)
 ;
-L473F:	lda     _Player1
+L5565:	lda     _Player1
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$90
-	bcc     L4759
+	bcc     L557F
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L4748
+	bne     L556E
 ;
 ; room_to_load = ((scroll_x >> 8) + 1);
 ;
@@ -43893,7 +47543,7 @@ L473F:	lda     _Player1
 ;
 ; temp1 = (Player1.x - MAX_RIGHT) >> 8;
 ;
-L4748:	lda     _Player1+1
+L556E:	lda     _Player1+1
 	sec
 	sbc     #$90
 	ldx     #$00
@@ -43903,7 +47553,7 @@ L4748:	lda     _Player1+1
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     LA22F
+	bcc     LB055
 ;
 ; temp1 = 3;
 ;
@@ -43913,8 +47563,8 @@ L4748:	lda     _Player1+1
 ;
 ; if (max_rooms >= 1)
 ;
-LA22F:	lda     _max_rooms
-	beq     L4759
+LB055:	lda     _max_rooms
+	beq     L557F
 ;
 ; scroll_x += temp1;
 ;
@@ -43937,11 +47587,11 @@ LA22F:	lda     _max_rooms
 ;
 ; if (scroll_x >= max_scroll)
 ;
-L4759:	lda     _scroll_x
+L557F:	lda     _scroll_x
 	cmp     _max_scroll
 	lda     _scroll_x+1
 	sbc     _max_scroll+1
-	bcc     L4767
+	bcc     L558D
 ;
 ; scroll_x = max_scroll;
 ;
@@ -43961,7 +47611,7 @@ L4759:	lda     _scroll_x
 ;
 	lda     _Player1+1
 	cmp     #$E0
-	bcc     L4767
+	bcc     L558D
 ;
 ; Player1.x = 0xe000;
 ;
@@ -43972,7 +47622,7 @@ L4759:	lda     _scroll_x
 ;
 ; }
 ;
-L4767:	rts
+L558D:	rts
 
 .endproc
 
@@ -43990,18 +47640,18 @@ L4767:	rts
 ; scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 ;
 	ldx     _Player1+4+1
-	bmi     L4770
+	bmi     L5596
 	lda     #$00
-	jmp     LA230
-L4770:	lda     #$01
-LA230:	sta     _scrolling_direction
+	jmp     LB056
+L5596:	lda     #$01
+LB056:	sta     _scrolling_direction
 ;
 ; if (!r_scroll_frames && !l_scroll_frames)
 ;
 	lda     _r_scroll_frames
-	bne     L477D
+	bne     L55A3
 	lda     _l_scroll_frames
-	bne     L477D
+	bne     L55A3
 ;
 ; if (Player1.vel_x > 0)
 ;
@@ -44009,9 +47659,9 @@ LA230:	sta     _scrolling_direction
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L477A
+	bvs     L55A0
 	eor     #$80
-L477A:	bpl     LA233
+L55A0:	bpl     LB059
 ;
 ; r_scroll_frames = 4;
 ;
@@ -44020,17 +47670,17 @@ L477A:	bpl     LA233
 ;
 ; else
 ;
-	jmp     L477D
+	jmp     L55A3
 ;
 ; l_scroll_frames = 4;
 ;
-LA233:	lda     #$04
+LB059:	lda     #$04
 	sta     _l_scroll_frames
 ;
 ; if (r_scroll_frames)
 ;
-L477D:	lda     _r_scroll_frames
-	beq     L4780
+L55A3:	lda     _r_scroll_frames
+	beq     L55A6
 ;
 ; bank2_draw_screen_R();
 ;
@@ -44043,8 +47693,8 @@ L477D:	lda     _r_scroll_frames
 ; else if (l_scroll_frames)
 ;
 	rts
-L4780:	lda     _l_scroll_frames
-	beq     L4785
+L55A6:	lda     _l_scroll_frames
+	beq     L55AB
 ;
 ; bank2_draw_screen_L();
 ;
@@ -44056,7 +47706,7 @@ L4780:	lda     _l_scroll_frames
 ;
 ; }
 ;
-L4785:	rts
+L55AB:	rts
 
 .endproc
 
@@ -44076,10 +47726,10 @@ L4785:	rts
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     LA23D
+	bcc     LB063
 	inx
 	clc
-LA23D:	adc     #<(_stage_bg_palettes)
+LB063:	adc     #<(_stage_bg_palettes)
 	sta     ptr1
 	txa
 	adc     #>(_stage_bg_palettes)
@@ -44108,10 +47758,10 @@ LA23D:	adc     #<(_stage_bg_palettes)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA23E
+	bcc     LB064
 	inx
 	clc
-LA23E:	adc     #<(_stage2_levels)
+LB064:	adc     #<(_stage2_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage2_levels)
@@ -44132,12 +47782,12 @@ LA23E:	adc     #<(_stage2_levels)
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA23A:	sta     _y
+LB060:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-LA239:	sta     _x
+LB05F:	sta     _x
 ;
 ; address = get_ppu_addr(nametable_to_load, x, y);
 ;
@@ -44187,39 +47837,39 @@ LA239:	sta     _x
 ;
 ; break;
 ;
-	beq     LA240
+	beq     LB066
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     LA239
+	jmp     LB05F
 ;
 ; if (y == 0xe0)
 ;
-LA240:	lda     _y
+LB066:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     LA241
+	beq     LB067
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA23A
+	jmp     LB060
 ;
 ; set_data_pointer(stage2_levels[current_level+1]);
 ;
-LA241:	lda     _current_level
+LB067:	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L47B9
+	bcc     L55DF
 	inx
-L47B9:	stx     tmp1
+L55DF:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -44238,7 +47888,7 @@ L47B9:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA23B:	sta     _y
+LB061:	sta     _y
 ;
 ; x = 0;
 ;
@@ -44292,19 +47942,19 @@ LA23B:	sta     _y
 ;
 ; break;
 ;
-	beq     LA242
+	beq     LB068
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA23B
+	jmp     LB061
 ;
 ; if (current_level > 0) {
 ;
-LA242:	lda     _current_level
-	jeq     L47DD
+LB068:	lda     _current_level
+	jeq     L5603
 ;
 ; set_data_pointer(stage2_levels[current_level-1]);
 ;
@@ -44312,9 +47962,9 @@ LA242:	lda     _current_level
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L47DB
+	bcs     L5601
 	dex
-L47DB:	stx     tmp1
+L5601:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -44333,7 +47983,7 @@ L47DB:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA23C:	sta     _y
+LB062:	sta     _y
 ;
 ; x = 240;
 ;
@@ -44389,27 +48039,27 @@ LA23C:	sta     _y
 ;
 ; break;
 ;
-	beq     L47DD
+	beq     L5603
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA23C
+	jmp     LB062
 ;
 ; memcpy(c_map, stage2_levels[current_level], 240); 
 ;
-L47DD:	lda     #<(_c_map)
+L5603:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA23F
+	bcc     LB065
 	inx
 	clc
-LA23F:	adc     #<(_stage2_levels)
+LB065:	adc     #<(_stage2_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage2_levels)
@@ -44430,12 +48080,12 @@ LA23F:	adc     #<(_stage2_levels)
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L47FD
+	bcc     L5623
 	inx
-L47FD:	cpx     #$00
-	bne     L4802
+L5623:	cpx     #$00
+	bne     L5628
 	cmp     #$15
-L4802:	bcs     L47FB
+L5628:	bcs     L5621
 ;
 ; memcpy(c_map2, stage2_levels[current_level + 1], 240);
 ;
@@ -44446,9 +48096,9 @@ L4802:	bcs     L47FB
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L4807
+	bcc     L562D
 	inx
-L4807:	stx     tmp1
+L562D:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -44469,12 +48119,12 @@ L4807:	stx     tmp1
 ;
 ; memcpy(c_metatile_map, stage2_metatile_colision_map, 240);
 ;
-L47FB:	ldy     #$00
-L480D:	lda     _stage2_metatile_colision_map,y
+L5621:	ldy     #$00
+L5633:	lda     _stage2_metatile_colision_map,y
 	sta     _c_metatile_map,y
 	iny
 	cpy     #$F0
-	bne     L480D
+	bne     L5633
 ;
 ; map_loaded = 1;
 ;
@@ -44542,9 +48192,9 @@ L480D:	lda     _stage2_metatile_colision_map,y
 ;
 	lda     #$00
 	sta     _index
-LA247:	lda     _index
+LB06D:	lda     _index
 	cmp     #$20
-	bcs     LA248
+	bcs     LB06E
 ;
 ; entity_y[index] = TURN_OFF; // turn off all objects by default
 ;
@@ -44555,16 +48205,16 @@ LA247:	lda     _index
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA247
+	jmp     LB06D
 ;
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
-LA248:	lda     #$00
+LB06E:	lda     #$00
 	sta     _index
 	sta     _index2
-LA249:	lda     _index
+LB06F:	lda     _index
 	cmp     #$20
-	bcc     LA24B
+	bcc     LB071
 ;
 ; }
 ;
@@ -44572,7 +48222,7 @@ LA249:	lda     _index
 ;
 ; temp1 = pointer[index2]; // y
 ;
-LA24B:	lda     _pointer
+LB071:	lda     _pointer
 	ldx     _pointer+1
 	ldy     _index2
 	sta     ptr1
@@ -44591,17 +48241,17 @@ LA24B:	lda     _pointer
 ; if (temp1 == TURN_OFF)
 ;
 	lda     _temp1+1
-	bne     LA24A
+	bne     LB070
 	lda     _temp1
 	cmp     #$FF
 ;
 ; break;
 ;
-	beq     L4829
+	beq     L564F
 ;
 ; ++index2;
 ;
-LA24A:	inc     _index2
+LB070:	inc     _index2
 ;
 ; entity_active[index] = 0;
 ;
@@ -44678,11 +48328,11 @@ LA24A:	inc     _index2
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA249
+	jmp     LB06F
 ;
 ; }
 ;
-L4829:	rts
+L564F:	rts
 
 .endproc
 
@@ -44768,9 +48418,9 @@ L4829:	rts
 	ldx     _scroll_x+1
 	sec
 	sbc     #$20
-	bcs     L60F8
+	bcs     L6F1E
 	dex
-L60F8:	sta     _pseudo_scroll_x
+L6F1E:	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
 ; offset = (pseudo_scroll_x >> 8);
@@ -44781,7 +48431,7 @@ L60F8:	sta     _pseudo_scroll_x
 ; if (offset >= (sizeof(stage3_levels) / sizeof(stage3_levels[0])) || offset < 0) {
 ;
 	cmp     #$14
-	bcc     LA256
+	bcc     LB07C
 ;
 ; offset = 0;
 ;
@@ -44790,13 +48440,13 @@ L60F8:	sta     _pseudo_scroll_x
 ;
 ; set_data_pointer(stage3_levels[offset]);
 ;
-LA256:	ldx     #$00
+LB07C:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA24E
+	bcc     LB074
 	inx
 	clc
-LA24E:	adc     #<(_stage3_levels)
+LB074:	adc     #<(_stage3_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage3_levels)
@@ -44826,16 +48476,16 @@ LA24E:	adc     #<(_stage3_levels)
 ;
 ; }
 ;
-	beq     LA252
+	beq     LB078
 	cmp     #$01
-	beq     LA253
+	beq     LB079
 	cmp     #$02
-	beq     LA254
-	jmp     LA255
+	beq     LB07A
+	jmp     LB07B
 ;
 ; temp_y = 0;
 ;
-LA252:	sta     _temp_y
+LB078:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank3_drawMetatileBlock();
@@ -44849,11 +48499,11 @@ LA252:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA258
+	jmp     LB07E
 ;
 ; temp_y = 0x40;
 ;
-LA253:	lda     #$40
+LB079:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -44868,11 +48518,11 @@ LA253:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA258
+	jmp     LB07E
 ;
 ; temp_y = 0x80;
 ;
-LA254:	lda     #$80
+LB07A:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -44887,11 +48537,11 @@ LA254:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA258
+	jmp     LB07E
 ;
 ; temp_y = 0xc0;
 ;
-LA255:	lda     #$C0
+LB07B:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -44903,7 +48553,7 @@ LA255:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA258:	sta     _temp_y
+LB07E:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank3_drawMetatileBlock();
@@ -44943,9 +48593,9 @@ LA258:	sta     _temp_y
 	ldx     _scroll_x+1
 	clc
 	adc     #$20
-	bcc     L6136
+	bcc     L6F5C
 	inx
-L6136:	inx
+L6F5C:	inx
 	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
@@ -44957,7 +48607,7 @@ L6136:	inx
 ; if (offset >= (sizeof(stage3_levels) / sizeof(stage3_levels[0])) || offset < 0) {
 ;
 	cmp     #$14
-	bcc     LA263
+	bcc     LB089
 ;
 ; offset = 0;
 ;
@@ -44966,13 +48616,13 @@ L6136:	inx
 ;
 ; set_data_pointer(stage3_levels[offset]);
 ;
-LA263:	ldx     #$00
+LB089:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA25B
+	bcc     LB081
 	inx
 	clc
-LA25B:	adc     #<(_stage3_levels)
+LB081:	adc     #<(_stage3_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage3_levels)
@@ -45002,16 +48652,16 @@ LA25B:	adc     #<(_stage3_levels)
 ;
 ; }
 ;
-	beq     LA25F
+	beq     LB085
 	cmp     #$01
-	beq     LA260
+	beq     LB086
 	cmp     #$02
-	beq     LA261
-	jmp     LA262
+	beq     LB087
+	jmp     LB088
 ;
 ; temp_y = 0;
 ;
-LA25F:	sta     _temp_y
+LB085:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank3_drawMetatileBlock();
@@ -45025,11 +48675,11 @@ LA25F:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA265
+	jmp     LB08B
 ;
 ; temp_y = 0x40;
 ;
-LA260:	lda     #$40
+LB086:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -45044,11 +48694,11 @@ LA260:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA265
+	jmp     LB08B
 ;
 ; temp_y = 0x80;
 ;
-LA261:	lda     #$80
+LB087:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -45063,11 +48713,11 @@ LA261:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA265
+	jmp     LB08B
 ;
 ; temp_y = 0xc0;
 ;
-LA262:	lda     #$C0
+LB088:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -45079,7 +48729,7 @@ LA262:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA265:	sta     _temp_y
+LB08B:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank3_drawMetatileBlock();
@@ -45127,7 +48777,7 @@ LA265:	sta     _temp_y
 ; if (!map) 
 ;
 	lda     _map
-	jne     L6176
+	jne     L6F9C
 ;
 ; memcpy(c_map, stage3_levels[offset], 240); 
 ;
@@ -45137,10 +48787,10 @@ LA265:	sta     _temp_y
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA268
+	bcc     LB08E
 	inx
 	clc
-LA268:	adc     #<(_stage3_levels)
+LB08E:	adc     #<(_stage3_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage3_levels)
@@ -45158,7 +48808,7 @@ LA268:	adc     #<(_stage3_levels)
 ; if (scrolling_direction) 
 ;
 	lda     _scrolling_direction
-	beq     L617D
+	beq     L6FA3
 ;
 ; if (offset + 1 < (sizeof(stage3_levels) / sizeof(stage3_levels[0])))
 ;
@@ -45166,12 +48816,12 @@ LA268:	adc     #<(_stage3_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L6181
+	bcc     L6FA7
 	inx
-L6181:	cpx     #$00
-	bne     L6186
+L6FA7:	cpx     #$00
+	bne     L6FAC
 	cmp     #$14
-L6186:	bcs     L618E
+L6FAC:	bcs     L6FB4
 ;
 ; memcpy(c_map2, stage3_levels[offset + 1], 240);
 ;
@@ -45182,9 +48832,9 @@ L6186:	bcs     L618E
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L618B
+	bcc     L6FB1
 	inx
-L618B:	stx     tmp1
+L6FB1:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -45205,11 +48855,11 @@ L618B:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L617D:	lda     _offset
+L6FA3:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	bne     LA26A
+	bne     LB090
 ;
 ; }
 ;
@@ -45217,16 +48867,16 @@ L617D:	lda     _offset
 ;
 ; memcpy(c_map2, stage3_levels[offset - 1], 240);
 ;
-LA26A:	lda     #<(_c_map2)
+LB090:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L6195
+	bcs     L6FBB
 	dex
-L6195:	stx     tmp1
+L6FBB:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -45247,20 +48897,20 @@ L6195:	stx     tmp1
 ;
 ; else
 ;
-L618E:	rts
+L6FB4:	rts
 ;
 ; memcpy(c_map2, stage3_levels[offset], 240);
 ;
-L6176:	lda     #<(_c_map2)
+L6F9C:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA269
+	bcc     LB08F
 	inx
 	clc
-LA269:	adc     #<(_stage3_levels)
+LB08F:	adc     #<(_stage3_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage3_levels)
@@ -45278,7 +48928,7 @@ LA269:	adc     #<(_stage3_levels)
 ; if (scrolling_direction)
 ;
 	lda     _scrolling_direction
-	beq     L619D
+	beq     L6FC3
 ;
 ; if (offset + 1 < (sizeof(stage3_levels) / sizeof(stage3_levels[0])))
 ;
@@ -45286,12 +48936,12 @@ LA269:	adc     #<(_stage3_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L61A1
+	bcc     L6FC7
 	inx
-L61A1:	cpx     #$00
-	bne     L61A6
+L6FC7:	cpx     #$00
+	bne     L6FCC
 	cmp     #$14
-L61A6:	bcs     L61AE
+L6FCC:	bcs     L6FD4
 ;
 ; memcpy(c_map, stage3_levels[offset + 1], 240);
 ;
@@ -45302,9 +48952,9 @@ L61A6:	bcs     L61AE
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L61AB
+	bcc     L6FD1
 	inx
-L61AB:	stx     tmp1
+L6FD1:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -45325,11 +48975,11 @@ L61AB:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L619D:	lda     _offset
+L6FC3:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	beq     L61AE
+	beq     L6FD4
 ;
 ; memcpy(c_map, stage3_levels[offset - 1], 240);
 ;
@@ -45340,9 +48990,9 @@ L619D:	lda     _offset
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L61B5
+	bcs     L6FDB
 	dex
-L61B5:	stx     tmp1
+L6FDB:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -45363,7 +49013,7 @@ L61B5:	stx     tmp1
 ;
 ; }
 ;
-L61AE:	rts
+L6FD4:	rts
 
 .endproc
 
@@ -45384,9 +49034,9 @@ L61AE:	rts
 	lda     _scroll_x
 	clc
 	adc     _Player1+1
-	bcc     LA26B
+	bcc     LB091
 	inx
-LA26B:	sta     _temp1
+LB091:	sta     _temp1
 	stx     _temp1+1
 ;
 ; if (temp1 > 0x98 && temp1 < 0xa4) {
@@ -45394,13 +49044,13 @@ LA26B:	sta     _temp1
 	cmp     #$99
 	txa
 	sbc     #$00
-	bcc     L61BC
+	bcc     L6FE2
 	lda     _temp1+1
 	cmp     #$00
-	bne     L61BF
+	bne     L6FE5
 	lda     _temp1
 	cmp     #$A4
-L61BF:	bcs     L61BC
+L6FE5:	bcs     L6FE2
 ;
 ; map_loaded = 0;
 ;
@@ -45409,7 +49059,7 @@ L61BF:	bcs     L61BC
 ;
 ; temp2 = Player1.x;
 ;
-L61BC:	lda     _Player1+1
+L6FE2:	lda     _Player1+1
 	sta     _temp2+1
 	lda     _Player1
 	sta     _temp2
@@ -45418,12 +49068,12 @@ L61BC:	lda     _Player1+1
 ;
 	ldx     _Player1+1
 	cpx     #$50
-	jcs     L61EF
+	jcs     L7015
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L61C7
+	bne     L6FED
 ;
 ; room_to_load = ((scroll_x >> 8) - 1);
 ;
@@ -45443,7 +49093,7 @@ L61BC:	lda     _Player1+1
 ;
 ; temp1 = (MAX_LEFT - Player1.x) >> 8;
 ;
-L61C7:	lda     #$00
+L6FED:	lda     #$00
 	sec
 	sbc     _Player1
 	lda     #$50
@@ -45455,7 +49105,7 @@ L61C7:	lda     #$00
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L61D4
+	bcc     L6FFA
 ;
 ; temp1 = 3;
 ;
@@ -45465,13 +49115,13 @@ L61C7:	lda     #$00
 ;
 ; temp3 = scroll_x + high_byte(Player1.x);
 ;
-L61D4:	lda     _scroll_x
+L6FFA:	lda     _scroll_x
 	ldx     _scroll_x+1
 	clc
 	adc     _Player1+1
-	bcc     LA26C
+	bcc     LB092
 	inx
-LA26C:	sta     _temp3
+LB092:	sta     _temp3
 	stx     _temp3+1
 ;
 ; current_level = (temp3 >> 8);
@@ -45490,15 +49140,15 @@ LA26C:	sta     _temp3
 	lda     #$00
 	sec
 	sbc     #$01
-	bcs     L61E7
+	bcs     L700D
 	dex
-L61E7:	sta     _max_scroll
+L700D:	sta     _max_scroll
 	stx     _max_scroll+1
 ;
 ; if (max_rooms >= 1)
 ;
 	lda     _max_rooms
-	beq     L61EF
+	beq     L7015
 ;
 ; if ((scroll_x - temp1) > max_scroll)
 ;
@@ -45516,8 +49166,8 @@ L61E7:	sta     _max_scroll
 	txa
 	sbc     _max_scroll+1
 	ora     tmp1
-	bcc     L61EA
-	beq     L61EA
+	bcc     L7010
+	beq     L7010
 ;
 ; scroll_x = 0;
 ;
@@ -45527,11 +49177,11 @@ L61E7:	sta     _max_scroll
 ;
 ; else
 ;
-	jmp     L61EF
+	jmp     L7015
 ;
 ; scroll_x -= temp1;
 ;
-L61EA:	lda     _temp1
+L7010:	lda     _temp1
 	eor     #$FF
 	sec
 	adc     _scroll_x
@@ -45552,16 +49202,16 @@ L61EA:	lda     _temp1
 ;
 ; if (Player1.x > MAX_RIGHT)
 ;
-L61EF:	lda     _Player1
+L7015:	lda     _Player1
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$90
-	bcc     L6209
+	bcc     L702F
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L61F8
+	bne     L701E
 ;
 ; room_to_load = ((scroll_x >> 8) + 1);
 ;
@@ -45581,7 +49231,7 @@ L61EF:	lda     _Player1
 ;
 ; temp1 = (Player1.x - MAX_RIGHT) >> 8;
 ;
-L61F8:	lda     _Player1+1
+L701E:	lda     _Player1+1
 	sec
 	sbc     #$90
 	ldx     #$00
@@ -45591,7 +49241,7 @@ L61F8:	lda     _Player1+1
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     LA270
+	bcc     LB096
 ;
 ; temp1 = 3;
 ;
@@ -45601,8 +49251,8 @@ L61F8:	lda     _Player1+1
 ;
 ; if (max_rooms >= 1)
 ;
-LA270:	lda     _max_rooms
-	beq     L6209
+LB096:	lda     _max_rooms
+	beq     L702F
 ;
 ; scroll_x += temp1;
 ;
@@ -45625,11 +49275,11 @@ LA270:	lda     _max_rooms
 ;
 ; if (scroll_x >= max_scroll)
 ;
-L6209:	lda     _scroll_x
+L702F:	lda     _scroll_x
 	cmp     _max_scroll
 	lda     _scroll_x+1
 	sbc     _max_scroll+1
-	bcc     L6217
+	bcc     L703D
 ;
 ; scroll_x = max_scroll;
 ;
@@ -45649,7 +49299,7 @@ L6209:	lda     _scroll_x
 ;
 	lda     _Player1+1
 	cmp     #$E0
-	bcc     L6217
+	bcc     L703D
 ;
 ; Player1.x = 0xe000;
 ;
@@ -45660,7 +49310,7 @@ L6209:	lda     _scroll_x
 ;
 ; }
 ;
-L6217:	rts
+L703D:	rts
 
 .endproc
 
@@ -45678,18 +49328,18 @@ L6217:	rts
 ; scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 ;
 	ldx     _Player1+4+1
-	bmi     L6220
+	bmi     L7046
 	lda     #$00
-	jmp     LA271
-L6220:	lda     #$01
-LA271:	sta     _scrolling_direction
+	jmp     LB097
+L7046:	lda     #$01
+LB097:	sta     _scrolling_direction
 ;
 ; if (!r_scroll_frames && !l_scroll_frames)
 ;
 	lda     _r_scroll_frames
-	bne     L622D
+	bne     L7053
 	lda     _l_scroll_frames
-	bne     L622D
+	bne     L7053
 ;
 ; if (Player1.vel_x > 0)
 ;
@@ -45697,9 +49347,9 @@ LA271:	sta     _scrolling_direction
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L622A
+	bvs     L7050
 	eor     #$80
-L622A:	bpl     LA274
+L7050:	bpl     LB09A
 ;
 ; r_scroll_frames = 4;
 ;
@@ -45708,17 +49358,17 @@ L622A:	bpl     LA274
 ;
 ; else
 ;
-	jmp     L622D
+	jmp     L7053
 ;
 ; l_scroll_frames = 4;
 ;
-LA274:	lda     #$04
+LB09A:	lda     #$04
 	sta     _l_scroll_frames
 ;
 ; if (r_scroll_frames)
 ;
-L622D:	lda     _r_scroll_frames
-	beq     L6230
+L7053:	lda     _r_scroll_frames
+	beq     L7056
 ;
 ; bank3_draw_screen_R();
 ;
@@ -45731,8 +49381,8 @@ L622D:	lda     _r_scroll_frames
 ; else if (l_scroll_frames)
 ;
 	rts
-L6230:	lda     _l_scroll_frames
-	beq     L6235
+L7056:	lda     _l_scroll_frames
+	beq     L705B
 ;
 ; bank3_draw_screen_L();
 ;
@@ -45744,7 +49394,7 @@ L6230:	lda     _l_scroll_frames
 ;
 ; }
 ;
-L6235:	rts
+L705B:	rts
 
 .endproc
 
@@ -45764,10 +49414,10 @@ L6235:	rts
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     LA27E
+	bcc     LB0A4
 	inx
 	clc
-LA27E:	adc     #<(_stage_bg_palettes)
+LB0A4:	adc     #<(_stage_bg_palettes)
 	sta     ptr1
 	txa
 	adc     #>(_stage_bg_palettes)
@@ -45796,10 +49446,10 @@ LA27E:	adc     #<(_stage_bg_palettes)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA27F
+	bcc     LB0A5
 	inx
 	clc
-LA27F:	adc     #<(_stage3_levels)
+LB0A5:	adc     #<(_stage3_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage3_levels)
@@ -45820,12 +49470,12 @@ LA27F:	adc     #<(_stage3_levels)
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA27B:	sta     _y
+LB0A1:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-LA27A:	sta     _x
+LB0A0:	sta     _x
 ;
 ; address = get_ppu_addr(nametable_to_load, x, y);
 ;
@@ -45875,39 +49525,39 @@ LA27A:	sta     _x
 ;
 ; break;
 ;
-	beq     LA281
+	beq     LB0A7
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     LA27A
+	jmp     LB0A0
 ;
 ; if (y == 0xe0)
 ;
-LA281:	lda     _y
+LB0A7:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     LA282
+	beq     LB0A8
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA27B
+	jmp     LB0A1
 ;
 ; set_data_pointer(stage3_levels[current_level+1]);
 ;
-LA282:	lda     _current_level
+LB0A8:	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L6269
+	bcc     L708F
 	inx
-L6269:	stx     tmp1
+L708F:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -45926,7 +49576,7 @@ L6269:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA27C:	sta     _y
+LB0A2:	sta     _y
 ;
 ; x = 0;
 ;
@@ -45980,19 +49630,19 @@ LA27C:	sta     _y
 ;
 ; break;
 ;
-	beq     LA283
+	beq     LB0A9
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA27C
+	jmp     LB0A2
 ;
 ; if (current_level > 0) {
 ;
-LA283:	lda     _current_level
-	jeq     L628D
+LB0A9:	lda     _current_level
+	jeq     L70B3
 ;
 ; set_data_pointer(stage3_levels[current_level-1]);
 ;
@@ -46000,9 +49650,9 @@ LA283:	lda     _current_level
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L628B
+	bcs     L70B1
 	dex
-L628B:	stx     tmp1
+L70B1:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -46021,7 +49671,7 @@ L628B:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA27D:	sta     _y
+LB0A3:	sta     _y
 ;
 ; x = 240;
 ;
@@ -46077,27 +49727,27 @@ LA27D:	sta     _y
 ;
 ; break;
 ;
-	beq     L628D
+	beq     L70B3
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA27D
+	jmp     LB0A3
 ;
 ; memcpy(c_map, stage3_levels[current_level], 240); 
 ;
-L628D:	lda     #<(_c_map)
+L70B3:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA280
+	bcc     LB0A6
 	inx
 	clc
-LA280:	adc     #<(_stage3_levels)
+LB0A6:	adc     #<(_stage3_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage3_levels)
@@ -46118,12 +49768,12 @@ LA280:	adc     #<(_stage3_levels)
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L62AD
+	bcc     L70D3
 	inx
-L62AD:	cpx     #$00
-	bne     L62B2
+L70D3:	cpx     #$00
+	bne     L70D8
 	cmp     #$14
-L62B2:	bcs     L62AB
+L70D8:	bcs     L70D1
 ;
 ; memcpy(c_map2, stage3_levels[current_level + 1], 240);
 ;
@@ -46134,9 +49784,9 @@ L62B2:	bcs     L62AB
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L62B7
+	bcc     L70DD
 	inx
-L62B7:	stx     tmp1
+L70DD:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -46157,12 +49807,12 @@ L62B7:	stx     tmp1
 ;
 ; memcpy(c_metatile_map, stage3_metatile_colision_map, 240);
 ;
-L62AB:	ldy     #$00
-L62BD:	lda     _stage3_metatile_colision_map,y
+L70D1:	ldy     #$00
+L70E3:	lda     _stage3_metatile_colision_map,y
 	sta     _c_metatile_map,y
 	iny
 	cpy     #$F0
-	bne     L62BD
+	bne     L70E3
 ;
 ; map_loaded = 1;
 ;
@@ -46230,9 +49880,9 @@ L62BD:	lda     _stage3_metatile_colision_map,y
 ;
 	lda     #$00
 	sta     _index
-LA288:	lda     _index
+LB0AE:	lda     _index
 	cmp     #$20
-	bcs     LA289
+	bcs     LB0AF
 ;
 ; entity_y[index] = TURN_OFF; // turn off all objects by default
 ;
@@ -46243,16 +49893,16 @@ LA288:	lda     _index
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA288
+	jmp     LB0AE
 ;
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
-LA289:	lda     #$00
+LB0AF:	lda     #$00
 	sta     _index
 	sta     _index2
-LA28A:	lda     _index
+LB0B0:	lda     _index
 	cmp     #$20
-	bcc     LA28C
+	bcc     LB0B2
 ;
 ; }
 ;
@@ -46260,7 +49910,7 @@ LA28A:	lda     _index
 ;
 ; temp1 = pointer[index2]; // y
 ;
-LA28C:	lda     _pointer
+LB0B2:	lda     _pointer
 	ldx     _pointer+1
 	ldy     _index2
 	sta     ptr1
@@ -46279,17 +49929,17 @@ LA28C:	lda     _pointer
 ; if (temp1 == TURN_OFF)
 ;
 	lda     _temp1+1
-	bne     LA28B
+	bne     LB0B1
 	lda     _temp1
 	cmp     #$FF
 ;
 ; break;
 ;
-	beq     L62D9
+	beq     L70FF
 ;
 ; ++index2;
 ;
-LA28B:	inc     _index2
+LB0B1:	inc     _index2
 ;
 ; entity_active[index] = 0;
 ;
@@ -46366,11 +50016,11 @@ LA28B:	inc     _index2
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA28A
+	jmp     LB0B0
 ;
 ; }
 ;
-L62D9:	rts
+L70FF:	rts
 
 .endproc
 
@@ -46456,9 +50106,9 @@ L62D9:	rts
 	ldx     _scroll_x+1
 	sec
 	sbc     #$20
-	bcs     L7F6B
+	bcs     L8D91
 	dex
-L7F6B:	sta     _pseudo_scroll_x
+L8D91:	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
 ; offset = (pseudo_scroll_x >> 8);
@@ -46469,7 +50119,7 @@ L7F6B:	sta     _pseudo_scroll_x
 ; if (offset >= (sizeof(stage4_levels) / sizeof(stage4_levels[0])) || offset < 0) {
 ;
 	cmp     #$18
-	bcc     LA297
+	bcc     LB0BD
 ;
 ; offset = 0;
 ;
@@ -46478,13 +50128,13 @@ L7F6B:	sta     _pseudo_scroll_x
 ;
 ; set_data_pointer(stage4_levels[offset]);
 ;
-LA297:	ldx     #$00
+LB0BD:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA28F
+	bcc     LB0B5
 	inx
 	clc
-LA28F:	adc     #<(_stage4_levels)
+LB0B5:	adc     #<(_stage4_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage4_levels)
@@ -46514,16 +50164,16 @@ LA28F:	adc     #<(_stage4_levels)
 ;
 ; }
 ;
-	beq     LA293
+	beq     LB0B9
 	cmp     #$01
-	beq     LA294
+	beq     LB0BA
 	cmp     #$02
-	beq     LA295
-	jmp     LA296
+	beq     LB0BB
+	jmp     LB0BC
 ;
 ; temp_y = 0;
 ;
-LA293:	sta     _temp_y
+LB0B9:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank4_drawMetatileBlock();
@@ -46537,11 +50187,11 @@ LA293:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA299
+	jmp     LB0BF
 ;
 ; temp_y = 0x40;
 ;
-LA294:	lda     #$40
+LB0BA:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -46556,11 +50206,11 @@ LA294:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA299
+	jmp     LB0BF
 ;
 ; temp_y = 0x80;
 ;
-LA295:	lda     #$80
+LB0BB:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -46575,11 +50225,11 @@ LA295:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA299
+	jmp     LB0BF
 ;
 ; temp_y = 0xc0;
 ;
-LA296:	lda     #$C0
+LB0BC:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -46591,7 +50241,7 @@ LA296:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA299:	sta     _temp_y
+LB0BF:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank4_drawMetatileBlock();
@@ -46631,9 +50281,9 @@ LA299:	sta     _temp_y
 	ldx     _scroll_x+1
 	clc
 	adc     #$20
-	bcc     L7FA9
+	bcc     L8DCF
 	inx
-L7FA9:	inx
+L8DCF:	inx
 	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
@@ -46645,7 +50295,7 @@ L7FA9:	inx
 ; if (offset >= (sizeof(stage4_levels) / sizeof(stage4_levels[0])) || offset < 0) {
 ;
 	cmp     #$18
-	bcc     LA2A4
+	bcc     LB0CA
 ;
 ; offset = 0;
 ;
@@ -46654,13 +50304,13 @@ L7FA9:	inx
 ;
 ; set_data_pointer(stage4_levels[offset]);
 ;
-LA2A4:	ldx     #$00
+LB0CA:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA29C
+	bcc     LB0C2
 	inx
 	clc
-LA29C:	adc     #<(_stage4_levels)
+LB0C2:	adc     #<(_stage4_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage4_levels)
@@ -46690,16 +50340,16 @@ LA29C:	adc     #<(_stage4_levels)
 ;
 ; }
 ;
-	beq     LA2A0
+	beq     LB0C6
 	cmp     #$01
-	beq     LA2A1
+	beq     LB0C7
 	cmp     #$02
-	beq     LA2A2
-	jmp     LA2A3
+	beq     LB0C8
+	jmp     LB0C9
 ;
 ; temp_y = 0;
 ;
-LA2A0:	sta     _temp_y
+LB0C6:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank4_drawMetatileBlock();
@@ -46713,11 +50363,11 @@ LA2A0:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA2A6
+	jmp     LB0CC
 ;
 ; temp_y = 0x40;
 ;
-LA2A1:	lda     #$40
+LB0C7:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -46732,11 +50382,11 @@ LA2A1:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA2A6
+	jmp     LB0CC
 ;
 ; temp_y = 0x80;
 ;
-LA2A2:	lda     #$80
+LB0C8:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -46751,11 +50401,11 @@ LA2A2:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA2A6
+	jmp     LB0CC
 ;
 ; temp_y = 0xc0;
 ;
-LA2A3:	lda     #$C0
+LB0C9:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -46767,7 +50417,7 @@ LA2A3:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA2A6:	sta     _temp_y
+LB0CC:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank4_drawMetatileBlock();
@@ -46815,7 +50465,7 @@ LA2A6:	sta     _temp_y
 ; if (!map) 
 ;
 	lda     _map
-	jne     L7FE9
+	jne     L8E0F
 ;
 ; memcpy(c_map, stage4_levels[offset], 240); 
 ;
@@ -46825,10 +50475,10 @@ LA2A6:	sta     _temp_y
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA2A9
+	bcc     LB0CF
 	inx
 	clc
-LA2A9:	adc     #<(_stage4_levels)
+LB0CF:	adc     #<(_stage4_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage4_levels)
@@ -46846,7 +50496,7 @@ LA2A9:	adc     #<(_stage4_levels)
 ; if (scrolling_direction) 
 ;
 	lda     _scrolling_direction
-	beq     L7FF0
+	beq     L8E16
 ;
 ; if (offset + 1 < (sizeof(stage4_levels) / sizeof(stage4_levels[0])))
 ;
@@ -46854,12 +50504,12 @@ LA2A9:	adc     #<(_stage4_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L7FF4
+	bcc     L8E1A
 	inx
-L7FF4:	cpx     #$00
-	bne     L7FF9
+L8E1A:	cpx     #$00
+	bne     L8E1F
 	cmp     #$18
-L7FF9:	bcs     L8001
+L8E1F:	bcs     L8E27
 ;
 ; memcpy(c_map2, stage4_levels[offset + 1], 240);
 ;
@@ -46870,9 +50520,9 @@ L7FF9:	bcs     L8001
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L7FFE
+	bcc     L8E24
 	inx
-L7FFE:	stx     tmp1
+L8E24:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -46893,11 +50543,11 @@ L7FFE:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L7FF0:	lda     _offset
+L8E16:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	bne     LA2AB
+	bne     LB0D1
 ;
 ; }
 ;
@@ -46905,16 +50555,16 @@ L7FF0:	lda     _offset
 ;
 ; memcpy(c_map2, stage4_levels[offset - 1], 240);
 ;
-LA2AB:	lda     #<(_c_map2)
+LB0D1:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L8008
+	bcs     L8E2E
 	dex
-L8008:	stx     tmp1
+L8E2E:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -46935,20 +50585,20 @@ L8008:	stx     tmp1
 ;
 ; else
 ;
-L8001:	rts
+L8E27:	rts
 ;
 ; memcpy(c_map2, stage4_levels[offset], 240);
 ;
-L7FE9:	lda     #<(_c_map2)
+L8E0F:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA2AA
+	bcc     LB0D0
 	inx
 	clc
-LA2AA:	adc     #<(_stage4_levels)
+LB0D0:	adc     #<(_stage4_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage4_levels)
@@ -46966,7 +50616,7 @@ LA2AA:	adc     #<(_stage4_levels)
 ; if (scrolling_direction)
 ;
 	lda     _scrolling_direction
-	beq     L8010
+	beq     L8E36
 ;
 ; if (offset + 1 < (sizeof(stage4_levels) / sizeof(stage4_levels[0])))
 ;
@@ -46974,12 +50624,12 @@ LA2AA:	adc     #<(_stage4_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L8014
+	bcc     L8E3A
 	inx
-L8014:	cpx     #$00
-	bne     L8019
+L8E3A:	cpx     #$00
+	bne     L8E3F
 	cmp     #$18
-L8019:	bcs     L8021
+L8E3F:	bcs     L8E47
 ;
 ; memcpy(c_map, stage4_levels[offset + 1], 240);
 ;
@@ -46990,9 +50640,9 @@ L8019:	bcs     L8021
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L801E
+	bcc     L8E44
 	inx
-L801E:	stx     tmp1
+L8E44:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -47013,11 +50663,11 @@ L801E:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L8010:	lda     _offset
+L8E36:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	beq     L8021
+	beq     L8E47
 ;
 ; memcpy(c_map, stage4_levels[offset - 1], 240);
 ;
@@ -47028,9 +50678,9 @@ L8010:	lda     _offset
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L8028
+	bcs     L8E4E
 	dex
-L8028:	stx     tmp1
+L8E4E:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -47051,7 +50701,7 @@ L8028:	stx     tmp1
 ;
 ; }
 ;
-L8021:	rts
+L8E47:	rts
 
 .endproc
 
@@ -47072,9 +50722,9 @@ L8021:	rts
 	lda     _scroll_x
 	clc
 	adc     _Player1+1
-	bcc     LA2AC
+	bcc     LB0D2
 	inx
-LA2AC:	sta     _temp1
+LB0D2:	sta     _temp1
 	stx     _temp1+1
 ;
 ; if (temp1 > 0x98 && temp1 < 0xa4) {
@@ -47082,13 +50732,13 @@ LA2AC:	sta     _temp1
 	cmp     #$99
 	txa
 	sbc     #$00
-	bcc     L802F
+	bcc     L8E55
 	lda     _temp1+1
 	cmp     #$00
-	bne     L8032
+	bne     L8E58
 	lda     _temp1
 	cmp     #$A4
-L8032:	bcs     L802F
+L8E58:	bcs     L8E55
 ;
 ; map_loaded = 0;
 ;
@@ -47097,7 +50747,7 @@ L8032:	bcs     L802F
 ;
 ; temp2 = Player1.x;
 ;
-L802F:	lda     _Player1+1
+L8E55:	lda     _Player1+1
 	sta     _temp2+1
 	lda     _Player1
 	sta     _temp2
@@ -47106,12 +50756,12 @@ L802F:	lda     _Player1+1
 ;
 	ldx     _Player1+1
 	cpx     #$50
-	jcs     L8062
+	jcs     L8E88
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L803A
+	bne     L8E60
 ;
 ; room_to_load = ((scroll_x >> 8) - 1);
 ;
@@ -47131,7 +50781,7 @@ L802F:	lda     _Player1+1
 ;
 ; temp1 = (MAX_LEFT - Player1.x) >> 8;
 ;
-L803A:	lda     #$00
+L8E60:	lda     #$00
 	sec
 	sbc     _Player1
 	lda     #$50
@@ -47143,7 +50793,7 @@ L803A:	lda     #$00
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L8047
+	bcc     L8E6D
 ;
 ; temp1 = 3;
 ;
@@ -47153,13 +50803,13 @@ L803A:	lda     #$00
 ;
 ; temp3 = scroll_x + high_byte(Player1.x);
 ;
-L8047:	lda     _scroll_x
+L8E6D:	lda     _scroll_x
 	ldx     _scroll_x+1
 	clc
 	adc     _Player1+1
-	bcc     LA2AD
+	bcc     LB0D3
 	inx
-LA2AD:	sta     _temp3
+LB0D3:	sta     _temp3
 	stx     _temp3+1
 ;
 ; current_level = (temp3 >> 8);
@@ -47178,15 +50828,15 @@ LA2AD:	sta     _temp3
 	lda     #$00
 	sec
 	sbc     #$01
-	bcs     L805A
+	bcs     L8E80
 	dex
-L805A:	sta     _max_scroll
+L8E80:	sta     _max_scroll
 	stx     _max_scroll+1
 ;
 ; if (max_rooms >= 1)
 ;
 	lda     _max_rooms
-	beq     L8062
+	beq     L8E88
 ;
 ; if ((scroll_x - temp1) > max_scroll)
 ;
@@ -47204,8 +50854,8 @@ L805A:	sta     _max_scroll
 	txa
 	sbc     _max_scroll+1
 	ora     tmp1
-	bcc     L805D
-	beq     L805D
+	bcc     L8E83
+	beq     L8E83
 ;
 ; scroll_x = 0;
 ;
@@ -47215,11 +50865,11 @@ L805A:	sta     _max_scroll
 ;
 ; else
 ;
-	jmp     L8062
+	jmp     L8E88
 ;
 ; scroll_x -= temp1;
 ;
-L805D:	lda     _temp1
+L8E83:	lda     _temp1
 	eor     #$FF
 	sec
 	adc     _scroll_x
@@ -47240,16 +50890,16 @@ L805D:	lda     _temp1
 ;
 ; if (Player1.x > MAX_RIGHT)
 ;
-L8062:	lda     _Player1
+L8E88:	lda     _Player1
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$90
-	bcc     L807C
+	bcc     L8EA2
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L806B
+	bne     L8E91
 ;
 ; room_to_load = ((scroll_x >> 8) + 1);
 ;
@@ -47269,7 +50919,7 @@ L8062:	lda     _Player1
 ;
 ; temp1 = (Player1.x - MAX_RIGHT) >> 8;
 ;
-L806B:	lda     _Player1+1
+L8E91:	lda     _Player1+1
 	sec
 	sbc     #$90
 	ldx     #$00
@@ -47279,7 +50929,7 @@ L806B:	lda     _Player1+1
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     LA2B1
+	bcc     LB0D7
 ;
 ; temp1 = 3;
 ;
@@ -47289,8 +50939,8 @@ L806B:	lda     _Player1+1
 ;
 ; if (max_rooms >= 1)
 ;
-LA2B1:	lda     _max_rooms
-	beq     L807C
+LB0D7:	lda     _max_rooms
+	beq     L8EA2
 ;
 ; scroll_x += temp1;
 ;
@@ -47313,11 +50963,11 @@ LA2B1:	lda     _max_rooms
 ;
 ; if (scroll_x >= max_scroll)
 ;
-L807C:	lda     _scroll_x
+L8EA2:	lda     _scroll_x
 	cmp     _max_scroll
 	lda     _scroll_x+1
 	sbc     _max_scroll+1
-	bcc     L808A
+	bcc     L8EB0
 ;
 ; scroll_x = max_scroll;
 ;
@@ -47337,7 +50987,7 @@ L807C:	lda     _scroll_x
 ;
 	lda     _Player1+1
 	cmp     #$E0
-	bcc     L808A
+	bcc     L8EB0
 ;
 ; Player1.x = 0xe000;
 ;
@@ -47348,7 +50998,7 @@ L807C:	lda     _scroll_x
 ;
 ; }
 ;
-L808A:	rts
+L8EB0:	rts
 
 .endproc
 
@@ -47366,18 +51016,18 @@ L808A:	rts
 ; scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 ;
 	ldx     _Player1+4+1
-	bmi     L8093
+	bmi     L8EB9
 	lda     #$00
-	jmp     LA2B2
-L8093:	lda     #$01
-LA2B2:	sta     _scrolling_direction
+	jmp     LB0D8
+L8EB9:	lda     #$01
+LB0D8:	sta     _scrolling_direction
 ;
 ; if (!r_scroll_frames && !l_scroll_frames)
 ;
 	lda     _r_scroll_frames
-	bne     L80A0
+	bne     L8EC6
 	lda     _l_scroll_frames
-	bne     L80A0
+	bne     L8EC6
 ;
 ; if (Player1.vel_x > 0)
 ;
@@ -47385,9 +51035,9 @@ LA2B2:	sta     _scrolling_direction
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L809D
+	bvs     L8EC3
 	eor     #$80
-L809D:	bpl     LA2B5
+L8EC3:	bpl     LB0DB
 ;
 ; r_scroll_frames = 4;
 ;
@@ -47396,17 +51046,17 @@ L809D:	bpl     LA2B5
 ;
 ; else
 ;
-	jmp     L80A0
+	jmp     L8EC6
 ;
 ; l_scroll_frames = 4;
 ;
-LA2B5:	lda     #$04
+LB0DB:	lda     #$04
 	sta     _l_scroll_frames
 ;
 ; if (r_scroll_frames)
 ;
-L80A0:	lda     _r_scroll_frames
-	beq     L80A3
+L8EC6:	lda     _r_scroll_frames
+	beq     L8EC9
 ;
 ; bank4_draw_screen_R();
 ;
@@ -47419,8 +51069,8 @@ L80A0:	lda     _r_scroll_frames
 ; else if (l_scroll_frames)
 ;
 	rts
-L80A3:	lda     _l_scroll_frames
-	beq     L80A8
+L8EC9:	lda     _l_scroll_frames
+	beq     L8ECE
 ;
 ; bank4_draw_screen_L();
 ;
@@ -47432,7 +51082,7 @@ L80A3:	lda     _l_scroll_frames
 ;
 ; }
 ;
-L80A8:	rts
+L8ECE:	rts
 
 .endproc
 
@@ -47452,10 +51102,10 @@ L80A8:	rts
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     LA2BF
+	bcc     LB0E5
 	inx
 	clc
-LA2BF:	adc     #<(_stage_bg_palettes)
+LB0E5:	adc     #<(_stage_bg_palettes)
 	sta     ptr1
 	txa
 	adc     #>(_stage_bg_palettes)
@@ -47484,10 +51134,10 @@ LA2BF:	adc     #<(_stage_bg_palettes)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA2C0
+	bcc     LB0E6
 	inx
 	clc
-LA2C0:	adc     #<(_stage4_levels)
+LB0E6:	adc     #<(_stage4_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage4_levels)
@@ -47508,12 +51158,12 @@ LA2C0:	adc     #<(_stage4_levels)
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA2BC:	sta     _y
+LB0E2:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-LA2BB:	sta     _x
+LB0E1:	sta     _x
 ;
 ; address = get_ppu_addr(nametable_to_load, x, y);
 ;
@@ -47563,39 +51213,39 @@ LA2BB:	sta     _x
 ;
 ; break;
 ;
-	beq     LA2C2
+	beq     LB0E8
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     LA2BB
+	jmp     LB0E1
 ;
 ; if (y == 0xe0)
 ;
-LA2C2:	lda     _y
+LB0E8:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     LA2C3
+	beq     LB0E9
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA2BC
+	jmp     LB0E2
 ;
 ; set_data_pointer(stage4_levels[current_level+1]);
 ;
-LA2C3:	lda     _current_level
+LB0E9:	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L80DC
+	bcc     L8F02
 	inx
-L80DC:	stx     tmp1
+L8F02:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -47614,7 +51264,7 @@ L80DC:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA2BD:	sta     _y
+LB0E3:	sta     _y
 ;
 ; x = 0;
 ;
@@ -47668,19 +51318,19 @@ LA2BD:	sta     _y
 ;
 ; break;
 ;
-	beq     LA2C4
+	beq     LB0EA
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA2BD
+	jmp     LB0E3
 ;
 ; if (current_level > 0) {
 ;
-LA2C4:	lda     _current_level
-	jeq     L8100
+LB0EA:	lda     _current_level
+	jeq     L8F26
 ;
 ; set_data_pointer(stage4_levels[current_level-1]);
 ;
@@ -47688,9 +51338,9 @@ LA2C4:	lda     _current_level
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L80FE
+	bcs     L8F24
 	dex
-L80FE:	stx     tmp1
+L8F24:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -47709,7 +51359,7 @@ L80FE:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA2BE:	sta     _y
+LB0E4:	sta     _y
 ;
 ; x = 240;
 ;
@@ -47765,27 +51415,27 @@ LA2BE:	sta     _y
 ;
 ; break;
 ;
-	beq     L8100
+	beq     L8F26
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA2BE
+	jmp     LB0E4
 ;
 ; memcpy(c_map, stage4_levels[current_level], 240); 
 ;
-L8100:	lda     #<(_c_map)
+L8F26:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA2C1
+	bcc     LB0E7
 	inx
 	clc
-LA2C1:	adc     #<(_stage4_levels)
+LB0E7:	adc     #<(_stage4_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage4_levels)
@@ -47806,12 +51456,12 @@ LA2C1:	adc     #<(_stage4_levels)
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L8120
+	bcc     L8F46
 	inx
-L8120:	cpx     #$00
-	bne     L8125
+L8F46:	cpx     #$00
+	bne     L8F4B
 	cmp     #$18
-L8125:	bcs     L811E
+L8F4B:	bcs     L8F44
 ;
 ; memcpy(c_map2, stage4_levels[current_level + 1], 240);
 ;
@@ -47822,9 +51472,9 @@ L8125:	bcs     L811E
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L812A
+	bcc     L8F50
 	inx
-L812A:	stx     tmp1
+L8F50:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -47845,12 +51495,12 @@ L812A:	stx     tmp1
 ;
 ; memcpy(c_metatile_map, stage4_metatile_colision_map, 240);
 ;
-L811E:	ldy     #$00
-L8130:	lda     _stage4_metatile_colision_map,y
+L8F44:	ldy     #$00
+L8F56:	lda     _stage4_metatile_colision_map,y
 	sta     _c_metatile_map,y
 	iny
 	cpy     #$F0
-	bne     L8130
+	bne     L8F56
 ;
 ; map_loaded = 1;
 ;
@@ -47918,9 +51568,9 @@ L8130:	lda     _stage4_metatile_colision_map,y
 ;
 	lda     #$00
 	sta     _index
-LA2C9:	lda     _index
+LB0EF:	lda     _index
 	cmp     #$20
-	bcs     LA2CA
+	bcs     LB0F0
 ;
 ; entity_y[index] = TURN_OFF; // turn off all objects by default
 ;
@@ -47931,16 +51581,16 @@ LA2C9:	lda     _index
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA2C9
+	jmp     LB0EF
 ;
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
-LA2CA:	lda     #$00
+LB0F0:	lda     #$00
 	sta     _index
 	sta     _index2
-LA2CB:	lda     _index
+LB0F1:	lda     _index
 	cmp     #$20
-	bcc     LA2CD
+	bcc     LB0F3
 ;
 ; }
 ;
@@ -47948,7 +51598,7 @@ LA2CB:	lda     _index
 ;
 ; temp1 = pointer[index2]; // y
 ;
-LA2CD:	lda     _pointer
+LB0F3:	lda     _pointer
 	ldx     _pointer+1
 	ldy     _index2
 	sta     ptr1
@@ -47967,17 +51617,17 @@ LA2CD:	lda     _pointer
 ; if (temp1 == TURN_OFF)
 ;
 	lda     _temp1+1
-	bne     LA2CC
+	bne     LB0F2
 	lda     _temp1
 	cmp     #$FF
 ;
 ; break;
 ;
-	beq     L814C
+	beq     L8F72
 ;
 ; ++index2;
 ;
-LA2CC:	inc     _index2
+LB0F2:	inc     _index2
 ;
 ; entity_active[index] = 0;
 ;
@@ -48054,11 +51704,11 @@ LA2CC:	inc     _index2
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA2CB
+	jmp     LB0F1
 ;
 ; }
 ;
-L814C:	rts
+L8F72:	rts
 
 .endproc
 
@@ -48144,9 +51794,9 @@ L814C:	rts
 	ldx     _scroll_x+1
 	sec
 	sbc     #$20
-	bcs     L9CEE
+	bcs     LAB14
 	dex
-L9CEE:	sta     _pseudo_scroll_x
+LAB14:	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
 ; offset = (pseudo_scroll_x >> 8);
@@ -48157,7 +51807,7 @@ L9CEE:	sta     _pseudo_scroll_x
 ; if (offset >= (sizeof(stage5_levels) / sizeof(stage5_levels[0])) || offset < 0) {
 ;
 	cmp     #$17
-	bcc     LA2D8
+	bcc     LB0FE
 ;
 ; offset = 0;
 ;
@@ -48166,13 +51816,13 @@ L9CEE:	sta     _pseudo_scroll_x
 ;
 ; set_data_pointer(stage5_levels[offset]);
 ;
-LA2D8:	ldx     #$00
+LB0FE:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA2D0
+	bcc     LB0F6
 	inx
 	clc
-LA2D0:	adc     #<(_stage5_levels)
+LB0F6:	adc     #<(_stage5_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage5_levels)
@@ -48202,16 +51852,16 @@ LA2D0:	adc     #<(_stage5_levels)
 ;
 ; }
 ;
-	beq     LA2D4
+	beq     LB0FA
 	cmp     #$01
-	beq     LA2D5
+	beq     LB0FB
 	cmp     #$02
-	beq     LA2D6
-	jmp     LA2D7
+	beq     LB0FC
+	jmp     LB0FD
 ;
 ; temp_y = 0;
 ;
-LA2D4:	sta     _temp_y
+LB0FA:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank5_drawMetatileBlock();
@@ -48225,11 +51875,11 @@ LA2D4:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA2DA
+	jmp     LB100
 ;
 ; temp_y = 0x40;
 ;
-LA2D5:	lda     #$40
+LB0FB:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -48244,11 +51894,11 @@ LA2D5:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA2DA
+	jmp     LB100
 ;
 ; temp_y = 0x80;
 ;
-LA2D6:	lda     #$80
+LB0FC:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -48263,11 +51913,11 @@ LA2D6:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA2DA
+	jmp     LB100
 ;
 ; temp_y = 0xc0;
 ;
-LA2D7:	lda     #$C0
+LB0FD:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -48279,7 +51929,7 @@ LA2D7:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA2DA:	sta     _temp_y
+LB100:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank5_drawMetatileBlock();
@@ -48319,9 +51969,9 @@ LA2DA:	sta     _temp_y
 	ldx     _scroll_x+1
 	clc
 	adc     #$20
-	bcc     L9D2C
+	bcc     LAB52
 	inx
-L9D2C:	inx
+LAB52:	inx
 	sta     _pseudo_scroll_x
 	stx     _pseudo_scroll_x+1
 ;
@@ -48333,7 +51983,7 @@ L9D2C:	inx
 ; if (offset >= (sizeof(stage5_levels) / sizeof(stage5_levels[0])) || offset < 0) {
 ;
 	cmp     #$17
-	bcc     LA2E5
+	bcc     LB10B
 ;
 ; offset = 0;
 ;
@@ -48342,13 +51992,13 @@ L9D2C:	inx
 ;
 ; set_data_pointer(stage5_levels[offset]);
 ;
-LA2E5:	ldx     #$00
+LB10B:	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA2DD
+	bcc     LB103
 	inx
 	clc
-LA2DD:	adc     #<(_stage5_levels)
+LB103:	adc     #<(_stage5_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage5_levels)
@@ -48378,16 +52028,16 @@ LA2DD:	adc     #<(_stage5_levels)
 ;
 ; }
 ;
-	beq     LA2E1
+	beq     LB107
 	cmp     #$01
-	beq     LA2E2
+	beq     LB108
 	cmp     #$02
-	beq     LA2E3
-	jmp     LA2E4
+	beq     LB109
+	jmp     LB10A
 ;
 ; temp_y = 0;
 ;
-LA2E1:	sta     _temp_y
+LB107:	sta     _temp_y
 	sta     _temp_y+1
 ;
 ; bank5_drawMetatileBlock();
@@ -48401,11 +52051,11 @@ LA2E1:	sta     _temp_y
 ;
 ; break;
 ;
-	jmp     LA2E7
+	jmp     LB10D
 ;
 ; temp_y = 0x40;
 ;
-LA2E2:	lda     #$40
+LB108:	lda     #$40
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -48420,11 +52070,11 @@ LA2E2:	lda     #$40
 ;
 ; break;
 ;
-	jmp     LA2E7
+	jmp     LB10D
 ;
 ; temp_y = 0x80;
 ;
-LA2E3:	lda     #$80
+LB109:	lda     #$80
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -48439,11 +52089,11 @@ LA2E3:	lda     #$80
 ;
 ; break;
 ;
-	jmp     LA2E7
+	jmp     LB10D
 ;
 ; temp_y = 0xc0;
 ;
-LA2E4:	lda     #$C0
+LB10A:	lda     #$C0
 	sta     _temp_y
 	stx     _temp_y+1
 ;
@@ -48455,7 +52105,7 @@ LA2E4:	lda     #$C0
 ;
 	ldx     #$00
 	lda     #$E0
-LA2E7:	sta     _temp_y
+LB10D:	sta     _temp_y
 	stx     _temp_y+1
 ;
 ; bank5_drawMetatileBlock();
@@ -48503,7 +52153,7 @@ LA2E7:	sta     _temp_y
 ; if (!map) 
 ;
 	lda     _map
-	jne     L9D6C
+	jne     LAB92
 ;
 ; memcpy(c_map, stage5_levels[offset], 240); 
 ;
@@ -48513,10 +52163,10 @@ LA2E7:	sta     _temp_y
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA2EA
+	bcc     LB110
 	inx
 	clc
-LA2EA:	adc     #<(_stage5_levels)
+LB110:	adc     #<(_stage5_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage5_levels)
@@ -48534,7 +52184,7 @@ LA2EA:	adc     #<(_stage5_levels)
 ; if (scrolling_direction) 
 ;
 	lda     _scrolling_direction
-	beq     L9D73
+	beq     LAB99
 ;
 ; if (offset + 1 < (sizeof(stage5_levels) / sizeof(stage5_levels[0])))
 ;
@@ -48542,12 +52192,12 @@ LA2EA:	adc     #<(_stage5_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L9D77
+	bcc     LAB9D
 	inx
-L9D77:	cpx     #$00
-	bne     L9D7C
+LAB9D:	cpx     #$00
+	bne     LABA2
 	cmp     #$17
-L9D7C:	bcs     L9D84
+LABA2:	bcs     LABAA
 ;
 ; memcpy(c_map2, stage5_levels[offset + 1], 240);
 ;
@@ -48558,9 +52208,9 @@ L9D7C:	bcs     L9D84
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L9D81
+	bcc     LABA7
 	inx
-L9D81:	stx     tmp1
+LABA7:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -48581,11 +52231,11 @@ L9D81:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L9D73:	lda     _offset
+LAB99:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	bne     LA2EC
+	bne     LB112
 ;
 ; }
 ;
@@ -48593,16 +52243,16 @@ L9D73:	lda     _offset
 ;
 ; memcpy(c_map2, stage5_levels[offset - 1], 240);
 ;
-LA2EC:	lda     #<(_c_map2)
+LB112:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L9D8B
+	bcs     LABB1
 	dex
-L9D8B:	stx     tmp1
+LABB1:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -48623,20 +52273,20 @@ L9D8B:	stx     tmp1
 ;
 ; else
 ;
-L9D84:	rts
+LABAA:	rts
 ;
 ; memcpy(c_map2, stage5_levels[offset], 240);
 ;
-L9D6C:	lda     #<(_c_map2)
+LAB92:	lda     #<(_c_map2)
 	ldx     #>(_c_map2)
 	jsr     pushax
 	ldx     #$00
 	lda     _offset
 	asl     a
-	bcc     LA2EB
+	bcc     LB111
 	inx
 	clc
-LA2EB:	adc     #<(_stage5_levels)
+LB111:	adc     #<(_stage5_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage5_levels)
@@ -48654,7 +52304,7 @@ LA2EB:	adc     #<(_stage5_levels)
 ; if (scrolling_direction)
 ;
 	lda     _scrolling_direction
-	beq     L9D93
+	beq     LABB9
 ;
 ; if (offset + 1 < (sizeof(stage5_levels) / sizeof(stage5_levels[0])))
 ;
@@ -48662,12 +52312,12 @@ LA2EB:	adc     #<(_stage5_levels)
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L9D97
+	bcc     LABBD
 	inx
-L9D97:	cpx     #$00
-	bne     L9D9C
+LABBD:	cpx     #$00
+	bne     LABC2
 	cmp     #$17
-L9D9C:	bcs     L9DA4
+LABC2:	bcs     LABCA
 ;
 ; memcpy(c_map, stage5_levels[offset + 1], 240);
 ;
@@ -48678,9 +52328,9 @@ L9D9C:	bcs     L9DA4
 	lda     _offset
 	clc
 	adc     #$01
-	bcc     L9DA1
+	bcc     LABC7
 	inx
-L9DA1:	stx     tmp1
+LABC7:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -48701,11 +52351,11 @@ L9DA1:	stx     tmp1
 ;
 ; if (offset - 1 >= 0)
 ;
-L9D93:	lda     _offset
+LABB9:	lda     _offset
 	sec
 	sbc     #$01
 	jsr     return1
-	beq     L9DA4
+	beq     LABCA
 ;
 ; memcpy(c_map, stage5_levels[offset - 1], 240);
 ;
@@ -48716,9 +52366,9 @@ L9D93:	lda     _offset
 	lda     _offset
 	sec
 	sbc     #$01
-	bcs     L9DAB
+	bcs     LABD1
 	dex
-L9DAB:	stx     tmp1
+LABD1:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -48739,7 +52389,7 @@ L9DAB:	stx     tmp1
 ;
 ; }
 ;
-L9DA4:	rts
+LABCA:	rts
 
 .endproc
 
@@ -48760,9 +52410,9 @@ L9DA4:	rts
 	lda     _scroll_x
 	clc
 	adc     _Player1+1
-	bcc     LA2ED
+	bcc     LB113
 	inx
-LA2ED:	sta     _temp1
+LB113:	sta     _temp1
 	stx     _temp1+1
 ;
 ; if (temp1 > 0x98 && temp1 < 0xa4) {
@@ -48770,13 +52420,13 @@ LA2ED:	sta     _temp1
 	cmp     #$99
 	txa
 	sbc     #$00
-	bcc     L9DB2
+	bcc     LABD8
 	lda     _temp1+1
 	cmp     #$00
-	bne     L9DB5
+	bne     LABDB
 	lda     _temp1
 	cmp     #$A4
-L9DB5:	bcs     L9DB2
+LABDB:	bcs     LABD8
 ;
 ; map_loaded = 0;
 ;
@@ -48785,7 +52435,7 @@ L9DB5:	bcs     L9DB2
 ;
 ; temp2 = Player1.x;
 ;
-L9DB2:	lda     _Player1+1
+LABD8:	lda     _Player1+1
 	sta     _temp2+1
 	lda     _Player1
 	sta     _temp2
@@ -48794,12 +52444,12 @@ L9DB2:	lda     _Player1+1
 ;
 	ldx     _Player1+1
 	cpx     #$50
-	jcs     L9DE5
+	jcs     LAC0B
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L9DBD
+	bne     LABE3
 ;
 ; room_to_load = ((scroll_x >> 8) - 1);
 ;
@@ -48819,7 +52469,7 @@ L9DB2:	lda     _Player1+1
 ;
 ; temp1 = (MAX_LEFT - Player1.x) >> 8;
 ;
-L9DBD:	lda     #$00
+LABE3:	lda     #$00
 	sec
 	sbc     _Player1
 	lda     #$50
@@ -48831,7 +52481,7 @@ L9DBD:	lda     #$00
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     L9DCA
+	bcc     LABF0
 ;
 ; temp1 = 3;
 ;
@@ -48841,13 +52491,13 @@ L9DBD:	lda     #$00
 ;
 ; temp3 = scroll_x + high_byte(Player1.x);
 ;
-L9DCA:	lda     _scroll_x
+LABF0:	lda     _scroll_x
 	ldx     _scroll_x+1
 	clc
 	adc     _Player1+1
-	bcc     LA2EE
+	bcc     LB114
 	inx
-LA2EE:	sta     _temp3
+LB114:	sta     _temp3
 	stx     _temp3+1
 ;
 ; current_level = (temp3 >> 8);
@@ -48866,15 +52516,15 @@ LA2EE:	sta     _temp3
 	lda     #$00
 	sec
 	sbc     #$01
-	bcs     L9DDD
+	bcs     LAC03
 	dex
-L9DDD:	sta     _max_scroll
+LAC03:	sta     _max_scroll
 	stx     _max_scroll+1
 ;
 ; if (max_rooms >= 1)
 ;
 	lda     _max_rooms
-	beq     L9DE5
+	beq     LAC0B
 ;
 ; if ((scroll_x - temp1) > max_scroll)
 ;
@@ -48892,8 +52542,8 @@ L9DDD:	sta     _max_scroll
 	txa
 	sbc     _max_scroll+1
 	ora     tmp1
-	bcc     L9DE0
-	beq     L9DE0
+	bcc     LAC06
+	beq     LAC06
 ;
 ; scroll_x = 0;
 ;
@@ -48903,11 +52553,11 @@ L9DDD:	sta     _max_scroll
 ;
 ; else
 ;
-	jmp     L9DE5
+	jmp     LAC0B
 ;
 ; scroll_x -= temp1;
 ;
-L9DE0:	lda     _temp1
+LAC06:	lda     _temp1
 	eor     #$FF
 	sec
 	adc     _scroll_x
@@ -48928,16 +52578,16 @@ L9DE0:	lda     _temp1
 ;
 ; if (Player1.x > MAX_RIGHT)
 ;
-L9DE5:	lda     _Player1
+LAC0B:	lda     _Player1
 	cmp     #$01
 	lda     _Player1+1
 	sbc     #$90
-	bcc     L9DFF
+	bcc     LAC25
 ;
 ; if (!map_loaded)
 ;
 	lda     _map_loaded
-	bne     L9DEE
+	bne     LAC14
 ;
 ; room_to_load = ((scroll_x >> 8) + 1);
 ;
@@ -48957,7 +52607,7 @@ L9DE5:	lda     _Player1
 ;
 ; temp1 = (Player1.x - MAX_RIGHT) >> 8;
 ;
-L9DEE:	lda     _Player1+1
+LAC14:	lda     _Player1+1
 	sec
 	sbc     #$90
 	ldx     #$00
@@ -48967,7 +52617,7 @@ L9DEE:	lda     _Player1+1
 ; if (temp1 > 3)
 ;
 	cmp     #$04
-	bcc     LA2F2
+	bcc     LB118
 ;
 ; temp1 = 3;
 ;
@@ -48977,8 +52627,8 @@ L9DEE:	lda     _Player1+1
 ;
 ; if (max_rooms >= 1)
 ;
-LA2F2:	lda     _max_rooms
-	beq     L9DFF
+LB118:	lda     _max_rooms
+	beq     LAC25
 ;
 ; scroll_x += temp1;
 ;
@@ -49001,11 +52651,11 @@ LA2F2:	lda     _max_rooms
 ;
 ; if (scroll_x >= max_scroll)
 ;
-L9DFF:	lda     _scroll_x
+LAC25:	lda     _scroll_x
 	cmp     _max_scroll
 	lda     _scroll_x+1
 	sbc     _max_scroll+1
-	bcc     L9E0D
+	bcc     LAC33
 ;
 ; scroll_x = max_scroll;
 ;
@@ -49025,7 +52675,7 @@ L9DFF:	lda     _scroll_x
 ;
 	lda     _Player1+1
 	cmp     #$E0
-	bcc     L9E0D
+	bcc     LAC33
 ;
 ; Player1.x = 0xe000;
 ;
@@ -49036,7 +52686,7 @@ L9DFF:	lda     _scroll_x
 ;
 ; }
 ;
-L9E0D:	rts
+LAC33:	rts
 
 .endproc
 
@@ -49054,18 +52704,18 @@ L9E0D:	rts
 ; scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 ;
 	ldx     _Player1+4+1
-	bmi     L9E16
+	bmi     LAC3C
 	lda     #$00
-	jmp     LA2F3
-L9E16:	lda     #$01
-LA2F3:	sta     _scrolling_direction
+	jmp     LB119
+LAC3C:	lda     #$01
+LB119:	sta     _scrolling_direction
 ;
 ; if (!r_scroll_frames && !l_scroll_frames)
 ;
 	lda     _r_scroll_frames
-	bne     L9E23
+	bne     LAC49
 	lda     _l_scroll_frames
-	bne     L9E23
+	bne     LAC49
 ;
 ; if (Player1.vel_x > 0)
 ;
@@ -49073,9 +52723,9 @@ LA2F3:	sta     _scrolling_direction
 	cmp     #$01
 	lda     _Player1+4+1
 	sbc     #$00
-	bvs     L9E20
+	bvs     LAC46
 	eor     #$80
-L9E20:	bpl     LA2F6
+LAC46:	bpl     LB11C
 ;
 ; r_scroll_frames = 4;
 ;
@@ -49084,17 +52734,17 @@ L9E20:	bpl     LA2F6
 ;
 ; else
 ;
-	jmp     L9E23
+	jmp     LAC49
 ;
 ; l_scroll_frames = 4;
 ;
-LA2F6:	lda     #$04
+LB11C:	lda     #$04
 	sta     _l_scroll_frames
 ;
 ; if (r_scroll_frames)
 ;
-L9E23:	lda     _r_scroll_frames
-	beq     L9E26
+LAC49:	lda     _r_scroll_frames
+	beq     LAC4C
 ;
 ; bank5_draw_screen_R();
 ;
@@ -49107,8 +52757,8 @@ L9E23:	lda     _r_scroll_frames
 ; else if (l_scroll_frames)
 ;
 	rts
-L9E26:	lda     _l_scroll_frames
-	beq     L9E2B
+LAC4C:	lda     _l_scroll_frames
+	beq     LAC51
 ;
 ; bank5_draw_screen_L();
 ;
@@ -49120,7 +52770,7 @@ L9E26:	lda     _l_scroll_frames
 ;
 ; }
 ;
-L9E2B:	rts
+LAC51:	rts
 
 .endproc
 
@@ -49140,10 +52790,10 @@ L9E2B:	rts
 	ldx     #$00
 	lda     _current_stage
 	asl     a
-	bcc     LA300
+	bcc     LB126
 	inx
 	clc
-LA300:	adc     #<(_stage_bg_palettes)
+LB126:	adc     #<(_stage_bg_palettes)
 	sta     ptr1
 	txa
 	adc     #>(_stage_bg_palettes)
@@ -49172,10 +52822,10 @@ LA300:	adc     #<(_stage_bg_palettes)
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA301
+	bcc     LB127
 	inx
 	clc
-LA301:	adc     #<(_stage5_levels)
+LB127:	adc     #<(_stage5_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage5_levels)
@@ -49196,12 +52846,12 @@ LA301:	adc     #<(_stage5_levels)
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA2FD:	sta     _y
+LB123:	sta     _y
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$00
-LA2FC:	sta     _x
+LB122:	sta     _x
 ;
 ; address = get_ppu_addr(nametable_to_load, x, y);
 ;
@@ -49251,39 +52901,39 @@ LA2FC:	sta     _x
 ;
 ; break;
 ;
-	beq     LA303
+	beq     LB129
 ;
 ; for (x = 0;; x += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _x
-	jmp     LA2FC
+	jmp     LB122
 ;
 ; if (y == 0xe0)
 ;
-LA303:	lda     _y
+LB129:	lda     _y
 	cmp     #$E0
 ;
 ; break;
 ;
-	beq     LA304
+	beq     LB12A
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA2FD
+	jmp     LB123
 ;
 ; set_data_pointer(stage5_levels[current_level+1]);
 ;
-LA304:	lda     _current_level
+LB12A:	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L9E5F
+	bcc     LAC85
 	inx
-L9E5F:	stx     tmp1
+LAC85:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -49302,7 +52952,7 @@ L9E5F:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA2FE:	sta     _y
+LB124:	sta     _y
 ;
 ; x = 0;
 ;
@@ -49356,19 +53006,19 @@ LA2FE:	sta     _y
 ;
 ; break;
 ;
-	beq     LA305
+	beq     LB12B
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA2FE
+	jmp     LB124
 ;
 ; if (current_level > 0) {
 ;
-LA305:	lda     _current_level
-	jeq     L9E83
+LB12B:	lda     _current_level
+	jeq     LACA9
 ;
 ; set_data_pointer(stage5_levels[current_level-1]);
 ;
@@ -49376,9 +53026,9 @@ LA305:	lda     _current_level
 	lda     _current_level
 	sec
 	sbc     #$01
-	bcs     L9E81
+	bcs     LACA7
 	dex
-L9E81:	stx     tmp1
+LACA7:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -49397,7 +53047,7 @@ L9E81:	stx     tmp1
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$00
-LA2FF:	sta     _y
+LB125:	sta     _y
 ;
 ; x = 240;
 ;
@@ -49453,27 +53103,27 @@ LA2FF:	sta     _y
 ;
 ; break;
 ;
-	beq     L9E83
+	beq     LACA9
 ;
 ; for (y = 0;; y += 0x20)
 ;
 	lda     #$20
 	clc
 	adc     _y
-	jmp     LA2FF
+	jmp     LB125
 ;
 ; memcpy(c_map, stage5_levels[current_level], 240); 
 ;
-L9E83:	lda     #<(_c_map)
+LACA9:	lda     #<(_c_map)
 	ldx     #>(_c_map)
 	jsr     pushax
 	ldx     #$00
 	lda     _current_level
 	asl     a
-	bcc     LA302
+	bcc     LB128
 	inx
 	clc
-LA302:	adc     #<(_stage5_levels)
+LB128:	adc     #<(_stage5_levels)
 	sta     ptr1
 	txa
 	adc     #>(_stage5_levels)
@@ -49494,12 +53144,12 @@ LA302:	adc     #<(_stage5_levels)
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L9EA3
+	bcc     LACC9
 	inx
-L9EA3:	cpx     #$00
-	bne     L9EA8
+LACC9:	cpx     #$00
+	bne     LACCE
 	cmp     #$17
-L9EA8:	bcs     L9EA1
+LACCE:	bcs     LACC7
 ;
 ; memcpy(c_map2, stage5_levels[current_level + 1], 240);
 ;
@@ -49510,9 +53160,9 @@ L9EA8:	bcs     L9EA1
 	lda     _current_level
 	clc
 	adc     #$01
-	bcc     L9EAD
+	bcc     LACD3
 	inx
-L9EAD:	stx     tmp1
+LACD3:	stx     tmp1
 	asl     a
 	rol     tmp1
 	clc
@@ -49533,12 +53183,12 @@ L9EAD:	stx     tmp1
 ;
 ; memcpy(c_metatile_map, stage5_metatile_colision_map, 240);
 ;
-L9EA1:	ldy     #$00
-L9EB3:	lda     _stage5_metatile_colision_map,y
+LACC7:	ldy     #$00
+LACD9:	lda     _stage5_metatile_colision_map,y
 	sta     _c_metatile_map,y
 	iny
 	cpy     #$F0
-	bne     L9EB3
+	bne     LACD9
 ;
 ; map_loaded = 1;
 ;
@@ -49606,9 +53256,9 @@ L9EB3:	lda     _stage5_metatile_colision_map,y
 ;
 	lda     #$00
 	sta     _index
-LA30A:	lda     _index
+LB130:	lda     _index
 	cmp     #$20
-	bcs     LA30B
+	bcs     LB131
 ;
 ; entity_y[index] = TURN_OFF; // turn off all objects by default
 ;
@@ -49619,16 +53269,16 @@ LA30A:	lda     _index
 ; for (index = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA30A
+	jmp     LB130
 ;
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
-LA30B:	lda     #$00
+LB131:	lda     #$00
 	sta     _index
 	sta     _index2
-LA30C:	lda     _index
+LB132:	lda     _index
 	cmp     #$20
-	bcc     LA30E
+	bcc     LB134
 ;
 ; }
 ;
@@ -49636,7 +53286,7 @@ LA30C:	lda     _index
 ;
 ; temp1 = pointer[index2]; // y
 ;
-LA30E:	lda     _pointer
+LB134:	lda     _pointer
 	ldx     _pointer+1
 	ldy     _index2
 	sta     ptr1
@@ -49655,17 +53305,17 @@ LA30E:	lda     _pointer
 ; if (temp1 == TURN_OFF)
 ;
 	lda     _temp1+1
-	bne     LA30D
+	bne     LB133
 	lda     _temp1
 	cmp     #$FF
 ;
 ; break;
 ;
-	beq     L9ECF
+	beq     LACF5
 ;
 ; ++index2;
 ;
-LA30D:	inc     _index2
+LB133:	inc     _index2
 ;
 ; entity_active[index] = 0;
 ;
@@ -49742,11 +53392,11 @@ LA30D:	inc     _index2
 ; for (index = 0, index2 = 0; index < MAX_ENTITY; ++index)
 ;
 	inc     _index
-	jmp     LA30C
+	jmp     LB132
 ;
 ; }
 ;
-L9ECF:	rts
+LACF5:	rts
 
 .endproc
 
@@ -49801,20 +53451,20 @@ L9ECF:	rts
 ;
 ; }
 ;
-	beq     L9F97
+	beq     LADBD
 	cmp     #$01
-	beq     L9FA0
+	beq     LADC6
 	cmp     #$02
-	beq     L9FA9
+	beq     LADCF
 	cmp     #$03
-	beq     L9FB2
+	beq     LADD8
 	cmp     #$04
-	beq     L9FBB
+	beq     LADE1
 	rts
 ;
 ; set_chr_bank_0(CHR_STAGE_1_SPRITES);
 ;
-L9F97:	lda     #$06
+LADBD:	lda     #$06
 	jsr     _set_chr_bank_0
 ;
 ; set_chr_bank_1(CHR_STAGE_1_BG_A);
@@ -49832,7 +53482,7 @@ L9F97:	lda     #$06
 ;
 ; set_chr_bank_0(CHR_STAGE_2_SPRITES);
 ;
-L9FA0:	lda     #$0A
+LADC6:	lda     #$0A
 	jsr     _set_chr_bank_0
 ;
 ; set_chr_bank_1(CHR_STAGE_2_BG_A);
@@ -49850,7 +53500,7 @@ L9FA0:	lda     #$0A
 ;
 ; set_chr_bank_0(CHR_STAGE_3_SPRITES);
 ;
-L9FA9:	lda     #$0E
+LADCF:	lda     #$0E
 	jsr     _set_chr_bank_0
 ;
 ; set_chr_bank_1(CHR_STAGE_3_BG_A);
@@ -49868,7 +53518,7 @@ L9FA9:	lda     #$0E
 ;
 ; set_chr_bank_0(CHR_STAGE_4_SPRITES);
 ;
-L9FB2:	lda     #$12
+LADD8:	lda     #$12
 	jsr     _set_chr_bank_0
 ;
 ; set_chr_bank_1(CHR_STAGE_4_BG_A);
@@ -49886,7 +53536,7 @@ L9FB2:	lda     #$12
 ;
 ; set_chr_bank_0(CHR_STAGE_5_SPRITES);
 ;
-L9FBB:	lda     #$16
+LADE1:	lda     #$16
 	jsr     _set_chr_bank_0
 ;
 ; set_chr_bank_1(CHR_STAGE_5_BG_A);
@@ -49921,20 +53571,20 @@ L9FBB:	lda     #$16
 ;
 ; }
 ;
-	beq     L9FC8
+	beq     LADEE
 	cmp     #$01
-	beq     L9FCD
+	beq     LADF3
 	cmp     #$02
-	beq     L9FD2
+	beq     LADF8
 	cmp     #$03
-	beq     L9FD7
+	beq     LADFD
 	cmp     #$04
-	beq     L9FDC
+	beq     LAE02
 	rts
 ;
 ; banked_call(BANK_1, bank1_entity_obj_init);
 ;
-L9FC8:	lda     #$01
+LADEE:	lda     #$01
 	jsr     pusha
 	lda     #<(_bank1_entity_obj_init)
 	ldx     #>(_bank1_entity_obj_init)
@@ -49942,7 +53592,7 @@ L9FC8:	lda     #$01
 ;
 ; banked_call(BANK_2, bank2_entity_obj_init);
 ;
-L9FCD:	lda     #$02
+LADF3:	lda     #$02
 	jsr     pusha
 	lda     #<(_bank2_entity_obj_init)
 	ldx     #>(_bank2_entity_obj_init)
@@ -49950,7 +53600,7 @@ L9FCD:	lda     #$02
 ;
 ; banked_call(BANK_3, bank3_entity_obj_init);
 ;
-L9FD2:	lda     #$03
+LADF8:	lda     #$03
 	jsr     pusha
 	lda     #<(_bank3_entity_obj_init)
 	ldx     #>(_bank3_entity_obj_init)
@@ -49958,7 +53608,7 @@ L9FD2:	lda     #$03
 ;
 ; banked_call(BANK_4, bank4_entity_obj_init);
 ;
-L9FD7:	lda     #$04
+LADFD:	lda     #$04
 	jsr     pusha
 	lda     #<(_bank4_entity_obj_init)
 	ldx     #>(_bank4_entity_obj_init)
@@ -49966,7 +53616,7 @@ L9FD7:	lda     #$04
 ;
 ; banked_call(BANK_5, bank5_entity_obj_init);
 ;
-L9FDC:	lda     #$05
+LAE02:	lda     #$05
 	jsr     pusha
 	lda     #<(_bank5_entity_obj_init)
 	ldx     #>(_bank5_entity_obj_init)
@@ -49996,21 +53646,21 @@ L9FDC:	lda     #$05
 ;
 ; }
 ;
-	beq     L9FE3
+	beq     LAE09
 	cmp     #$01
-	beq     LA310
+	beq     LB136
 	cmp     #$02
-	beq     LA311
+	beq     LB137
 	cmp     #$03
-	beq     LA312
+	beq     LB138
 	cmp     #$04
-	beq     LA313
+	beq     LB139
 	jmp     incsp1
 ;
 ; if(chr_frame_state == 0) {
 ;
-LA310:	lda     _chr_frame_state
-	bne     L9FE8
+LB136:	lda     _chr_frame_state
+	bne     LAE0E
 ;
 ; set_chr_bank_1(CHR_STAGE_2_BG_A);
 ;
@@ -50018,20 +53668,20 @@ LA310:	lda     _chr_frame_state
 ;
 ; } else {
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; set_chr_bank_1(CHR_STAGE_2_BG_B);
 ;
-L9FE8:	lda     #$09
+LAE0E:	lda     #$09
 ;
 ; break;
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; if(chr_frame_state == 0) {
 ;
-LA311:	lda     _chr_frame_state
-	bne     L9FF1
+LB137:	lda     _chr_frame_state
+	bne     LAE17
 ;
 ; set_chr_bank_1(CHR_STAGE_3_BG_A);
 ;
@@ -50039,20 +53689,20 @@ LA311:	lda     _chr_frame_state
 ;
 ; } else {
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; set_chr_bank_1(CHR_STAGE_3_BG_B);
 ;
-L9FF1:	lda     #$0D
+LAE17:	lda     #$0D
 ;
 ; break;
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; if(chr_frame_state == 0) { 
 ;
-LA312:	lda     _chr_frame_state
-	bne     L9FFA
+LB138:	lda     _chr_frame_state
+	bne     LAE20
 ;
 ; set_chr_bank_1(CHR_STAGE_4_BG_A);
 ;
@@ -50060,20 +53710,20 @@ LA312:	lda     _chr_frame_state
 ;
 ; } else {
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; set_chr_bank_1(CHR_STAGE_4_BG_B);
 ;
-L9FFA:	lda     #$11
+LAE20:	lda     #$11
 ;
 ; break;
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; if(chr_frame_state == 0) {
 ;
-LA313:	lda     _chr_frame_state
-	bne     LA003
+LB139:	lda     _chr_frame_state
+	bne     LAE29
 ;
 ; set_chr_bank_1(CHR_STAGE_5_BG_A);
 ;
@@ -50081,16 +53731,16 @@ LA313:	lda     _chr_frame_state
 ;
 ; } else {
 ;
-	jmp     LA30F
+	jmp     LB135
 ;
 ; set_chr_bank_1(CHR_STAGE_5_BG_B);
 ;
-LA003:	lda     #$15
-LA30F:	jsr     _set_chr_bank_1
+LAE29:	lda     #$15
+LB135:	jsr     _set_chr_bank_1
 ;
 ; }
 ;
-L9FE3:	jmp     incsp1
+LAE09:	jmp     incsp1
 
 .endproc
 
@@ -50111,20 +53761,20 @@ L9FE3:	jmp     incsp1
 ;
 ; }
 ;
-	beq     LA00F
+	beq     LAE35
 	cmp     #$01
-	beq     LA014
+	beq     LAE3A
 	cmp     #$02
-	beq     LA019
+	beq     LAE3F
 	cmp     #$03
-	beq     LA01E
+	beq     LAE44
 	cmp     #$04
-	beq     LA023
+	beq     LAE49
 	rts
 ;
 ; banked_call(BANK_1, bank1_scroll_screen);
 ;
-LA00F:	lda     #$01
+LAE35:	lda     #$01
 	jsr     pusha
 	lda     #<(_bank1_scroll_screen)
 	ldx     #>(_bank1_scroll_screen)
@@ -50132,7 +53782,7 @@ LA00F:	lda     #$01
 ;
 ; banked_call(BANK_2, bank2_scroll_screen);
 ;
-LA014:	lda     #$02
+LAE3A:	lda     #$02
 	jsr     pusha
 	lda     #<(_bank2_scroll_screen)
 	ldx     #>(_bank2_scroll_screen)
@@ -50140,7 +53790,7 @@ LA014:	lda     #$02
 ;
 ; banked_call(BANK_3, bank3_scroll_screen);
 ;
-LA019:	lda     #$03
+LAE3F:	lda     #$03
 	jsr     pusha
 	lda     #<(_bank3_scroll_screen)
 	ldx     #>(_bank3_scroll_screen)
@@ -50148,7 +53798,7 @@ LA019:	lda     #$03
 ;
 ; banked_call(BANK_4, bank4_scroll_screen);
 ;
-LA01E:	lda     #$04
+LAE44:	lda     #$04
 	jsr     pusha
 	lda     #<(_bank4_scroll_screen)
 	ldx     #>(_bank4_scroll_screen)
@@ -50156,7 +53806,7 @@ LA01E:	lda     #$04
 ;
 ; banked_call(BANK_5, bank5_scroll_screen);
 ;
-LA023:	lda     #$05
+LAE49:	lda     #$05
 	jsr     pusha
 	lda     #<(_bank5_scroll_screen)
 	ldx     #>(_bank5_scroll_screen)
@@ -50318,12 +53968,12 @@ LA023:	lda     #$05
 	lda     #$00
 	sta     _temp1
 	sta     _temp1+1
-LA03D:	lda     _temp1+1
+LAE63:	lda     _temp1+1
 	cmp     #$00
-	bne     LA044
+	bne     LAE6A
 	lda     _temp1
 	cmp     #$03
-LA044:	bcc     LA31A
+LAE6A:	bcc     LB140
 ;
 ; }
 ;
@@ -50331,7 +53981,7 @@ LA044:	bcc     LA31A
 ;
 ; if (projectiles_list[temp1] != TURN_OFF)
 ;
-LA31A:	lda     #<(_projectiles_list)
+LB140:	lda     #<(_projectiles_list)
 	sta     ptr1
 	lda     #>(_projectiles_list)
 	clc
@@ -50340,7 +53990,7 @@ LA31A:	lda     #<(_projectiles_list)
 	ldy     _temp1
 	lda     (ptr1),y
 	cmp     #$FF
-	jeq     LA03F
+	jeq     LAE65
 ;
 ; if (projectiles_x[temp1] > 250)
 ;
@@ -50353,7 +54003,7 @@ LA31A:	lda     #<(_projectiles_list)
 	ldy     _temp1
 	lda     (ptr1),y
 	cmp     #$FB
-	bcc     LA04A
+	bcc     LAE70
 ;
 ; projectiles_list[temp1] = TURN_OFF;
 ;
@@ -50369,11 +54019,11 @@ LA31A:	lda     #<(_projectiles_list)
 ;
 ; else
 ;
-	jmp     LA314
+	jmp     LB13A
 ;
 ; if (projectiles_list[temp1] == RIGHT)
 ;
-LA04A:	lda     #<(_projectiles_list)
+LAE70:	lda     #<(_projectiles_list)
 	sta     ptr1
 	lda     #>(_projectiles_list)
 	clc
@@ -50382,19 +54032,19 @@ LA04A:	lda     #<(_projectiles_list)
 	ldy     _temp1
 	lda     (ptr1),y
 	cmp     #$01
-	bne     LA051
+	bne     LAE77
 ;
 ; if ((Player1.x <= MAX_LEFT) && (pad1 & PAD_LEFT))
 ;
 	lda     _Player1+1
 	cmp     #$50
-	bne     LA057
+	bne     LAE7D
 	lda     _Player1
 	cmp     #$01
-LA057:	bcs     LA054
+LAE7D:	bcs     LAE7A
 	lda     _pad1
 	and     #$02
-	beq     LA054
+	beq     LAE7A
 ;
 ; projectiles_x[temp1] += PROJECTILE_SPEED_WITH_SCROLL;
 ;
@@ -50412,11 +54062,11 @@ LA057:	bcs     LA054
 ;
 ; else
 ;
-	jmp     LA314
+	jmp     LB13A
 ;
 ; projectiles_x[temp1] += PROJECTILE_SPEED;
 ;
-LA054:	lda     #<(_projectiles_x)
+LAE7A:	lda     #<(_projectiles_x)
 	clc
 	adc     _temp1
 	sta     ptr1
@@ -50430,8 +54080,8 @@ LA054:	lda     #<(_projectiles_x)
 ;
 ; else if (projectiles_list[temp1] == LEFT)
 ;
-	jmp     LA314
-LA051:	lda     #<(_projectiles_list)
+	jmp     LB13A
+LAE77:	lda     #<(_projectiles_list)
 	sta     ptr1
 	lda     #>(_projectiles_list)
 	clc
@@ -50439,7 +54089,7 @@ LA051:	lda     #<(_projectiles_list)
 	sta     ptr1+1
 	ldy     _temp1
 	lda     (ptr1),y
-	bne     LA03F
+	bne     LAE65
 ;
 ; if ((Player1.x >= MAX_RIGHT) && (pad1 & PAD_RIGHT))
 ;
@@ -50447,10 +54097,10 @@ LA051:	lda     #<(_projectiles_list)
 	cmp     #$00
 	lda     _Player1+1
 	sbc     #$90
-	bcc     LA066
+	bcc     LAE8C
 	lda     _pad1
 	and     #$01
-	beq     LA066
+	beq     LAE8C
 ;
 ; projectiles_x[temp1] -= PROJECTILE_SPEED_WITH_SCROLL;
 ;
@@ -50468,11 +54118,11 @@ LA051:	lda     #<(_projectiles_list)
 ;
 ; else
 ;
-	jmp     LA314
+	jmp     LB13A
 ;
 ; projectiles_x[temp1] -= PROJECTILE_SPEED;
 ;
-LA066:	lda     #<(_projectiles_x)
+LAE8C:	lda     #<(_projectiles_x)
 	clc
 	adc     _temp1
 	sta     ptr1
@@ -50483,14 +54133,14 @@ LA066:	lda     #<(_projectiles_x)
 	lda     (ptr1),y
 	sec
 	sbc     #$03
-LA314:	sta     (ptr1),y
+LB13A:	sta     (ptr1),y
 ;
 ; for (temp1 = 0; temp1 < MAX_PROJECTILES; ++temp1)
 ;
-LA03F:	inc     _temp1
-	jne     LA03D
+LAE65:	inc     _temp1
+	jne     LAE63
 	inc     _temp1+1
-	jmp     LA03D
+	jmp     LAE63
 
 .endproc
 
@@ -50603,11 +54253,11 @@ LA03F:	inc     _temp1
 ;
 ; while (game_mode == MODE_TITLE)
 ;
-	jmp     LA31B
+	jmp     LB141
 ;
 ; ppu_wait_nmi();
 ;
-LA0D2:	jsr     _ppu_wait_nmi
+LAEF8:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0);
 ;
@@ -50624,7 +54274,7 @@ LA0D2:	jsr     _ppu_wait_nmi
 ; if (pad1_new & PAD_START)
 ;
 	and     #$10
-	beq     LA31B
+	beq     LB141
 ;
 ; game_mode = MODE_STORY;
 ;
@@ -50640,16 +54290,16 @@ LA0D2:	jsr     _ppu_wait_nmi
 ;
 ; while (game_mode == MODE_TITLE)
 ;
-LA31B:	lda     _game_mode
-	beq     LA0D2
+LB141:	lda     _game_mode
+	beq     LAEF8
 ;
 ; while (game_mode == MODE_STORY)
 ;
-	jmp     LA31C
+	jmp     LB142
 ;
 ; ppu_wait_nmi();
 ;
-LA0E4:	jsr     _ppu_wait_nmi
+LAF0A:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0);
 ;
@@ -50666,7 +54316,7 @@ LA0E4:	jsr     _ppu_wait_nmi
 ; if (pad1_new & PAD_START)
 ;
 	and     #$10
-	beq     LA31C
+	beq     LB142
 ;
 ; game_mode = MODE_LEVEL_SELECT;
 ;
@@ -50679,17 +54329,17 @@ LA0E4:	jsr     _ppu_wait_nmi
 ;
 ; while (game_mode == MODE_STORY)
 ;
-LA31C:	lda     _game_mode
+LB142:	lda     _game_mode
 	cmp     #$01
-	beq     LA0E4
+	beq     LAF0A
 ;
 ; while (game_mode == MODE_LEVEL_SELECT)
 ;
-	jmp     LA31E
+	jmp     LB144
 ;
 ; ppu_wait_nmi();
 ;
-LA0F4:	jsr     _ppu_wait_nmi
+LAF1A:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0);
 ;
@@ -50706,12 +54356,12 @@ LA0F4:	jsr     _ppu_wait_nmi
 ; if (pad1_new & PAD_UP)
 ;
 	and     #$08
-	beq     LA31D
+	beq     LB143
 ;
 ; if (selected_stage > 0)
 ;
 	lda     _selected_stage
-	beq     LA101
+	beq     LAF27
 ;
 ; selected_stage--;
 ;
@@ -50719,19 +54369,19 @@ LA0F4:	jsr     _ppu_wait_nmi
 ;
 ; update_level_select_display();
 ;
-LA101:	jsr     _update_level_select_display
+LAF27:	jsr     _update_level_select_display
 ;
 ; if (pad1_new & PAD_DOWN)
 ;
-LA31D:	lda     _pad1_new
+LB143:	lda     _pad1_new
 	and     #$04
-	beq     LA107
+	beq     LAF2D
 ;
 ; if (selected_stage < 4)
 ;
 	lda     _selected_stage
 	cmp     #$04
-	bcs     LA107
+	bcs     LAF2D
 ;
 ; selected_stage++;
 ;
@@ -50739,13 +54389,13 @@ LA31D:	lda     _pad1_new
 ;
 ; update_level_select_display();
 ;
-LA107:	jsr     _update_level_select_display
+LAF2D:	jsr     _update_level_select_display
 ;
 ; if (pad1_new & PAD_START)
 ;
 	lda     _pad1_new
 	and     #$10
-	beq     LA31E
+	beq     LB144
 ;
 ; current_stage = selected_stage;
 ;
@@ -50772,17 +54422,17 @@ LA107:	jsr     _update_level_select_display
 ;
 ; while (game_mode == MODE_LEVEL_SELECT)
 ;
-LA31E:	lda     _game_mode
+LB144:	lda     _game_mode
 	cmp     #$03
-	beq     LA0F4
+	beq     LAF1A
 ;
 ; while (game_mode == MODE_GAME)
 ;
-	jmp     LA320
+	jmp     LB146
 ;
 ; ++frame_counter;
 ;
-LA31F:	inc     _frame_counter
+LB145:	inc     _frame_counter
 ;
 ; ++chr_frame_counter;
 ;
@@ -50792,7 +54442,7 @@ LA31F:	inc     _frame_counter
 ;
 	lda     _chr_frame_counter
 	cmp     #$19
-	bcc     LA11B
+	bcc     LAF41
 ;
 ; chr_frame_state = (chr_frame_state + 1) % 2;
 ;
@@ -50814,7 +54464,7 @@ LA31F:	inc     _frame_counter
 ;
 ; ppu_wait_nmi();      
 ;
-LA11B:	jsr     _ppu_wait_nmi
+LAF41:	jsr     _ppu_wait_nmi
 ;
 ; pad1 = pad_poll(0);  
 ;
@@ -50880,7 +54530,7 @@ LA11B:	jsr     _ppu_wait_nmi
 ;
 ; continue; // player died and got bumped back to another mode
 ;
-	bne     LA320
+	bne     LB146
 ;
 ; oam_clear(); 
 ;
@@ -50896,13 +54546,13 @@ LA11B:	jsr     _ppu_wait_nmi
 ;
 ; while (game_mode == MODE_GAME)
 ;
-LA320:	lda     _game_mode
+LB146:	lda     _game_mode
 	cmp     #$04
-	jeq     LA31F
+	jeq     LB145
 ;
 ; while (1)      
 ;
-	jmp     LA31B
+	jmp     LB141
 
 .endproc
 

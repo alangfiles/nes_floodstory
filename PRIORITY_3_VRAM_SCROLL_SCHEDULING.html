@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priority 3: VRAM Scroll Scheduling</title>
+  <style>
+    :root { color: #172226; background: #f4f7f5; font-family: Avenir Next, Avenir, sans-serif; }
+    body { max-width: 920px; margin: 0 auto; padding: 48px 24px; line-height: 1.6; }
+    header, section { background: #fff; border: 1px solid #d5dfdc; padding: 28px; margin-bottom: 20px; }
+    header { border-top: 6px solid #007d73; }
+    h1, h2 { line-height: 1.15; } h1 { font-family: Rockwell, monospace; margin: 0 0 8px; }
+    .tag { color: #006057; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    code { background: #edf1f0; padding: .12em .35em; font-family: Menlo, monospace; }
+    li + li { margin-top: 8px; } .pass { color: #006057; font-weight: 700; }
+    .pending { color: #8a4c00; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="tag">Branch: perf/vram-scroll-scheduling</p>
+    <h1>Priority 3: VRAM Scroll Scheduling</h1>
+    <p>Implementation note for preventing idle frames from continuously queueing background metatile updates.</p>
+  </header>
+
+  <section>
+    <h2>What was wrong</h2>
+    <p>Every stage called its scrolling handler every gameplay frame. When no update was active, the handler began another four-frame job; a stationary player selected the left-direction job. The renderer therefore continued to fill the VRAM update buffer even when the camera had not changed.</p>
+  </section>
+
+  <section>
+    <h2>What changed</h2>
+    <ul>
+      <li>Added <code>scroll_update_x</code>, the camera position from the previous scheduling decision.</li>
+      <li>Resets pending scroll work and the recorded position in <code>dispatch_load_room</code>.</li>
+      <li>Each stage wrapper now calls its metatile scheduler only while a four-frame job is active or when <code>scroll_x &gt;&gt; 5</code> changes.</li>
+      <li>The scheduler runs once per newly entered 32-pixel metatile column, rather than once per idle frame.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Measured impact</h2>
+    <p>Linker BSS increased from <code>0x2EB</code> to <code>0x2ED</code>: a two-byte cost for the stored camera position. No attempt was made to claim a cycle reduction without emulator profiling.</p>
+  </section>
+
+  <section>
+    <h2>How to Test</h2>
+    <ol>
+      <li>From this branch's worktree, run <code>make</code> and open <code>floodstory.nes</code> in Mesen.</li>
+      <li>Stand still for several seconds in the center of a room. In Mesen's event viewer or trace tools, confirm no repeating nametable writes are issued for scrolling.</li>
+      <li>Hold against the left and right camera limits. Confirm no new scrolling VRAM writes occur after the camera stops.</li>
+      <li>Walk continuously left and right across several room boundaries. Confirm the background remains gap-free and no stale columns appear while the four-frame jobs complete.</li>
+      <li>Enter a new stage or reload a room, then immediately stand still. Confirm resetting the scheduler does not leave a pending old-stage update.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Validation</h2>
+    <p class="pass">PASS: <code>make</code> completed and produced <code>floodstory.nes</code>.</p>
+    <p class="pending">Pending manual check: use Mesen to verify that standing still and pushing against both camera limits issue no new nametable writes, while continuous left/right scrolling remains gap-free.</p>
+  </section>
+</body>
+</html>

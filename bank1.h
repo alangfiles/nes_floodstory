@@ -207,11 +207,13 @@ static void bank1_prep_scroll_screen(void)
 
 	if (Player1.x > MAX_RIGHT)
 	{
-		if (!map_loaded)
+		if (!map_loaded && current_room < stage1_max_rooms[current_level])
 		{
+			ppu_off();
 			room_to_load = ((scroll_x >> 8) + 1);
 			bank1_new_cmap();
 			map_loaded = 1;
+			ppu_on_all();
 		}
 		temp1 = (Player1.x - MAX_RIGHT) >> 8;
 		if (temp1 > 3)

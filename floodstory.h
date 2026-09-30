@@ -85,6 +85,8 @@ enum
 #define ENTITY_SPIKE_WIDE_64 0x04
 
 #define MAX_ENTITY 32
+#define COLLISION_MAP_SIZE 240
+#define COLLISION_MAP_BUFFER_SIZE (COLLISION_MAP_SIZE * 3)
 
 //SCROLL
 #define MAX_RIGHT 0x9000
@@ -229,10 +231,6 @@ const unsigned char *pointer;
 
 
 #pragma bss-name(push, "BSS")
-unsigned char c_map[240];
-unsigned char c_map2[240];
-unsigned char c_metatile_map[240];
-
 unsigned int temp1;
 unsigned int temp2;
 unsigned int temp3;
@@ -269,6 +267,11 @@ void kill_player(void);
 #pragma bss-name(push, "XRAM")
 // extra RAM at $6000-$7fff
 
+// Collision maps are persistent level buffers and do not require normal RAM.
+unsigned char c_map[COLLISION_MAP_SIZE];
+unsigned char c_map2[COLLISION_MAP_SIZE];
+unsigned char c_metatile_map[COLLISION_MAP_SIZE];
+
 // entities (moved here from BSS since the $0300-$06ff RAM area is too small)
 unsigned char entity_x[MAX_ENTITY];
 unsigned char entity_y[MAX_ENTITY];
@@ -277,7 +280,7 @@ unsigned char entity_room[MAX_ENTITY];
 unsigned char entity_actual_x[MAX_ENTITY];
 unsigned char entity_type[MAX_ENTITY];
 
-unsigned char wram_array[0x2000 - (MAX_ENTITY * 6)];
+unsigned char wram_array[0x2000 - COLLISION_MAP_BUFFER_SIZE - (MAX_ENTITY * 6)];
 
 // finished placing things in XRAM; restore previous bss section so later globals
 // (and any other files that include this header) don't get placed in XRAM.

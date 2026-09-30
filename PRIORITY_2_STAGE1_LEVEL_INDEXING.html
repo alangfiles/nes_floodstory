@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priority 2: Stage 1 Level Indexing</title>
+  <style>
+    :root { color: #172226; background: #f4f7f5; font-family: Avenir Next, Avenir, sans-serif; }
+    body { max-width: 920px; margin: 0 auto; padding: 48px 24px; line-height: 1.6; }
+    header, section { background: #fff; border: 1px solid #d5dfdc; padding: 28px; margin-bottom: 20px; }
+    header { border-top: 6px solid #1e5b91; }
+    h1, h2 { line-height: 1.15; } h1 { font-family: Rockwell, monospace; margin: 0 0 8px; }
+    .tag { color: #154a77; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    code { background: #edf1f0; padding: .12em .35em; font-family: Menlo, monospace; }
+    li + li { margin-top: 8px; } .pass { color: #006057; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="tag">Branch: fix/stage1-level-indexing</p>
+    <h1>Priority 2: Stage 1 Level Indexing</h1>
+    <p>Implementation note for separating Stage 1's global room IDs from its eight level-range IDs.</p>
+  </header>
+
+  <section>
+    <h2>What was wrong</h2>
+    <p><code>stage1_levels</code> contains 23 global room pointers, while <code>stage1_offsets</code> and <code>stage1_max_rooms</code> contain eight level ranges. The scroll code hard-coded <code>level_index = 0</code>, then later used a global room value as an index into the eight-entry range table.</p>
+    <p>This could apply level-zero bounds to all of Stage 1 and read past the range metadata after room 7.</p>
+  </section>
+
+  <section>
+    <h2>What changed</h2>
+    <ul>
+      <li>Added <code>bank1_get_level_index(room)</code>, which maps a global room to its containing declared range.</li>
+      <li>Derived the local room offset, minimum scroll, and maximum scroll from that range.</li>
+      <li>Replaced the right-edge condition with the local range's final room instead of indexing <code>stage1_max_rooms</code> by <code>current_level</code>.</li>
+      <li>Clamped leftward scrolling to the active range's first room instead of room zero.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Scope intentionally excluded</h2>
+    <p>Neighbor room-pointer guards are in <code>fix/room-boundary-guards</code>. This branch changes only Stage 1 range selection and retains existing room-loading behavior.</p>
+  </section>
+
+  <section>
+    <h2>How to Test</h2>
+    <ol>
+      <li>From this branch's worktree, run <code>make</code> and open <code>floodstory.nes</code> in Mesen.</li>
+      <li>Play Stage 1 through the eight declared room ranges: <code>0-7</code>, <code>8</code>, <code>9-12</code>, <code>13</code>, <code>14-18</code>, <code>19</code>, <code>20-21</code>, and <code>22</code>.</li>
+      <li>At the left edge of every range, confirm the camera cannot scroll into the preceding range while the player can still move within the permitted room.</li>
+      <li>At the right edge of every range, confirm the camera cannot scroll into the following range and that the player clamps without a wrap or crash.</li>
+      <li>Use Mesen's debugger or a temporary watch of <code>scroll_x</code> to confirm it stays between the active range's first and final room offsets.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Validation</h2>
+    <p class="pass">PASS: <code>make</code> completed and produced <code>floodstory.nes</code>.</p>
+    <p>The build has inherited warnings in pre-existing unsigned neighbor checks. This branch does not add a build failure.</p>
+  </section>
+</body>
+</html>

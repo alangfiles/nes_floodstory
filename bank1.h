@@ -141,12 +141,26 @@ static void bank1_new_cmap(void)
 	}
 }
 
+static unsigned char bank1_get_level_index(unsigned char room)
+{
+	unsigned char level_index;
+
+	for (level_index = 0; level_index < (sizeof(stage1_max_rooms) / sizeof(stage1_max_rooms[0])); ++level_index)
+	{
+		if (room < stage1_offsets[level_index] + stage1_max_rooms[level_index])
+			return level_index;
+	}
+
+	return (sizeof(stage1_max_rooms) / sizeof(stage1_max_rooms[0])) - 1;
+}
+
 static void bank1_prep_scroll_screen(void)
 {
 	unsigned char level_index;
 	unsigned char level_first_room;
 	unsigned char level_room_count;
 	unsigned char current_room;
+	unsigned int min_scroll;
 
 	temp1 = low_byte(scroll_x) + high_byte(Player1.x);
 	if (temp1 > 0x98 && temp1 < 0xa4) {
@@ -154,7 +168,7 @@ static void bank1_prep_scroll_screen(void)
 	}
 
 	temp2 = Player1.x;
-	level_index = 0;
+	level_index = bank1_get_level_index(scroll_x >> 8);
 	level_first_room = stage1_offsets[level_index];
 	level_room_count = stage1_max_rooms[level_index];
 	if (level_room_count == 0)
@@ -171,6 +185,9 @@ static void bank1_prep_scroll_screen(void)
 	{
 		current_room -= level_first_room;
 	}
+	max_rooms = level_room_count - 1;
+	min_scroll = level_first_room * 0x100;
+	max_scroll = (level_first_room + max_rooms) * 0x100;
 
 	if (Player1.x < MAX_LEFT)
 	{
@@ -188,14 +205,11 @@ static void bank1_prep_scroll_screen(void)
 		temp3 = scroll_x + high_byte(Player1.x);
 		current_level = (temp3 >> 8);
 
-		max_rooms = level_room_count - 1;
-		max_scroll = (level_first_room + max_rooms) * 0x100;
-
 		if (max_rooms >= 1)
 		{
-			if ((scroll_x - temp1) > max_scroll)
+			if ((scroll_x - min_scroll) < temp1)
 			{
-				scroll_x = 0;
+				scroll_x = min_scroll;
 			}
 			else
 			{
@@ -207,7 +221,7 @@ static void bank1_prep_scroll_screen(void)
 
 	if (Player1.x > MAX_RIGHT)
 	{
-		if (!map_loaded && current_room < stage1_max_rooms[current_level])
+		if (!map_loaded && current_room < max_rooms)
 		{
 			ppu_off();
 			room_to_load = ((scroll_x >> 8) + 1);

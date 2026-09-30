@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priority 1: Room Boundary Guards</title>
+  <style>
+    :root { color: #172226; background: #f4f7f5; font-family: Avenir Next, Avenir, sans-serif; }
+    body { max-width: 920px; margin: 0 auto; padding: 48px 24px; line-height: 1.6; }
+    header, section { background: #fff; border: 1px solid #d5dfdc; padding: 28px; margin-bottom: 20px; }
+    header { border-top: 6px solid #b84916; }
+    h1, h2 { line-height: 1.15; } h1 { font-family: Rockwell, monospace; margin: 0 0 8px; }
+    .tag { color: #7c2c0c; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    code { background: #edf1f0; padding: .12em .35em; font-family: Menlo, monospace; }
+    li + li { margin-top: 8px; } .pass { color: #006057; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="tag">Branch: fix/room-boundary-guards</p>
+    <h1>Priority 1: Room Boundary Guards</h1>
+    <p>Implementation note for invalid stage-room pointer accesses during scroll reloads and room loading.</p>
+  </header>
+
+  <section>
+    <h2>What was wrong</h2>
+    <ul>
+      <li>At a left edge, <code>(scroll_x &gt;&gt; 8) - 1</code> could underflow to room <code>255</code> before indexing a stage room table.</li>
+      <li>At a right edge, the collision-map reload path could select one room past the stage table.</li>
+      <li>Every <code>bankN_load_room</code> unconditionally drew a preview column from <code>current_level + 1</code>, including the final room.</li>
+      <li>The prior <code>offset - 1 &gt;= 0</code> condition was ineffective because <code>offset</code> is unsigned.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What changed</h2>
+    <ul>
+      <li>Added a room-table upper-bound guard at the start of each stage's collision-map reload helper.</li>
+      <li>Replaced unsigned subtraction checks with <code>offset &gt; 0</code>.</li>
+      <li>Blocked left/right collision-map reload requests where the neighbor room does not exist.</li>
+      <li>Wrapped next-room preview rendering in a final-room bounds check.</li>
+      <li>Updated all five stage banks consistently: <code>bank1.h</code> through <code>bank5.h</code>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Scope intentionally excluded</h2>
+    <p>Stage 1's room-versus-level indexing is isolated in <code>fix/stage1-level-indexing</code>. VRAM scheduling and WRAM capacity work are separate branches, so this change stays focused on preventing invalid room pointers.</p>
+  </section>
+
+  <section>
+    <h2>How to Test</h2>
+    <ol>
+      <li>From this branch's worktree, run <code>make</code> and open <code>floodstory.nes</code> in Mesen.</li>
+      <li>For each stage, begin in its first room and hold left until the player and camera are fully clamped. Confirm there is no crash, corrupted tiles, or collision-map change.</li>
+      <li>Traverse to each stage's final room, then hold right until the player and camera are fully clamped. Confirm there is no crash, corrupted preview column, or wrap into room zero.</li>
+      <li>After touching either boundary, reverse direction and cross the nearest room transition. Confirm the collision map reloads normally and background seams remain stable.</li>
+      <li>In Mesen, set a read breakpoint on the room-pointer table if available. At the first and final rooms, verify no table lookup uses an index outside that stage's room count.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Validation</h2>
+    <p class="pass">PASS: <code>make</code> completed and produced <code>floodstory.nes</code>.</p>
+    <p>The build retains pre-existing compiler warnings about constant comparisons in collision and scroll code; this branch introduces no build failure.</p>
+  </section>
+</body>
+</html>

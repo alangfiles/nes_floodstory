@@ -110,6 +110,9 @@ static void bank1_draw_screen_R(void)
 static void bank1_new_cmap(void)
 {
 	offset = room_to_load;
+	if (offset >= (sizeof(stage1_levels) / sizeof(stage1_levels[0])))
+		return;
+
 	map = room_to_load & 1;
 	if (!map) 
 	{
@@ -121,7 +124,7 @@ static void bank1_new_cmap(void)
 		}
 		else
 		{
-			if (offset - 1 >= 0)
+			if (offset > 0)
 				memcpy(c_map2, stage1_levels[offset - 1], 240);
 		}
 	}
@@ -135,7 +138,7 @@ static void bank1_new_cmap(void)
 		}
 		else
 		{
-			if (offset - 1 >= 0)
+			if (offset > 0)
 				memcpy(c_map, stage1_levels[offset - 1], 240);
 		}
 	}
@@ -174,7 +177,7 @@ static void bank1_prep_scroll_screen(void)
 
 	if (Player1.x < MAX_LEFT)
 	{
-		if (!map_loaded)
+		if (!map_loaded && (scroll_x >> 8) > 0)
 		{
 			room_to_load = ((scroll_x >> 8) - 1);
 			bank1_new_cmap();
@@ -207,7 +210,7 @@ static void bank1_prep_scroll_screen(void)
 
 	if (Player1.x > MAX_RIGHT)
 	{
-		if (!map_loaded && current_room < stage1_max_rooms[current_level])
+		if (!map_loaded && current_room < max_rooms)
 		{
 			ppu_off();
 			room_to_load = ((scroll_x >> 8) + 1);
@@ -381,17 +384,20 @@ void bank1_load_room(void)
 	}
 
 	// a little bit in the next room
-	set_data_pointer(stage1_levels[current_level+1]);
-	for (y = 0;; y += 0x20)
+	if (current_level + 1 < (sizeof(stage1_levels) / sizeof(stage1_levels[0])))
 	{
-		x = 0;
-		nt = (nametable_to_load + 1) % 2;
-		address = get_ppu_addr(1, x, y);
-		index = (y & 0xf0);
-		buffer_4_mt(address, index);
-		flush_vram_update2();
-		if (y == 0xe0)
-			break;
+		set_data_pointer(stage1_levels[current_level+1]);
+		for (y = 0;; y += 0x20)
+		{
+			x = 0;
+			nt = (nametable_to_load + 1) % 2;
+			address = get_ppu_addr(1, x, y);
+			index = (y & 0xf0);
+			buffer_4_mt(address, index);
+			flush_vram_update2();
+			if (y == 0xe0)
+				break;
+		}
 	}
 	// a little bit in the previous room
 	if (current_level > 0) {

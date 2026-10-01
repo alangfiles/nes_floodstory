@@ -319,7 +319,9 @@ void bank2_scroll_screen(void){
 	bank2_prep_scroll_screen();
 	set_scroll_x(scroll_x);
 	set_scroll_y(scroll_y);
-	bank2_handle_scrolling();
+	if (r_scroll_frames || l_scroll_frames || ((scroll_x >> 5) != (scroll_update_x >> 5)))
+		bank2_handle_scrolling();
+	scroll_update_x = scroll_x;
 }
 
 // populate the generic entity arrays from this stage's entity list

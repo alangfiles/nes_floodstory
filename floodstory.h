@@ -70,6 +70,8 @@ enum
 #define PROJECTILE_COOLDOWN_FRAMES 10
 #define PROJECTILE_SPEED 3
 #define PROJECTILE_SPEED_WITH_SCROLL 5
+#define PROJECTILE_Y_OFFSET_GROUNDED 14
+#define PROJECTILE_Y_OFFSET_AIRBORNE 11
 
 // collision
 #define COL_DOWN 0x80
@@ -83,6 +85,10 @@ enum
 #define ENTITY_LEVEL_DOWN 0x02
 #define ENTITY_PIT_WIDE_64 0x03
 #define ENTITY_SPIKE_WIDE_64 0x04
+
+#define TRANSITION_NONE 0x00
+#define TRANSITION_UP 0x01
+#define TRANSITION_DOWN 0x02
 
 #define MAX_ENTITY 32
 
@@ -220,8 +226,12 @@ unsigned char room_to_load = 0;
 unsigned char temp_room;
 unsigned char current_stage = 0;
 unsigned char current_level = 0;
+unsigned char current_section = 0;
+unsigned char transition_direction;
+unsigned char transition_complete;
 unsigned char scroll_count;
 unsigned int pseudo_scroll_x;
+unsigned int scroll_update_x;
 unsigned int temp5;
 const unsigned char *pointer;
 

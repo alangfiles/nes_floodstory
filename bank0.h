@@ -596,7 +596,14 @@ void movement(void)
 			}
 
 			projectiles_x[projectile_index] = high_byte(Player1.x) + 10;
-			projectiles_y[projectile_index] = high_byte(Player1.y);
+			if (player_in_air)
+			{
+				projectiles_y[projectile_index] = high_byte(Player1.y) + PROJECTILE_Y_OFFSET_AIRBORNE;
+			}
+			else
+			{
+				projectiles_y[projectile_index] = high_byte(Player1.y) + PROJECTILE_Y_OFFSET_GROUNDED;
+			}
 			// sfx_play(SFX_SHOOT, 0);
 		}
 	}
@@ -623,7 +630,7 @@ void update_player_animation(void)
 {
 	// Determine which animation to play based on player state
 	
-	// Priority: sliding > shooting > jumping > on ladder > running > standing
+	// Priority: sliding > shooting variant > jumping > on ladder > running > standing
 	
 	if (player_is_sliding)
 	{
@@ -641,18 +648,63 @@ void update_player_animation(void)
 	}
 	else if (player_shooting > 0)
 	{
-		// Shooting animation
 		--player_shooting;
-		if (direction == LEFT)
+		if (player_in_air)
+		{
+			if (direction == LEFT)
+			{
+				current_animation_ptr = animate_playerjumpleftshoot_data;
+			}
+			else
+			{
+				current_animation_ptr = animate_playerjumprightshoot_data;
+			}
+			animation_frame_counter = 0;
+			current_animation_frame = 0;
+		}
+		else if (player_is_running && (pad1 & PAD_LEFT || pad1 & PAD_RIGHT))
+		{
+			animation_frame_counter++;
+			if (animation_frame_counter >= 6)
+			{
+				animation_frame_counter = 0;
+				current_animation_frame++;
+			}
+
+			if (current_animation_frame > 3)
+				current_animation_frame = 0;
+
+			if (direction == LEFT)
+			{
+				if (current_animation_frame == 0)
+					current_animation_ptr = animate_playerrunshoot1left_data;
+				else if (current_animation_frame == 1 || current_animation_frame == 3)
+					current_animation_ptr = animate_playerrunshoot2left_data;
+				else
+					current_animation_ptr = animate_playerrunshoot3left_data;
+			}
+			else
+			{
+				if (current_animation_frame == 0)
+					current_animation_ptr = animate_playerrunshoot1right_data;
+				else if (current_animation_frame == 1 || current_animation_frame == 3)
+					current_animation_ptr = animate_playerrunshoot2right_data;
+				else
+					current_animation_ptr = animate_playerrunshoot3right_data;
+			}
+		}
+		else if (direction == LEFT)
 		{
 			current_animation_ptr = animate_playerstandshootleft_data;
+			animation_frame_counter = 0;
+			current_animation_frame = 0;
 		}
 		else
 		{
 			current_animation_ptr = animate_playerstandshootright_data;
+			animation_frame_counter = 0;
+			current_animation_frame = 0;
 		}
-		animation_frame_counter = 0;
-		current_animation_frame = 0;
 	}
 	else if (player_in_air)
 	{
@@ -819,6 +871,12 @@ void bank0_entity_collisions(void)
 		{
 			switch (entity_type[index])
 			{
+				case ENTITY_LEVEL_UP:
+					transition_direction = TRANSITION_UP;
+					return;
+				case ENTITY_LEVEL_DOWN:
+					transition_direction = TRANSITION_DOWN;
+					return;
 				case ENTITY_PIT_WIDE_64:
 				case ENTITY_SPIKE_WIDE_64:
 					kill_player();

@@ -98,7 +98,7 @@ extern void bank1_transition_section(void);
 
 // Dispatcher function: calls the load function for the appropriate stage bank
 void dispatch_load_room(void) {
-	scroll_update_x = scroll_x;
+	scroll_update_needed = scroll_x;
 	l_scroll_frames = 0;
 	r_scroll_frames = 0;
 

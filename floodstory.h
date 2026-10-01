@@ -244,7 +244,7 @@ const unsigned char *pointer;
 unsigned int temp1;
 unsigned int temp2;
 unsigned int temp3;
-unsigned int scroll_update_x;
+unsigned int scroll_update_needed;
 unsigned char l_scroll_frames;
 unsigned char r_scroll_frames;
 

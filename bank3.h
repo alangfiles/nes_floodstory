@@ -272,18 +272,20 @@ void bank3_load_room(void)
 			break;
 	}
 
-	// a little bit in the next room
+	// a little bit in the next room (2 columns, since look-ahead scrolling can reach the 2nd column)
 	if (current_level + 1 < (sizeof(stage3_levels) / sizeof(stage3_levels[0])))
 	{
 		set_data_pointer(stage3_levels[current_level+1]);
 		for (y = 0;; y += 0x20)
 		{
-			x = 0;
-			nt = (nametable_to_load + 1) % 2;
-			address = get_ppu_addr(1, x, y);
-			index = (y & 0xf0);
-			buffer_4_mt(address, index);
-			flush_vram_update2();
+			for (x = 0; x <= 0x20; x += 0x20)
+			{
+				nt = (nametable_to_load + 1) % 2;
+				address = get_ppu_addr(1, x, y);
+				index = (y & 0xf0) + (x >> 4);
+				buffer_4_mt(address, index);
+				flush_vram_update2();
+			}
 			if (y == 0xe0)
 				break;
 		}
@@ -319,7 +321,7 @@ void bank3_scroll_screen(void){
 	bank3_prep_scroll_screen();
 	set_scroll_x(scroll_x);
 	set_scroll_y(scroll_y);
-	if (r_scroll_frames || l_scroll_frames || ((scroll_x >> 5) != (scroll_update_x >> 5)))
+	if (r_scroll_frames || l_scroll_frames || ((scroll_x >> 5) != (scroll_update_needed >> 5)))
 		bank3_handle_scrolling();
 	scroll_update_x = scroll_x;
 }

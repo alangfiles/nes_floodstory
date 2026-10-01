@@ -94,6 +94,8 @@ extern void bank3_scroll_screen(void);
 extern void bank4_scroll_screen(void);
 extern void bank5_scroll_screen(void);
 
+extern void bank1_transition_section(void);
+
 // Dispatcher function: calls the load function for the appropriate stage bank
 void dispatch_load_room(void) {
     switch (current_stage) {
@@ -202,6 +204,19 @@ void dispatch_scroll_screen(void) {
             banked_call(BANK_5, bank5_scroll_screen);
             break;
     }
+}
+
+void dispatch_section_transition(void) {
+	transition_complete = 0;
+
+	if (current_stage == 0)
+	{
+		banked_call(BANK_1, bank1_transition_section);
+	}
+	else
+	{
+		transition_direction = TRANSITION_NONE;
+	}
 }
 
 // Forward declarations
@@ -321,10 +336,12 @@ void main(void)
 
 	nametable_to_load = 0;
 	current_level = 0;
+	current_section = 0;
 	current_stage = 0;
 	selected_stage = 0;
 	scroll_x = 0;
 	scroll_y = 0;
+	transition_direction = TRANSITION_NONE;
 	game_mode = MODE_TITLE;
 
 	ppu_wait_nmi();
@@ -386,6 +403,8 @@ void main(void)
 			{
 				current_stage = selected_stage;
 				current_level = 0;
+				current_section = 0;
+				transition_direction = TRANSITION_NONE;
 				game_mode = MODE_GAME;
 				dispatch_load_room();
 				dispatch_entity_obj_init();
@@ -417,6 +436,17 @@ void main(void)
 			dispatch_scroll_screen();
 			banked_call(BANK_0, bank0_check_entity_objects);
 			banked_call(BANK_0, bank0_entity_collisions);
+
+			if (transition_direction != TRANSITION_NONE)
+			{
+				dispatch_section_transition();
+				if (transition_complete)
+				{
+					dispatch_load_room();
+					dispatch_entity_obj_init();
+				}
+				continue;
+			}
 
 			if (game_mode != MODE_GAME)
 				continue; // player died and got bumped back to another mode

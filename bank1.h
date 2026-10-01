@@ -110,6 +110,9 @@ static void bank1_draw_screen_R(void)
 static void bank1_new_cmap(void)
 {
 	offset = room_to_load;
+	if (offset >= (sizeof(stage1_levels) / sizeof(stage1_levels[0])))
+		return;
+
 	map = room_to_load & 1;
 	if (!map) 
 	{
@@ -121,7 +124,7 @@ static void bank1_new_cmap(void)
 		}
 		else
 		{
-			if (offset - 1 >= 0)
+			if (offset > 0)
 				memcpy(c_map2, stage1_levels[offset - 1], 240);
 		}
 	}
@@ -135,7 +138,7 @@ static void bank1_new_cmap(void)
 		}
 		else
 		{
-			if (offset - 1 >= 0)
+			if (offset > 0)
 				memcpy(c_map, stage1_levels[offset - 1], 240);
 		}
 	}
@@ -154,13 +157,16 @@ static void bank1_prep_scroll_screen(void)
 	}
 
 	temp2 = Player1.x;
-	level_index = 0;
+	level_index = current_section;
 	level_first_room = stage1_offsets[level_index];
 	level_room_count = stage1_max_rooms[level_index];
 	if (level_room_count == 0)
 	{
 		level_room_count = 1;
 	}
+
+	max_rooms = level_room_count - 1;
+	max_scroll = (level_first_room + max_rooms) * 0x100;
 
 	current_room = scroll_x >> 8;
 	if (current_room < level_first_room)
@@ -174,7 +180,7 @@ static void bank1_prep_scroll_screen(void)
 
 	if (Player1.x < MAX_LEFT)
 	{
-		if (!map_loaded)
+		if (!map_loaded && current_room > 0)
 		{
 			room_to_load = ((scroll_x >> 8) - 1);
 			bank1_new_cmap();
@@ -188,14 +194,12 @@ static void bank1_prep_scroll_screen(void)
 		temp3 = scroll_x + high_byte(Player1.x);
 		current_level = (temp3 >> 8);
 
-		max_rooms = level_room_count - 1;
-		max_scroll = (level_first_room + max_rooms) * 0x100;
-
 		if (max_rooms >= 1)
 		{
-			if ((scroll_x - temp1) > max_scroll)
+			temp3 = level_first_room * 0x100;
+			if (scroll_x <= temp3 + temp1)
 			{
-				scroll_x = 0;
+				scroll_x = temp3;
 			}
 			else
 			{
@@ -207,7 +211,7 @@ static void bank1_prep_scroll_screen(void)
 
 	if (Player1.x > MAX_RIGHT)
 	{
-		if (!map_loaded)
+		if (!map_loaded && current_room < max_rooms)
 		{
 			room_to_load = ((scroll_x >> 8) + 1);
 			bank1_new_cmap();
@@ -233,21 +237,30 @@ static void bank1_prep_scroll_screen(void)
 			Player1.x = 0xe000;
 		}
 	}
+
+	current_level = scroll_x >> 8;
 }
 
 static void bank1_handle_scrolling(void)
 {
+	unsigned int next_update_x;
+
 	scrolling_direction = (Player1.vel_x >= 0) ? 0 : 1;
 
 	if (!r_scroll_frames && !l_scroll_frames)
 	{
-		if (Player1.vel_x > 0)
+		next_update_x = scroll_x & 0xfff0;
+		if (next_update_x != scroll_update_x)
 		{
-			r_scroll_frames = 4;
-		}
-		else
-		{
-			l_scroll_frames = 4;
+			scroll_update_x = next_update_x;
+			if (Player1.vel_x > 0)
+			{
+				r_scroll_frames = 4;
+			}
+			else if (Player1.vel_x < 0)
+			{
+				l_scroll_frames = 4;
+			}
 		}
 	}
 
@@ -353,6 +366,16 @@ void bank1_load_gameover(void)
 // Stage 1 specific functions
 void bank1_load_room(void)
 {
+	unsigned char level_first_room;
+	unsigned char level_room_count;
+
+	level_first_room = stage1_offsets[current_section];
+	level_room_count = stage1_max_rooms[current_section];
+	if (level_room_count == 0)
+	{
+		level_room_count = 1;
+	}
+
 	// Load palette for this stage
 	pal_bg(stage_bg_palettes[current_stage]);
 	
@@ -379,20 +402,23 @@ void bank1_load_room(void)
 	}
 
 	// a little bit in the next room
-	set_data_pointer(stage1_levels[current_level+1]);
-	for (y = 0;; y += 0x20)
+	if (current_level + 1 < level_first_room + level_room_count)
 	{
-		x = 0;
-		nt = (nametable_to_load + 1) % 2;
-		address = get_ppu_addr(1, x, y);
-		index = (y & 0xf0);
-		buffer_4_mt(address, index);
-		flush_vram_update2();
-		if (y == 0xe0)
-			break;
+		set_data_pointer(stage1_levels[current_level+1]);
+		for (y = 0;; y += 0x20)
+		{
+			x = 0;
+			nt = (nametable_to_load + 1) % 2;
+			address = get_ppu_addr(1, x, y);
+			index = (y & 0xf0);
+			buffer_4_mt(address, index);
+			flush_vram_update2();
+			if (y == 0xe0)
+				break;
+		}
 	}
 	// a little bit in the previous room
-	if (current_level > 0) {
+	if (current_level > level_first_room) {
 		set_data_pointer(stage1_levels[current_level-1]);
 		for (y = 0;; y += 0x20)
 		{
@@ -409,12 +435,13 @@ void bank1_load_room(void)
 
 	// copy the room to the collision map
 	memcpy(c_map, stage1_levels[current_level], 240); 
-	if (current_level + 1 < (sizeof(stage1_levels) / sizeof(stage1_levels[0]))) {
+	if (current_level + 1 < level_first_room + level_room_count) {
 		memcpy(c_map2, stage1_levels[current_level + 1], 240);
 	}
 	memcpy(c_metatile_map, stage1_metatile_colision_map, 240);
  
 	map_loaded = 1;
+	scroll_update_x = scroll_x & 0xfff0;
 	ppu_on_all();
 }
 
@@ -423,6 +450,70 @@ void bank1_scroll_screen(void){
 	set_scroll_x(scroll_x);
 	set_scroll_y(scroll_y);
 	bank1_handle_scrolling();
+}
+
+void bank1_transition_section(void)
+{
+	unsigned char section_count;
+	unsigned char target_section;
+
+	section_count = sizeof(stage1_offsets) / sizeof(stage1_offsets[0]);
+	transition_complete = 0;
+
+	if (transition_direction == TRANSITION_UP)
+	{
+		if (current_section + 1 >= section_count)
+		{
+			transition_direction = TRANSITION_NONE;
+			return;
+		}
+
+		target_section = current_section + 1;
+		Player1.y = 0xd000;
+	}
+	else if (transition_direction == TRANSITION_DOWN)
+	{
+		if (current_section == 0)
+		{
+			transition_direction = TRANSITION_NONE;
+			return;
+		}
+
+		target_section = current_section - 1;
+		Player1.y = 0x1800;
+	}
+	else
+	{
+		return;
+	}
+
+	current_section = target_section;
+	max_rooms = stage1_max_rooms[current_section] - 1;
+	if (transition_direction == TRANSITION_UP)
+	{
+		current_level = stage1_offsets[current_section];
+	}
+	else
+	{
+		current_level = stage1_offsets[current_section] + max_rooms;
+	}
+
+	scroll_x = current_level * 0x100;
+	scroll_y = 0;
+	max_scroll = (stage1_offsets[current_section] + max_rooms) * 0x100;
+	room_to_load = current_level;
+	nametable_to_load = current_level & 1;
+	map_loaded = 0;
+	l_scroll_frames = 0;
+	r_scroll_frames = 0;
+	scroll_count = 0;
+	scroll_update_x = scroll_x & 0xfff0;
+	Player1.vel_x = 0;
+	Player1.vel_y = 0;
+	player_on_ladder = 0;
+	player_on_ladder_top = 0;
+	transition_direction = TRANSITION_NONE;
+	transition_complete = 1;
 }
 
 // populate the generic entity arrays from this stage's entity list

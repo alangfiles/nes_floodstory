@@ -130,6 +130,110 @@ const unsigned char animate_playerjumpright_data[] = {
 	0x80
 };
 
+// Running shooting animations
+const unsigned char animate_playerrunshoot1left_data[] = {
+	- 4,- 2,0x1a,0,
+	  4,- 2,0x1b,0,
+	- 4,  6,0x19,0,
+	  4,  6,0x33,0,
+	- 4, 14,0x42,0,
+	  4, 14,0x43,0,
+	 12, 15,0x46,0,
+	  0,  1,0x0b,2,
+	-12,  6,0x18,0,
+	0x80
+};
+
+const unsigned char animate_playerrunshoot2left_data[] = {
+	- 4,- 2,0x00,0,
+	  4,- 2,0x01,0,
+	- 4,  6,0x09,0,
+	  4,  6,0x31,0,
+	- 4, 14,0x40,0,
+	  4, 14,0x41,0,
+	  0,- 1,0x0b,2,
+	-12,  6,0x08,0,
+	0x80
+};
+
+const unsigned char animate_playerrunshoot3left_data[] = {
+	- 4,- 2,0x1a,0,
+	  4,- 2,0x1b,0,
+	- 4,  6,0x19,0,
+	  4,  6,0x35,0,
+	- 4, 14,0x44,0,
+	  4, 14,0x45,0,
+	 12, 14,0x46,0,
+	  0,  1,0x0b,2,
+	-12,  6,0x18,0,
+	0x80
+};
+
+const unsigned char animate_playerrunshoot1right_data[] = {
+	  4,- 2,0x1a,0|OAM_FLIP_H,
+	- 4,- 2,0x1b,0|OAM_FLIP_H,
+	  4,  6,0x19,0|OAM_FLIP_H,
+	- 4,  6,0x33,0|OAM_FLIP_H,
+	  4, 14,0x42,0|OAM_FLIP_H,
+	- 4, 14,0x43,0|OAM_FLIP_H,
+	-12, 15,0x46,0|OAM_FLIP_H,
+	  0,  1,0x0b,2|OAM_FLIP_H,
+	 12,  6,0x18,0|OAM_FLIP_H,
+	0x80
+};
+
+const unsigned char animate_playerrunshoot2right_data[] = {
+	  4,- 2,0x00,0|OAM_FLIP_H,
+	- 4,- 2,0x01,0|OAM_FLIP_H,
+	  4,  6,0x09,0|OAM_FLIP_H,
+	- 4,  6,0x31,0|OAM_FLIP_H,
+	  4, 14,0x40,0|OAM_FLIP_H,
+	- 4, 14,0x41,0|OAM_FLIP_H,
+	  0,- 1,0x0b,2|OAM_FLIP_H,
+	 12,  6,0x08,0|OAM_FLIP_H,
+	0x80
+};
+
+const unsigned char animate_playerrunshoot3right_data[] = {
+	  4,- 2,0x1a,0|OAM_FLIP_H,
+	- 4,- 2,0x1b,0|OAM_FLIP_H,
+	  4,  6,0x19,0|OAM_FLIP_H,
+	- 4,  6,0x35,0|OAM_FLIP_H,
+	  4, 14,0x44,0|OAM_FLIP_H,
+	- 4, 14,0x45,0|OAM_FLIP_H,
+	-12, 14,0x46,0|OAM_FLIP_H,
+	  0,  1,0x0b,2|OAM_FLIP_H,
+	 12,  6,0x18,0|OAM_FLIP_H,
+	0x80
+};
+
+// Jumping shooting animations
+const unsigned char animate_playerjumpleftshoot_data[] = {
+	- 4,- 5,0x00,0,
+	  4,- 5,0x28,0,
+	- 4,  3,0x09,0,
+	  4,  3,0x38,0,
+	- 4, 11,0x47,0,
+	  4, 11,0x48,0,
+	  4, 19,0x58,0,
+	  0,- 4,0x0b,2,
+	-12,  3,0x08,0,
+	0x80
+};
+
+const unsigned char animate_playerjumprightshoot_data[] = {
+	  4,- 5,0x00,0|OAM_FLIP_H,
+	- 4,- 5,0x28,0|OAM_FLIP_H,
+	  4,  3,0x09,0|OAM_FLIP_H,
+	- 4,  3,0x38,0|OAM_FLIP_H,
+	  4, 11,0x47,0|OAM_FLIP_H,
+	- 4, 11,0x48,0|OAM_FLIP_H,
+	- 4, 19,0x58,0|OAM_FLIP_H,
+	  0,- 4,0x0b,2|OAM_FLIP_H,
+	 12,  3,0x08,0|OAM_FLIP_H,
+	0x80
+};
+
 // Sliding animations
 const unsigned char animate_slideleft_data[] = {
 	- 1, 11,0x0d,0,
